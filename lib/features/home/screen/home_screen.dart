@@ -5,6 +5,7 @@ import 'package:deutschly/core/app_router.dart';
 import 'package:deutschly/core/custom_appbar.dart';
 import 'package:deutschly/core/empty_state_widget.dart';
 import 'package:deutschly/core/global_text_style.dart';
+import 'package:deutschly/core/image_path.dart';
 import 'package:deutschly/features/home/controller/home_controller.dart';
 import 'package:deutschly/features/home/widgets/course_header_card.dart';
 import 'package:deutschly/features/home/widgets/lesson_card.dart';
@@ -23,6 +24,17 @@ class HomeScreen extends StatelessWidget {
     return Scaffold(
       appBar: CustomAppBar(
         title: 'German A1.1',
+        leading: Padding(
+          padding: const EdgeInsets.all(10),
+          child: ClipRRect(
+            borderRadius: BorderRadius.circular(8),
+            child: Image.asset(
+              ImagePath.appLogo,
+              fit: BoxFit.cover,
+              errorBuilder: (_, _, _) => const Icon(Icons.school_rounded),
+            ),
+          ),
+        ),
         actions: <Widget>[
           IconButton(
             key: const ValueKey<String>('home_reset_progress_btn'),

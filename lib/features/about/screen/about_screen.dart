@@ -5,6 +5,7 @@ import 'package:deutschly/core/custom_appbar.dart';
 import 'package:deutschly/core/custom_button.dart';
 import 'package:deutschly/core/empty_state_widget.dart';
 import 'package:deutschly/core/global_text_style.dart';
+import 'package:deutschly/core/image_path.dart';
 import 'package:deutschly/features/course/controller/course_controller.dart';
 import 'package:deutschly/features/progress/controller/progress_controller.dart';
 import 'package:deutschly/features/progress/widgets/reset_progress_dialog.dart';
@@ -74,18 +75,27 @@ class AboutScreen extends StatelessWidget {
                       children: <Widget>[
                         Row(
                           children: <Widget>[
-                            Container(
-                              width: 48,
-                              height: 48,
-                              alignment: Alignment.center,
-                              decoration: BoxDecoration(
-                                color: colorScheme.primaryContainer,
-                                borderRadius: BorderRadius.circular(14),
-                              ),
-                              child: Icon(
-                                Icons.school_rounded,
-                                color: colorScheme.onPrimaryContainer,
-                                size: 26,
+                            ClipRRect(
+                              borderRadius: BorderRadius.circular(14),
+                              child: Image.asset(
+                                ImagePath.appLogo,
+                                width: 52,
+                                height: 52,
+                                fit: BoxFit.cover,
+                                errorBuilder: (_, _, _) => Container(
+                                  width: 52,
+                                  height: 52,
+                                  alignment: Alignment.center,
+                                  decoration: BoxDecoration(
+                                    color: colorScheme.primaryContainer,
+                                    borderRadius: BorderRadius.circular(14),
+                                  ),
+                                  child: Icon(
+                                    Icons.school_rounded,
+                                    color: colorScheme.onPrimaryContainer,
+                                    size: 26,
+                                  ),
+                                ),
                               ),
                             ),
                             const SizedBox(width: 14),
@@ -94,14 +104,23 @@ class AboutScreen extends StatelessWidget {
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: <Widget>[
                                   Text(
-                                    course.title,
+                                    'Deutschly',
                                     style: getTextStyle(
-                                      fontSize: 18,
+                                      fontSize: 19,
                                       fontWeight: FontWeight.w700,
                                       color: colorScheme.onSurface,
                                     ),
                                   ),
-                                  const SizedBox(height: 4),
+                                  const SizedBox(height: 2),
+                                  Text(
+                                    course.title,
+                                    style: getTextStyle(
+                                      fontSize: 14,
+                                      fontWeight: FontWeight.w600,
+                                      color: colorScheme.onSurfaceVariant,
+                                    ),
+                                  ),
+                                  const SizedBox(height: 2),
                                   Text(
                                     'Level ${course.level} • Version ${course.version}',
                                     style: getTextStyle(

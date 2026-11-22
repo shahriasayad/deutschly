@@ -53,7 +53,7 @@ class DeutschlyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp.router(
-      title: 'German A1.1',
+      title: 'Deutschly',
       debugShowCheckedModeBanner: false,
       theme: AppColors.lightTheme,
       darkTheme: AppColors.darkTheme,
