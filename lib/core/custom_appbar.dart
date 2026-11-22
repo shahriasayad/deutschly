@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:deutschly/core/app_colors.dart';
 import 'package:deutschly/core/global_text_style.dart';
 
 class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
@@ -21,19 +20,20 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
 
   @override
   Widget build(BuildContext context) {
+    final colorScheme = Theme.of(context).colorScheme;
     return AppBar(
       title: Text(
         title,
         style: getTextStyle(
           fontSize: 18,
           fontWeight: FontWeight.w600,
-          color: AppColors.textPrimary,
+          color: colorScheme.onSurface,
         ),
       ),
       centerTitle: centerTitle,
       leading: leading,
       actions: actions,
-      backgroundColor: AppColors.surface,
+      backgroundColor: colorScheme.surface,
       surfaceTintColor: Colors.transparent,
       elevation: 0,
     );

@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:deutschly/core/app_colors.dart';
 
 TextStyle getTextStyle({
   double fontSize = 14,
   FontWeight fontWeight = FontWeight.w400,
-  Color color = AppColors.textPrimary,
+  Color? color,
   double? height,
   TextDecoration? decoration,
 }) {

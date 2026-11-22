@@ -26,14 +26,9 @@ class DeutschlyApp extends StatelessWidget {
     return GetMaterialApp(
       title: 'Deutschly - German A1.1',
       debugShowCheckedModeBanner: false,
-      theme: ThemeData(
-        useMaterial3: true,
-        colorScheme: ColorScheme.fromSeed(
-          seedColor: AppColors.primary,
-          surface: AppColors.surface,
-        ),
-        scaffoldBackgroundColor: AppColors.background,
-      ),
+      theme: AppColors.lightTheme,
+      darkTheme: AppColors.darkTheme,
+      themeMode: ThemeMode.system,
       builder: EasyLoading.init(),
       home: const CourseVerificationScreen(),
     );
@@ -46,6 +41,7 @@ class CourseVerificationScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final controller = Get.find<CourseController>();
+    final colorScheme = Theme.of(context).colorScheme;
     return Scaffold(
       appBar: const CustomAppBar(title: 'Deutschly A1.1'),
       body: Obx(() {
@@ -57,7 +53,7 @@ class CourseVerificationScreen extends StatelessWidget {
           return Center(
             child: Text(
               error,
-              style: getTextStyle(fontSize: 16, color: AppColors.error),
+              style: getTextStyle(fontSize: 16, color: colorScheme.error),
             ),
           );
         }
@@ -66,7 +62,10 @@ class CourseVerificationScreen extends StatelessWidget {
           return Center(
             child: Text(
               'No course data available.',
-              style: getTextStyle(fontSize: 16, color: AppColors.textSecondary),
+              style: getTextStyle(
+                fontSize: 16,
+                color: colorScheme.onSurfaceVariant,
+              ),
             ),
           );
         }
@@ -81,6 +80,7 @@ class CourseVerificationScreen extends StatelessWidget {
                   style: getTextStyle(
                     fontSize: 22,
                     fontWeight: FontWeight.w700,
+                    color: colorScheme.onSurface,
                   ),
                   textAlign: TextAlign.center,
                 ),
@@ -90,7 +90,7 @@ class CourseVerificationScreen extends StatelessWidget {
                   style: getTextStyle(
                     fontSize: 18,
                     fontWeight: FontWeight.w600,
-                    color: AppColors.primary,
+                    color: colorScheme.primary,
                   ),
                 ),
               ],

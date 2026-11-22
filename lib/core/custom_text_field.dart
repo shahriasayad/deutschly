@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:deutschly/core/app_colors.dart';
 import 'package:deutschly/core/global_text_style.dart';
 
 class CustomTextField extends StatelessWidget {
@@ -26,34 +25,38 @@ class CustomTextField extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final theme = Theme.of(context);
+    final colorScheme = theme.colorScheme;
+    final borderColor = theme.dividerColor;
+
     return TextField(
       controller: controller,
       enabled: enabled,
       onChanged: onChanged,
       onSubmitted: onSubmitted,
-      style: getTextStyle(fontSize: 15),
+      style: getTextStyle(fontSize: 15, color: colorScheme.onSurface),
       decoration: InputDecoration(
         hintText: hintText,
         labelText: labelText,
         prefixIcon: prefixIcon,
         suffixIcon: suffixIcon,
         filled: true,
-        fillColor: AppColors.surface,
+        fillColor: colorScheme.surface,
         contentPadding: const EdgeInsets.symmetric(
           horizontal: 16,
           vertical: 14,
         ),
         border: OutlineInputBorder(
           borderRadius: BorderRadius.circular(12),
-          borderSide: const BorderSide(color: AppColors.border),
+          borderSide: BorderSide(color: borderColor),
         ),
         enabledBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(12),
-          borderSide: const BorderSide(color: AppColors.border),
+          borderSide: BorderSide(color: borderColor),
         ),
         focusedBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(12),
-          borderSide: const BorderSide(color: AppColors.primary, width: 1.5),
+          borderSide: BorderSide(color: colorScheme.primary, width: 1.5),
         ),
       ),
     );
