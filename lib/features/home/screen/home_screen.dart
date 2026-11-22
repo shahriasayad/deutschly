@@ -8,6 +8,7 @@ import 'package:deutschly/core/global_text_style.dart';
 import 'package:deutschly/features/home/controller/home_controller.dart';
 import 'package:deutschly/features/home/widgets/course_header_card.dart';
 import 'package:deutschly/features/home/widgets/lesson_card.dart';
+import 'package:deutschly/features/progress/widgets/reset_progress_dialog.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -20,7 +21,22 @@ class HomeScreen extends StatelessWidget {
     final colorScheme = Theme.of(context).colorScheme;
 
     return Scaffold(
-      appBar: const CustomAppBar(title: 'German A1.1'),
+      appBar: CustomAppBar(
+        title: 'German A1.1',
+        actions: <Widget>[
+          IconButton(
+            key: const ValueKey<String>('home_reset_progress_btn'),
+            icon: const Icon(Icons.restart_alt_rounded),
+            tooltip: 'Reset Progress',
+            onPressed: () async {
+              final confirmed = await showResetProgressDialog(context);
+              if (confirmed) {
+                await controller.resetAllProgress();
+              }
+            },
+          ),
+        ],
+      ),
       body: Obx(() {
         if (controller.isLoading && controller.course == null) {
           return const Center(child: CircularProgressIndicator());
@@ -68,40 +84,49 @@ class HomeScreen extends StatelessWidget {
           );
         }
 
-        return SingleChildScrollView(
-          padding: const EdgeInsets.fromLTRB(16, 16, 16, 24),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: <Widget>[
-              CourseHeaderCard(
-                course: course,
-                overallProgress: controller.overallProgress,
-                overallProgressPercent: controller.overallProgressPercent,
+        return Align(
+          alignment: Alignment.topCenter,
+          child: ConstrainedBox(
+            constraints: const BoxConstraints(maxWidth: 920),
+            child: SingleChildScrollView(
+              padding: const EdgeInsets.fromLTRB(16, 16, 16, 24),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: <Widget>[
+                  CourseHeaderCard(
+                    course: course,
+                    overallProgress: controller.overallProgress,
+                    overallProgressPercent: controller.overallProgressPercent,
+                  ),
+                  const SizedBox(height: 24),
+                  Text(
+                    'Course Lessons',
+                    style: getTextStyle(
+                      fontSize: 18,
+                      fontWeight: FontWeight.w700,
+                      color: colorScheme.onSurface,
+                    ),
+                  ),
+                  const SizedBox(height: 12),
+                  for (int index = 0;
+                      index < lessons.length;
+                      index++) ...<Widget>[
+                    LessonCard(
+                      key: ValueKey<String>(lessons[index].id),
+                      lesson: lessons[index],
+                      progress:
+                          controller.getLessonProgress(lessons[index].id),
+                      progressPercent: controller
+                          .getLessonProgressPercent(lessons[index].id),
+                      onTap: () {
+                        context.push(AppRoutes.lessonDetail(lessons[index].id));
+                      },
+                    ),
+                    if (index < lessons.length - 1) const SizedBox(height: 12),
+                  ],
+                ],
               ),
-              const SizedBox(height: 24),
-              Text(
-                'Course Lessons',
-                style: getTextStyle(
-                  fontSize: 18,
-                  fontWeight: FontWeight.w700,
-                  color: colorScheme.onSurface,
-                ),
-              ),
-              const SizedBox(height: 12),
-              for (int index = 0; index < lessons.length; index++) ...<Widget>[
-                LessonCard(
-                  key: ValueKey<String>(lessons[index].id),
-                  lesson: lessons[index],
-                  progress: controller.getLessonProgress(lessons[index].id),
-                  progressPercent:
-                      controller.getLessonProgressPercent(lessons[index].id),
-                  onTap: () {
-                    context.push(AppRoutes.lessonDetail(lessons[index].id));
-                  },
-                ),
-                if (index < lessons.length - 1) const SizedBox(height: 12),
-              ],
-            ],
+            ),
           ),
         );
       }),

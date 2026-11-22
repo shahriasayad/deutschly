@@ -2,14 +2,29 @@ import 'package:get/get.dart';
 import 'package:deutschly/data/models/course.dart';
 import 'package:deutschly/data/models/lesson.dart';
 import 'package:deutschly/features/course/controller/course_controller.dart';
+import 'package:deutschly/features/progress/controller/progress_controller.dart';
 
 class HomeController extends GetxController {
-  HomeController({CourseController? courseController})
-    : _courseController = courseController ?? Get.find<CourseController>();
+  HomeController({
+    CourseController? courseController,
+    ProgressController? progressController,
+  })  : _courseController = courseController ?? Get.find<CourseController>(),
+        _progressController = progressController;
 
   final CourseController _courseController;
+  final ProgressController? _progressController;
 
-  final RxMap<String, double> lessonProgressMap = <String, double>{}.obs;
+  ProgressController get _resolvedProgressController {
+    if (_progressController != null) {
+      return _progressController;
+    }
+    if (Get.isRegistered<ProgressController>()) {
+      return Get.find<ProgressController>();
+    }
+    return Get.put(
+      ProgressController(courseController: _courseController),
+    );
+  }
 
   Course? get course => _courseController.course.value;
 
@@ -20,26 +35,29 @@ class HomeController extends GetxController {
   String? get errorMessage => _courseController.errorMessage.value;
 
   double getLessonProgress(String lessonId) {
-    return lessonProgressMap[lessonId] ?? 0.0;
+    final lesson = lessons.firstWhereOrNull((Lesson l) => l.id == lessonId);
+    return _resolvedProgressController.getLessonProgressRatio(
+      lessonId,
+      totalExercises: lesson?.exercises.length,
+    );
   }
 
   int getLessonProgressPercent(String lessonId) {
-    return (getLessonProgress(lessonId) * 100).round();
-  }
-
-  double get overallProgress {
-    final allLessons = lessons;
-    if (allLessons.isEmpty) {
-      return 0.0;
-    }
-    final total = allLessons.fold<double>(
-      0.0,
-      (double sum, Lesson lesson) => sum + getLessonProgress(lesson.id),
+    final lesson = lessons.firstWhereOrNull((Lesson l) => l.id == lessonId);
+    return _resolvedProgressController.getLessonProgressPercent(
+      lessonId,
+      totalExercises: lesson?.exercises.length,
     );
-    return total / allLessons.length;
   }
 
-  int get overallProgressPercent => (overallProgress * 100).round();
+  double get overallProgress =>
+      _resolvedProgressController.overallCourseProgress;
+
+  int get overallProgressPercent =>
+      _resolvedProgressController.overallCourseProgressPercent;
+
+  Future<void> resetAllProgress() =>
+      _resolvedProgressController.resetAllProgress();
 
   Future<void> retryLoadCourse() => _courseController.loadCourse();
 }

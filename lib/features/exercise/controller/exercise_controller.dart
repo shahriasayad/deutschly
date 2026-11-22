@@ -2,8 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:deutschly/data/models/exercise.dart';
 import 'package:deutschly/features/exercise/service/exercise_evaluator_service.dart';
-import 'package:deutschly/features/home/controller/home_controller.dart';
-import 'package:deutschly/features/lesson/controller/lesson_detail_controller.dart';
+import 'package:deutschly/features/progress/controller/progress_controller.dart';
 
 class ExerciseController extends GetxController {
   ExerciseController({
@@ -11,7 +10,9 @@ class ExerciseController extends GetxController {
     this.lessonId,
     int initialIndex = 0,
     ExerciseEvaluatorService? evaluatorService,
+    ProgressController? progressController,
   })  : _evaluator = evaluatorService ?? const ExerciseEvaluatorService(),
+        _progressController = progressController,
         currentIndex = (initialIndex >= 0 && initialIndex < exercises.length
                 ? initialIndex
                 : 0)
@@ -20,6 +21,7 @@ class ExerciseController extends GetxController {
   final List<Exercise> exercises;
   final String? lessonId;
   final ExerciseEvaluatorService _evaluator;
+  final ProgressController? _progressController;
 
   final RxInt currentIndex;
   final RxBool isChecked = false.obs;
@@ -49,6 +51,16 @@ class ExerciseController extends GetxController {
 
   // Ordering state (stores indices into exercise.items)
   final RxList<int> orderingIndices = <int>[].obs;
+
+  ProgressController get _resolvedProgressController {
+    if (_progressController != null) {
+      return _progressController;
+    }
+    if (Get.isRegistered<ProgressController>()) {
+      return Get.find<ProgressController>();
+    }
+    return Get.put(ProgressController());
+  }
 
   Exercise? get currentExercise {
     if (exercises.isEmpty ||
@@ -103,7 +115,6 @@ class ExerciseController extends GetxController {
       case MatchingExercise(:final pairs):
         final rights = pairs.map((MatchingPair p) => p.right).toList();
         if (rights.length > 1) {
-          // Deterministic rotation so options are not already aligned 1:1
           final rotated = <String>[
             ...rights.sublist(1),
             rights.first,
@@ -300,41 +311,12 @@ class ExerciseController extends GetxController {
       showSpeakingExample.value = true;
     }
 
-    _syncLessonProgress(exercise.id, isCorrect);
-  }
-
-  void _syncLessonProgress(String exerciseId, bool isCorrect) {
     final currentLessonId = lessonId;
-    if (currentLessonId == null) {
-      return;
-    }
-
-    if (Get.isRegistered<LessonDetailController>(tag: currentLessonId)) {
-      final lessonController =
-          Get.find<LessonDetailController>(tag: currentLessonId);
-      if (isCorrect) {
-        lessonController.completedExerciseIds.add(exerciseId);
-      }
-      final lesson = lessonController.lesson;
-      if (lesson != null &&
-          lesson.exercises.isNotEmpty &&
-          Get.isRegistered<HomeController>()) {
-        final homeController = Get.find<HomeController>();
-        homeController.lessonProgressMap[currentLessonId] =
-            lessonController.completedCount / lesson.exercises.length;
-      }
-    } else if (isCorrect && Get.isRegistered<HomeController>()) {
-      final homeController = Get.find<HomeController>();
-      final completedInSession =
-          exerciseResults.values.where((bool v) => v).length;
-      if (exercises.isNotEmpty) {
-        final previous =
-            homeController.lessonProgressMap[currentLessonId] ?? 0.0;
-        final updated = completedInSession / exercises.length;
-        if (updated > previous) {
-          homeController.lessonProgressMap[currentLessonId] = updated;
-        }
-      }
+    if (isCorrect && currentLessonId != null) {
+      _resolvedProgressController.markExerciseCompleted(
+        lessonId: currentLessonId,
+        exerciseId: exercise.id,
+      );
     }
   }
 

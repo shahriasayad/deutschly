@@ -3,6 +3,7 @@ import 'package:go_router/go_router.dart';
 import 'package:deutschly/features/exercise/screen/exercise_screen.dart';
 import 'package:deutschly/features/home/screen/home_screen.dart';
 import 'package:deutschly/features/lesson/screen/lesson_detail_screen.dart';
+import 'package:deutschly/features/progress/screen/progress_screen.dart';
 import 'package:deutschly/features/shell/screen/app_shell_screen.dart';
 
 class AppRoutes {
@@ -51,7 +52,7 @@ class AppRouter {
             GoRoute(
               path: AppRoutes.progress,
               builder: (BuildContext context, GoRouterState state) {
-                return const ProgressPlaceholderScreen();
+                return const ProgressScreen();
               },
             ),
           ],

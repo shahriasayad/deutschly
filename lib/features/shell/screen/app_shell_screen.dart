@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:deutschly/core/app_router.dart';
-import 'package:deutschly/core/custom_appbar.dart';
-import 'package:deutschly/core/global_text_style.dart';
 
 class AppShellScreen extends StatelessWidget {
   const AppShellScreen({
@@ -51,28 +49,6 @@ class AppShellScreen extends StatelessWidget {
             label: 'Progress',
           ),
         ],
-      ),
-    );
-  }
-}
-
-class ProgressPlaceholderScreen extends StatelessWidget {
-  const ProgressPlaceholderScreen({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    final colorScheme = Theme.of(context).colorScheme;
-    return Scaffold(
-      appBar: const CustomAppBar(title: 'Progress'),
-      body: Center(
-        child: Text(
-          'Overall Progress: 0%',
-          style: getTextStyle(
-            fontSize: 16,
-            fontWeight: FontWeight.w600,
-            color: colorScheme.onSurfaceVariant,
-          ),
-        ),
       ),
     );
   }

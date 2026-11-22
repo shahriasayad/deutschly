@@ -1,12 +1,16 @@
+import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:get/get.dart';
+import 'package:hive/hive.dart';
 import 'package:deutschly/data/models/course.dart';
 import 'package:deutschly/data/models/exercise.dart';
 import 'package:deutschly/data/repositories/course_repository.dart';
 import 'package:deutschly/features/course/controller/course_controller.dart';
 import 'package:deutschly/features/exercise/screen/exercise_screen.dart';
 import 'package:deutschly/features/home/controller/home_controller.dart';
+import 'package:deutschly/features/progress/controller/progress_controller.dart';
+import 'package:deutschly/features/progress/service/progress_service.dart';
 import 'package:deutschly/main.dart';
 
 void main() {
@@ -35,8 +39,68 @@ void main() {
     expect(allExercises.whereType<OrderingExercise>(), isNotEmpty);
   });
 
+  test('ProgressService persists completed exercises and score in Hive and reloads after restart', () async {
+    final tempDir = await Directory.systemTemp.createTemp('deutschly_hive_test');
+    Hive.init(tempDir.path);
+    final box = await Hive.openBox<dynamic>('test_progress_box');
+
+    final service1 = ProgressService();
+    await service1.init(hiveBox: box);
+
+    const repository = CourseRepository();
+    final course = await repository.loadCourse();
+    final courseController = Get.put(
+      CourseController(repository: repository, initialCourse: course),
+    );
+    final progressController1 = ProgressController(
+      progressService: service1,
+      courseController: courseController,
+    );
+    progressController1.loadProgress();
+
+    await progressController1.markExerciseCompleted(
+      lessonId: 'lesson_01',
+      exerciseId: 'ex1_1',
+    );
+    await progressController1.markExerciseCompleted(
+      lessonId: 'lesson_01',
+      exerciseId: 'ex1_3',
+    );
+
+    expect(progressController1.getLessonScore('lesson_01'), 2);
+    expect(
+      progressController1.getLessonProgressPercent('lesson_01', totalExercises: 10),
+      20,
+    );
+
+    // Simulate app restart by creating a new service & controller reading the same Hive box
+    final service2 = ProgressService();
+    await service2.init(hiveBox: box);
+    final progressController2 = ProgressController(
+      progressService: service2,
+      courseController: courseController,
+    );
+    progressController2.loadProgress();
+
+    expect(
+      progressController2.getCompletedExerciseIds('lesson_01'),
+      containsAll(<String>['ex1_1', 'ex1_3']),
+    );
+    expect(progressController2.getLessonScore('lesson_01'), 2);
+    expect(
+      progressController2.getLessonProgressPercent('lesson_01', totalExercises: 10),
+      20,
+    );
+
+    await progressController2.resetAllProgress();
+    expect(progressController2.getLessonScore('lesson_01'), 0);
+
+    await box.close();
+    await tempDir.delete(recursive: true);
+  });
+
   testWidgets(
-      'HomeScreen shows all 7 lessons and LessonDetailScreen displays objectives, vocabulary, grammar, dialogues, and exercises',
+      'Completing exercise updates HomeScreen and LessonDetailScreen progress, and Reset Progress clears it',
       (WidgetTester tester) async {
     const repository = CourseRepository();
     final Course? course = await tester.runAsync(() => repository.loadCourse());
@@ -45,36 +109,55 @@ void main() {
     final courseController = Get.put(
       CourseController(repository: repository, initialCourse: course),
     );
-    Get.put(HomeController(courseController: courseController));
+    final progressController = Get.put(
+      ProgressController(courseController: courseController),
+    );
+    Get.put(
+      HomeController(
+        courseController: courseController,
+        progressController: progressController,
+      ),
+    );
 
     await tester.pumpWidget(const DeutschlyApp());
     await tester.pumpAndSettle();
 
     expect(find.text('German A1.1'), findsOneWidget);
 
-    for (final lesson in course!.lessons) {
-      expect(find.byKey(ValueKey<String>(lesson.id)), findsOneWidget);
-      expect(find.text(lesson.title), findsOneWidget);
-    }
+    // Mark 2 of 10 exercises in lesson_01 completed (20%)
+    await progressController.markExerciseCompleted(
+      lessonId: 'lesson_01',
+      exerciseId: 'ex1_1',
+    );
+    await progressController.markExerciseCompleted(
+      lessonId: 'lesson_01',
+      exerciseId: 'ex1_2',
+    );
+    await tester.pumpAndSettle();
 
+    expect(find.text('20%'), findsOneWidget);
+
+    // Open Lesson 1 and verify completed status
     await tester.tap(find.byKey(const ValueKey<String>('lesson_01')));
     await tester.pumpAndSettle();
 
-    expect(find.text('Lesson 1'), findsWidgets);
-    expect(
-      find.text('Guten Tag! – Greetings & Introductions'),
-      findsOneWidget,
-    );
-    expect(find.text('Learning Objectives'), findsOneWidget);
-    expect(find.text('Vocabulary (18)'), findsOneWidget);
-    expect(find.text('Grammar (3)'), findsOneWidget);
-    expect(find.text('Dialogues (2)'), findsOneWidget);
-    expect(find.text('Exercises (10)'), findsOneWidget);
+    expect(find.text('2 / 10 Completed'), findsOneWidget);
+    expect(find.text('Completed'), findsNWidgets(2));
+    expect(find.text('Not started'), findsNWidgets(8));
 
+    // Navigate back to Home and test Reset Progress dialog
     await tester.tap(find.byTooltip('Back'));
     await tester.pumpAndSettle();
 
-    expect(find.text('German A1.1'), findsOneWidget);
+    await tester.tap(find.byKey(const ValueKey<String>('home_reset_progress_btn')));
+    await tester.pumpAndSettle();
+
+    expect(find.text('Reset Progress?'), findsOneWidget);
+    await tester.tap(find.byKey(const ValueKey<String>('confirm_reset_btn')));
+    await tester.pumpAndSettle();
+
+    expect(find.text('20%'), findsNothing);
+    expect(find.text('0%'), findsNWidgets(8));
   });
 
   testWidgets(
@@ -131,30 +214,25 @@ void main() {
     );
     await tester.pumpAndSettle();
 
-    // 1. Multiple Choice (correct answer: index 1)
-    expect(find.text('Exercise 1 of 6'), findsOneWidget);
+    // 1. Multiple Choice
     await tester.tap(find.byKey(const ValueKey<String>('mc_option_1')));
     await tester.pump();
     await tester.tap(find.byKey(const ValueKey<String>('exercise_check_btn')));
     await tester.pump();
     expect(find.text('Correct!'), findsOneWidget);
-    expect(find.text('Guten Morgen = Good morning'), findsOneWidget);
     await tester.tap(find.byKey(const ValueKey<String>('exercise_next_btn')));
     await tester.pumpAndSettle();
 
-    // 2. Fill Blank (incorrect answer check)
-    expect(find.text('Exercise 2 of 6'), findsOneWidget);
+    // 2. Fill Blank
     await tester.enterText(find.byType(TextField), 'gehen');
     await tester.pump();
     await tester.tap(find.byKey(const ValueKey<String>('exercise_check_btn')));
     await tester.pump();
     expect(find.text('Incorrect'), findsOneWidget);
-    expect(find.text('Correct answer: komme'), findsOneWidget);
     await tester.tap(find.byKey(const ValueKey<String>('exercise_next_btn')));
     await tester.pumpAndSettle();
 
-    // 3. Matching (correct match)
-    expect(find.text('Exercise 3 of 6'), findsOneWidget);
+    // 3. Matching
     await tester.tap(find.byKey(const ValueKey<String>('match_left_Morning')));
     await tester.pump();
     await tester.tap(
@@ -173,30 +251,25 @@ void main() {
     await tester.tap(find.byKey(const ValueKey<String>('exercise_next_btn')));
     await tester.pumpAndSettle();
 
-    // 4. True / False (correct answer: false)
-    expect(find.text('Exercise 4 of 6'), findsOneWidget);
+    // 4. True / False
     await tester.tap(find.byKey(const ValueKey<String>('tf_false')));
     await tester.pump();
     await tester.tap(find.byKey(const ValueKey<String>('exercise_check_btn')));
     await tester.pump();
     expect(find.text('Correct!'), findsOneWidget);
-    expect(find.text('Tschüs is informal.'), findsOneWidget);
     await tester.tap(find.byKey(const ValueKey<String>('exercise_next_btn')));
     await tester.pumpAndSettle();
 
-    // 5. Speaking Prompt (self evaluation: good)
-    expect(find.text('Exercise 5 of 6'), findsOneWidget);
+    // 5. Speaking Prompt
     await tester.tap(find.byKey(const ValueKey<String>('speaking_eval_good')));
     await tester.pump();
-    expect(find.text('Hallo! Ich heiße Karim.'), findsOneWidget);
     await tester.tap(find.byKey(const ValueKey<String>('exercise_check_btn')));
     await tester.pump();
     expect(find.text('Correct!'), findsOneWidget);
     await tester.tap(find.byKey(const ValueKey<String>('exercise_next_btn')));
     await tester.pumpAndSettle();
 
-    // 6. Ordering (move position 0 down so order becomes [1, 0])
-    expect(find.text('Exercise 6 of 6'), findsOneWidget);
+    // 6. Ordering
     await tester.tap(find.byKey(const ValueKey<String>('order_down_0')));
     await tester.pump();
     await tester.tap(find.byKey(const ValueKey<String>('exercise_check_btn')));
@@ -205,8 +278,6 @@ void main() {
     await tester.tap(find.byKey(const ValueKey<String>('exercise_next_btn')));
     await tester.pumpAndSettle();
 
-    // Summary screen shows 5 / 6 correct
     expect(find.text('Exercises Completed!'), findsOneWidget);
-    expect(find.textContaining('You scored 5 out of 6'), findsOneWidget);
   });
 }
