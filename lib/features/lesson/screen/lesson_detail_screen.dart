@@ -1,9 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:go_router/go_router.dart';
+import 'package:deutschly/core/app_router.dart';
 import 'package:deutschly/core/custom_appbar.dart';
 import 'package:deutschly/core/global_text_style.dart';
-import 'package:deutschly/data/models/lesson.dart';
-import 'package:deutschly/features/course/controller/course_controller.dart';
+import 'package:deutschly/features/lesson/controller/lesson_detail_controller.dart';
+import 'package:deutschly/features/lesson/widgets/lesson_dialogues_section.dart';
+import 'package:deutschly/features/lesson/widgets/lesson_exercises_section.dart';
+import 'package:deutschly/features/lesson/widgets/lesson_grammar_section.dart';
+import 'package:deutschly/features/lesson/widgets/lesson_header_section.dart';
+import 'package:deutschly/features/lesson/widgets/lesson_objectives_section.dart';
+import 'package:deutschly/features/lesson/widgets/lesson_vocabulary_section.dart';
 
 class LessonDetailScreen extends StatelessWidget {
   const LessonDetailScreen({
@@ -13,20 +20,34 @@ class LessonDetailScreen extends StatelessWidget {
 
   final String lessonId;
 
+  void _handleBack(BuildContext context) {
+    if (context.canPop()) {
+      context.pop();
+    } else {
+      context.go(AppRoutes.home);
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
-    final courseController = Get.find<CourseController>();
+    final controller = Get.put(
+      LessonDetailController(lessonId: lessonId),
+      tag: lessonId,
+    );
     final colorScheme = Theme.of(context).colorScheme;
 
     return Obx(() {
-      final lessons = courseController.course.value?.lessons ?? const <Lesson>[];
-      final lesson = lessons.firstWhereOrNull(
-        (Lesson item) => item.id == lessonId,
-      );
+      final lesson = controller.lesson;
 
       if (lesson == null) {
         return Scaffold(
-          appBar: const CustomAppBar(title: 'Lesson Detail'),
+          appBar: CustomAppBar(
+            title: 'Lesson Detail',
+            leading: IconButton(
+              icon: const Icon(Icons.arrow_back_rounded),
+              onPressed: () => _handleBack(context),
+            ),
+          ),
           body: Center(
             child: Text(
               'Lesson not found.',
@@ -40,64 +61,62 @@ class LessonDetailScreen extends StatelessWidget {
       }
 
       return Scaffold(
-        appBar: CustomAppBar(title: 'Lesson ${lesson.number}'),
-        body: Padding(
-          padding: const EdgeInsets.all(20),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: <Widget>[
-              Text(
-                lesson.title,
-                style: getTextStyle(
-                  fontSize: 22,
-                  fontWeight: FontWeight.w700,
-                  color: colorScheme.onSurface,
-                ),
+        appBar: CustomAppBar(
+          title: 'Lesson ${lesson.number}',
+          leading: IconButton(
+            icon: const Icon(Icons.arrow_back_rounded),
+            tooltip: 'Back',
+            onPressed: () => _handleBack(context),
+          ),
+        ),
+        body: Align(
+          alignment: Alignment.topCenter,
+          child: ConstrainedBox(
+            constraints: const BoxConstraints(maxWidth: 920),
+            child: SingleChildScrollView(
+              padding: const EdgeInsets.fromLTRB(16, 16, 16, 32),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: <Widget>[
+                  LessonHeaderSection(
+                    lesson: lesson,
+                    completedExercises: controller.completedCount,
+                    onStartExercises: () {
+                      context.push(AppRoutes.lessonExercises(lesson.id));
+                    },
+                  ),
+                  const SizedBox(height: 16),
+                  LessonObjectivesSection(objectives: lesson.objectives),
+                  const SizedBox(height: 16),
+                  LessonVocabularySection(
+                    vocabulary: lesson.vocabulary,
+                    isExpanded: controller.isVocabularyExpanded.value,
+                    onToggleExpanded: controller.toggleVocabularyExpanded,
+                  ),
+                  const SizedBox(height: 16),
+                  LessonGrammarSection(grammarPoints: lesson.grammar),
+                  const SizedBox(height: 16),
+                  LessonDialoguesSection(dialogues: lesson.dialogues),
+                  const SizedBox(height: 16),
+                  LessonExercisesSection(
+                    exercises: lesson.exercises,
+                    completedExerciseIds:
+                        controller.completedExerciseIds.toSet(),
+                    onStartAllExercises: () {
+                      context.push(AppRoutes.lessonExercises(lesson.id));
+                    },
+                    onSelectExercise: (int index) {
+                      context.push(
+                        AppRoutes.lessonExercises(
+                          lesson.id,
+                          initialIndex: index,
+                        ),
+                      );
+                    },
+                  ),
+                ],
               ),
-              const SizedBox(height: 6),
-              Text(
-                lesson.titleBn,
-                style: getTextStyle(
-                  fontSize: 15,
-                  color: colorScheme.onSurfaceVariant,
-                ),
-              ),
-              const SizedBox(height: 20),
-              Container(
-                width: double.infinity,
-                padding: const EdgeInsets.all(16),
-                decoration: BoxDecoration(
-                  color: colorScheme.surface,
-                  borderRadius: BorderRadius.circular(16),
-                  border: Border.all(color: Theme.of(context).dividerColor),
-                ),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: <Widget>[
-                    Text(
-                      'Lesson Detail Placeholder',
-                      style: getTextStyle(
-                        fontSize: 16,
-                        fontWeight: FontWeight.w700,
-                        color: colorScheme.primary,
-                      ),
-                    ),
-                    const SizedBox(height: 8),
-                    Text(
-                      'Vocabulary: ${lesson.vocabulary.length} items\n'
-                      'Grammar Points: ${lesson.grammar.length}\n'
-                      'Dialogues: ${lesson.dialogues.length}\n'
-                      'Exercises: ${lesson.exercises.length}',
-                      style: getTextStyle(
-                        fontSize: 14,
-                        color: colorScheme.onSurface,
-                        height: 1.5,
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-            ],
+            ),
           ),
         ),
       );

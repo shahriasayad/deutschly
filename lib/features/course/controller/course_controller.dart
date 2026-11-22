@@ -4,8 +4,14 @@ import 'package:deutschly/data/models/course.dart';
 import 'package:deutschly/data/repositories/course_repository.dart';
 
 class CourseController extends GetxController {
-  CourseController({CourseRepository? repository})
-      : _repository = repository ?? const CourseRepository();
+  CourseController({
+    CourseRepository? repository,
+    Course? initialCourse,
+  }) : _repository = repository ?? const CourseRepository() {
+    if (initialCourse != null) {
+      course.value = initialCourse;
+    }
+  }
 
   final CourseRepository _repository;
 
@@ -16,7 +22,9 @@ class CourseController extends GetxController {
   @override
   void onInit() {
     super.onInit();
-    loadCourse();
+    if (course.value == null) {
+      loadCourse();
+    }
   }
 
   Future<void> loadCourse() async {

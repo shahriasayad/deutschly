@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:deutschly/features/exercise/screen/exercise_placeholder_screen.dart';
 import 'package:deutschly/features/home/screen/home_screen.dart';
 import 'package:deutschly/features/lesson/screen/lesson_detail_screen.dart';
 import 'package:deutschly/features/shell/screen/app_shell_screen.dart';
@@ -10,8 +11,16 @@ class AppRoutes {
   static const String home = '/';
   static const String progress = '/progress';
   static const String lessonDetailPath = '/lesson/:lessonId';
+  static const String lessonExercisesPath = '/lesson/:lessonId/exercises';
 
   static String lessonDetail(String lessonId) => '/lesson/$lessonId';
+
+  static String lessonExercises(String lessonId, {int initialIndex = 0}) {
+    if (initialIndex > 0) {
+      return '/lesson/$lessonId/exercises?index=$initialIndex';
+    }
+    return '/lesson/$lessonId/exercises';
+  }
 }
 
 class AppRouter {
@@ -53,6 +62,19 @@ class AppRouter {
           builder: (BuildContext context, GoRouterState state) {
             final lessonId = state.pathParameters['lessonId'] ?? '';
             return LessonDetailScreen(lessonId: lessonId);
+          },
+        ),
+        GoRoute(
+          parentNavigatorKey: rootNavigatorKey,
+          path: AppRoutes.lessonExercisesPath,
+          builder: (BuildContext context, GoRouterState state) {
+            final lessonId = state.pathParameters['lessonId'] ?? '';
+            final indexParam = state.uri.queryParameters['index'];
+            final initialIndex = int.tryParse(indexParam ?? '') ?? 0;
+            return ExercisePlaceholderScreen(
+              lessonId: lessonId,
+              initialIndex: initialIndex,
+            );
           },
         ),
       ],
