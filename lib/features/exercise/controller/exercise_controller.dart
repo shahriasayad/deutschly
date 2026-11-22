@@ -11,12 +11,13 @@ class ExerciseController extends GetxController {
     int initialIndex = 0,
     ExerciseEvaluatorService? evaluatorService,
     ProgressController? progressController,
-  })  : _evaluator = evaluatorService ?? const ExerciseEvaluatorService(),
-        _progressController = progressController,
-        currentIndex = (initialIndex >= 0 && initialIndex < exercises.length
-                ? initialIndex
-                : 0)
-            .obs;
+  }) : _evaluator = evaluatorService ?? const ExerciseEvaluatorService(),
+       _progressController = progressController,
+       currentIndex =
+           (initialIndex >= 0 && initialIndex < exercises.length
+                   ? initialIndex
+                   : 0)
+               .obs;
 
   final List<Exercise> exercises;
   final String? lessonId;
@@ -52,6 +53,13 @@ class ExerciseController extends GetxController {
   // Ordering state (stores indices into exercise.items)
   final RxList<int> orderingIndices = <int>[].obs;
 
+  late final List<int> _sessionQueue = List<int>.generate(
+    exercises.length,
+    (int index) => index,
+  );
+  final Set<int> _missedExerciseIndexes = <int>{};
+  final RxBool isReviewRound = false.obs;
+
   ProgressController get _resolvedProgressController {
     if (_progressController != null) {
       return _progressController;
@@ -63,12 +71,10 @@ class ExerciseController extends GetxController {
   }
 
   Exercise? get currentExercise {
-    if (exercises.isEmpty ||
-        currentIndex.value < 0 ||
-        currentIndex.value >= exercises.length) {
+    if (currentIndex.value < 0 || currentIndex.value >= _sessionQueue.length) {
       return null;
     }
-    return exercises[currentIndex.value];
+    return exercises[_sessionQueue[currentIndex.value]];
   }
 
   int get totalExercises => exercises.length;
@@ -78,7 +84,29 @@ class ExerciseController extends GetxController {
 
   int get answeredCount => exerciseResults.length;
 
-  bool get isLastExercise => currentIndex.value >= exercises.length - 1;
+  bool get isLastExercise => currentIndex.value >= _sessionQueue.length - 1;
+
+  int get missedExerciseCount => _missedExerciseIndexes.length;
+
+  int get reviewExerciseNumber => currentIndex.value - exercises.length + 1;
+
+  double get currentProgress => isReviewRound.value
+      ? (reviewExerciseNumber / missedExerciseCount).clamp(0.0, 1.0)
+      : (currentIndex.value + 1) / totalExercises;
+
+  String get currentProgressLabel => isReviewRound.value
+      ? 'Review $reviewExerciseNumber of $missedExerciseCount'
+      : 'Exercise ${currentIndex.value + 1} of $totalExercises';
+
+  String get nextButtonLabel {
+    if (!isLastExercise) {
+      return 'Next';
+    }
+    if (!isReviewRound.value && _missedExerciseIndexes.isNotEmpty) {
+      return 'Review mistakes';
+    }
+    return 'Finish';
+  }
 
   @override
   void onInit() {
@@ -115,10 +143,7 @@ class ExerciseController extends GetxController {
       case MatchingExercise(:final pairs):
         final rights = pairs.map((MatchingPair p) => p.right).toList();
         if (rights.length > 1) {
-          final rotated = <String>[
-            ...rights.sublist(1),
-            rights.first,
-          ];
+          final rotated = <String>[...rights.sublist(1), rights.first];
           rightColumnOptions.assignAll(rotated);
         } else {
           rightColumnOptions.assignAll(rights);
@@ -278,34 +303,38 @@ class ExerciseController extends GetxController {
 
     final isCorrect = switch (exercise) {
       MultipleChoiceExercise() => _evaluator.evaluateMultipleChoice(
-          exercise: exercise,
-          selectedIndex: selectedOptionIndex.value,
-        ),
+        exercise: exercise,
+        selectedIndex: selectedOptionIndex.value,
+      ),
       FillBlankExercise() => _evaluator.evaluateFillBlank(
-          exercise: exercise,
-          userInput: fillBlankText.value,
-        ),
+        exercise: exercise,
+        userInput: fillBlankText.value,
+      ),
       MatchingExercise() => _evaluator.evaluateMatching(
-          exercise: exercise,
-          userMatches: matchedPairs,
-        ),
+        exercise: exercise,
+        userMatches: matchedPairs,
+      ),
       TrueFalseExercise() => _evaluator.evaluateTrueFalse(
-          exercise: exercise,
-          selectedValue: selectedTrueFalse.value,
-        ),
+        exercise: exercise,
+        selectedValue: selectedTrueFalse.value,
+      ),
       SpeakingPromptExercise() => _evaluator.evaluateSpeakingPrompt(
-          exercise: exercise,
-          selfEvaluatedCorrect: speakingSelfEvaluation.value,
-        ),
+        exercise: exercise,
+        selfEvaluatedCorrect: speakingSelfEvaluation.value,
+      ),
       OrderingExercise() => _evaluator.evaluateOrdering(
-          exercise: exercise,
-          currentOrder: orderingIndices.toList(),
-        ),
+        exercise: exercise,
+        currentOrder: orderingIndices.toList(),
+      ),
     };
 
     isCurrentCorrect.value = isCorrect;
     isChecked.value = true;
     exerciseResults[exercise.id] = isCorrect;
+
+    if (!isCorrect && !isReviewRound.value) {
+      _missedExerciseIndexes.add(_sessionQueue[currentIndex.value]);
+    }
 
     if (exercise is SpeakingPromptExercise) {
       showSpeakingExample.value = true;
@@ -333,6 +362,14 @@ class ExerciseController extends GetxController {
       return;
     }
     if (isLastExercise) {
+      if (!isReviewRound.value && _missedExerciseIndexes.isNotEmpty) {
+        final missedIndexes = _missedExerciseIndexes.toList()..sort();
+        _sessionQueue.addAll(missedIndexes);
+        isReviewRound.value = true;
+        currentIndex.value += 1;
+        _prepareCurrentExercise();
+        return;
+      }
       isFinished.value = true;
       return;
     }
@@ -342,6 +379,11 @@ class ExerciseController extends GetxController {
 
   void restartExercises() {
     exerciseResults.clear();
+    _sessionQueue
+      ..clear()
+      ..addAll(List<int>.generate(exercises.length, (int index) => index));
+    _missedExerciseIndexes.clear();
+    isReviewRound.value = false;
     isFinished.value = false;
     currentIndex.value = 0;
     _prepareCurrentExercise();

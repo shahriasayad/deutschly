@@ -15,19 +15,31 @@ import 'package:deutschly/features/vocabulary/controller/vocabulary_controller.d
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  await Hive.initFlutter();
-  await SharedPreferenceHelper.init();
+
+  try {
+    await Hive.initFlutter();
+  } catch (error, stackTrace) {
+    ApiLogger.logError(
+      'Hive initialization failed; using fallback storage',
+      error,
+      stackTrace,
+    );
+  }
+  try {
+    await SharedPreferenceHelper.init();
+  } catch (error, stackTrace) {
+    ApiLogger.logError(
+      'SharedPreferences initialization failed',
+      error,
+      stackTrace,
+    );
+  }
 
   final progressService = ProgressService();
   await progressService.init();
 
   const repository = CourseRepository();
-  final course = await repository.loadCourse();
-  ApiLogger.logInfo('Loaded lessons count: ${course.lessons.length}');
-
-  final courseController = Get.put(
-    CourseController(repository: repository, initialCourse: course),
-  );
+  final courseController = Get.put(CourseController(repository: repository));
   final progressController = Get.put(
     ProgressController(
       progressService: progressService,
@@ -40,9 +52,7 @@ Future<void> main() async {
       progressController: progressController,
     ),
   );
-  Get.put(
-    VocabularyController(courseController: courseController),
-  );
+  Get.put(VocabularyController(courseController: courseController));
 
   runApp(const DeutschlyApp());
 }

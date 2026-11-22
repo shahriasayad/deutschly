@@ -34,30 +34,56 @@ class ProgressService {
   }
 
   Map<String, LessonProgress> loadAllProgress() {
-    try {
-      String? rawJson;
-      if (_box != null && _box!.isOpen) {
-        final dynamic boxVal = _box!.get(storageKey);
-        if (boxVal is String) {
-          rawJson = boxVal;
-        } else if (boxVal is Map) {
-          return _parseProgressMap(boxVal);
+    final box = _box;
+    if (box != null && box.isOpen) {
+      try {
+        final dynamic storedValue = box.get(storageKey);
+        final parsed = switch (storedValue) {
+          Map<dynamic, dynamic>() => _parseProgressMap(storedValue),
+          String value => _decodeProgress(value),
+          _ => null,
+        };
+        if (parsed != null) {
+          return _cacheProgress(parsed);
         }
+      } catch (error, stackTrace) {
+        ApiLogger.logError(
+          'Failed to load progress from Hive',
+          error,
+          stackTrace,
+        );
       }
-      rawJson ??= SharedPreferenceHelper.getString(storageKey);
+    }
+
+    try {
+      final rawJson = SharedPreferenceHelper.getString(storageKey);
       if (rawJson != null && rawJson.isNotEmpty) {
-        final decoded = jsonDecode(rawJson);
-        if (decoded is Map) {
-          final parsed = _parseProgressMap(decoded);
-          _memoryCache
-            ..clear()
-            ..addAll(parsed);
-          return Map<String, LessonProgress>.from(_memoryCache);
+        final parsed = _decodeProgress(rawJson);
+        if (parsed != null) {
+          return _cacheProgress(parsed);
         }
       }
     } catch (error, stackTrace) {
-      ApiLogger.logError('Failed to load progress', error, stackTrace);
+      ApiLogger.logError(
+        'Failed to load progress from SharedPreferences',
+        error,
+        stackTrace,
+      );
     }
+    return Map<String, LessonProgress>.from(_memoryCache);
+  }
+
+  Map<String, LessonProgress>? _decodeProgress(String rawJson) {
+    final decoded = jsonDecode(rawJson);
+    return decoded is Map ? _parseProgressMap(decoded) : null;
+  }
+
+  Map<String, LessonProgress> _cacheProgress(
+    Map<String, LessonProgress> progress,
+  ) {
+    _memoryCache
+      ..clear()
+      ..addAll(progress);
     return Map<String, LessonProgress>.from(_memoryCache);
   }
 

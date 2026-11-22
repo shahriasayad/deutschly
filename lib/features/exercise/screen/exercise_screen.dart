@@ -1,3 +1,6 @@
+import 'dart:async';
+
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:go_router/go_router.dart';
@@ -81,7 +84,7 @@ class ExerciseScreen extends StatelessWidget {
   }
 }
 
-class ExercisePlayer extends StatelessWidget {
+class ExercisePlayer extends StatefulWidget {
   const ExercisePlayer({
     super.key,
     required this.exercises,
@@ -95,40 +98,75 @@ class ExercisePlayer extends StatelessWidget {
   final int initialIndex;
   final VoidCallback? onCompleteExit;
 
-  String get _controllerTag =>
-      'exercise_player_${lessonId ?? 'custom'}_${exercises.length}_$initialIndex';
+  @override
+  State<ExercisePlayer> createState() => _ExercisePlayerState();
+}
+
+class _ExercisePlayerState extends State<ExercisePlayer> {
+  static int _nextControllerId = 0;
+
+  late String _controllerTag;
+  late ExerciseController _controller;
 
   @override
-  Widget build(BuildContext context) {
-    if (Get.isRegistered<ExerciseController>(tag: _controllerTag)) {
-      final existing = Get.find<ExerciseController>(tag: _controllerTag);
-      if (existing.exercises != exercises) {
-        Get.delete<ExerciseController>(tag: _controllerTag, force: true);
-      }
-    }
-    final controller = Get.put(
+  void initState() {
+    super.initState();
+    _controllerTag = 'exercise_player_${_nextControllerId++}';
+    _controller = _createController();
+  }
+
+  ExerciseController _createController() {
+    return Get.put(
       ExerciseController(
-        exercises: exercises,
-        lessonId: lessonId,
-        initialIndex: initialIndex,
+        exercises: widget.exercises,
+        lessonId: widget.lessonId,
+        initialIndex: widget.initialIndex,
       ),
       tag: _controllerTag,
     );
+  }
 
+  @override
+  void didUpdateWidget(covariant ExercisePlayer oldWidget) {
+    super.didUpdateWidget(oldWidget);
+    if (listEquals(oldWidget.exercises, widget.exercises) &&
+        oldWidget.lessonId == widget.lessonId &&
+        oldWidget.initialIndex == widget.initialIndex) {
+      return;
+    }
+    final previousTag = _controllerTag;
+    _controllerTag = 'exercise_player_${_nextControllerId++}';
+    unawaited(Get.delete<ExerciseController>(tag: previousTag, force: true));
+    _controller = _createController();
+  }
+
+  @override
+  void dispose() {
+    if (Get.isRegistered<ExerciseController>(tag: _controllerTag)) {
+      unawaited(
+        Get.delete<ExerciseController>(tag: _controllerTag, force: true),
+      );
+    }
+    super.dispose();
+  }
+
+  @override
+  Widget build(BuildContext context) {
     final theme = Theme.of(context);
     final colorScheme = theme.colorScheme;
 
     return Obx(() {
-      if (controller.isFinished.value) {
+      if (_controller.isFinished.value) {
         return _ExerciseSummaryView(
-          correctCount: controller.correctCount,
-          totalCount: controller.totalExercises,
-          onRestart: controller.restartExercises,
-          onDone: onCompleteExit,
+          correctCount: _controller.correctCount,
+          totalCount: _controller.totalExercises,
+          reviewedCount: _controller.missedExerciseCount,
+          onRestart: _controller.restartExercises,
+          onDone: widget.onCompleteExit,
         );
       }
 
-      final exercise = controller.currentExercise;
+      final exercise = _controller.currentExercise;
       if (exercise == null) {
         return Center(
           child: Text(
@@ -138,11 +176,9 @@ class ExercisePlayer extends StatelessWidget {
         );
       }
 
-      final currentIdx = controller.currentIndex.value;
-      final total = controller.totalExercises;
-      final progress = total == 0 ? 0.0 : (currentIdx + 1) / total;
-      final isChecked = controller.isChecked.value;
-      final canCheck = controller.canCheck;
+      final progress = _controller.currentProgress;
+      final isChecked = _controller.isChecked.value;
+      final canCheck = _controller.canCheck;
 
       return Align(
         alignment: Alignment.topCenter,
@@ -156,7 +192,7 @@ class ExercisePlayer extends StatelessWidget {
                 Row(
                   children: <Widget>[
                     Text(
-                      'Exercise ${currentIdx + 1} of $total',
+                      _controller.currentProgressLabel,
                       style: getTextStyle(
                         fontSize: 14,
                         fontWeight: FontWeight.w700,
@@ -174,7 +210,7 @@ class ExercisePlayer extends StatelessWidget {
                         borderRadius: BorderRadius.circular(999),
                       ),
                       child: Text(
-                        'Score: ${controller.correctCount} / ${controller.answeredCount}',
+                        'Score: ${_controller.correctCount} / ${_controller.answeredCount}',
                         style: getTextStyle(
                           fontSize: 12,
                           fontWeight: FontWeight.w700,
@@ -191,8 +227,9 @@ class ExercisePlayer extends StatelessWidget {
                     value: progress,
                     minHeight: 7,
                     backgroundColor: colorScheme.surfaceContainerHighest,
-                    valueColor:
-                        AlwaysStoppedAnimation<Color>(colorScheme.primary),
+                    valueColor: AlwaysStoppedAnimation<Color>(
+                      colorScheme.primary,
+                    ),
                   ),
                 ),
                 const SizedBox(height: 20),
@@ -243,65 +280,66 @@ class ExercisePlayer extends StatelessWidget {
                 const SizedBox(height: 18),
                 switch (exercise) {
                   MultipleChoiceExercise() => MultipleChoiceWidget(
-                      exercise: exercise,
-                      selectedIndex: controller.selectedOptionIndex.value,
-                      isChecked: isChecked,
-                      onSelectOption: controller.selectMultipleChoiceOption,
-                    ),
+                    exercise: exercise,
+                    selectedIndex: _controller.selectedOptionIndex.value,
+                    isChecked: isChecked,
+                    onSelectOption: _controller.selectMultipleChoiceOption,
+                  ),
                   FillBlankExercise() => FillBlankWidget(
-                      exercise: exercise,
-                      textController: controller.fillBlankTextController,
-                      isChecked: isChecked,
-                      onChanged: controller.updateFillBlankText,
-                      onSubmitted: (_) {
-                        if (controller.canCheck) {
-                          controller.checkAnswer();
-                        }
-                      },
-                      onInsertSpecialChar:
-                          controller.insertCharacterInFillBlank,
-                    ),
+                    exercise: exercise,
+                    textController: _controller.fillBlankTextController,
+                    isChecked: isChecked,
+                    onChanged: _controller.updateFillBlankText,
+                    onSubmitted: (_) {
+                      if (_controller.canCheck) {
+                        _controller.checkAnswer();
+                      }
+                    },
+                    onInsertSpecialChar: _controller.insertCharacterInFillBlank,
+                  ),
                   MatchingExercise() => MatchingWidget(
-                      exercise: exercise,
-                      rightOptions: controller.rightColumnOptions.toList(),
-                      selectedLeft: controller.selectedLeftItem.value,
-                      matchedPairs: Map<String, String>.from(
-                        controller.matchedPairs,
-                      ),
-                      isChecked: isChecked,
-                      onSelectLeft: controller.selectLeftMatchingItem,
-                      onSelectRight: controller.selectRightMatchingItem,
+                    exercise: exercise,
+                    rightOptions: _controller.rightColumnOptions.toList(),
+                    selectedLeft: _controller.selectedLeftItem.value,
+                    matchedPairs: Map<String, String>.from(
+                      _controller.matchedPairs,
                     ),
+                    isChecked: isChecked,
+                    onSelectLeft: _controller.selectLeftMatchingItem,
+                    onSelectRight: _controller.selectRightMatchingItem,
+                  ),
                   TrueFalseExercise() => TrueFalseWidget(
-                      exercise: exercise,
-                      selectedValue: controller.selectedTrueFalse.value,
-                      isChecked: isChecked,
-                      onSelect: controller.selectTrueFalse,
-                    ),
+                    exercise: exercise,
+                    selectedValue: _controller.selectedTrueFalse.value,
+                    isChecked: isChecked,
+                    onSelect: _controller.selectTrueFalse,
+                  ),
                   SpeakingPromptExercise() => SpeakingPromptWidget(
-                      exercise: exercise,
-                      showExample: controller.showSpeakingExample.value,
-                      selfEvaluation: controller.speakingSelfEvaluation.value,
-                      isChecked: isChecked,
-                      onToggleExample: controller.toggleSpeakingExample,
-                      onSelectSelfEvaluation:
-                          controller.selectSpeakingSelfEvaluation,
-                    ),
+                    exercise: exercise,
+                    showExample: _controller.showSpeakingExample.value,
+                    selfEvaluation: _controller.speakingSelfEvaluation.value,
+                    isChecked: isChecked,
+                    onToggleExample: _controller.toggleSpeakingExample,
+                    onSelectSelfEvaluation:
+                        _controller.selectSpeakingSelfEvaluation,
+                  ),
                   OrderingExercise() => OrderingWidget(
-                      exercise: exercise,
-                      currentOrderIndices: controller.orderingIndices.toList(),
-                      isChecked: isChecked,
-                      onReorder: controller.reorderItems,
-                      onMoveItem: controller.moveOrderingItem,
-                    ),
+                    exercise: exercise,
+                    currentOrderIndices: _controller.orderingIndices.toList(),
+                    isChecked: isChecked,
+                    onReorder: _controller.reorderItems,
+                    onMoveItem: _controller.moveOrderingItem,
+                  ),
                 },
                 if (isChecked) ...<Widget>[
                   const SizedBox(height: 18),
                   ExerciseFeedbackCard(
-                    isCorrect: controller.isCurrentCorrect.value,
-                    correctAnswerSummary:
-                        controller.currentCorrectAnswerSummary,
+                    isCorrect: _controller.isCurrentCorrect.value,
+                    correctAnswerSummary: exercise is SpeakingPromptExercise
+                        ? ''
+                        : _controller.currentCorrectAnswerSummary,
                     explanation: exercise.explanation,
+                    isSelfAssessment: exercise is SpeakingPromptExercise,
                   ),
                 ],
                 const SizedBox(height: 22),
@@ -315,15 +353,15 @@ class ExercisePlayer extends StatelessWidget {
                     textColor: canCheck
                         ? colorScheme.onPrimary
                         : colorScheme.onSurfaceVariant,
-                    onPressed: canCheck ? controller.checkAnswer : null,
+                    onPressed: canCheck ? _controller.checkAnswer : null,
                   )
                 else
                   CustomButton(
                     key: const ValueKey<String>('exercise_next_btn'),
-                    label: controller.isLastExercise ? 'Finish' : 'Next',
+                    label: _controller.nextButtonLabel,
                     backgroundColor: colorScheme.primary,
                     textColor: colorScheme.onPrimary,
-                    onPressed: controller.nextExercise,
+                    onPressed: _controller.nextExercise,
                   ),
               ],
             ),
@@ -338,12 +376,14 @@ class _ExerciseSummaryView extends StatelessWidget {
   const _ExerciseSummaryView({
     required this.correctCount,
     required this.totalCount,
+    required this.reviewedCount,
     required this.onRestart,
     this.onDone,
   });
 
   final int correctCount;
   final int totalCount;
+  final int reviewedCount;
   final VoidCallback onRestart;
   final VoidCallback? onDone;
 
@@ -351,8 +391,9 @@ class _ExerciseSummaryView extends StatelessWidget {
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
     final colorScheme = theme.colorScheme;
-    final percentage =
-        totalCount == 0 ? 0 : ((correctCount / totalCount) * 100).round();
+    final percentage = totalCount == 0
+        ? 0
+        : ((correctCount / totalCount) * 100).round();
 
     return Center(
       child: ConstrainedBox(
@@ -403,6 +444,17 @@ class _ExerciseSummaryView extends StatelessWidget {
                   ),
                   textAlign: TextAlign.center,
                 ),
+                if (reviewedCount > 0) ...<Widget>[
+                  const SizedBox(height: 8),
+                  Text(
+                    'You revisited $reviewedCount ${reviewedCount == 1 ? 'tricky exercise' : 'tricky exercises'} to strengthen recall.',
+                    style: getTextStyle(
+                      fontSize: 14,
+                      color: colorScheme.onSurfaceVariant,
+                    ),
+                    textAlign: TextAlign.center,
+                  ),
+                ],
                 const SizedBox(height: 24),
                 CustomButton(
                   key: const ValueKey<String>('exercise_retry_btn'),

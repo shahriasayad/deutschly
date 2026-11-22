@@ -8,16 +8,22 @@ class ExerciseFeedbackCard extends StatelessWidget {
     required this.isCorrect,
     required this.correctAnswerSummary,
     this.explanation,
+    this.isSelfAssessment = false,
   });
 
   final bool isCorrect;
   final String correctAnswerSummary;
   final String? explanation;
+  final bool isSelfAssessment;
 
   @override
   Widget build(BuildContext context) {
     final colorScheme = Theme.of(context).colorScheme;
-    final statusColor = isCorrect ? AppColors.success : AppColors.error;
+    final statusColor = isCorrect
+        ? AppColors.success
+        : isSelfAssessment
+        ? AppColors.warning
+        : AppColors.error;
 
     return Container(
       width: double.infinity,
@@ -33,13 +39,23 @@ class ExerciseFeedbackCard extends StatelessWidget {
           Row(
             children: <Widget>[
               Icon(
-                isCorrect ? Icons.check_circle_rounded : Icons.cancel_rounded,
+                isCorrect
+                    ? Icons.check_circle_rounded
+                    : isSelfAssessment
+                    ? Icons.lightbulb_outline_rounded
+                    : Icons.cancel_rounded,
                 color: statusColor,
                 size: 22,
               ),
               const SizedBox(width: 8),
               Text(
-                isCorrect ? 'Correct!' : 'Incorrect',
+                isSelfAssessment
+                    ? isCorrect
+                          ? 'Nice speaking practice!'
+                          : 'Keep practicing'
+                    : isCorrect
+                    ? 'Correct!'
+                    : 'Incorrect',
                 style: getTextStyle(
                   fontSize: 16,
                   fontWeight: FontWeight.w700,
@@ -48,10 +64,11 @@ class ExerciseFeedbackCard extends StatelessWidget {
               ),
             ],
           ),
-          if (!isCorrect && correctAnswerSummary.isNotEmpty) ...<Widget>[
+          if ((isSelfAssessment || !isCorrect) &&
+              correctAnswerSummary.isNotEmpty) ...<Widget>[
             const SizedBox(height: 8),
             Text(
-              'Correct answer: $correctAnswerSummary',
+              '${isSelfAssessment ? 'Example answer' : 'Correct answer'}: $correctAnswerSummary',
               style: getTextStyle(
                 fontSize: 14,
                 fontWeight: FontWeight.w600,
@@ -59,7 +76,8 @@ class ExerciseFeedbackCard extends StatelessWidget {
               ),
             ),
           ],
-          if (explanation != null && explanation!.trim().isNotEmpty) ...<Widget>[
+          if (explanation != null &&
+              explanation!.trim().isNotEmpty) ...<Widget>[
             const SizedBox(height: 8),
             Text(
               explanation!,
