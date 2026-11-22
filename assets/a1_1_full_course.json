@@ -1,0 +1,1055 @@
+{
+  "course": {
+    "id": "german_a1_1_original",
+    "title": "German A1.1 - Interactive Course",
+    "level": "A1.1",
+    "language": "de",
+    "description": "Complete original A1.1 German course covering standard CEFR topics. 100% original content.",
+    "totalLessons": 7,
+    "version": "1.0",
+    "created": "2026-11-22"
+  },
+  "lessons": [
+    {
+      "id": "lesson_01",
+      "number": 1,
+      "title": "Guten Tag! – Greetings & Introductions",
+      "titleBn": "শুভেচ্ছা ও পরিচয়",
+      "objectives": [
+        "Greet people at different times of day",
+        "Introduce yourself and ask for someone’s name",
+        "Say where you come from",
+        "Talk about languages you speak",
+        "Spell your name",
+        "Fill a simple registration form"
+      ],
+      "vocabulary": [
+        {"de": "Guten Morgen", "en": "Good morning", "bn": "সুপ্রভাত"},
+        {"de": "Guten Tag", "en": "Good day / Hello", "bn": "শুভ দিন / হ্যালো"},
+        {"de": "Guten Abend", "en": "Good evening", "bn": "শুভ সন্ধ্যা"},
+        {"de": "Gute Nacht", "en": "Good night", "bn": "শুভ রাত্রি"},
+        {"de": "Hallo", "en": "Hi / Hello", "bn": "হাই"},
+        {"de": "Tschüs", "en": "Bye (informal)", "bn": "বাই"},
+        {"de": "Auf Wiedersehen", "en": "Goodbye", "bn": "বিদায়"},
+        {"de": "Ich heiße ...", "en": "My name is ...", "bn": "আমার নাম ..."},
+        {"de": "Mein Name ist ...", "en": "My name is ...", "bn": "আমার নাম ..."},
+        {"de": "Wie heißen Sie?", "en": "What is your name? (formal)", "bn": "আপনার নাম কী?"},
+        {"de": "Wie heißt du?", "en": "What is your name? (informal)", "bn": "তোমার নাম কী?"},
+        {"de": "Woher kommen Sie?", "en": "Where do you come from? (formal)", "bn": "আপনি কোথা থেকে এসেছেন?"},
+        {"de": "Ich komme aus ...", "en": "I come from ...", "bn": "আমি ... থেকে এসেছি"},
+        {"de": "Ich spreche ...", "en": "I speak ...", "bn": "আমি ... বলি"},
+        {"de": "ein bisschen", "en": "a little", "bn": "একটু"},
+        {"de": "Freut mich", "en": "Nice to meet you", "bn": "দেখে ভালো লাগলো"},
+        {"de": "Entschuldigung", "en": "Excuse me / Sorry", "bn": "দুঃখিত / মাফ করবেন"},
+        {"de": "Buchstabieren Sie bitte", "en": "Please spell it", "bn": "দয়া করে বানান করুন"}
+      ],
+      "grammar": [
+        {
+          "title": "Personal pronouns & sein",
+          "explanation": "ich bin, du bist, Sie sind",
+          "examples": [
+            "Ich bin Lara.",
+            "Du bist Tim.",
+            "Sie sind Frau Weber."
+          ]
+        },
+        {
+          "title": "W-Questions",
+          "explanation": "Wie, Woher, Was",
+          "examples": [
+            "Wie heißen Sie?",
+            "Woher kommen Sie?",
+            "Was sprechen Sie?"
+          ]
+        },
+        {
+          "title": "Verb conjugation (present)",
+          "explanation": "heißen, kommen, sprechen, sein",
+          "table": {
+            "heißen": ["ich heiße", "du heißt", "Sie heißen"],
+            "kommen": ["ich komme", "du kommst", "Sie kommen"],
+            "sprechen": ["ich spreche", "du sprichst", "Sie sprechen"],
+            "sein": ["ich bin", "du bist", "Sie sind"]
+          }
+        }
+      ],
+      "dialogues": [
+        {
+          "id": "d1",
+          "title": "Meeting for the first time",
+          "lines": [
+            {"speaker": "A", "text": "Guten Tag. Mein Name ist Anna Müller."},
+            {"speaker": "B", "text": "Guten Tag, Frau Müller. Ich bin Tom Becker. Freut mich."},
+            {"speaker": "A", "text": "Freut mich auch. Woher kommen Sie, Herr Becker?"},
+            {"speaker": "B", "text": "Ich komme aus Österreich. Und Sie?"},
+            {"speaker": "A", "text": "Ich komme aus Deutschland."}
+          ]
+        },
+        {
+          "id": "d2",
+          "title": "Informal introduction",
+          "lines": [
+            {"speaker": "A", "text": "Hallo! Ich bin Sara. Und du?"},
+            {"speaker": "B", "text": "Hallo Sara! Ich heiße Omar."},
+            {"speaker": "A", "text": "Woher kommst du, Omar?"},
+            {"speaker": "B", "text": "Ich komme aus Syrien. Ich spreche Arabisch und ein bisschen Deutsch."}
+          ]
+        }
+      ],
+      "exercises": [
+        {
+          "id": "ex1_1",
+          "type": "multiple_choice",
+          "question": "What do you say in the morning?",
+          "options": ["Guten Abend", "Guten Morgen", "Gute Nacht", "Tschüs"],
+          "correctIndex": 1,
+          "explanation": "Guten Morgen = Good morning"
+        },
+        {
+          "id": "ex1_2",
+          "type": "multiple_choice",
+          "question": "How do you ask someone’s name formally?",
+          "options": ["Wie heißt du?", "Wie heißen Sie?", "Woher kommen Sie?", "Was sprichst du?"],
+          "correctIndex": 1,
+          "explanation": "Sie is formal."
+        },
+        {
+          "id": "ex1_3",
+          "type": "fill_blank",
+          "question": "Complete: Ich _____ aus Bangladesch.",
+          "answer": "komme",
+          "acceptableAnswers": ["komme"],
+          "explanation": "Ich komme aus ..."
+        },
+        {
+          "id": "ex1_4",
+          "type": "fill_blank",
+          "question": "Complete: Wie _____ Sie?",
+          "answer": "heißen",
+          "acceptableAnswers": ["heißen"],
+          "explanation": "Wie heißen Sie?"
+        },
+        {
+          "id": "ex1_5",
+          "type": "matching",
+          "question": "Match the greeting with the time",
+          "pairs": [
+            {"left": "06:00 – 11:00", "right": "Guten Morgen"},
+            {"left": "11:00 – 18:00", "right": "Guten Tag"},
+            {"left": "18:00 – 22:00", "right": "Guten Abend"},
+            {"left": "late night", "right": "Gute Nacht"}
+          ]
+        },
+        {
+          "id": "ex1_6",
+          "type": "true_false",
+          "question": "\"Tschüs\" is formal.",
+          "correct": false,
+          "explanation": "Tschüs is informal. Formal is Auf Wiedersehen."
+        },
+        {
+          "id": "ex1_7",
+          "type": "fill_blank",
+          "question": "Ich spreche Deutsch und _____ Englisch.",
+          "answer": "ein bisschen",
+          "acceptableAnswers": ["ein bisschen", "ein wenig"],
+          "explanation": "ein bisschen = a little"
+        },
+        {
+          "id": "ex1_8",
+          "type": "speaking_prompt",
+          "question": "Introduce yourself. Say your name, where you come from and which languages you speak.",
+          "exampleAnswer": "Hallo! Ich heiße Karim. Ich komme aus Bangladesch. Ich spreche Bengali, Englisch und ein bisschen Deutsch."
+        },
+        {
+          "id": "ex1_9",
+          "type": "multiple_choice",
+          "question": "Which is correct?",
+          "options": ["Ich bin komme aus Indien", "Ich komme aus Indien", "Ich kommen aus Indien", "Ich kommst aus Indien"],
+          "correctIndex": 1
+        },
+        {
+          "id": "ex1_10",
+          "type": "ordering",
+          "question": "Put the dialogue in correct order",
+          "items": [
+            "Freut mich.",
+            "Guten Tag. Mein Name ist Lisa.",
+            "Guten Tag, Frau Schneider. Ich bin Markus.",
+            "Woher kommen Sie?"
+          ],
+          "correctOrder": [1, 2, 0, 3]
+        }
+      ]
+    },
+    {
+      "id": "lesson_02",
+      "number": 2,
+      "title": "Meine Familie – Family & Personal Information",
+      "titleBn": "আমার পরিবার",
+      "objectives": [
+        "Talk about family members",
+        "Use possessive articles (mein/meine, dein/deine)",
+        "Ask and answer about age and marital status",
+        "Talk about where family members live",
+        "Count from 0 to 20 and phone numbers"
+      ],
+      "vocabulary": [
+        {"de": "die Familie", "en": "family", "bn": "পরিবার"},
+        {"de": "der Vater / der Papa", "en": "father / dad", "bn": "বাবা"},
+        {"de": "die Mutter / die Mama", "en": "mother / mom", "bn": "মা"},
+        {"de": "der Bruder", "en": "brother", "bn": "ভাই"},
+        {"de": "die Schwester", "en": "sister", "bn": "বোন"},
+        {"de": "der Sohn", "en": "son", "bn": "ছেলে"},
+        {"de": "die Tochter", "en": "daughter", "bn": "মেয়ে"},
+        {"de": "die Eltern", "en": "parents", "bn": "বাবা-মা"},
+        {"de": "die Großeltern", "en": "grandparents", "bn": "দাদা-দাদী / নানা-নানী"},
+        {"de": "verheiratet", "en": "married", "bn": "বিবাহিত"},
+        {"de": "ledig", "en": "single", "bn": "অবিবাহিত"},
+        {"de": "geschieden", "en": "divorced", "bn": "তালাকপ্রাপ্ত"},
+        {"de": "Wie geht's?", "en": "How are you?", "bn": "কেমন আছো?"},
+        {"de": "Danke, gut", "en": "Fine, thanks", "bn": "ভালো, ধন্যবাদ"},
+        {"de": "mein / meine", "en": "my", "bn": "আমার"},
+        {"de": "dein / deine", "en": "your (informal)", "bn": "তোমার"},
+        {"de": "Ihr / Ihre", "en": "your (formal)", "bn": "আপনার"}
+      ],
+      "grammar": [
+        {
+          "title": "Possessive articles",
+          "explanation": "mein/meine, dein/deine, Ihr/Ihre change according to gender",
+          "examples": [
+            "Das ist mein Bruder.",
+            "Das ist meine Schwester.",
+            "Das sind meine Eltern."
+          ]
+        },
+        {
+          "title": "Personal pronouns (er/sie/wir/ihr/sie)",
+          "explanation": "He / She / We / You (plural) / They",
+          "examples": [
+            "Er lebt in Berlin.",
+            "Sie kommt aus Polen.",
+            "Wir wohnen in München."
+          ]
+        }
+      ],
+      "dialogues": [
+        {
+          "id": "d1",
+          "title": "Talking about family",
+          "lines": [
+            {"speaker": "A", "text": "Hast du Geschwister?"},
+            {"speaker": "B", "text": "Ja, ich habe einen Bruder und eine Schwester."},
+            {"speaker": "A", "text": "Wie heißen sie?"},
+            {"speaker": "B", "text": "Mein Bruder heißt Rahim und meine Schwester heißt Fatima."},
+            {"speaker": "A", "text": "Wohnen sie auch hier?"},
+            {"speaker": "B", "text": "Nein, mein Bruder lebt in Dhaka. Meine Schwester wohnt in Sylhet."}
+          ]
+        }
+      ],
+      "exercises": [
+        {
+          "id": "ex2_1",
+          "type": "multiple_choice",
+          "question": "What is \"meine Schwester\"?",
+          "options": ["my brother", "my sister", "my mother", "my father"],
+          "correctIndex": 1
+        },
+        {
+          "id": "ex2_2",
+          "type": "fill_blank",
+          "question": "Das ist _____ Bruder. (my)",
+          "answer": "mein",
+          "acceptableAnswers": ["mein"]
+        },
+        {
+          "id": "ex2_3",
+          "type": "fill_blank",
+          "question": "Das ist _____ Mutter. (my)",
+          "answer": "meine",
+          "acceptableAnswers": ["meine"]
+        },
+        {
+          "id": "ex2_4",
+          "type": "matching",
+          "question": "Match the family words",
+          "pairs": [
+            {"left": "der Vater", "right": "father"},
+            {"left": "die Mutter", "right": "mother"},
+            {"left": "der Bruder", "right": "brother"},
+            {"left": "die Tochter", "right": "daughter"}
+          ]
+        },
+        {
+          "id": "ex2_5",
+          "type": "true_false",
+          "question": "\"ledig\" means married.",
+          "correct": false,
+          "explanation": "ledig = single, verheiratet = married"
+        },
+        {
+          "id": "ex2_6",
+          "type": "multiple_choice",
+          "question": "How do you ask \"How are you?\" informally?",
+          "options": ["Wie geht es Ihnen?", "Wie geht's?", "Woher kommst du?", "Wie heißen Sie?"],
+          "correctIndex": 1
+        },
+        {
+          "id": "ex2_7",
+          "type": "fill_blank",
+          "question": "Meine Eltern _____ in Chittagong. (live)",
+          "answer": "leben",
+          "acceptableAnswers": ["leben", "wohnen"]
+        },
+        {
+          "id": "ex2_8",
+          "type": "speaking_prompt",
+          "question": "Talk about your family. Say how many brothers/sisters you have and where they live.",
+          "exampleAnswer": "Ich habe einen Bruder und eine Schwester. Mein Bruder lebt in Dhaka. Meine Schwester wohnt mit mir."
+        },
+        {
+          "id": "ex2_9",
+          "type": "multiple_choice",
+          "question": "Which is correct?",
+          "options": ["Das ist mein Schwester", "Das ist meine Schwester", "Das ist meinen Schwester", "Das ist meines Schwester"],
+          "correctIndex": 1
+        },
+        {
+          "id": "ex2_10",
+          "type": "fill_blank",
+          "question": "Er _____ 25 Jahre alt. (is)",
+          "answer": "ist",
+          "acceptableAnswers": ["ist"]
+        }
+      ]
+    },
+    {
+      "id": "lesson_03",
+      "number": 3,
+      "title": "Einkaufen – Shopping & Food",
+      "titleBn": "কেনাকাটা ও খাবার",
+      "objectives": [
+        "Name common food items",
+        "Ask for prices and quantities",
+        "Use indefinite articles (ein/eine) and kein/keine",
+        "Make a simple shopping dialogue",
+        "Understand basic quantities (Kilo, Stück, Packung)"
+      ],
+      "vocabulary": [
+        {"de": "das Brot", "en": "bread", "bn": "রুটি / পাউরুটি"},
+        {"de": "die Milch", "en": "milk", "bn": "দুধ"},
+        {"de": "der Apfel", "en": "apple", "bn": "আপেল"},
+        {"de": "die Banane", "en": "banana", "bn": "কলা"},
+        {"de": "das Ei / die Eier", "en": "egg / eggs", "bn": "ডিম"},
+        {"de": "der Käse", "en": "cheese", "bn": "চিজ"},
+        {"de": "das Wasser", "en": "water", "bn": "পানি"},
+        {"de": "der Reis", "en": "rice", "bn": "ভাত / চাল"},
+        {"de": "das Gemüse", "en": "vegetables", "bn": "সবজি"},
+        {"de": "das Obst", "en": "fruit", "bn": "ফল"},
+        {"de": "Wie viel kostet ...?", "en": "How much does ... cost?", "bn": "এটার দাম কত?"},
+        {"de": "Das macht ... Euro", "en": "That comes to ... Euro", "bn": "মোট ... ইউরো"},
+        {"de": "Ich möchte ...", "en": "I would like ...", "bn": "আমি চাই ..."},
+        {"de": "Haben Sie ...?", "en": "Do you have ...?", "bn": "আপনার কাছে ... আছে?"},
+        {"de": "ein Kilo", "en": "one kilo", "bn": "এক কেজি"},
+        {"de": "eine Packung", "en": "a pack", "bn": "এক প্যাকেট"}
+      ],
+      "grammar": [
+        {
+          "title": "Indefinite article & negation",
+          "explanation": "ein/eine vs kein/keine",
+          "examples": [
+            "Ich möchte einen Apfel.",
+            "Ich möchte eine Banane.",
+            "Ich habe keinen Hunger.",
+            "Haben wir Zucker? – Nein, wir haben keinen Zucker."
+          ]
+        },
+        {
+          "title": "Plural forms",
+          "explanation": "Many food items have irregular plurals",
+          "examples": [
+            "das Ei → die Eier",
+            "der Apfel → die Äpfel",
+            "die Tomate → die Tomaten"
+          ]
+        }
+      ],
+      "dialogues": [
+        {
+          "id": "d1",
+          "title": "At the market",
+          "lines": [
+            {"speaker": "A", "text": "Guten Tag. Ich möchte ein Kilo Äpfel und eine Packung Milch."},
+            {"speaker": "B", "text": "Bitte schön. Sonst noch etwas?"},
+            {"speaker": "A", "text": "Ja, haben Sie Eier?"},
+            {"speaker": "B", "text": "Ja, natürlich. Wie viele?"},
+            {"speaker": "A", "text": "Zehn Eier bitte."},
+            {"speaker": "B", "text": "Das macht 6 Euro 50."}
+          ]
+        }
+      ],
+      "exercises": [
+        {
+          "id": "ex3_1",
+          "type": "multiple_choice",
+          "question": "What is \"die Milch\"?",
+          "options": ["bread", "milk", "apple", "cheese"],
+          "correctIndex": 1
+        },
+        {
+          "id": "ex3_2",
+          "type": "fill_blank",
+          "question": "Ich möchte _____ Apfel. (a/an)",
+          "answer": "einen",
+          "acceptableAnswers": ["einen"]
+        },
+        {
+          "id": "ex3_3",
+          "type": "fill_blank",
+          "question": "Haben Sie _____ Brot? – Nein, wir haben _____ Brot.",
+          "answer": "kein",
+          "acceptableAnswers": ["kein"]
+        },
+        {
+          "id": "ex3_4",
+          "type": "matching",
+          "question": "Match food items",
+          "pairs": [
+            {"left": "das Brot", "right": "bread"},
+            {"left": "die Banane", "right": "banana"},
+            {"left": "der Käse", "right": "cheese"},
+            {"left": "das Ei", "right": "egg"}
+          ]
+        },
+        {
+          "id": "ex3_5",
+          "type": "true_false",
+          "question": "\"Ich möchte\" means \"I have\".",
+          "correct": false,
+          "explanation": "Ich möchte = I would like"
+        },
+        {
+          "id": "ex3_6",
+          "type": "multiple_choice",
+          "question": "How do you ask the price?",
+          "options": ["Wie heißt das?", "Wie viel kostet das?", "Woher kommt das?", "Was ist das?"],
+          "correctIndex": 1
+        },
+        {
+          "id": "ex3_7",
+          "type": "fill_blank",
+          "question": "Ich hätte gern ein Kilo _____. (apples)",
+          "answer": "Äpfel",
+          "acceptableAnswers": ["Äpfel", "Apfel"]
+        },
+        {
+          "id": "ex3_8",
+          "type": "speaking_prompt",
+          "question": "You are in a shop. Ask for 1 kg rice, 2 liters milk and 6 eggs.",
+          "exampleAnswer": "Guten Tag. Ich möchte ein Kilo Reis, zwei Liter Milch und sechs Eier bitte."
+        },
+        {
+          "id": "ex3_9",
+          "type": "multiple_choice",
+          "question": "Which is correct?",
+          "options": ["Ich möchte eine Apfel", "Ich möchte einen Apfel", "Ich möchte ein Apfel", "Ich möchte Äpfel ein"],
+          "correctIndex": 1
+        },
+        {
+          "id": "ex3_10",
+          "type": "ordering",
+          "question": "Order the shopping dialogue",
+          "items": [
+            "Das macht 4 Euro.",
+            "Guten Tag. Ich möchte eine Milch und Brot.",
+            "Bitte schön. Noch etwas?",
+            "Nein, danke."
+          ],
+          "correctOrder": [1, 2, 3, 0]
+        }
+      ]
+    },
+    {
+      "id": "lesson_04",
+      "number": 4,
+      "title": "Meine Wohnung – Housing & Furniture",
+      "titleBn": "আমার বাসা",
+      "objectives": [
+        "Name rooms in a house/apartment",
+        "Describe furniture and colors",
+        "Use definite articles (der/die/das)",
+        "Express likes and dislikes about a place",
+        "Understand simple housing ads"
+      ],
+      "vocabulary": [
+        {"de": "die Wohnung", "en": "apartment", "bn": "ফ্ল্যাট / অ্যাপার্টমেন্ট"},
+        {"de": "das Haus", "en": "house", "bn": "বাড়ি"},
+        {"de": "das Zimmer", "en": "room", "bn": "রুম"},
+        {"de": "das Wohnzimmer", "en": "living room", "bn": "বসার ঘর"},
+        {"de": "das Schlafzimmer", "en": "bedroom", "bn": "শোবার ঘর"},
+        {"de": "die Küche", "en": "kitchen", "bn": "রান্নাঘর"},
+        {"de": "das Bad", "en": "bathroom", "bn": "বাথরুম"},
+        {"de": "der Balkon", "en": "balcony", "bn": "বারান্দা"},
+        {"de": "der Tisch", "en": "table", "bn": "টেবিল"},
+        {"de": "der Stuhl", "en": "chair", "bn": "চেয়ার"},
+        {"de": "das Bett", "en": "bed", "bn": "বিছানা"},
+        {"de": "der Schrank", "en": "cupboard / wardrobe", "bn": "আলমারি"},
+        {"de": "die Lampe", "en": "lamp", "bn": "ল্যাম্প"},
+        {"de": "groß", "en": "big", "bn": "বড়"},
+        {"de": "klein", "en": "small", "bn": "ছোট"},
+        {"de": "schön", "en": "beautiful / nice", "bn": "সুন্দর"},
+        {"de": "teuer", "en": "expensive", "bn": "দামি"},
+        {"de": "billig", "en": "cheap", "bn": "সস্তা"}
+      ],
+      "grammar": [
+        {
+          "title": "Definite articles",
+          "explanation": "der (masculine), die (feminine), das (neuter)",
+          "examples": [
+            "der Tisch (the table)",
+            "die Küche (the kitchen)",
+            "das Zimmer (the room)"
+          ]
+        },
+        {
+          "title": "Predicative adjectives",
+          "explanation": "Adjective after sein does not change",
+          "examples": [
+            "Das Zimmer ist groß.",
+            "Die Wohnung ist schön.",
+            "Der Tisch ist teuer."
+          ]
+        }
+      ],
+      "dialogues": [
+        {
+          "id": "d1",
+          "title": "Describing an apartment",
+          "lines": [
+            {"speaker": "A", "text": "Wie ist deine Wohnung?"},
+            {"speaker": "B", "text": "Sie ist schön und nicht so teuer. Ich habe ein Wohnzimmer, ein Schlafzimmer, eine Küche und ein Bad."},
+            {"speaker": "A", "text": "Gibt es einen Balkon?"},
+            {"speaker": "B", "text": "Ja, einen kleinen Balkon. Die Küche ist modern."}
+          ]
+        }
+      ],
+      "exercises": [
+        {
+          "id": "ex4_1",
+          "type": "multiple_choice",
+          "question": "What is \"die Küche\"?",
+          "options": ["bedroom", "kitchen", "bathroom", "living room"],
+          "correctIndex": 1
+        },
+        {
+          "id": "ex4_2",
+          "type": "fill_blank",
+          "question": "Das ist _____ Schlafzimmer. (the)",
+          "answer": "das",
+          "acceptableAnswers": ["das"]
+        },
+        {
+          "id": "ex4_3",
+          "type": "fill_blank",
+          "question": "_____ Wohnung ist sehr schön. (The)",
+          "answer": "Die",
+          "acceptableAnswers": ["Die"]
+        },
+        {
+          "id": "ex4_4",
+          "type": "matching",
+          "question": "Match the rooms",
+          "pairs": [
+            {"left": "das Wohnzimmer", "right": "living room"},
+            {"left": "das Schlafzimmer", "right": "bedroom"},
+            {"left": "die Küche", "right": "kitchen"},
+            {"left": "das Bad", "right": "bathroom"}
+          ]
+        },
+        {
+          "id": "ex4_5",
+          "type": "true_false",
+          "question": "\"teuer\" means cheap.",
+          "correct": false
+        },
+        {
+          "id": "ex4_6",
+          "type": "multiple_choice",
+          "question": "Which sentence is correct?",
+          "options": ["Das Zimmer ist großen", "Das Zimmer ist groß", "Das Zimmer große ist", "Zimmer ist das groß"],
+          "correctIndex": 1
+        },
+        {
+          "id": "ex4_7",
+          "type": "fill_blank",
+          "question": "Ich habe einen großen _____. (wardrobe)",
+          "answer": "Schrank",
+          "acceptableAnswers": ["Schrank"]
+        },
+        {
+          "id": "ex4_8",
+          "type": "speaking_prompt",
+          "question": "Describe your room or apartment. Say how many rooms and what furniture you have.",
+          "exampleAnswer": "Meine Wohnung hat zwei Zimmer. Es gibt ein Wohnzimmer und ein Schlafzimmer. Im Wohnzimmer steht ein Sofa und ein Tisch."
+        },
+        {
+          "id": "ex4_9",
+          "type": "multiple_choice",
+          "question": "\"der Stuhl\" means:",
+          "options": ["table", "chair", "bed", "lamp"],
+          "correctIndex": 1
+        },
+        {
+          "id": "ex4_10",
+          "type": "fill_blank",
+          "question": "Die Lampe ist _____. (beautiful)",
+          "answer": "schön",
+          "acceptableAnswers": ["schön"]
+        }
+      ]
+    },
+    {
+      "id": "lesson_05",
+      "number": 5,
+      "title": "Mein Tag – Daily Routine & Time",
+      "titleBn": "আমার দিন",
+      "objectives": [
+        "Tell the time",
+        "Talk about daily activities",
+        "Use separable verbs",
+        "Use time prepositions (am, um, von ... bis)",
+        "Describe a typical day"
+      ],
+      "vocabulary": [
+        {"de": "aufstehen", "en": "to get up", "bn": "ঘুম থেকে ওঠা"},
+        {"de": "frühstücken", "en": "to have breakfast", "bn": "নাস্তা করা"},
+        {"de": "arbeiten", "en": "to work", "bn": "কাজ করা"},
+        {"de": "essen", "en": "to eat", "bn": "খাওয়া"},
+        {"de": "schlafen", "en": "to sleep", "bn": "ঘুমানো"},
+        {"de": "fernsehen", "en": "to watch TV", "bn": "টিভি দেখা"},
+        {"de": "einkaufen", "en": "to go shopping", "bn": "কেনাকাটা করা"},
+        {"de": "kochen", "en": "to cook", "bn": "রান্না করা"},
+        {"de": "die Uhrzeit", "en": "the time", "bn": "সময়"},
+        {"de": "Wie spät ist es?", "en": "What time is it?", "bn": "কয়টা বাজে?"},
+        {"de": "Es ist ... Uhr", "en": "It is ... o'clock", "bn": "... টা বাজে"},
+        {"de": "am Morgen", "en": "in the morning", "bn": "সকালে"},
+        {"de": "am Nachmittag", "en": "in the afternoon", "bn": "বিকেলে"},
+        {"de": "am Abend", "en": "in the evening", "bn": "সন্ধ্যায়"},
+        {"de": "um 8 Uhr", "en": "at 8 o'clock", "bn": "৮ টায়"},
+        {"de": "von ... bis", "en": "from ... until", "bn": "থেকে ... পর্যন্ত"}
+      ],
+      "grammar": [
+        {
+          "title": "Separable verbs",
+          "explanation": "Prefix goes to the end in present tense",
+          "examples": [
+            "Ich stehe um 7 Uhr auf.",
+            "Er sieht abends fern.",
+            "Wir kaufen am Samstag ein."
+          ]
+        },
+        {
+          "title": "Time prepositions",
+          "explanation": "am + part of day, um + clock time",
+          "examples": [
+            "Am Morgen trinke ich Tee.",
+            "Um 9 Uhr beginne ich zu arbeiten.",
+            "Von 13 bis 14 Uhr habe ich Pause."
+          ]
+        }
+      ],
+      "dialogues": [
+        {
+          "id": "d1",
+          "title": "My daily routine",
+          "lines": [
+            {"speaker": "A", "text": "Wann stehst du auf?"},
+            {"speaker": "B", "text": "Ich stehe um halb sieben auf. Dann frühstücke ich."},
+            {"speaker": "A", "text": "Und wann beginnst du zu arbeiten?"},
+            {"speaker": "B", "text": "Um 8 Uhr. Ich arbeite von 8 bis 16 Uhr."},
+            {"speaker": "A", "text": "Was machst du am Abend?"},
+            {"speaker": "B", "text": "Am Abend koche ich und sehe ein bisschen fern."}
+          ]
+        }
+      ],
+      "exercises": [
+        {
+          "id": "ex5_1",
+          "type": "multiple_choice",
+          "question": "What does \"aufstehen\" mean?",
+          "options": ["to sleep", "to get up", "to eat", "to work"],
+          "correctIndex": 1
+        },
+        {
+          "id": "ex5_2",
+          "type": "fill_blank",
+          "question": "Ich _____ um 7 Uhr _____. (get up)",
+          "answer": "stehe ... auf",
+          "acceptableAnswers": ["stehe auf"]
+        },
+        {
+          "id": "ex5_3",
+          "type": "fill_blank",
+          "question": "_____ 9 Uhr beginne ich. (at)",
+          "answer": "Um",
+          "acceptableAnswers": ["Um"]
+        },
+        {
+          "id": "ex5_4",
+          "type": "matching",
+          "question": "Match the activities",
+          "pairs": [
+            {"left": "frühstücken", "right": "have breakfast"},
+            {"left": "fernsehen", "right": "watch TV"},
+            {"left": "einkaufen", "right": "go shopping"},
+            {"left": "schlafen", "right": "sleep"}
+          ]
+        },
+        {
+          "id": "ex5_5",
+          "type": "true_false",
+          "question": "In separable verbs the prefix stays with the verb.",
+          "correct": false,
+          "explanation": "The prefix goes to the end."
+        },
+        {
+          "id": "ex5_6",
+          "type": "multiple_choice",
+          "question": "How do you ask the time?",
+          "options": ["Wie heißt du?", "Wie spät ist es?", "Woher kommst du?", "Was machst du?"],
+          "correctIndex": 1
+        },
+        {
+          "id": "ex5_7",
+          "type": "fill_blank",
+          "question": "Am Abend _____ ich fern. (watch)",
+          "answer": "sehe",
+          "acceptableAnswers": ["sehe"]
+        },
+        {
+          "id": "ex5_8",
+          "type": "speaking_prompt",
+          "question": "Describe your typical day. Use at least 5 activities and times.",
+          "exampleAnswer": "Ich stehe um 6 Uhr auf. Dann frühstücke ich. Um 8 Uhr gehe ich zur Arbeit. Am Abend koche ich und sehe fern. Um 23 Uhr gehe ich schlafen."
+        },
+        {
+          "id": "ex5_9",
+          "type": "multiple_choice",
+          "question": "Which is correct?",
+          "options": ["Ich aufstehe um 7", "Ich stehe um 7 auf", "Ich stehe auf um 7", "Um 7 ich stehe auf"],
+          "correctIndex": 1
+        },
+        {
+          "id": "ex5_10",
+          "type": "fill_blank",
+          "question": "Ich arbeite _____ 9 _____ 17 Uhr. (from ... to)",
+          "answer": "von ... bis",
+          "acceptableAnswers": ["von ... bis"]
+        }
+      ]
+    },
+    {
+      "id": "lesson_06",
+      "number": 6,
+      "title": "Freizeit – Free Time & Hobbies",
+      "titleBn": "অবসর ও শখ",
+      "objectives": [
+        "Talk about hobbies and free-time activities",
+        "Use accusative case (den/einen/keinen)",
+        "Answer yes/no questions with ja, nein, doch",
+        "Talk about the weather",
+        "Make simple suggestions"
+      ],
+      "vocabulary": [
+        {"de": "die Freizeit", "en": "free time", "bn": "অবসর সময়"},
+        {"de": "das Hobby", "en": "hobby", "bn": "শখ"},
+        {"de": "Fußball spielen", "en": "to play football", "bn": "ফুটবল খেলা"},
+        {"de": "Musik hören", "en": "to listen to music", "bn": "গান শোনা"},
+        {"de": "Bücher lesen", "en": "to read books", "bn": "বই পড়া"},
+        {"de": "schwimmen", "en": "to swim", "bn": "সাঁতার কাটা"},
+        {"de": "wandern", "en": "to hike", "bn": "হাইকিং করা"},
+        {"de": "kochen", "en": "to cook", "bn": "রান্না করা"},
+        {"de": "das Wetter", "en": "the weather", "bn": "আবহাওয়া"},
+        {"de": "Die Sonne scheint", "en": "The sun is shining", "bn": "রৌদ্র হচ্ছে"},
+        {"de": "Es regnet", "en": "It is raining", "bn": "বৃষ্টি হচ্ছে"},
+        {"de": "Es ist kalt / warm", "en": "It is cold / warm", "bn": "ঠান্ডা / গরম"},
+        {"de": "Hast du Lust ...?", "en": "Do you feel like ...?", "bn": "কি তোমার ইচ্ছা ...?"}
+      ],
+      "grammar": [
+        {
+          "title": "Accusative case",
+          "explanation": "den (masc), die (fem), das (neut), einen/eine/ein, keinen/keine/kein",
+          "examples": [
+            "Ich lese einen Roman.",
+            "Ich höre die Musik.",
+            "Ich habe keinen Hunger."
+          ]
+        },
+        {
+          "title": "ja / nein / doch",
+          "explanation": "doch is used to contradict a negative question",
+          "examples": [
+            "Hast du keine Zeit? – Doch, ich habe Zeit.",
+            "Kommst du nicht? – Doch, ich komme."
+          ]
+        }
+      ],
+      "dialogues": [
+        {
+          "id": "d1",
+          "title": "Talking about hobbies",
+          "lines": [
+            {"speaker": "A", "text": "Was machst du in deiner Freizeit?"},
+            {"speaker": "B", "text": "Ich spiele gern Fußball und höre Musik. Und du?"},
+            {"speaker": "A", "text": "Ich lese Bücher und koche gern."},
+            {"speaker": "B", "text": "Hast du Lust, am Samstag Fußball zu spielen?"},
+            {"speaker": "A", "text": "Ja, gerne! Wann?"},
+            {"speaker": "B", "text": "Um 15 Uhr im Park."}
+          ]
+        }
+      ],
+      "exercises": [
+        {
+          "id": "ex6_1",
+          "type": "multiple_choice",
+          "question": "What is \"die Freizeit\"?",
+          "options": ["work", "free time", "school", "family"],
+          "correctIndex": 1
+        },
+        {
+          "id": "ex6_2",
+          "type": "fill_blank",
+          "question": "Ich lese _____ Buch. (a)",
+          "answer": "ein",
+          "acceptableAnswers": ["ein"]
+        },
+        {
+          "id": "ex6_3",
+          "type": "fill_blank",
+          "question": "Hast du keinen Hunger? – _____, ich habe Hunger.",
+          "answer": "Doch",
+          "acceptableAnswers": ["Doch"]
+        },
+        {
+          "id": "ex6_4",
+          "type": "matching",
+          "question": "Match the hobbies",
+          "pairs": [
+            {"left": "Fußball spielen", "right": "play football"},
+            {"left": "Musik hören", "right": "listen to music"},
+            {"left": "Bücher lesen", "right": "read books"},
+            {"left": "schwimmen", "right": "swim"}
+          ]
+        },
+        {
+          "id": "ex6_5",
+          "type": "true_false",
+          "question": "\"Es regnet\" means the sun is shining.",
+          "correct": false
+        },
+        {
+          "id": "ex6_6",
+          "type": "multiple_choice",
+          "question": "Which is the correct accusative?",
+          "options": ["Ich sehe der Film", "Ich sehe den Film", "Ich sehe dem Film", "Ich sehe des Film"],
+          "correctIndex": 1
+        },
+        {
+          "id": "ex6_7",
+          "type": "fill_blank",
+          "question": "Am Wochenende _____ ich gern. (hike)",
+          "answer": "wandere",
+          "acceptableAnswers": ["wandere"]
+        },
+        {
+          "id": "ex6_8",
+          "type": "speaking_prompt",
+          "question": "Talk about your hobbies and what you like to do in free time.",
+          "exampleAnswer": "In meiner Freizeit spiele ich Fußball und höre Musik. Am Wochenende lese ich gern Bücher."
+        },
+        {
+          "id": "ex6_9",
+          "type": "multiple_choice",
+          "question": "How do you contradict a negative question?",
+          "options": ["Ja", "Nein", "Doch", "Bitte"],
+          "correctIndex": 2
+        },
+        {
+          "id": "ex6_10",
+          "type": "fill_blank",
+          "question": "Das Wetter ist schön. Die Sonne _____.",
+          "answer": "scheint",
+          "acceptableAnswers": ["scheint"]
+        }
+      ]
+    },
+    {
+      "id": "lesson_07",
+      "number": 7,
+      "title": "Kinder, Schule & Vergangenheit – School, Children & Past Tense",
+      "titleBn": "শিশু, স্কুল ও অতীতকাল",
+      "objectives": [
+        "Talk about school and children",
+        "Express ability and intention (können, wollen)",
+        "Form the Perfekt (present perfect) with haben and sein",
+        "Talk about past events simply",
+        "Make and respond to suggestions"
+      ],
+      "vocabulary": [
+        {"de": "die Schule", "en": "school", "bn": "স্কুল"},
+        {"de": "das Kind / die Kinder", "en": "child / children", "bn": "শিশু / বাচ্চাকাচ্চা"},
+        {"de": "lernen", "en": "to learn / study", "bn": "শেখা"},
+        {"de": "die Hausaufgaben", "en": "homework", "bn": "বাড়ির কাজ"},
+        {"de": "der Lehrer / die Lehrerin", "en": "teacher (m/f)", "bn": "শিক্ষক / শিক্ষিকা"},
+        {"de": "können", "en": "can / to be able to", "bn": "পারা"},
+        {"de": "wollen", "en": "to want", "bn": "চাওয়া"},
+        {"de": "Ich habe ... gemacht", "en": "I have done ...", "bn": "আমি ... করেছি"},
+        {"de": "Ich bin ... gegangen", "en": "I have gone ...", "bn": "আমি ... গিয়েছি"},
+        {"de": "gestern", "en": "yesterday", "bn": "গতকাল"},
+        {"de": "letzte Woche", "en": "last week", "bn": "গত সপ্তাহে"}
+      ],
+      "grammar": [
+        {
+          "title": "Modal verbs können & wollen",
+          "explanation": "Modal verb in position 2, main verb at the end in infinitive",
+          "examples": [
+            "Ich kann gut schwimmen.",
+            "Er will Deutsch lernen.",
+            "Kannst du mir helfen?"
+          ]
+        },
+        {
+          "title": "Perfekt with haben",
+          "explanation": "Most verbs use haben + past participle",
+          "examples": [
+            "Ich habe Hausaufgaben gemacht.",
+            "Sie hat Tee getrunken.",
+            "Wir haben Fußball gespielt."
+          ]
+        },
+        {
+          "title": "Perfekt with sein",
+          "explanation": "Verbs of movement and change of state use sein",
+          "examples": [
+            "Ich bin nach Hause gegangen.",
+            "Er ist um 8 Uhr aufgestanden.",
+            "Wir sind ins Kino gegangen."
+          ]
+        }
+      ],
+      "dialogues": [
+        {
+          "id": "d1",
+          "title": "Talking about yesterday",
+          "lines": [
+            {"speaker": "A", "text": "Was hast du gestern gemacht?"},
+            {"speaker": "B", "text": "Ich bin in die Schule gegangen und habe viel gelernt."},
+            {"speaker": "A", "text": "Und nach der Schule?"},
+            {"speaker": "B", "text": "Ich habe Hausaufgaben gemacht und dann Fußball gespielt."},
+            {"speaker": "A", "text": "Das klingt gut. Ich habe nur ferngesehen."}
+          ]
+        }
+      ],
+      "exercises": [
+        {
+          "id": "ex7_1",
+          "type": "multiple_choice",
+          "question": "What does \"können\" mean?",
+          "options": ["to want", "can / to be able to", "to must", "to like"],
+          "correctIndex": 1
+        },
+        {
+          "id": "ex7_2",
+          "type": "fill_blank",
+          "question": "Ich _____ Deutsch lernen. (want to)",
+          "answer": "will",
+          "acceptableAnswers": ["will"]
+        },
+        {
+          "id": "ex7_3",
+          "type": "fill_blank",
+          "question": "Gestern _____ ich ins Kino _____. (went)",
+          "answer": "bin ... gegangen",
+          "acceptableAnswers": ["bin gegangen"]
+        },
+        {
+          "id": "ex7_4",
+          "type": "matching",
+          "question": "Match the past forms",
+          "pairs": [
+            {"left": "machen", "right": "hat gemacht"},
+            {"left": "gehen", "right": "ist gegangen"},
+            {"left": "spielen", "right": "hat gespielt"},
+            {"left": "aufstehen", "right": "ist aufgestanden"}
+          ]
+        },
+        {
+          "id": "ex7_5",
+          "type": "true_false",
+          "question": "Verbs of movement usually use \"haben\" in Perfekt.",
+          "correct": false,
+          "explanation": "They usually use sein."
+        },
+        {
+          "id": "ex7_6",
+          "type": "multiple_choice",
+          "question": "Which sentence is correct?",
+          "options": [
+            "Ich habe nach Hause gegangen",
+            "Ich bin nach Hause gegangen",
+            "Ich bin nach Hause gehabt",
+            "Ich habe nach Hause bin"
+          ],
+          "correctIndex": 1
+        },
+        {
+          "id": "ex7_7",
+          "type": "fill_blank",
+          "question": "Sie _____ die Hausaufgaben _____. (has done)",
+          "answer": "hat ... gemacht",
+          "acceptableAnswers": ["hat gemacht"]
+        },
+        {
+          "id": "ex7_8",
+          "type": "speaking_prompt",
+          "question": "Tell what you did yesterday. Use at least 4 sentences in Perfekt.",
+          "exampleAnswer": "Gestern bin ich früh aufgestanden. Ich habe gefrühstückt und bin zur Arbeit gegangen. Am Abend habe ich gekocht und ferngesehen."
+        },
+        {
+          "id": "ex7_9",
+          "type": "multiple_choice",
+          "question": "\"Ich will Deutsch lernen\" means:",
+          "options": ["I can learn German", "I want to learn German", "I must learn German", "I like learning German"],
+          "correctIndex": 1
+        },
+        {
+          "id": "ex7_10",
+          "type": "fill_blank",
+          "question": "Kannst du mir _____? (help)",
+          "answer": "helfen",
+          "acceptableAnswers": ["helfen"]
+        }
+      ]
+    }
+  ],
+  "metadata": {
+    "totalExercises": 70,
+    "exerciseTypes": [
+      "multiple_choice",
+      "fill_blank",
+      "matching",
+      "true_false",
+      "speaking_prompt",
+      "ordering"
+    ],
+    "notes_for_developer": [
+      "All content is 100% original. No text copied from any textbook.",
+      "Each lesson has 10 exercises covering different interaction types.",
+      "Use local storage (Hive / SharedPreferences / SQLite) for progress.",
+      "Recommended packages: flutter_tts (optional speaking), hive, provider or riverpod.",
+      "Progress structure suggestion: { lessonId: { completedExercises: [], score: 0 } }",
+      "No audio files required. You can later add TTS if desired.",
+      "UI suggestion: Clean card-based design, progress bar per lesson, green checkmarks for completed exercises."
+    ]
+  }
+}
