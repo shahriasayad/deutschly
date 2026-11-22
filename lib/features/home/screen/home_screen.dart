@@ -3,7 +3,7 @@ import 'package:get/get.dart';
 import 'package:go_router/go_router.dart';
 import 'package:deutschly/core/app_router.dart';
 import 'package:deutschly/core/custom_appbar.dart';
-import 'package:deutschly/core/custom_button.dart';
+import 'package:deutschly/core/empty_state_widget.dart';
 import 'package:deutschly/core/global_text_style.dart';
 import 'package:deutschly/features/home/controller/home_controller.dart';
 import 'package:deutschly/features/home/widgets/course_header_card.dart';
@@ -44,43 +44,22 @@ class HomeScreen extends StatelessWidget {
 
         final error = controller.errorMessage;
         if (error != null && controller.course == null) {
-          return Center(
-            child: Padding(
-              padding: const EdgeInsets.all(24),
-              child: Column(
-                mainAxisSize: MainAxisSize.min,
-                children: <Widget>[
-                  Text(
-                    error,
-                    style: getTextStyle(
-                      fontSize: 16,
-                      color: colorScheme.error,
-                    ),
-                    textAlign: TextAlign.center,
-                  ),
-                  const SizedBox(height: 16),
-                  CustomButton(
-                    label: 'Retry',
-                    width: 160,
-                    onPressed: controller.retryLoadCourse,
-                  ),
-                ],
-              ),
-            ),
+          return EmptyStateWidget(
+            icon: Icons.error_outline_rounded,
+            title: 'Could Not Load Course',
+            subtitle: error,
+            actionLabel: 'Retry',
+            onAction: controller.retryLoadCourse,
           );
         }
 
         final course = controller.course;
         final lessons = controller.lessons;
         if (course == null || lessons.isEmpty) {
-          return Center(
-            child: Text(
-              'No lessons found.',
-              style: getTextStyle(
-                fontSize: 16,
-                color: colorScheme.onSurfaceVariant,
-              ),
-            ),
+          return const EmptyStateWidget(
+            icon: Icons.menu_book_outlined,
+            title: 'No Lessons Available',
+            subtitle: 'No course lessons were found in the local course asset.',
           );
         }
 

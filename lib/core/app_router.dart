@@ -1,16 +1,20 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:deutschly/features/about/screen/about_screen.dart';
 import 'package:deutschly/features/exercise/screen/exercise_screen.dart';
 import 'package:deutschly/features/home/screen/home_screen.dart';
 import 'package:deutschly/features/lesson/screen/lesson_detail_screen.dart';
 import 'package:deutschly/features/progress/screen/progress_screen.dart';
 import 'package:deutschly/features/shell/screen/app_shell_screen.dart';
+import 'package:deutschly/features/vocabulary/screen/vocabulary_screen.dart';
 
 class AppRoutes {
   const AppRoutes._();
 
   static const String home = '/';
+  static const String vocabulary = '/vocabulary';
   static const String progress = '/progress';
+  static const String about = '/about';
   static const String lessonDetailPath = '/lesson/:lessonId';
   static const String lessonExercisesPath = '/lesson/:lessonId/exercises';
 
@@ -50,9 +54,21 @@ class AppRouter {
               },
             ),
             GoRoute(
+              path: AppRoutes.vocabulary,
+              builder: (BuildContext context, GoRouterState state) {
+                return const VocabularyScreen();
+              },
+            ),
+            GoRoute(
               path: AppRoutes.progress,
               builder: (BuildContext context, GoRouterState state) {
                 return const ProgressScreen();
+              },
+            ),
+            GoRoute(
+              path: AppRoutes.about,
+              builder: (BuildContext context, GoRouterState state) {
+                return const AboutScreen();
               },
             ),
           ],

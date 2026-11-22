@@ -12,7 +12,10 @@ class SharedPreferenceHelper {
   }
 
   static Future<bool> setString(String key, String value) async {
-    final prefs = _preferences ?? await SharedPreferences.getInstance();
+    final prefs = _preferences;
+    if (prefs == null) {
+      return false;
+    }
     return prefs.setString(key, value);
   }
 
@@ -21,7 +24,10 @@ class SharedPreferenceHelper {
   }
 
   static Future<bool> setStringList(String key, List<String> value) async {
-    final prefs = _preferences ?? await SharedPreferences.getInstance();
+    final prefs = _preferences;
+    if (prefs == null) {
+      return false;
+    }
     return prefs.setStringList(key, value);
   }
 
@@ -30,7 +36,10 @@ class SharedPreferenceHelper {
   }
 
   static Future<bool> clear() async {
-    final prefs = _preferences ?? await SharedPreferences.getInstance();
+    final prefs = _preferences;
+    if (prefs == null) {
+      return false;
+    }
     return prefs.clear();
   }
 }

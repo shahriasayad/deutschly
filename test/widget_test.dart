@@ -11,6 +11,7 @@ import 'package:deutschly/features/exercise/screen/exercise_screen.dart';
 import 'package:deutschly/features/home/controller/home_controller.dart';
 import 'package:deutschly/features/progress/controller/progress_controller.dart';
 import 'package:deutschly/features/progress/service/progress_service.dart';
+import 'package:deutschly/features/vocabulary/controller/vocabulary_controller.dart';
 import 'package:deutschly/main.dart';
 
 void main() {
@@ -100,7 +101,7 @@ void main() {
   });
 
   testWidgets(
-      'Completing exercise updates HomeScreen and LessonDetailScreen progress, and Reset Progress clears it',
+      'Completing exercise updates HomeScreen, LessonDetailScreen, VocabularyScreen, AboutScreen, and Reset Progress clears it',
       (WidgetTester tester) async {
     const repository = CourseRepository();
     final Course? course = await tester.runAsync(() => repository.loadCourse());
@@ -118,6 +119,7 @@ void main() {
         progressController: progressController,
       ),
     );
+    Get.put(VocabularyController(courseController: courseController));
 
     await tester.pumpWidget(const DeutschlyApp());
     await tester.pumpAndSettle();
@@ -145,8 +147,24 @@ void main() {
     expect(find.text('Completed'), findsNWidgets(2));
     expect(find.text('Not started'), findsNWidgets(8));
 
-    // Navigate back to Home and test Reset Progress dialog
+    // Navigate back to Home
     await tester.tap(find.byTooltip('Back'));
+    await tester.pumpAndSettle();
+
+    // Navigate to Vocabulary tab
+    await tester.tap(find.text('Vocabulary'));
+    await tester.pumpAndSettle();
+    expect(find.text('Vocabulary Review'), findsOneWidget);
+    expect(find.text('Guten Morgen'), findsOneWidget);
+
+    // Navigate to About tab
+    await tester.tap(find.text('About'));
+    await tester.pumpAndSettle();
+    expect(find.text('About & Info'), findsOneWidget);
+    expect(find.text('100% Offline-First'), findsOneWidget);
+
+    // Navigate back to Home and test Reset Progress dialog
+    await tester.tap(find.text('Home'));
     await tester.pumpAndSettle();
 
     await tester.tap(find.byKey(const ValueKey<String>('home_reset_progress_btn')));

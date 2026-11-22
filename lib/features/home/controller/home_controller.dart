@@ -8,8 +8,8 @@ class HomeController extends GetxController {
   HomeController({
     CourseController? courseController,
     ProgressController? progressController,
-  })  : _courseController = courseController ?? Get.find<CourseController>(),
-        _progressController = progressController;
+  }) : _courseController = courseController ?? Get.find<CourseController>(),
+       _progressController = progressController;
 
   final CourseController _courseController;
   final ProgressController? _progressController;
@@ -21,9 +21,7 @@ class HomeController extends GetxController {
     if (Get.isRegistered<ProgressController>()) {
       return Get.find<ProgressController>();
     }
-    return Get.put(
-      ProgressController(courseController: _courseController),
-    );
+    return Get.put(ProgressController(courseController: _courseController));
   }
 
   Course? get course => _courseController.course.value;

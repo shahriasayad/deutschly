@@ -11,6 +11,7 @@ import 'package:deutschly/features/course/controller/course_controller.dart';
 import 'package:deutschly/features/home/controller/home_controller.dart';
 import 'package:deutschly/features/progress/controller/progress_controller.dart';
 import 'package:deutschly/features/progress/service/progress_service.dart';
+import 'package:deutschly/features/vocabulary/controller/vocabulary_controller.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -38,6 +39,9 @@ Future<void> main() async {
       courseController: courseController,
       progressController: progressController,
     ),
+  );
+  Get.put(
+    VocabularyController(courseController: courseController),
   );
 
   runApp(const DeutschlyApp());
