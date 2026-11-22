@@ -41,8 +41,7 @@ class VocabularyScreen extends StatelessWidget {
                     totalCount: entries.length,
                     onSearchChanged: controller.updateSearchQuery,
                     onSelectLesson: controller.selectLessonFilter,
-                    onToggleHideTranslations:
-                        controller.toggleHideTranslations,
+                    onToggleHideTranslations: controller.toggleHideTranslations,
                   ),
                   const SizedBox(height: 12),
                   Expanded(
@@ -64,7 +63,8 @@ class VocabularyScreen extends StatelessWidget {
                               final entry = entries[index];
                               final wordKey =
                                   '${entry.lessonId}_${entry.item.de}';
-                              final isRevealed = !hideTranslations ||
+                              final isRevealed =
+                                  !hideTranslations ||
                                   revealedSet.contains(wordKey);
 
                               return InkWell(
@@ -78,8 +78,9 @@ class VocabularyScreen extends StatelessWidget {
                                   decoration: BoxDecoration(
                                     color: colorScheme.surface,
                                     borderRadius: BorderRadius.circular(14),
-                                    border:
-                                        Border.all(color: theme.dividerColor),
+                                    border: Border.all(
+                                      color: theme.dividerColor,
+                                    ),
                                   ),
                                   child: Row(
                                     crossAxisAlignment:
@@ -92,8 +93,9 @@ class VocabularyScreen extends StatelessWidget {
                                         ),
                                         decoration: BoxDecoration(
                                           color: colorScheme.primaryContainer,
-                                          borderRadius:
-                                              BorderRadius.circular(8),
+                                          borderRadius: BorderRadius.circular(
+                                            8,
+                                          ),
                                         ),
                                         child: Text(
                                           'L${entry.lessonNumber}',
@@ -119,6 +121,21 @@ class VocabularyScreen extends StatelessWidget {
                                                 color: colorScheme.onSurface,
                                               ),
                                             ),
+                                            if (entry
+                                                    .item
+                                                    .pronunciationBn
+                                                    ?.isNotEmpty ==
+                                                true) ...<Widget>[
+                                              const SizedBox(height: 3),
+                                              Text(
+                                                'উচ্চারণ (আনুমানিক): ${entry.item.pronunciationBn}',
+                                                style: getTextStyle(
+                                                  fontSize: 12,
+                                                  color: colorScheme
+                                                      .onSurfaceVariant,
+                                                ),
+                                              ),
+                                            ],
                                             const SizedBox(height: 4),
                                             if (isRevealed) ...<Widget>[
                                               Text(

@@ -9,6 +9,7 @@ abstract class VocabularyItem with _$VocabularyItem {
     required String de,
     required String en,
     required String bn,
+    String? pronunciationBn,
   }) = _VocabularyItem;
 
   factory VocabularyItem.fromJson(Map<String, dynamic> json) =>

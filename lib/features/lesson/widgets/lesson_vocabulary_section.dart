@@ -130,6 +130,16 @@ class _VocabularyTile extends StatelessWidget {
                     color: colorScheme.onSurface,
                   ),
                 ),
+                if (item.pronunciationBn?.isNotEmpty == true) ...<Widget>[
+                  const SizedBox(height: 3),
+                  Text(
+                    'উচ্চারণ (আনুমানিক): ${item.pronunciationBn}',
+                    style: getTextStyle(
+                      fontSize: 12,
+                      color: colorScheme.onSurfaceVariant,
+                    ),
+                  ),
+                ],
                 const SizedBox(height: 4),
                 Text(
                   item.en,

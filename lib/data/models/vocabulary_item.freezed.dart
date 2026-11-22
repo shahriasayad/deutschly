@@ -15,7 +15,7 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$VocabularyItem {
 
- String get de; String get en; String get bn;
+ String get de; String get en; String get bn; String? get pronunciationBn;
 /// Create a copy of VocabularyItem
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -28,16 +28,16 @@ $VocabularyItemCopyWith<VocabularyItem> get copyWith => _$VocabularyItemCopyWith
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is VocabularyItem&&(identical(other.de, de) || other.de == de)&&(identical(other.en, en) || other.en == en)&&(identical(other.bn, bn) || other.bn == bn));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is VocabularyItem&&(identical(other.de, de) || other.de == de)&&(identical(other.en, en) || other.en == en)&&(identical(other.bn, bn) || other.bn == bn)&&(identical(other.pronunciationBn, pronunciationBn) || other.pronunciationBn == pronunciationBn));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,de,en,bn);
+int get hashCode => Object.hash(runtimeType,de,en,bn,pronunciationBn);
 
 @override
 String toString() {
-  return 'VocabularyItem(de: $de, en: $en, bn: $bn)';
+  return 'VocabularyItem(de: $de, en: $en, bn: $bn, pronunciationBn: $pronunciationBn)';
 }
 
 
@@ -48,7 +48,7 @@ abstract mixin class $VocabularyItemCopyWith<$Res>  {
   factory $VocabularyItemCopyWith(VocabularyItem value, $Res Function(VocabularyItem) _then) = _$VocabularyItemCopyWithImpl;
 @useResult
 $Res call({
- String de, String en, String bn
+ String de, String en, String bn, String? pronunciationBn
 });
 
 
@@ -65,12 +65,13 @@ class _$VocabularyItemCopyWithImpl<$Res>
 
 /// Create a copy of VocabularyItem
 /// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') @override $Res call({Object? de = null,Object? en = null,Object? bn = null,}) {
+@pragma('vm:prefer-inline') @override $Res call({Object? de = null,Object? en = null,Object? bn = null,Object? pronunciationBn = freezed,}) {
   return _then(_self.copyWith(
 de: null == de ? _self.de : de // ignore: cast_nullable_to_non_nullable
 as String,en: null == en ? _self.en : en // ignore: cast_nullable_to_non_nullable
 as String,bn: null == bn ? _self.bn : bn // ignore: cast_nullable_to_non_nullable
-as String,
+as String,pronunciationBn: freezed == pronunciationBn ? _self.pronunciationBn : pronunciationBn // ignore: cast_nullable_to_non_nullable
+as String?,
   ));
 }
 
@@ -155,10 +156,10 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String de,  String en,  String bn)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String de,  String en,  String bn,  String? pronunciationBn)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _VocabularyItem() when $default != null:
-return $default(_that.de,_that.en,_that.bn);case _:
+return $default(_that.de,_that.en,_that.bn,_that.pronunciationBn);case _:
   return orElse();
 
 }
@@ -176,10 +177,10 @@ return $default(_that.de,_that.en,_that.bn);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String de,  String en,  String bn)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String de,  String en,  String bn,  String? pronunciationBn)  $default,) {final _that = this;
 switch (_that) {
 case _VocabularyItem():
-return $default(_that.de,_that.en,_that.bn);case _:
+return $default(_that.de,_that.en,_that.bn,_that.pronunciationBn);case _:
   throw StateError('Unexpected subclass');
 
 }
@@ -196,10 +197,10 @@ return $default(_that.de,_that.en,_that.bn);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String de,  String en,  String bn)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String de,  String en,  String bn,  String? pronunciationBn)?  $default,) {final _that = this;
 switch (_that) {
 case _VocabularyItem() when $default != null:
-return $default(_that.de,_that.en,_that.bn);case _:
+return $default(_that.de,_that.en,_that.bn,_that.pronunciationBn);case _:
   return null;
 
 }
@@ -211,12 +212,13 @@ return $default(_that.de,_that.en,_that.bn);case _:
 @JsonSerializable()
 
 class _VocabularyItem implements VocabularyItem {
-  const _VocabularyItem({required this.de, required this.en, required this.bn});
+  const _VocabularyItem({required this.de, required this.en, required this.bn, this.pronunciationBn});
   factory _VocabularyItem.fromJson(Map<String, dynamic> json) => _$VocabularyItemFromJson(json);
 
 @override final  String de;
 @override final  String en;
 @override final  String bn;
+@override final  String? pronunciationBn;
 
 /// Create a copy of VocabularyItem
 /// with the given fields replaced by the non-null parameter values.
@@ -231,16 +233,16 @@ Map<String, dynamic> toJson() {
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _VocabularyItem&&(identical(other.de, de) || other.de == de)&&(identical(other.en, en) || other.en == en)&&(identical(other.bn, bn) || other.bn == bn));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _VocabularyItem&&(identical(other.de, de) || other.de == de)&&(identical(other.en, en) || other.en == en)&&(identical(other.bn, bn) || other.bn == bn)&&(identical(other.pronunciationBn, pronunciationBn) || other.pronunciationBn == pronunciationBn));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,de,en,bn);
+int get hashCode => Object.hash(runtimeType,de,en,bn,pronunciationBn);
 
 @override
 String toString() {
-  return 'VocabularyItem(de: $de, en: $en, bn: $bn)';
+  return 'VocabularyItem(de: $de, en: $en, bn: $bn, pronunciationBn: $pronunciationBn)';
 }
 
 
@@ -251,7 +253,7 @@ abstract mixin class _$VocabularyItemCopyWith<$Res> implements $VocabularyItemCo
   factory _$VocabularyItemCopyWith(_VocabularyItem value, $Res Function(_VocabularyItem) _then) = __$VocabularyItemCopyWithImpl;
 @override @useResult
 $Res call({
- String de, String en, String bn
+ String de, String en, String bn, String? pronunciationBn
 });
 
 
@@ -268,12 +270,13 @@ class __$VocabularyItemCopyWithImpl<$Res>
 
 /// Create a copy of VocabularyItem
 /// with the given fields replaced by the non-null parameter values.
-@override @pragma('vm:prefer-inline') $Res call({Object? de = null,Object? en = null,Object? bn = null,}) {
+@override @pragma('vm:prefer-inline') $Res call({Object? de = null,Object? en = null,Object? bn = null,Object? pronunciationBn = freezed,}) {
   return _then(_VocabularyItem(
 de: null == de ? _self.de : de // ignore: cast_nullable_to_non_nullable
 as String,en: null == en ? _self.en : en // ignore: cast_nullable_to_non_nullable
 as String,bn: null == bn ? _self.bn : bn // ignore: cast_nullable_to_non_nullable
-as String,
+as String,pronunciationBn: freezed == pronunciationBn ? _self.pronunciationBn : pronunciationBn // ignore: cast_nullable_to_non_nullable
+as String?,
   ));
 }
 

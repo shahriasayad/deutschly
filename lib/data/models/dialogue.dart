@@ -8,6 +8,7 @@ abstract class DialogueLine with _$DialogueLine {
   const factory DialogueLine({
     required String speaker,
     required String text,
+    String? pronunciationBn,
   }) = _DialogueLine;
 
   factory DialogueLine.fromJson(Map<String, dynamic> json) =>

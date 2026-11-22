@@ -3,10 +3,7 @@ import 'package:deutschly/core/global_text_style.dart';
 import 'package:deutschly/data/models/dialogue.dart';
 
 class LessonDialoguesSection extends StatelessWidget {
-  const LessonDialoguesSection({
-    super.key,
-    required this.dialogues,
-  });
+  const LessonDialoguesSection({super.key, required this.dialogues});
 
   final List<Dialogue> dialogues;
 
@@ -28,11 +25,7 @@ class LessonDialoguesSection extends StatelessWidget {
         children: <Widget>[
           Row(
             children: <Widget>[
-              Icon(
-                Icons.forum_outlined,
-                color: colorScheme.primary,
-                size: 20,
-              ),
+              Icon(Icons.forum_outlined, color: colorScheme.primary, size: 20),
               const SizedBox(width: 8),
               Text(
                 'Dialogues (${dialogues.length})',
@@ -86,10 +79,7 @@ class _DialogueCard extends StatelessWidget {
           ),
           const SizedBox(height: 12),
           for (int i = 0; i < dialogue.lines.length; i++) ...<Widget>[
-            _DialogueLineRow(
-              line: dialogue.lines[i],
-              isEvenSpeaker: i.isEven,
-            ),
+            _DialogueLineRow(line: dialogue.lines[i], isEvenSpeaker: i.isEven),
             if (i < dialogue.lines.length - 1) const SizedBox(height: 10),
           ],
         ],
@@ -99,10 +89,7 @@ class _DialogueCard extends StatelessWidget {
 }
 
 class _DialogueLineRow extends StatelessWidget {
-  const _DialogueLineRow({
-    required this.line,
-    required this.isEvenSpeaker,
-  });
+  const _DialogueLineRow({required this.line, required this.isEvenSpeaker});
 
   final DialogueLine line;
   final bool isEvenSpeaker;
@@ -124,10 +111,7 @@ class _DialogueLineRow extends StatelessWidget {
           width: 28,
           height: 28,
           alignment: Alignment.center,
-          decoration: BoxDecoration(
-            color: avatarBg,
-            shape: BoxShape.circle,
-          ),
+          decoration: BoxDecoration(color: avatarBg, shape: BoxShape.circle),
           child: Text(
             line.speaker,
             style: getTextStyle(
@@ -145,13 +129,29 @@ class _DialogueLineRow extends StatelessWidget {
               color: colorScheme.surface,
               borderRadius: BorderRadius.circular(12),
             ),
-            child: Text(
-              line.text,
-              style: getTextStyle(
-                fontSize: 14,
-                color: colorScheme.onSurface,
-                height: 1.4,
-              ),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: <Widget>[
+                Text(
+                  line.text,
+                  style: getTextStyle(
+                    fontSize: 14,
+                    color: colorScheme.onSurface,
+                    height: 1.4,
+                  ),
+                ),
+                if (line.pronunciationBn?.isNotEmpty == true) ...<Widget>[
+                  const SizedBox(height: 4),
+                  Text(
+                    'উচ্চারণ (আনুমানিক): ${line.pronunciationBn}',
+                    style: getTextStyle(
+                      fontSize: 12,
+                      color: colorScheme.onSurfaceVariant,
+                      height: 1.35,
+                    ),
+                  ),
+                ],
+              ],
             ),
           ),
         ),
