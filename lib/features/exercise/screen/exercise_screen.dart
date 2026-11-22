@@ -20,6 +20,7 @@ import 'package:deutschly/features/exercise/widgets/multiple_choice_widget.dart'
 import 'package:deutschly/features/exercise/widgets/ordering_widget.dart';
 import 'package:deutschly/features/exercise/widgets/speaking_prompt_widget.dart';
 import 'package:deutschly/features/exercise/widgets/true_false_widget.dart';
+import 'package:deutschly/features/exercise/widgets/writing_prompt_widget.dart';
 import 'package:deutschly/features/lesson/controller/lesson_detail_controller.dart';
 
 class ExerciseScreen extends StatelessWidget {
@@ -274,6 +275,18 @@ class _ExercisePlayerState extends State<ExercisePlayer> {
                           height: 1.35,
                         ),
                       ),
+                      if (exercise.pronunciationBn?.isNotEmpty ==
+                          true) ...<Widget>[
+                        const SizedBox(height: 8),
+                        Text(
+                          'উচ্চারণ (আনুমানিক): ${exercise.pronunciationBn}',
+                          style: getTextStyle(
+                            fontSize: 13,
+                            color: colorScheme.onSurfaceVariant,
+                            height: 1.4,
+                          ),
+                        ),
+                      ],
                     ],
                   ),
                 ),
@@ -330,16 +343,32 @@ class _ExercisePlayerState extends State<ExercisePlayer> {
                     onReorder: _controller.reorderItems,
                     onMoveItem: _controller.moveOrderingItem,
                   ),
+                  WritingPromptExercise() => WritingPromptWidget(
+                    exercise: exercise,
+                    textController: _controller.writingTextController,
+                    showExample: _controller.showWritingExample.value,
+                    selfEvaluation: _controller.writingSelfEvaluation.value,
+                    isChecked: isChecked,
+                    onChanged: _controller.updateWritingText,
+                    onToggleExample: _controller.toggleWritingExample,
+                    onSelectSelfEvaluation:
+                        _controller.selectWritingSelfEvaluation,
+                  ),
                 },
                 if (isChecked) ...<Widget>[
                   const SizedBox(height: 18),
                   ExerciseFeedbackCard(
                     isCorrect: _controller.isCurrentCorrect.value,
-                    correctAnswerSummary: exercise is SpeakingPromptExercise
+                    correctAnswerSummary:
+                        exercise is SpeakingPromptExercise ||
+                            exercise is WritingPromptExercise
                         ? ''
                         : _controller.currentCorrectAnswerSummary,
                     explanation: exercise.explanation,
-                    isSelfAssessment: exercise is SpeakingPromptExercise,
+                    isSelfAssessment:
+                        exercise is SpeakingPromptExercise ||
+                        exercise is WritingPromptExercise,
+                    isWritingPrompt: exercise is WritingPromptExercise,
                   ),
                 ],
                 const SizedBox(height: 22),

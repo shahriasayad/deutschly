@@ -305,6 +305,10 @@ Exercise _$ExerciseFromJson(
           return OrderingExercise.fromJson(
             json
           );
+                case 'writing_prompt':
+          return WritingPromptExercise.fromJson(
+            json
+          );
         
           default:
             throw CheckedFromJsonException(
@@ -320,7 +324,7 @@ Exercise _$ExerciseFromJson(
 /// @nodoc
 mixin _$Exercise {
 
- String get id; String get question; String? get explanation;
+ String get id; String get question; String? get explanation; String? get pronunciationBn;
 /// Create a copy of Exercise
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -333,16 +337,16 @@ $ExerciseCopyWith<Exercise> get copyWith => _$ExerciseCopyWithImpl<Exercise>(thi
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is Exercise&&(identical(other.id, id) || other.id == id)&&(identical(other.question, question) || other.question == question)&&(identical(other.explanation, explanation) || other.explanation == explanation));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is Exercise&&(identical(other.id, id) || other.id == id)&&(identical(other.question, question) || other.question == question)&&(identical(other.explanation, explanation) || other.explanation == explanation)&&(identical(other.pronunciationBn, pronunciationBn) || other.pronunciationBn == pronunciationBn));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,id,question,explanation);
+int get hashCode => Object.hash(runtimeType,id,question,explanation,pronunciationBn);
 
 @override
 String toString() {
-  return 'Exercise(id: $id, question: $question, explanation: $explanation)';
+  return 'Exercise(id: $id, question: $question, explanation: $explanation, pronunciationBn: $pronunciationBn)';
 }
 
 
@@ -353,7 +357,7 @@ abstract mixin class $ExerciseCopyWith<$Res>  {
   factory $ExerciseCopyWith(Exercise value, $Res Function(Exercise) _then) = _$ExerciseCopyWithImpl;
 @useResult
 $Res call({
- String id, String question, String? explanation
+ String id, String question, String? explanation, String? pronunciationBn
 });
 
 
@@ -370,11 +374,12 @@ class _$ExerciseCopyWithImpl<$Res>
 
 /// Create a copy of Exercise
 /// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') @override $Res call({Object? id = null,Object? question = null,Object? explanation = freezed,}) {
+@pragma('vm:prefer-inline') @override $Res call({Object? id = null,Object? question = null,Object? explanation = freezed,Object? pronunciationBn = freezed,}) {
   return _then(_self.copyWith(
 id: null == id ? _self.id : id // ignore: cast_nullable_to_non_nullable
 as String,question: null == question ? _self.question : question // ignore: cast_nullable_to_non_nullable
 as String,explanation: freezed == explanation ? _self.explanation : explanation // ignore: cast_nullable_to_non_nullable
+as String?,pronunciationBn: freezed == pronunciationBn ? _self.pronunciationBn : pronunciationBn // ignore: cast_nullable_to_non_nullable
 as String?,
   ));
 }
@@ -396,7 +401,7 @@ extension ExercisePatterns on Exercise {
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeMap<TResult extends Object?>({TResult Function( MultipleChoiceExercise value)?  multipleChoice,TResult Function( FillBlankExercise value)?  fillBlank,TResult Function( MatchingExercise value)?  matching,TResult Function( TrueFalseExercise value)?  trueFalse,TResult Function( SpeakingPromptExercise value)?  speakingPrompt,TResult Function( OrderingExercise value)?  ordering,required TResult orElse(),}){
+@optionalTypeArgs TResult maybeMap<TResult extends Object?>({TResult Function( MultipleChoiceExercise value)?  multipleChoice,TResult Function( FillBlankExercise value)?  fillBlank,TResult Function( MatchingExercise value)?  matching,TResult Function( TrueFalseExercise value)?  trueFalse,TResult Function( SpeakingPromptExercise value)?  speakingPrompt,TResult Function( OrderingExercise value)?  ordering,TResult Function( WritingPromptExercise value)?  writingPrompt,required TResult orElse(),}){
 final _that = this;
 switch (_that) {
 case MultipleChoiceExercise() when multipleChoice != null:
@@ -405,7 +410,8 @@ return fillBlank(_that);case MatchingExercise() when matching != null:
 return matching(_that);case TrueFalseExercise() when trueFalse != null:
 return trueFalse(_that);case SpeakingPromptExercise() when speakingPrompt != null:
 return speakingPrompt(_that);case OrderingExercise() when ordering != null:
-return ordering(_that);case _:
+return ordering(_that);case WritingPromptExercise() when writingPrompt != null:
+return writingPrompt(_that);case _:
   return orElse();
 
 }
@@ -423,7 +429,7 @@ return ordering(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult map<TResult extends Object?>({required TResult Function( MultipleChoiceExercise value)  multipleChoice,required TResult Function( FillBlankExercise value)  fillBlank,required TResult Function( MatchingExercise value)  matching,required TResult Function( TrueFalseExercise value)  trueFalse,required TResult Function( SpeakingPromptExercise value)  speakingPrompt,required TResult Function( OrderingExercise value)  ordering,}){
+@optionalTypeArgs TResult map<TResult extends Object?>({required TResult Function( MultipleChoiceExercise value)  multipleChoice,required TResult Function( FillBlankExercise value)  fillBlank,required TResult Function( MatchingExercise value)  matching,required TResult Function( TrueFalseExercise value)  trueFalse,required TResult Function( SpeakingPromptExercise value)  speakingPrompt,required TResult Function( OrderingExercise value)  ordering,required TResult Function( WritingPromptExercise value)  writingPrompt,}){
 final _that = this;
 switch (_that) {
 case MultipleChoiceExercise():
@@ -432,7 +438,8 @@ return fillBlank(_that);case MatchingExercise():
 return matching(_that);case TrueFalseExercise():
 return trueFalse(_that);case SpeakingPromptExercise():
 return speakingPrompt(_that);case OrderingExercise():
-return ordering(_that);}
+return ordering(_that);case WritingPromptExercise():
+return writingPrompt(_that);}
 }
 /// A variant of `map` that fallback to returning `null`.
 ///
@@ -446,7 +453,7 @@ return ordering(_that);}
 /// }
 /// ```
 
-@optionalTypeArgs TResult? mapOrNull<TResult extends Object?>({TResult? Function( MultipleChoiceExercise value)?  multipleChoice,TResult? Function( FillBlankExercise value)?  fillBlank,TResult? Function( MatchingExercise value)?  matching,TResult? Function( TrueFalseExercise value)?  trueFalse,TResult? Function( SpeakingPromptExercise value)?  speakingPrompt,TResult? Function( OrderingExercise value)?  ordering,}){
+@optionalTypeArgs TResult? mapOrNull<TResult extends Object?>({TResult? Function( MultipleChoiceExercise value)?  multipleChoice,TResult? Function( FillBlankExercise value)?  fillBlank,TResult? Function( MatchingExercise value)?  matching,TResult? Function( TrueFalseExercise value)?  trueFalse,TResult? Function( SpeakingPromptExercise value)?  speakingPrompt,TResult? Function( OrderingExercise value)?  ordering,TResult? Function( WritingPromptExercise value)?  writingPrompt,}){
 final _that = this;
 switch (_that) {
 case MultipleChoiceExercise() when multipleChoice != null:
@@ -455,7 +462,8 @@ return fillBlank(_that);case MatchingExercise() when matching != null:
 return matching(_that);case TrueFalseExercise() when trueFalse != null:
 return trueFalse(_that);case SpeakingPromptExercise() when speakingPrompt != null:
 return speakingPrompt(_that);case OrderingExercise() when ordering != null:
-return ordering(_that);case _:
+return ordering(_that);case WritingPromptExercise() when writingPrompt != null:
+return writingPrompt(_that);case _:
   return null;
 
 }
@@ -472,15 +480,16 @@ return ordering(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>({TResult Function( String id,  String question,  List<String> options,  int correctIndex,  String? explanation)?  multipleChoice,TResult Function( String id,  String question,  String answer,  List<String> acceptableAnswers,  String? explanation)?  fillBlank,TResult Function( String id,  String question,  List<MatchingPair> pairs,  String? explanation)?  matching,TResult Function( String id,  String question,  bool correct,  String? explanation)?  trueFalse,TResult Function( String id,  String question,  String exampleAnswer,  String? explanation)?  speakingPrompt,TResult Function( String id,  String question,  List<String> items,  List<int> correctOrder,  String? explanation)?  ordering,required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>({TResult Function( String id,  String question,  List<String> options,  int correctIndex,  String? explanation,  String? pronunciationBn)?  multipleChoice,TResult Function( String id,  String question,  String answer,  List<String> acceptableAnswers,  String? explanation,  String? pronunciationBn)?  fillBlank,TResult Function( String id,  String question,  List<MatchingPair> pairs,  String? explanation,  String? pronunciationBn)?  matching,TResult Function( String id,  String question,  bool correct,  String? explanation,  String? pronunciationBn)?  trueFalse,TResult Function( String id,  String question,  String exampleAnswer,  String? explanation,  String? pronunciationBn)?  speakingPrompt,TResult Function( String id,  String question,  List<String> items,  List<int> correctOrder,  String? explanation,  String? pronunciationBn)?  ordering,TResult Function( String id,  String question,  String exampleAnswer,  String? explanation,  String? pronunciationBn)?  writingPrompt,required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case MultipleChoiceExercise() when multipleChoice != null:
-return multipleChoice(_that.id,_that.question,_that.options,_that.correctIndex,_that.explanation);case FillBlankExercise() when fillBlank != null:
-return fillBlank(_that.id,_that.question,_that.answer,_that.acceptableAnswers,_that.explanation);case MatchingExercise() when matching != null:
-return matching(_that.id,_that.question,_that.pairs,_that.explanation);case TrueFalseExercise() when trueFalse != null:
-return trueFalse(_that.id,_that.question,_that.correct,_that.explanation);case SpeakingPromptExercise() when speakingPrompt != null:
-return speakingPrompt(_that.id,_that.question,_that.exampleAnswer,_that.explanation);case OrderingExercise() when ordering != null:
-return ordering(_that.id,_that.question,_that.items,_that.correctOrder,_that.explanation);case _:
+return multipleChoice(_that.id,_that.question,_that.options,_that.correctIndex,_that.explanation,_that.pronunciationBn);case FillBlankExercise() when fillBlank != null:
+return fillBlank(_that.id,_that.question,_that.answer,_that.acceptableAnswers,_that.explanation,_that.pronunciationBn);case MatchingExercise() when matching != null:
+return matching(_that.id,_that.question,_that.pairs,_that.explanation,_that.pronunciationBn);case TrueFalseExercise() when trueFalse != null:
+return trueFalse(_that.id,_that.question,_that.correct,_that.explanation,_that.pronunciationBn);case SpeakingPromptExercise() when speakingPrompt != null:
+return speakingPrompt(_that.id,_that.question,_that.exampleAnswer,_that.explanation,_that.pronunciationBn);case OrderingExercise() when ordering != null:
+return ordering(_that.id,_that.question,_that.items,_that.correctOrder,_that.explanation,_that.pronunciationBn);case WritingPromptExercise() when writingPrompt != null:
+return writingPrompt(_that.id,_that.question,_that.exampleAnswer,_that.explanation,_that.pronunciationBn);case _:
   return orElse();
 
 }
@@ -498,15 +507,16 @@ return ordering(_that.id,_that.question,_that.items,_that.correctOrder,_that.exp
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>({required TResult Function( String id,  String question,  List<String> options,  int correctIndex,  String? explanation)  multipleChoice,required TResult Function( String id,  String question,  String answer,  List<String> acceptableAnswers,  String? explanation)  fillBlank,required TResult Function( String id,  String question,  List<MatchingPair> pairs,  String? explanation)  matching,required TResult Function( String id,  String question,  bool correct,  String? explanation)  trueFalse,required TResult Function( String id,  String question,  String exampleAnswer,  String? explanation)  speakingPrompt,required TResult Function( String id,  String question,  List<String> items,  List<int> correctOrder,  String? explanation)  ordering,}) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>({required TResult Function( String id,  String question,  List<String> options,  int correctIndex,  String? explanation,  String? pronunciationBn)  multipleChoice,required TResult Function( String id,  String question,  String answer,  List<String> acceptableAnswers,  String? explanation,  String? pronunciationBn)  fillBlank,required TResult Function( String id,  String question,  List<MatchingPair> pairs,  String? explanation,  String? pronunciationBn)  matching,required TResult Function( String id,  String question,  bool correct,  String? explanation,  String? pronunciationBn)  trueFalse,required TResult Function( String id,  String question,  String exampleAnswer,  String? explanation,  String? pronunciationBn)  speakingPrompt,required TResult Function( String id,  String question,  List<String> items,  List<int> correctOrder,  String? explanation,  String? pronunciationBn)  ordering,required TResult Function( String id,  String question,  String exampleAnswer,  String? explanation,  String? pronunciationBn)  writingPrompt,}) {final _that = this;
 switch (_that) {
 case MultipleChoiceExercise():
-return multipleChoice(_that.id,_that.question,_that.options,_that.correctIndex,_that.explanation);case FillBlankExercise():
-return fillBlank(_that.id,_that.question,_that.answer,_that.acceptableAnswers,_that.explanation);case MatchingExercise():
-return matching(_that.id,_that.question,_that.pairs,_that.explanation);case TrueFalseExercise():
-return trueFalse(_that.id,_that.question,_that.correct,_that.explanation);case SpeakingPromptExercise():
-return speakingPrompt(_that.id,_that.question,_that.exampleAnswer,_that.explanation);case OrderingExercise():
-return ordering(_that.id,_that.question,_that.items,_that.correctOrder,_that.explanation);}
+return multipleChoice(_that.id,_that.question,_that.options,_that.correctIndex,_that.explanation,_that.pronunciationBn);case FillBlankExercise():
+return fillBlank(_that.id,_that.question,_that.answer,_that.acceptableAnswers,_that.explanation,_that.pronunciationBn);case MatchingExercise():
+return matching(_that.id,_that.question,_that.pairs,_that.explanation,_that.pronunciationBn);case TrueFalseExercise():
+return trueFalse(_that.id,_that.question,_that.correct,_that.explanation,_that.pronunciationBn);case SpeakingPromptExercise():
+return speakingPrompt(_that.id,_that.question,_that.exampleAnswer,_that.explanation,_that.pronunciationBn);case OrderingExercise():
+return ordering(_that.id,_that.question,_that.items,_that.correctOrder,_that.explanation,_that.pronunciationBn);case WritingPromptExercise():
+return writingPrompt(_that.id,_that.question,_that.exampleAnswer,_that.explanation,_that.pronunciationBn);}
 }
 /// A variant of `when` that fallback to returning `null`
 ///
@@ -520,15 +530,16 @@ return ordering(_that.id,_that.question,_that.items,_that.correctOrder,_that.exp
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>({TResult? Function( String id,  String question,  List<String> options,  int correctIndex,  String? explanation)?  multipleChoice,TResult? Function( String id,  String question,  String answer,  List<String> acceptableAnswers,  String? explanation)?  fillBlank,TResult? Function( String id,  String question,  List<MatchingPair> pairs,  String? explanation)?  matching,TResult? Function( String id,  String question,  bool correct,  String? explanation)?  trueFalse,TResult? Function( String id,  String question,  String exampleAnswer,  String? explanation)?  speakingPrompt,TResult? Function( String id,  String question,  List<String> items,  List<int> correctOrder,  String? explanation)?  ordering,}) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>({TResult? Function( String id,  String question,  List<String> options,  int correctIndex,  String? explanation,  String? pronunciationBn)?  multipleChoice,TResult? Function( String id,  String question,  String answer,  List<String> acceptableAnswers,  String? explanation,  String? pronunciationBn)?  fillBlank,TResult? Function( String id,  String question,  List<MatchingPair> pairs,  String? explanation,  String? pronunciationBn)?  matching,TResult? Function( String id,  String question,  bool correct,  String? explanation,  String? pronunciationBn)?  trueFalse,TResult? Function( String id,  String question,  String exampleAnswer,  String? explanation,  String? pronunciationBn)?  speakingPrompt,TResult? Function( String id,  String question,  List<String> items,  List<int> correctOrder,  String? explanation,  String? pronunciationBn)?  ordering,TResult? Function( String id,  String question,  String exampleAnswer,  String? explanation,  String? pronunciationBn)?  writingPrompt,}) {final _that = this;
 switch (_that) {
 case MultipleChoiceExercise() when multipleChoice != null:
-return multipleChoice(_that.id,_that.question,_that.options,_that.correctIndex,_that.explanation);case FillBlankExercise() when fillBlank != null:
-return fillBlank(_that.id,_that.question,_that.answer,_that.acceptableAnswers,_that.explanation);case MatchingExercise() when matching != null:
-return matching(_that.id,_that.question,_that.pairs,_that.explanation);case TrueFalseExercise() when trueFalse != null:
-return trueFalse(_that.id,_that.question,_that.correct,_that.explanation);case SpeakingPromptExercise() when speakingPrompt != null:
-return speakingPrompt(_that.id,_that.question,_that.exampleAnswer,_that.explanation);case OrderingExercise() when ordering != null:
-return ordering(_that.id,_that.question,_that.items,_that.correctOrder,_that.explanation);case _:
+return multipleChoice(_that.id,_that.question,_that.options,_that.correctIndex,_that.explanation,_that.pronunciationBn);case FillBlankExercise() when fillBlank != null:
+return fillBlank(_that.id,_that.question,_that.answer,_that.acceptableAnswers,_that.explanation,_that.pronunciationBn);case MatchingExercise() when matching != null:
+return matching(_that.id,_that.question,_that.pairs,_that.explanation,_that.pronunciationBn);case TrueFalseExercise() when trueFalse != null:
+return trueFalse(_that.id,_that.question,_that.correct,_that.explanation,_that.pronunciationBn);case SpeakingPromptExercise() when speakingPrompt != null:
+return speakingPrompt(_that.id,_that.question,_that.exampleAnswer,_that.explanation,_that.pronunciationBn);case OrderingExercise() when ordering != null:
+return ordering(_that.id,_that.question,_that.items,_that.correctOrder,_that.explanation,_that.pronunciationBn);case WritingPromptExercise() when writingPrompt != null:
+return writingPrompt(_that.id,_that.question,_that.exampleAnswer,_that.explanation,_that.pronunciationBn);case _:
   return null;
 
 }
@@ -540,7 +551,7 @@ return ordering(_that.id,_that.question,_that.items,_that.correctOrder,_that.exp
 @JsonSerializable()
 
 class MultipleChoiceExercise extends Exercise {
-  const MultipleChoiceExercise({required this.id, required this.question, required final  List<String> options, required this.correctIndex, this.explanation, final  String? $type}): _options = options,$type = $type ?? 'multiple_choice',super._();
+  const MultipleChoiceExercise({required this.id, required this.question, required final  List<String> options, required this.correctIndex, this.explanation, this.pronunciationBn, final  String? $type}): _options = options,$type = $type ?? 'multiple_choice',super._();
   factory MultipleChoiceExercise.fromJson(Map<String, dynamic> json) => _$MultipleChoiceExerciseFromJson(json);
 
 @override final  String id;
@@ -554,6 +565,7 @@ class MultipleChoiceExercise extends Exercise {
 
  final  int correctIndex;
 @override final  String? explanation;
+@override final  String? pronunciationBn;
 
 @JsonKey(name: 'type')
 final String $type;
@@ -572,16 +584,16 @@ Map<String, dynamic> toJson() {
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is MultipleChoiceExercise&&(identical(other.id, id) || other.id == id)&&(identical(other.question, question) || other.question == question)&&const DeepCollectionEquality().equals(other._options, _options)&&(identical(other.correctIndex, correctIndex) || other.correctIndex == correctIndex)&&(identical(other.explanation, explanation) || other.explanation == explanation));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is MultipleChoiceExercise&&(identical(other.id, id) || other.id == id)&&(identical(other.question, question) || other.question == question)&&const DeepCollectionEquality().equals(other._options, _options)&&(identical(other.correctIndex, correctIndex) || other.correctIndex == correctIndex)&&(identical(other.explanation, explanation) || other.explanation == explanation)&&(identical(other.pronunciationBn, pronunciationBn) || other.pronunciationBn == pronunciationBn));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,id,question,const DeepCollectionEquality().hash(_options),correctIndex,explanation);
+int get hashCode => Object.hash(runtimeType,id,question,const DeepCollectionEquality().hash(_options),correctIndex,explanation,pronunciationBn);
 
 @override
 String toString() {
-  return 'Exercise.multipleChoice(id: $id, question: $question, options: $options, correctIndex: $correctIndex, explanation: $explanation)';
+  return 'Exercise.multipleChoice(id: $id, question: $question, options: $options, correctIndex: $correctIndex, explanation: $explanation, pronunciationBn: $pronunciationBn)';
 }
 
 
@@ -592,7 +604,7 @@ abstract mixin class $MultipleChoiceExerciseCopyWith<$Res> implements $ExerciseC
   factory $MultipleChoiceExerciseCopyWith(MultipleChoiceExercise value, $Res Function(MultipleChoiceExercise) _then) = _$MultipleChoiceExerciseCopyWithImpl;
 @override @useResult
 $Res call({
- String id, String question, List<String> options, int correctIndex, String? explanation
+ String id, String question, List<String> options, int correctIndex, String? explanation, String? pronunciationBn
 });
 
 
@@ -609,13 +621,14 @@ class _$MultipleChoiceExerciseCopyWithImpl<$Res>
 
 /// Create a copy of Exercise
 /// with the given fields replaced by the non-null parameter values.
-@override @pragma('vm:prefer-inline') $Res call({Object? id = null,Object? question = null,Object? options = null,Object? correctIndex = null,Object? explanation = freezed,}) {
+@override @pragma('vm:prefer-inline') $Res call({Object? id = null,Object? question = null,Object? options = null,Object? correctIndex = null,Object? explanation = freezed,Object? pronunciationBn = freezed,}) {
   return _then(MultipleChoiceExercise(
 id: null == id ? _self.id : id // ignore: cast_nullable_to_non_nullable
 as String,question: null == question ? _self.question : question // ignore: cast_nullable_to_non_nullable
 as String,options: null == options ? _self._options : options // ignore: cast_nullable_to_non_nullable
 as List<String>,correctIndex: null == correctIndex ? _self.correctIndex : correctIndex // ignore: cast_nullable_to_non_nullable
 as int,explanation: freezed == explanation ? _self.explanation : explanation // ignore: cast_nullable_to_non_nullable
+as String?,pronunciationBn: freezed == pronunciationBn ? _self.pronunciationBn : pronunciationBn // ignore: cast_nullable_to_non_nullable
 as String?,
   ));
 }
@@ -627,7 +640,7 @@ as String?,
 @JsonSerializable()
 
 class FillBlankExercise extends Exercise {
-  const FillBlankExercise({required this.id, required this.question, required this.answer, final  List<String> acceptableAnswers = const <String>[], this.explanation, final  String? $type}): _acceptableAnswers = acceptableAnswers,$type = $type ?? 'fill_blank',super._();
+  const FillBlankExercise({required this.id, required this.question, required this.answer, final  List<String> acceptableAnswers = const <String>[], this.explanation, this.pronunciationBn, final  String? $type}): _acceptableAnswers = acceptableAnswers,$type = $type ?? 'fill_blank',super._();
   factory FillBlankExercise.fromJson(Map<String, dynamic> json) => _$FillBlankExerciseFromJson(json);
 
 @override final  String id;
@@ -641,6 +654,7 @@ class FillBlankExercise extends Exercise {
 }
 
 @override final  String? explanation;
+@override final  String? pronunciationBn;
 
 @JsonKey(name: 'type')
 final String $type;
@@ -659,16 +673,16 @@ Map<String, dynamic> toJson() {
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is FillBlankExercise&&(identical(other.id, id) || other.id == id)&&(identical(other.question, question) || other.question == question)&&(identical(other.answer, answer) || other.answer == answer)&&const DeepCollectionEquality().equals(other._acceptableAnswers, _acceptableAnswers)&&(identical(other.explanation, explanation) || other.explanation == explanation));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is FillBlankExercise&&(identical(other.id, id) || other.id == id)&&(identical(other.question, question) || other.question == question)&&(identical(other.answer, answer) || other.answer == answer)&&const DeepCollectionEquality().equals(other._acceptableAnswers, _acceptableAnswers)&&(identical(other.explanation, explanation) || other.explanation == explanation)&&(identical(other.pronunciationBn, pronunciationBn) || other.pronunciationBn == pronunciationBn));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,id,question,answer,const DeepCollectionEquality().hash(_acceptableAnswers),explanation);
+int get hashCode => Object.hash(runtimeType,id,question,answer,const DeepCollectionEquality().hash(_acceptableAnswers),explanation,pronunciationBn);
 
 @override
 String toString() {
-  return 'Exercise.fillBlank(id: $id, question: $question, answer: $answer, acceptableAnswers: $acceptableAnswers, explanation: $explanation)';
+  return 'Exercise.fillBlank(id: $id, question: $question, answer: $answer, acceptableAnswers: $acceptableAnswers, explanation: $explanation, pronunciationBn: $pronunciationBn)';
 }
 
 
@@ -679,7 +693,7 @@ abstract mixin class $FillBlankExerciseCopyWith<$Res> implements $ExerciseCopyWi
   factory $FillBlankExerciseCopyWith(FillBlankExercise value, $Res Function(FillBlankExercise) _then) = _$FillBlankExerciseCopyWithImpl;
 @override @useResult
 $Res call({
- String id, String question, String answer, List<String> acceptableAnswers, String? explanation
+ String id, String question, String answer, List<String> acceptableAnswers, String? explanation, String? pronunciationBn
 });
 
 
@@ -696,13 +710,14 @@ class _$FillBlankExerciseCopyWithImpl<$Res>
 
 /// Create a copy of Exercise
 /// with the given fields replaced by the non-null parameter values.
-@override @pragma('vm:prefer-inline') $Res call({Object? id = null,Object? question = null,Object? answer = null,Object? acceptableAnswers = null,Object? explanation = freezed,}) {
+@override @pragma('vm:prefer-inline') $Res call({Object? id = null,Object? question = null,Object? answer = null,Object? acceptableAnswers = null,Object? explanation = freezed,Object? pronunciationBn = freezed,}) {
   return _then(FillBlankExercise(
 id: null == id ? _self.id : id // ignore: cast_nullable_to_non_nullable
 as String,question: null == question ? _self.question : question // ignore: cast_nullable_to_non_nullable
 as String,answer: null == answer ? _self.answer : answer // ignore: cast_nullable_to_non_nullable
 as String,acceptableAnswers: null == acceptableAnswers ? _self._acceptableAnswers : acceptableAnswers // ignore: cast_nullable_to_non_nullable
 as List<String>,explanation: freezed == explanation ? _self.explanation : explanation // ignore: cast_nullable_to_non_nullable
+as String?,pronunciationBn: freezed == pronunciationBn ? _self.pronunciationBn : pronunciationBn // ignore: cast_nullable_to_non_nullable
 as String?,
   ));
 }
@@ -714,7 +729,7 @@ as String?,
 @JsonSerializable()
 
 class MatchingExercise extends Exercise {
-  const MatchingExercise({required this.id, required this.question, required final  List<MatchingPair> pairs, this.explanation, final  String? $type}): _pairs = pairs,$type = $type ?? 'matching',super._();
+  const MatchingExercise({required this.id, required this.question, required final  List<MatchingPair> pairs, this.explanation, this.pronunciationBn, final  String? $type}): _pairs = pairs,$type = $type ?? 'matching',super._();
   factory MatchingExercise.fromJson(Map<String, dynamic> json) => _$MatchingExerciseFromJson(json);
 
 @override final  String id;
@@ -727,6 +742,7 @@ class MatchingExercise extends Exercise {
 }
 
 @override final  String? explanation;
+@override final  String? pronunciationBn;
 
 @JsonKey(name: 'type')
 final String $type;
@@ -745,16 +761,16 @@ Map<String, dynamic> toJson() {
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is MatchingExercise&&(identical(other.id, id) || other.id == id)&&(identical(other.question, question) || other.question == question)&&const DeepCollectionEquality().equals(other._pairs, _pairs)&&(identical(other.explanation, explanation) || other.explanation == explanation));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is MatchingExercise&&(identical(other.id, id) || other.id == id)&&(identical(other.question, question) || other.question == question)&&const DeepCollectionEquality().equals(other._pairs, _pairs)&&(identical(other.explanation, explanation) || other.explanation == explanation)&&(identical(other.pronunciationBn, pronunciationBn) || other.pronunciationBn == pronunciationBn));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,id,question,const DeepCollectionEquality().hash(_pairs),explanation);
+int get hashCode => Object.hash(runtimeType,id,question,const DeepCollectionEquality().hash(_pairs),explanation,pronunciationBn);
 
 @override
 String toString() {
-  return 'Exercise.matching(id: $id, question: $question, pairs: $pairs, explanation: $explanation)';
+  return 'Exercise.matching(id: $id, question: $question, pairs: $pairs, explanation: $explanation, pronunciationBn: $pronunciationBn)';
 }
 
 
@@ -765,7 +781,7 @@ abstract mixin class $MatchingExerciseCopyWith<$Res> implements $ExerciseCopyWit
   factory $MatchingExerciseCopyWith(MatchingExercise value, $Res Function(MatchingExercise) _then) = _$MatchingExerciseCopyWithImpl;
 @override @useResult
 $Res call({
- String id, String question, List<MatchingPair> pairs, String? explanation
+ String id, String question, List<MatchingPair> pairs, String? explanation, String? pronunciationBn
 });
 
 
@@ -782,12 +798,13 @@ class _$MatchingExerciseCopyWithImpl<$Res>
 
 /// Create a copy of Exercise
 /// with the given fields replaced by the non-null parameter values.
-@override @pragma('vm:prefer-inline') $Res call({Object? id = null,Object? question = null,Object? pairs = null,Object? explanation = freezed,}) {
+@override @pragma('vm:prefer-inline') $Res call({Object? id = null,Object? question = null,Object? pairs = null,Object? explanation = freezed,Object? pronunciationBn = freezed,}) {
   return _then(MatchingExercise(
 id: null == id ? _self.id : id // ignore: cast_nullable_to_non_nullable
 as String,question: null == question ? _self.question : question // ignore: cast_nullable_to_non_nullable
 as String,pairs: null == pairs ? _self._pairs : pairs // ignore: cast_nullable_to_non_nullable
 as List<MatchingPair>,explanation: freezed == explanation ? _self.explanation : explanation // ignore: cast_nullable_to_non_nullable
+as String?,pronunciationBn: freezed == pronunciationBn ? _self.pronunciationBn : pronunciationBn // ignore: cast_nullable_to_non_nullable
 as String?,
   ));
 }
@@ -799,13 +816,14 @@ as String?,
 @JsonSerializable()
 
 class TrueFalseExercise extends Exercise {
-  const TrueFalseExercise({required this.id, required this.question, required this.correct, this.explanation, final  String? $type}): $type = $type ?? 'true_false',super._();
+  const TrueFalseExercise({required this.id, required this.question, required this.correct, this.explanation, this.pronunciationBn, final  String? $type}): $type = $type ?? 'true_false',super._();
   factory TrueFalseExercise.fromJson(Map<String, dynamic> json) => _$TrueFalseExerciseFromJson(json);
 
 @override final  String id;
 @override final  String question;
  final  bool correct;
 @override final  String? explanation;
+@override final  String? pronunciationBn;
 
 @JsonKey(name: 'type')
 final String $type;
@@ -824,16 +842,16 @@ Map<String, dynamic> toJson() {
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is TrueFalseExercise&&(identical(other.id, id) || other.id == id)&&(identical(other.question, question) || other.question == question)&&(identical(other.correct, correct) || other.correct == correct)&&(identical(other.explanation, explanation) || other.explanation == explanation));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is TrueFalseExercise&&(identical(other.id, id) || other.id == id)&&(identical(other.question, question) || other.question == question)&&(identical(other.correct, correct) || other.correct == correct)&&(identical(other.explanation, explanation) || other.explanation == explanation)&&(identical(other.pronunciationBn, pronunciationBn) || other.pronunciationBn == pronunciationBn));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,id,question,correct,explanation);
+int get hashCode => Object.hash(runtimeType,id,question,correct,explanation,pronunciationBn);
 
 @override
 String toString() {
-  return 'Exercise.trueFalse(id: $id, question: $question, correct: $correct, explanation: $explanation)';
+  return 'Exercise.trueFalse(id: $id, question: $question, correct: $correct, explanation: $explanation, pronunciationBn: $pronunciationBn)';
 }
 
 
@@ -844,7 +862,7 @@ abstract mixin class $TrueFalseExerciseCopyWith<$Res> implements $ExerciseCopyWi
   factory $TrueFalseExerciseCopyWith(TrueFalseExercise value, $Res Function(TrueFalseExercise) _then) = _$TrueFalseExerciseCopyWithImpl;
 @override @useResult
 $Res call({
- String id, String question, bool correct, String? explanation
+ String id, String question, bool correct, String? explanation, String? pronunciationBn
 });
 
 
@@ -861,12 +879,13 @@ class _$TrueFalseExerciseCopyWithImpl<$Res>
 
 /// Create a copy of Exercise
 /// with the given fields replaced by the non-null parameter values.
-@override @pragma('vm:prefer-inline') $Res call({Object? id = null,Object? question = null,Object? correct = null,Object? explanation = freezed,}) {
+@override @pragma('vm:prefer-inline') $Res call({Object? id = null,Object? question = null,Object? correct = null,Object? explanation = freezed,Object? pronunciationBn = freezed,}) {
   return _then(TrueFalseExercise(
 id: null == id ? _self.id : id // ignore: cast_nullable_to_non_nullable
 as String,question: null == question ? _self.question : question // ignore: cast_nullable_to_non_nullable
 as String,correct: null == correct ? _self.correct : correct // ignore: cast_nullable_to_non_nullable
 as bool,explanation: freezed == explanation ? _self.explanation : explanation // ignore: cast_nullable_to_non_nullable
+as String?,pronunciationBn: freezed == pronunciationBn ? _self.pronunciationBn : pronunciationBn // ignore: cast_nullable_to_non_nullable
 as String?,
   ));
 }
@@ -878,13 +897,14 @@ as String?,
 @JsonSerializable()
 
 class SpeakingPromptExercise extends Exercise {
-  const SpeakingPromptExercise({required this.id, required this.question, required this.exampleAnswer, this.explanation, final  String? $type}): $type = $type ?? 'speaking_prompt',super._();
+  const SpeakingPromptExercise({required this.id, required this.question, required this.exampleAnswer, this.explanation, this.pronunciationBn, final  String? $type}): $type = $type ?? 'speaking_prompt',super._();
   factory SpeakingPromptExercise.fromJson(Map<String, dynamic> json) => _$SpeakingPromptExerciseFromJson(json);
 
 @override final  String id;
 @override final  String question;
  final  String exampleAnswer;
 @override final  String? explanation;
+@override final  String? pronunciationBn;
 
 @JsonKey(name: 'type')
 final String $type;
@@ -903,16 +923,16 @@ Map<String, dynamic> toJson() {
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is SpeakingPromptExercise&&(identical(other.id, id) || other.id == id)&&(identical(other.question, question) || other.question == question)&&(identical(other.exampleAnswer, exampleAnswer) || other.exampleAnswer == exampleAnswer)&&(identical(other.explanation, explanation) || other.explanation == explanation));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is SpeakingPromptExercise&&(identical(other.id, id) || other.id == id)&&(identical(other.question, question) || other.question == question)&&(identical(other.exampleAnswer, exampleAnswer) || other.exampleAnswer == exampleAnswer)&&(identical(other.explanation, explanation) || other.explanation == explanation)&&(identical(other.pronunciationBn, pronunciationBn) || other.pronunciationBn == pronunciationBn));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,id,question,exampleAnswer,explanation);
+int get hashCode => Object.hash(runtimeType,id,question,exampleAnswer,explanation,pronunciationBn);
 
 @override
 String toString() {
-  return 'Exercise.speakingPrompt(id: $id, question: $question, exampleAnswer: $exampleAnswer, explanation: $explanation)';
+  return 'Exercise.speakingPrompt(id: $id, question: $question, exampleAnswer: $exampleAnswer, explanation: $explanation, pronunciationBn: $pronunciationBn)';
 }
 
 
@@ -923,7 +943,7 @@ abstract mixin class $SpeakingPromptExerciseCopyWith<$Res> implements $ExerciseC
   factory $SpeakingPromptExerciseCopyWith(SpeakingPromptExercise value, $Res Function(SpeakingPromptExercise) _then) = _$SpeakingPromptExerciseCopyWithImpl;
 @override @useResult
 $Res call({
- String id, String question, String exampleAnswer, String? explanation
+ String id, String question, String exampleAnswer, String? explanation, String? pronunciationBn
 });
 
 
@@ -940,12 +960,13 @@ class _$SpeakingPromptExerciseCopyWithImpl<$Res>
 
 /// Create a copy of Exercise
 /// with the given fields replaced by the non-null parameter values.
-@override @pragma('vm:prefer-inline') $Res call({Object? id = null,Object? question = null,Object? exampleAnswer = null,Object? explanation = freezed,}) {
+@override @pragma('vm:prefer-inline') $Res call({Object? id = null,Object? question = null,Object? exampleAnswer = null,Object? explanation = freezed,Object? pronunciationBn = freezed,}) {
   return _then(SpeakingPromptExercise(
 id: null == id ? _self.id : id // ignore: cast_nullable_to_non_nullable
 as String,question: null == question ? _self.question : question // ignore: cast_nullable_to_non_nullable
 as String,exampleAnswer: null == exampleAnswer ? _self.exampleAnswer : exampleAnswer // ignore: cast_nullable_to_non_nullable
 as String,explanation: freezed == explanation ? _self.explanation : explanation // ignore: cast_nullable_to_non_nullable
+as String?,pronunciationBn: freezed == pronunciationBn ? _self.pronunciationBn : pronunciationBn // ignore: cast_nullable_to_non_nullable
 as String?,
   ));
 }
@@ -957,7 +978,7 @@ as String?,
 @JsonSerializable()
 
 class OrderingExercise extends Exercise {
-  const OrderingExercise({required this.id, required this.question, required final  List<String> items, required final  List<int> correctOrder, this.explanation, final  String? $type}): _items = items,_correctOrder = correctOrder,$type = $type ?? 'ordering',super._();
+  const OrderingExercise({required this.id, required this.question, required final  List<String> items, required final  List<int> correctOrder, this.explanation, this.pronunciationBn, final  String? $type}): _items = items,_correctOrder = correctOrder,$type = $type ?? 'ordering',super._();
   factory OrderingExercise.fromJson(Map<String, dynamic> json) => _$OrderingExerciseFromJson(json);
 
 @override final  String id;
@@ -977,6 +998,7 @@ class OrderingExercise extends Exercise {
 }
 
 @override final  String? explanation;
+@override final  String? pronunciationBn;
 
 @JsonKey(name: 'type')
 final String $type;
@@ -995,16 +1017,16 @@ Map<String, dynamic> toJson() {
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is OrderingExercise&&(identical(other.id, id) || other.id == id)&&(identical(other.question, question) || other.question == question)&&const DeepCollectionEquality().equals(other._items, _items)&&const DeepCollectionEquality().equals(other._correctOrder, _correctOrder)&&(identical(other.explanation, explanation) || other.explanation == explanation));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is OrderingExercise&&(identical(other.id, id) || other.id == id)&&(identical(other.question, question) || other.question == question)&&const DeepCollectionEquality().equals(other._items, _items)&&const DeepCollectionEquality().equals(other._correctOrder, _correctOrder)&&(identical(other.explanation, explanation) || other.explanation == explanation)&&(identical(other.pronunciationBn, pronunciationBn) || other.pronunciationBn == pronunciationBn));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,id,question,const DeepCollectionEquality().hash(_items),const DeepCollectionEquality().hash(_correctOrder),explanation);
+int get hashCode => Object.hash(runtimeType,id,question,const DeepCollectionEquality().hash(_items),const DeepCollectionEquality().hash(_correctOrder),explanation,pronunciationBn);
 
 @override
 String toString() {
-  return 'Exercise.ordering(id: $id, question: $question, items: $items, correctOrder: $correctOrder, explanation: $explanation)';
+  return 'Exercise.ordering(id: $id, question: $question, items: $items, correctOrder: $correctOrder, explanation: $explanation, pronunciationBn: $pronunciationBn)';
 }
 
 
@@ -1015,7 +1037,7 @@ abstract mixin class $OrderingExerciseCopyWith<$Res> implements $ExerciseCopyWit
   factory $OrderingExerciseCopyWith(OrderingExercise value, $Res Function(OrderingExercise) _then) = _$OrderingExerciseCopyWithImpl;
 @override @useResult
 $Res call({
- String id, String question, List<String> items, List<int> correctOrder, String? explanation
+ String id, String question, List<String> items, List<int> correctOrder, String? explanation, String? pronunciationBn
 });
 
 
@@ -1032,13 +1054,95 @@ class _$OrderingExerciseCopyWithImpl<$Res>
 
 /// Create a copy of Exercise
 /// with the given fields replaced by the non-null parameter values.
-@override @pragma('vm:prefer-inline') $Res call({Object? id = null,Object? question = null,Object? items = null,Object? correctOrder = null,Object? explanation = freezed,}) {
+@override @pragma('vm:prefer-inline') $Res call({Object? id = null,Object? question = null,Object? items = null,Object? correctOrder = null,Object? explanation = freezed,Object? pronunciationBn = freezed,}) {
   return _then(OrderingExercise(
 id: null == id ? _self.id : id // ignore: cast_nullable_to_non_nullable
 as String,question: null == question ? _self.question : question // ignore: cast_nullable_to_non_nullable
 as String,items: null == items ? _self._items : items // ignore: cast_nullable_to_non_nullable
 as List<String>,correctOrder: null == correctOrder ? _self._correctOrder : correctOrder // ignore: cast_nullable_to_non_nullable
 as List<int>,explanation: freezed == explanation ? _self.explanation : explanation // ignore: cast_nullable_to_non_nullable
+as String?,pronunciationBn: freezed == pronunciationBn ? _self.pronunciationBn : pronunciationBn // ignore: cast_nullable_to_non_nullable
+as String?,
+  ));
+}
+
+
+}
+
+/// @nodoc
+@JsonSerializable()
+
+class WritingPromptExercise extends Exercise {
+  const WritingPromptExercise({required this.id, required this.question, required this.exampleAnswer, this.explanation, this.pronunciationBn, final  String? $type}): $type = $type ?? 'writing_prompt',super._();
+  factory WritingPromptExercise.fromJson(Map<String, dynamic> json) => _$WritingPromptExerciseFromJson(json);
+
+@override final  String id;
+@override final  String question;
+ final  String exampleAnswer;
+@override final  String? explanation;
+@override final  String? pronunciationBn;
+
+@JsonKey(name: 'type')
+final String $type;
+
+
+/// Create a copy of Exercise
+/// with the given fields replaced by the non-null parameter values.
+@override @JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+$WritingPromptExerciseCopyWith<WritingPromptExercise> get copyWith => _$WritingPromptExerciseCopyWithImpl<WritingPromptExercise>(this, _$identity);
+
+@override
+Map<String, dynamic> toJson() {
+  return _$WritingPromptExerciseToJson(this, );
+}
+
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is WritingPromptExercise&&(identical(other.id, id) || other.id == id)&&(identical(other.question, question) || other.question == question)&&(identical(other.exampleAnswer, exampleAnswer) || other.exampleAnswer == exampleAnswer)&&(identical(other.explanation, explanation) || other.explanation == explanation)&&(identical(other.pronunciationBn, pronunciationBn) || other.pronunciationBn == pronunciationBn));
+}
+
+@JsonKey(includeFromJson: false, includeToJson: false)
+@override
+int get hashCode => Object.hash(runtimeType,id,question,exampleAnswer,explanation,pronunciationBn);
+
+@override
+String toString() {
+  return 'Exercise.writingPrompt(id: $id, question: $question, exampleAnswer: $exampleAnswer, explanation: $explanation, pronunciationBn: $pronunciationBn)';
+}
+
+
+}
+
+/// @nodoc
+abstract mixin class $WritingPromptExerciseCopyWith<$Res> implements $ExerciseCopyWith<$Res> {
+  factory $WritingPromptExerciseCopyWith(WritingPromptExercise value, $Res Function(WritingPromptExercise) _then) = _$WritingPromptExerciseCopyWithImpl;
+@override @useResult
+$Res call({
+ String id, String question, String exampleAnswer, String? explanation, String? pronunciationBn
+});
+
+
+
+
+}
+/// @nodoc
+class _$WritingPromptExerciseCopyWithImpl<$Res>
+    implements $WritingPromptExerciseCopyWith<$Res> {
+  _$WritingPromptExerciseCopyWithImpl(this._self, this._then);
+
+  final WritingPromptExercise _self;
+  final $Res Function(WritingPromptExercise) _then;
+
+/// Create a copy of Exercise
+/// with the given fields replaced by the non-null parameter values.
+@override @pragma('vm:prefer-inline') $Res call({Object? id = null,Object? question = null,Object? exampleAnswer = null,Object? explanation = freezed,Object? pronunciationBn = freezed,}) {
+  return _then(WritingPromptExercise(
+id: null == id ? _self.id : id // ignore: cast_nullable_to_non_nullable
+as String,question: null == question ? _self.question : question // ignore: cast_nullable_to_non_nullable
+as String,exampleAnswer: null == exampleAnswer ? _self.exampleAnswer : exampleAnswer // ignore: cast_nullable_to_non_nullable
+as String,explanation: freezed == explanation ? _self.explanation : explanation // ignore: cast_nullable_to_non_nullable
+as String?,pronunciationBn: freezed == pronunciationBn ? _self.pronunciationBn : pronunciationBn // ignore: cast_nullable_to_non_nullable
 as String?,
   ));
 }

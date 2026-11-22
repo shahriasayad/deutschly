@@ -50,6 +50,12 @@ class ExerciseController extends GetxController {
   final RxBool showSpeakingExample = false.obs;
   final RxnBool speakingSelfEvaluation = RxnBool();
 
+  // Writing prompt state
+  final TextEditingController writingTextController = TextEditingController();
+  final RxString writingText = ''.obs;
+  final RxBool showWritingExample = false.obs;
+  final RxnBool writingSelfEvaluation = RxnBool();
+
   // Ordering state (stores indices into exercise.items)
   final RxList<int> orderingIndices = <int>[].obs;
 
@@ -117,6 +123,7 @@ class ExerciseController extends GetxController {
   @override
   void onClose() {
     fillBlankTextController.dispose();
+    writingTextController.dispose();
     super.onClose();
   }
 
@@ -132,6 +139,10 @@ class ExerciseController extends GetxController {
     selectedTrueFalse.value = null;
     showSpeakingExample.value = false;
     speakingSelfEvaluation.value = null;
+    writingTextController.clear();
+    writingText.value = '';
+    showWritingExample.value = false;
+    writingSelfEvaluation.value = null;
     orderingIndices.clear();
 
     final exercise = currentExercise;
@@ -172,6 +183,9 @@ class ExerciseController extends GetxController {
       TrueFalseExercise() => selectedTrueFalse.value != null,
       SpeakingPromptExercise() => speakingSelfEvaluation.value != null,
       OrderingExercise(:final items) => orderingIndices.length == items.length,
+      WritingPromptExercise() =>
+        writingText.value.trim().isNotEmpty &&
+            writingSelfEvaluation.value != null,
     };
   }
 
@@ -266,6 +280,25 @@ class ExerciseController extends GetxController {
     showSpeakingExample.value = true;
   }
 
+  void updateWritingText(String value) {
+    if (isChecked.value) {
+      return;
+    }
+    writingText.value = value;
+  }
+
+  void toggleWritingExample() {
+    showWritingExample.value = !showWritingExample.value;
+  }
+
+  void selectWritingSelfEvaluation(bool includedKeyDetails) {
+    if (isChecked.value) {
+      return;
+    }
+    writingSelfEvaluation.value = includedKeyDetails;
+    showWritingExample.value = true;
+  }
+
   void reorderItems(int oldIndex, int newIndex) {
     if (isChecked.value) {
       return;
@@ -326,6 +359,7 @@ class ExerciseController extends GetxController {
         exercise: exercise,
         currentOrder: orderingIndices.toList(),
       ),
+      WritingPromptExercise() => writingSelfEvaluation.value ?? false,
     };
 
     isCurrentCorrect.value = isCorrect;
@@ -338,6 +372,9 @@ class ExerciseController extends GetxController {
 
     if (exercise is SpeakingPromptExercise) {
       showSpeakingExample.value = true;
+    }
+    if (exercise is WritingPromptExercise) {
+      showWritingExample.value = true;
     }
 
     final currentLessonId = lessonId;

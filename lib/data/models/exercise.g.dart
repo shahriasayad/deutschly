@@ -20,6 +20,7 @@ MultipleChoiceExercise _$MultipleChoiceExerciseFromJson(
   options: (json['options'] as List<dynamic>).map((e) => e as String).toList(),
   correctIndex: (json['correctIndex'] as num).toInt(),
   explanation: json['explanation'] as String?,
+  pronunciationBn: json['pronunciationBn'] as String?,
   $type: json['type'] as String?,
 );
 
@@ -31,6 +32,7 @@ Map<String, dynamic> _$MultipleChoiceExerciseToJson(
   'options': instance.options,
   'correctIndex': instance.correctIndex,
   'explanation': instance.explanation,
+  'pronunciationBn': instance.pronunciationBn,
   'type': instance.$type,
 };
 
@@ -45,6 +47,7 @@ FillBlankExercise _$FillBlankExerciseFromJson(Map<String, dynamic> json) =>
               .toList() ??
           const <String>[],
       explanation: json['explanation'] as String?,
+      pronunciationBn: json['pronunciationBn'] as String?,
       $type: json['type'] as String?,
     );
 
@@ -55,6 +58,7 @@ Map<String, dynamic> _$FillBlankExerciseToJson(FillBlankExercise instance) =>
       'answer': instance.answer,
       'acceptableAnswers': instance.acceptableAnswers,
       'explanation': instance.explanation,
+      'pronunciationBn': instance.pronunciationBn,
       'type': instance.$type,
     };
 
@@ -66,6 +70,7 @@ MatchingExercise _$MatchingExerciseFromJson(Map<String, dynamic> json) =>
           .map((e) => MatchingPair.fromJson(e as Map<String, dynamic>))
           .toList(),
       explanation: json['explanation'] as String?,
+      pronunciationBn: json['pronunciationBn'] as String?,
       $type: json['type'] as String?,
     );
 
@@ -75,6 +80,7 @@ Map<String, dynamic> _$MatchingExerciseToJson(MatchingExercise instance) =>
       'question': instance.question,
       'pairs': instance.pairs,
       'explanation': instance.explanation,
+      'pronunciationBn': instance.pronunciationBn,
       'type': instance.$type,
     };
 
@@ -84,6 +90,7 @@ TrueFalseExercise _$TrueFalseExerciseFromJson(Map<String, dynamic> json) =>
       question: json['question'] as String,
       correct: json['correct'] as bool,
       explanation: json['explanation'] as String?,
+      pronunciationBn: json['pronunciationBn'] as String?,
       $type: json['type'] as String?,
     );
 
@@ -93,6 +100,7 @@ Map<String, dynamic> _$TrueFalseExerciseToJson(TrueFalseExercise instance) =>
       'question': instance.question,
       'correct': instance.correct,
       'explanation': instance.explanation,
+      'pronunciationBn': instance.pronunciationBn,
       'type': instance.$type,
     };
 
@@ -103,6 +111,7 @@ SpeakingPromptExercise _$SpeakingPromptExerciseFromJson(
   question: json['question'] as String,
   exampleAnswer: json['exampleAnswer'] as String,
   explanation: json['explanation'] as String?,
+  pronunciationBn: json['pronunciationBn'] as String?,
   $type: json['type'] as String?,
 );
 
@@ -113,6 +122,7 @@ Map<String, dynamic> _$SpeakingPromptExerciseToJson(
   'question': instance.question,
   'exampleAnswer': instance.exampleAnswer,
   'explanation': instance.explanation,
+  'pronunciationBn': instance.pronunciationBn,
   'type': instance.$type,
 };
 
@@ -125,6 +135,7 @@ OrderingExercise _$OrderingExerciseFromJson(Map<String, dynamic> json) =>
           .map((e) => (e as num).toInt())
           .toList(),
       explanation: json['explanation'] as String?,
+      pronunciationBn: json['pronunciationBn'] as String?,
       $type: json['type'] as String?,
     );
 
@@ -135,5 +146,28 @@ Map<String, dynamic> _$OrderingExerciseToJson(OrderingExercise instance) =>
       'items': instance.items,
       'correctOrder': instance.correctOrder,
       'explanation': instance.explanation,
+      'pronunciationBn': instance.pronunciationBn,
       'type': instance.$type,
     };
+
+WritingPromptExercise _$WritingPromptExerciseFromJson(
+  Map<String, dynamic> json,
+) => WritingPromptExercise(
+  id: json['id'] as String,
+  question: json['question'] as String,
+  exampleAnswer: json['exampleAnswer'] as String,
+  explanation: json['explanation'] as String?,
+  pronunciationBn: json['pronunciationBn'] as String?,
+  $type: json['type'] as String?,
+);
+
+Map<String, dynamic> _$WritingPromptExerciseToJson(
+  WritingPromptExercise instance,
+) => <String, dynamic>{
+  'id': instance.id,
+  'question': instance.question,
+  'exampleAnswer': instance.exampleAnswer,
+  'explanation': instance.explanation,
+  'pronunciationBn': instance.pronunciationBn,
+  'type': instance.$type,
+};

@@ -9,16 +9,30 @@ class ExerciseFeedbackCard extends StatelessWidget {
     required this.correctAnswerSummary,
     this.explanation,
     this.isSelfAssessment = false,
+    this.isWritingPrompt = false,
   });
 
   final bool isCorrect;
   final String correctAnswerSummary;
   final String? explanation;
   final bool isSelfAssessment;
+  final bool isWritingPrompt;
 
   @override
   Widget build(BuildContext context) {
     final colorScheme = Theme.of(context).colorScheme;
+    final feedbackTitle = switch ((
+      isSelfAssessment,
+      isWritingPrompt,
+      isCorrect,
+    )) {
+      (true, true, true) => 'Writing reviewed',
+      (true, true, false) => 'Revise and try again',
+      (true, false, true) => 'Nice speaking practice!',
+      (true, false, false) => 'Keep practicing',
+      (false, _, true) => 'Correct!',
+      (false, _, false) => 'Incorrect',
+    };
     final statusColor = isCorrect
         ? AppColors.success
         : isSelfAssessment
@@ -49,13 +63,7 @@ class ExerciseFeedbackCard extends StatelessWidget {
               ),
               const SizedBox(width: 8),
               Text(
-                isSelfAssessment
-                    ? isCorrect
-                          ? 'Nice speaking practice!'
-                          : 'Keep practicing'
-                    : isCorrect
-                    ? 'Correct!'
-                    : 'Incorrect',
+                feedbackTitle,
                 style: getTextStyle(
                   fontSize: 16,
                   fontWeight: FontWeight.w700,

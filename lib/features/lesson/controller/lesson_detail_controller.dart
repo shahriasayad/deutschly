@@ -9,8 +9,8 @@ class LessonDetailController extends GetxController {
     required this.lessonId,
     CourseController? courseController,
     ProgressController? progressController,
-  })  : _courseController = courseController ?? Get.find<CourseController>(),
-        _progressController = progressController;
+  }) : _courseController = courseController ?? Get.find<CourseController>(),
+       _progressController = progressController;
 
   final String lessonId;
   final CourseController _courseController;
@@ -25,9 +25,7 @@ class LessonDetailController extends GetxController {
     if (Get.isRegistered<ProgressController>()) {
       return Get.find<ProgressController>();
     }
-    return Get.put(
-      ProgressController(courseController: _courseController),
-    );
+    return Get.put(ProgressController(courseController: _courseController));
   }
 
   Lesson? get lesson {
@@ -67,6 +65,7 @@ class LessonDetailController extends GetxController {
       'matching' => 'Matching',
       'true_false' => 'True / False',
       'speaking_prompt' => 'Speaking Prompt',
+      'writing_prompt' => 'Writing Practice',
       'ordering' => 'Ordering',
       _ => type,
     };

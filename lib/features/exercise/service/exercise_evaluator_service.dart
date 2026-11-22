@@ -89,10 +89,12 @@ class ExerciseEvaluatorService {
         pairs.map((MatchingPair p) => '${p.left} → ${p.right}').join(', '),
       TrueFalseExercise(:final correct) => correct ? 'True' : 'False',
       SpeakingPromptExercise(:final exampleAnswer) => exampleAnswer,
-      OrderingExercise(:final items, :final correctOrder) => correctOrder
-          .where((int idx) => idx >= 0 && idx < items.length)
-          .map((int idx) => items[idx])
-          .join(' → '),
+      OrderingExercise(:final items, :final correctOrder) =>
+        correctOrder
+            .where((int idx) => idx >= 0 && idx < items.length)
+            .map((int idx) => items[idx])
+            .join(' → '),
+      WritingPromptExercise(:final exampleAnswer) => exampleAnswer,
     };
   }
 }

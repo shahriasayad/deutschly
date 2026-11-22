@@ -82,6 +82,32 @@ void main() {
     expect(controller.correctCount, 0);
   });
 
+  test('writing practice requires a response before self-assessment', () {
+    final controller = Get.put(
+      ExerciseController(
+        exercises: const <Exercise>[
+          Exercise.writingPrompt(
+            id: 'writing',
+            question: 'Write a short introduction.',
+            exampleAnswer: 'Ich heiße Anna.',
+          ),
+        ],
+      ),
+      tag: 'writing_practice_test',
+    );
+
+    controller.selectWritingSelfEvaluation(true);
+    expect(controller.showWritingExample.value, isTrue);
+    expect(controller.canCheck, isFalse);
+
+    controller.updateWritingText('Ich heiße Amina.');
+    expect(controller.canCheck, isTrue);
+    controller.checkAnswer();
+
+    expect(controller.isCurrentCorrect.value, isTrue);
+    expect(controller.isChecked.value, isTrue);
+  });
+
   testWidgets('speaking self-rating is described as practice, not incorrect', (
     WidgetTester tester,
   ) async {

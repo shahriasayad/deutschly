@@ -5,10 +5,8 @@ part 'exercise.g.dart';
 
 @freezed
 abstract class MatchingPair with _$MatchingPair {
-  const factory MatchingPair({
-    required String left,
-    required String right,
-  }) = _MatchingPair;
+  const factory MatchingPair({required String left, required String right}) =
+      _MatchingPair;
 
   factory MatchingPair.fromJson(Map<String, dynamic> json) =>
       _$MatchingPairFromJson(json);
@@ -25,6 +23,7 @@ sealed class Exercise with _$Exercise {
     required List<String> options,
     required int correctIndex,
     String? explanation,
+    String? pronunciationBn,
   }) = MultipleChoiceExercise;
 
   @FreezedUnionValue('fill_blank')
@@ -34,6 +33,7 @@ sealed class Exercise with _$Exercise {
     required String answer,
     @Default(<String>[]) List<String> acceptableAnswers,
     String? explanation,
+    String? pronunciationBn,
   }) = FillBlankExercise;
 
   @FreezedUnionValue('matching')
@@ -42,6 +42,7 @@ sealed class Exercise with _$Exercise {
     required String question,
     required List<MatchingPair> pairs,
     String? explanation,
+    String? pronunciationBn,
   }) = MatchingExercise;
 
   @FreezedUnionValue('true_false')
@@ -50,6 +51,7 @@ sealed class Exercise with _$Exercise {
     required String question,
     required bool correct,
     String? explanation,
+    String? pronunciationBn,
   }) = TrueFalseExercise;
 
   @FreezedUnionValue('speaking_prompt')
@@ -58,6 +60,7 @@ sealed class Exercise with _$Exercise {
     required String question,
     required String exampleAnswer,
     String? explanation,
+    String? pronunciationBn,
   }) = SpeakingPromptExercise;
 
   @FreezedUnionValue('ordering')
@@ -67,17 +70,28 @@ sealed class Exercise with _$Exercise {
     required List<String> items,
     required List<int> correctOrder,
     String? explanation,
+    String? pronunciationBn,
   }) = OrderingExercise;
+
+  @FreezedUnionValue('writing_prompt')
+  const factory Exercise.writingPrompt({
+    required String id,
+    required String question,
+    required String exampleAnswer,
+    String? explanation,
+    String? pronunciationBn,
+  }) = WritingPromptExercise;
 
   factory Exercise.fromJson(Map<String, dynamic> json) =>
       _$ExerciseFromJson(json);
 
   String get type => switch (this) {
-        MultipleChoiceExercise() => 'multiple_choice',
-        FillBlankExercise() => 'fill_blank',
-        MatchingExercise() => 'matching',
-        TrueFalseExercise() => 'true_false',
-        SpeakingPromptExercise() => 'speaking_prompt',
-        OrderingExercise() => 'ordering',
-      };
+    MultipleChoiceExercise() => 'multiple_choice',
+    FillBlankExercise() => 'fill_blank',
+    MatchingExercise() => 'matching',
+    TrueFalseExercise() => 'true_false',
+    SpeakingPromptExercise() => 'speaking_prompt',
+    OrderingExercise() => 'ordering',
+    WritingPromptExercise() => 'writing_prompt',
+  };
 }

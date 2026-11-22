@@ -22,7 +22,11 @@
         "Talk about languages you speak",
         "Spell your name",
         "Fill a simple registration form",
-        "Complete a simple personal-details form and ask for spelling or repetition."
+        "Complete a simple personal-details form and ask for spelling or repetition.",
+        "Ask someone for a person on the phone and leave a simple message.",
+        "Read a business card and complete a registration form with personal details.",
+        "Spell names and ask someone to repeat or speak slowly.",
+        "Use the German alphabet and practise the vowel combinations ei, eu and au."
       ],
       "vocabulary": [
         {
@@ -212,16 +216,118 @@
           "pronunciationBn": "ডি শ্প্রাখে"
         },
         {
-          "de": "die E-Mail-Adresse",
-          "en": "email address",
-          "bn": "ইমেইল ঠিকানা",
-          "pronunciationBn": "ডি ই-মেইল-আদ্রেসে"
-        },
-        {
           "de": "Bitte noch einmal.",
           "en": "Once again, please.",
           "bn": "দয়া করে আরেকবার বলুন।",
           "pronunciationBn": "বিটে নখ আইনমাল"
+        },
+        {
+          "de": "Herr",
+          "en": "Mr.",
+          "bn": "জনাব",
+          "pronunciationBn": "হেয়া"
+        },
+        {
+          "de": "Frau",
+          "en": "Ms./Mrs.",
+          "bn": "মহিলা / মিসেস",
+          "pronunciationBn": "ফ্রাউ"
+        },
+        {
+          "de": "die Vorwahl",
+          "en": "area code",
+          "bn": "এরিয়া কোড",
+          "pronunciationBn": "ডেয়া ফোয়া-ভাল"
+        },
+        {
+          "de": "die Postleitzahl",
+          "en": "postal code",
+          "bn": "ডাক কোড",
+          "pronunciationBn": "ডি পোস্ট-লাইট্‌সাল"
+        },
+        {
+          "de": "der Geburtsort",
+          "en": "place of birth",
+          "bn": "জন্মস্থান",
+          "pronunciationBn": "ডেয়া গেবুর্টস-অর্ট"
+        },
+        {
+          "de": "das Geburtsland",
+          "en": "country of birth",
+          "bn": "জন্মদেশ",
+          "pronunciationBn": "দাস গেবুর্টস-লান্ট"
+        },
+        {
+          "de": "die Visitenkarte",
+          "en": "business card",
+          "bn": "ব্যবসায়িক কার্ড",
+          "pronunciationBn": "ডি ভিজিটেনকার্টে"
+        },
+        {
+          "de": "die Anmeldung",
+          "en": "registration",
+          "bn": "নিবন্ধন",
+          "pronunciationBn": "ডি আনমেলডুং"
+        },
+        {
+          "de": "der Buchstabe",
+          "en": "letter of the alphabet",
+          "bn": "বর্ণ",
+          "pronunciationBn": "ডেয়া বুখশ্টাবে"
+        },
+        {
+          "de": "Wie bitte?",
+          "en": "Pardon? / Could you repeat that?",
+          "bn": "কী বললেন? / আবার বলবেন?",
+          "pronunciationBn": "ভি বিটে"
+        },
+        {
+          "de": "Sprechen Sie bitte langsam.",
+          "en": "Please speak slowly.",
+          "bn": "দয়া করে ধীরে বলুন।",
+          "pronunciationBn": "শ্প্রেখেন জি বিটে লাংজাম"
+        },
+        {
+          "de": "Ist Herr ... da?",
+          "en": "Is Mr ... there?",
+          "bn": "জনাব ... কি আছেন?",
+          "pronunciationBn": "ইস্ট হেয়া ... দা"
+        },
+        {
+          "de": "einen Moment",
+          "en": "one moment",
+          "bn": "একটু অপেক্ষা করুন",
+          "pronunciationBn": "আইনেন মোমেন্ট"
+        },
+        {
+          "de": "die Durchwahl",
+          "en": "extension number",
+          "bn": "এক্সটেনশন নম্বর",
+          "pronunciationBn": "ডি ডুর্খভাল"
+        },
+        {
+          "de": "die Unterschrift",
+          "en": "signature",
+          "bn": "স্বাক্ষর",
+          "pronunciationBn": "ডি উন্টারশ্রিফ্ট"
+        },
+        {
+          "de": "die Hausaufgabe",
+          "en": "homework",
+          "bn": "বাড়ির কাজ",
+          "pronunciationBn": "ডি হাউস-আউফগাবে"
+        },
+        {
+          "de": "buchstabieren Sie",
+          "en": "spell (formal)",
+          "bn": "বানান করুন (আনুষ্ঠানিক)",
+          "pronunciationBn": "বুখশ্টাবিরেন জি"
+        },
+        {
+          "de": "Vielen Dank.",
+          "en": "Thank you very much.",
+          "bn": "অনেক ধন্যবাদ।",
+          "pronunciationBn": "ফিলেন ডাংক"
         }
       ],
       "grammar": [
@@ -250,22 +356,34 @@
             "heißen": [
               "ich heiße",
               "du heißt",
-              "Sie heißen"
+              "er/sie heißt",
+              "wir heißen",
+              "ihr heißt",
+              "sie/Sie heißen"
             ],
             "kommen": [
               "ich komme",
               "du kommst",
-              "Sie kommen"
+              "er/sie kommt",
+              "wir kommen",
+              "ihr kommt",
+              "sie/Sie kommen"
             ],
             "sprechen": [
               "ich spreche",
               "du sprichst",
-              "Sie sprechen"
+              "er/sie spricht",
+              "wir sprechen",
+              "ihr sprecht",
+              "sie/Sie sprechen"
             ],
             "sein": [
               "ich bin",
               "du bist",
-              "Sie sind"
+              "er/sie ist",
+              "wir sind",
+              "ihr seid",
+              "sie/Sie sind"
             ]
           }
         },
@@ -283,6 +401,32 @@
           "examples": [
             "Ich komme aus Bangladesch.",
             "Ich spreche Bengali und ein bisschen Deutsch."
+          ]
+        },
+        {
+          "title": "Verb position in a statement",
+          "explanation": "In a normal German statement, the conjugated verb is in position two. The first position can be a name or another detail; the verb stays second.",
+          "examples": [
+            "Ich heiße Samira.",
+            "Aus Dhaka komme ich."
+          ]
+        },
+        {
+          "title": "Formal Sie and informal du",
+          "explanation": "Use du with friends, classmates and children when invited. Use Sie with adults you do not know or in a formal service situation. Formal Sie and its verb form begin with a capital letter.",
+          "examples": [
+            "Wie heißt du?",
+            "Wie heißen Sie, Frau Rahman?",
+            "Sprechen Sie langsam, bitte."
+          ]
+        },
+        {
+          "title": "Yes/no questions and W-questions",
+          "explanation": "A yes/no question starts with the verb. A W-question puts the question word first and the conjugated verb second.",
+          "examples": [
+            "Kommen Sie aus Dhaka?",
+            "Woher kommen Sie?",
+            "Wie schreibt man Ihren Namen?"
           ]
         }
       ],
@@ -379,6 +523,118 @@
               "pronunciationBn": "ডাংকে। হিয়া ইস্ট ইয়া ফর্মুলা। ভিলকোমেন ইম কুর্স।"
             }
           ]
+        },
+        {
+          "id": "d1_4",
+          "title": "On the phone: asking for someone",
+          "lines": [
+            {
+              "speaker": "A",
+              "text": "Guten Tag. Sprachschule Nord, mein Name ist Weber.",
+              "pronunciationBn": "গুটেন টাক। শ্প্রাখশুলে নোয়াট, মাইন নামে ইস্ট ভেবা।"
+            },
+            {
+              "speaker": "B",
+              "text": "Guten Tag. Ist Frau Karim bitte da?",
+              "pronunciationBn": "গুটেন টাক। ইস্ট ফ্রাউ কারিম বিটে দা?"
+            },
+            {
+              "speaker": "A",
+              "text": "Einen Moment, bitte. Ich verbinde Sie.",
+              "pronunciationBn": "আইনেন মোমেন্ট, বিটে। ইখ ফেয়াবিন্ডে জি।"
+            },
+            {
+              "speaker": "B",
+              "text": "Danke. Können Sie meinen Namen buchstabieren?",
+              "pronunciationBn": "ডাংকে। ক্যানেন জি মাইনেন নামেন বুখশ্টাবিরেন?"
+            },
+            {
+              "speaker": "A",
+              "text": "Wie schreibt man Ihren Familiennamen?",
+              "pronunciationBn": "ভি শ্রাইব্ট মান ইরেন ফামিলিয়েননামেন?"
+            },
+            {
+              "speaker": "B",
+              "text": "Rahman. R-A-H-M-A-N.",
+              "pronunciationBn": "রাহমান। আর-আ-হা-এম-আ-এন।"
+            },
+            {
+              "speaker": "A",
+              "text": "Danke. Frau Karim ist gerade im Kurs.",
+              "pronunciationBn": "ডাংকে। ফ্রাউ কারিম ইস্ট গেরাডে ইম কুর্স।"
+            },
+            {
+              "speaker": "B",
+              "text": "Bitte sagen Sie ihr: Samira hat angerufen.",
+              "pronunciationBn": "বিটে জাগেন জি ইয়া: সামিরা হাট আঙ্গেরুফেন।"
+            },
+            {
+              "speaker": "A",
+              "text": "Gern. Welche Telefonnummer kann sie zurückrufen?",
+              "pronunciationBn": "গেয়ান। ভেলখে টেলেফোননুমা কান জি ৎসুরুকরুফেন?"
+            },
+            {
+              "speaker": "B",
+              "text": "Unter 0172 456 80 19. Vielen Dank.",
+              "pronunciationBn": "উন্টা নুল আইনস জিভেনৎসিশ ৎসভাই ফুনফ জেক্সট্সিশ আখটৎসিশ নোয়েনৎসেন। ফিলেন ডাংক।"
+            }
+          ]
+        },
+        {
+          "id": "d1_5",
+          "title": "At the language-course desk",
+          "lines": [
+            {
+              "speaker": "A",
+              "text": "Guten Morgen. Möchten Sie sich anmelden?",
+              "pronunciationBn": "গুটেন মর্গেন। ময়খ্টেন জি জিশ আনমেলডেন?"
+            },
+            {
+              "speaker": "B",
+              "text": "Ja, bitte. Ich heiße Amina Das.",
+              "pronunciationBn": "ইয়া, বিটে। ইখ হাইসে আমিনা দাস।"
+            },
+            {
+              "speaker": "A",
+              "text": "Wie schreibt man Ihren Vornamen?",
+              "pronunciationBn": "ভি শ্রাইব্ট মান ইরেন ফোর্নামেন?"
+            },
+            {
+              "speaker": "B",
+              "text": "A-M-I-N-A. Und mein Familienname ist D-A-S.",
+              "pronunciationBn": "আ-এম-ই-এন-আ। উন্ট মাইন ফামিলিয়েননামে ইস্ট ডি-আ-এস।"
+            },
+            {
+              "speaker": "A",
+              "text": "Wo wohnen Sie?",
+              "pronunciationBn": "ভো ভোনেন জি?"
+            },
+            {
+              "speaker": "B",
+              "text": "In Dhaka. Ich komme aus Bangladesch.",
+              "pronunciationBn": "ইন ঢাকা। ইখ কমে আউস বাংলাদেশ।"
+            },
+            {
+              "speaker": "A",
+              "text": "Welche Sprachen sprechen Sie?",
+              "pronunciationBn": "ভেলখে শ্প্রাখেন শ্প্রেখেন জি?"
+            },
+            {
+              "speaker": "B",
+              "text": "Bengali und ein bisschen Deutsch.",
+              "pronunciationBn": "বেঙ্গালি উন্ট আইন বিস্‌খেন ডয়চ।"
+            },
+            {
+              "speaker": "A",
+              "text": "Danke. Hier ist Ihre Karte. Bitte unterschreiben Sie hier.",
+              "pronunciationBn": "ডাংকে। হিয়া ইস্ট ইয়ারে কার্টে। বিটে উন্টারশ্রাইবেন জি হিয়া।"
+            },
+            {
+              "speaker": "B",
+              "text": "Gern. Können Sie die Adresse noch einmal wiederholen?",
+              "pronunciationBn": "গেয়ান। ক্যানেন জি ডি আদ্রেসে নখ আইনমাল ভিডারহোলেন?"
+            }
+          ]
         }
       ],
       "exercises": [
@@ -473,7 +729,8 @@
           "id": "ex1_8",
           "type": "speaking_prompt",
           "question": "Introduce yourself. Say your name, where you come from and which languages you speak.",
-          "exampleAnswer": "Hallo! Ich heiße Karim. Ich komme aus Bangladesch. Ich spreche Bengali, Englisch und ein bisschen Deutsch."
+          "exampleAnswer": "Hallo! Ich heiße Karim. Ich komme aus Bangladesch. Ich spreche Bengali, Englisch und ein bisschen Deutsch.",
+          "pronunciationBn": "হালো! ইখ হাইসে কারিম। ইখ কমে আউস বাংলাদেশ। ইখ শ্প্রেখে বেঙ্গালি, ইংলিশ উন্ট আইন বিসখেন ডয়চ।"
         },
         {
           "id": "ex1_9",
@@ -538,7 +795,8 @@
           "id": "ex1_14",
           "type": "speaking_prompt",
           "question": "Introduce yourself with name, city, country and languages. Ask your partner to spell their surname.",
-          "exampleAnswer": "Guten Tag. Ich heiße Amina Rahman. Ich wohne in Dhaka und komme aus Bangladesch. Ich spreche Bengali und Englisch. Wie schreibt man Ihren Familiennamen?"
+          "exampleAnswer": "Guten Tag. Ich heiße Amina Rahman. Ich wohne in Dhaka und komme aus Bangladesch. Ich spreche Bengali und Englisch. Wie schreibt man Ihren Familiennamen?",
+          "pronunciationBn": "গুটেন টাক। ইখ হাইসে আমিনা রহমান। ইখ ভোনে ইন ঢাকা উন্ট কমে আউস বাংলাদেশ। ইখ শ্প্রেখে বেঙ্গালি উন্ট ইংলিশ। ভি শ্রাইব্ট মান ইরেন ফামিলিয়েননামেন?"
         },
         {
           "id": "ex1_15",
@@ -593,6 +851,195 @@
           "type": "true_false",
           "question": "In “Ich spreche Bengali”, Bengali is the language being spoken.",
           "correct": true
+        },
+        {
+          "id": "ex1_21",
+          "type": "multiple_choice",
+          "question": "A caller wants to speak to Frau Weber. Which question is appropriate?",
+          "options": [
+            "Ist Frau Weber bitte da?",
+            "Frau Weber da bist?",
+            "Du ist Frau Weber?"
+          ],
+          "correctIndex": 0,
+          "explanation": "In a formal phone call, ask Ist Frau ... bitte da?"
+        },
+        {
+          "id": "ex1_22",
+          "type": "fill_blank",
+          "question": "Complete the formal question: Wie _____ Sie?",
+          "answer": "heißen",
+          "acceptableAnswers": [],
+          "explanation": "The Sie form of heißen is heißen.",
+          "pronunciationBn": "ভি হাইসেন জি?"
+        },
+        {
+          "id": "ex1_23",
+          "type": "multiple_choice",
+          "question": "You are asked to spell your name. What can you say before spelling?",
+          "options": [
+            "Wie bitte?",
+            "Gute Nacht?",
+            "Bis morgen?"
+          ],
+          "correctIndex": 0,
+          "explanation": "Wie bitte? politely asks someone to repeat."
+        },
+        {
+          "id": "ex1_24",
+          "type": "speaking_prompt",
+          "question": "Read these aloud and notice the vowel glides: mein, Deutsch, Haus. Then say one short sentence with each.",
+          "exampleAnswer": "Mein Name ist Amina. Ich spreche Deutsch. Das Haus ist groß.",
+          "explanation": "Say each word slowly, then at natural speed.",
+          "pronunciationBn": "মাইন নামে ইস্ট আমিনা। ইখ শ্প্রেখে ডয়চ। দাস হাউস ইস্ট গ্রোস।"
+        },
+        {
+          "id": "ex1_25",
+          "type": "matching",
+          "question": "Match each form field to the information it asks for.",
+          "pairs": [
+            {
+              "left": "Vorname",
+              "right": "first name"
+            },
+            {
+              "left": "Postleitzahl",
+              "right": "postal code"
+            },
+            {
+              "left": "Geburtsort",
+              "right": "place of birth"
+            },
+            {
+              "left": "Unterschrift",
+              "right": "signature"
+            }
+          ],
+          "explanation": "These labels commonly appear on registration forms."
+        },
+        {
+          "id": "ex1_26",
+          "type": "writing_prompt",
+          "question": "Write a short registration card with your first name, family name, city, country and one language.",
+          "exampleAnswer": "Vorname: Amina\nFamilienname: Das\nWohnort: Dhaka\nLand: Bangladesch\nSprache: Bengali",
+          "explanation": "Check that every label has a detail and German nouns start with a capital letter."
+        },
+        {
+          "id": "ex1_27",
+          "type": "true_false",
+          "question": "In a normal statement, the conjugated verb is usually in position two.",
+          "correct": true,
+          "explanation": "For example: Heute komme ich aus Dhaka."
+        },
+        {
+          "id": "ex1_28",
+          "type": "fill_blank",
+          "question": "Complete the phone phrase: Einen _____, bitte.",
+          "answer": "Moment",
+          "acceptableAnswers": [],
+          "explanation": "Einen Moment, bitte means one moment, please.",
+          "pronunciationBn": "আইনেন মোমেন্ট, বিটে"
+        },
+        {
+          "id": "ex1_29",
+          "type": "ordering",
+          "question": "Put this short formal call in a natural order.",
+          "items": [
+            "Danke, ich warte.",
+            "Einen Moment, bitte.",
+            "Ist Frau Weber bitte da?",
+            "Guten Tag. Hier ist Amina Das."
+          ],
+          "correctOrder": [
+            3,
+            2,
+            1,
+            0
+          ],
+          "explanation": "A greeting and self-identification come before asking for someone."
+        },
+        {
+          "id": "ex1_30",
+          "type": "multiple_choice",
+          "question": "Read the card: Samira Rahman | Dhaka | Bengali, English. Which statement is supported?",
+          "options": [
+            "Samira lives in Dhaka.",
+            "Samira is from Austria.",
+            "Samira speaks only German."
+          ],
+          "correctIndex": 0,
+          "explanation": "Use the information on the card; do not add unstated facts."
+        },
+        {
+          "id": "ex1_31",
+          "type": "speaking_prompt",
+          "question": "Role-play a call: greet the office, ask for a person, spell your surname, and leave a call-back number.",
+          "exampleAnswer": "Guten Tag. Hier ist Amina Das. Ist Herr Weber bitte da? Mein Name ist D-A-S. Meine Nummer ist 0172 456 80 19.",
+          "explanation": "Practise a complete real-life phone exchange.",
+          "pronunciationBn": "গুটেন টাক। হিয়া ইস্ট আমিনা দাস। ইস্ট হেয়া ভেয়াবার বিটে দা? মাইন নামে ইস্ট ডি-আ-এস। মাইনে নুমা ইস্ট জিপ্টসেনৎসিখ জেক্সৎসভাই উন্টফিয়াৎসিখ আখ্টৎসেন।"
+        },
+        {
+          "id": "ex1_32",
+          "type": "writing_prompt",
+          "question": "Write a two-sentence message for a classmate who is not at the course desk. Include who called and a phone number.",
+          "exampleAnswer": "Hallo Samira, Amina hat angerufen. Bitte ruf sie unter 0172 456 80 19 zurück.",
+          "explanation": "Include the caller and a way to call back."
+        },
+        {
+          "id": "ex1_33",
+          "type": "fill_blank",
+          "question": "Complete the request: Sprechen Sie bitte _____. (slowly)",
+          "answer": "langsam",
+          "acceptableAnswers": [],
+          "explanation": "langsam means slowly.",
+          "pronunciationBn": "শ্প্রেখেন জি বিটে লাংজাম"
+        },
+        {
+          "id": "ex1_34",
+          "type": "multiple_choice",
+          "question": "A clerk says “Wie schreibt man Ihren Namen?” What should you do?",
+          "options": [
+            "Spell your name.",
+            "Say how old you are.",
+            "Ask for the price."
+          ],
+          "correctIndex": 0,
+          "explanation": "The clerk asks how your name is written."
+        },
+        {
+          "id": "ex1_35",
+          "type": "true_false",
+          "question": "Formal Sie is written with a capital S.",
+          "correct": true,
+          "explanation": "Formal Sie is capitalized to distinguish it from sie (she/they)."
+        },
+        {
+          "id": "ex1_36",
+          "type": "speaking_prompt",
+          "question": "Say your name, where you live and which languages you speak. Then ask your partner to repeat their name slowly.",
+          "exampleAnswer": "Ich heiße Karim. Ich wohne in Dhaka. Ich spreche Bengali und ein bisschen Deutsch. Wie bitte?",
+          "explanation": "Use Ich heiße ..., Ich wohne in ... and Ich spreche ....",
+          "pronunciationBn": "ইখ হাইসে কারিম। ইখ ভোনে ইন ঢাকা। ইখ শ্প্রেখে বেঙ্গালি উন্ট আইন বিসখেন ডয়চ। ভি বিটে?"
+        },
+        {
+          "type": "speaking_prompt",
+          "question": "Say each formal question with a clear question melody, then answer it: Wie heißen Sie? Woher kommen Sie?",
+          "exampleAnswer": "Wie heißen Sie? – Ich heiße Amina. Woher kommen Sie? – Ich komme aus Bangladesch.",
+          "explanation": "Let your voice rise naturally on the question; keep the verb in position two after the W-word.",
+          "pronunciationBn": "ভি হাইসেন জি? – ইখ হাইসে আমিনা। ভোহেয়া কোমেন জি? – ইখ কমে আউস বাংলাদেশ।",
+          "id": "ex1_37"
+        },
+        {
+          "type": "multiple_choice",
+          "question": "Which line is the most polite way to ask a clerk to repeat an address?",
+          "options": [
+            "Können Sie die Adresse bitte wiederholen?",
+            "Adresse! Noch einmal!",
+            "Du wiederholen Adresse?"
+          ],
+          "correctIndex": 0,
+          "explanation": "Use a modal question with formal Sie and bitte.",
+          "id": "ex1_38"
         }
       ]
     },
@@ -607,7 +1054,12 @@
         "Ask and answer about age and marital status",
         "Talk about where family members live",
         "Count from 0 to 20 and phone numbers",
-        "Count and understand numbers from zero to twenty; ask about someone’s well-being."
+        "Count and understand numbers from zero to twenty; ask about someone’s well-being.",
+        "Ask and answer how someone feels in informal and formal situations.",
+        "Introduce family members and describe who lives together.",
+        "Exchange age, telephone number and basic personal information using numbers 0–20.",
+        "Understand short information about German-speaking countries and a city-library notice.",
+        "Choose du or Sie appropriately in a first meeting."
       ],
       "vocabulary": [
         {
@@ -885,6 +1337,114 @@
           "en": "twenty",
           "bn": "বিশ",
           "pronunciationBn": "ৎসভানৎসিশ"
+        },
+        {
+          "de": "Wie geht es dir?",
+          "en": "How are you? (informal)",
+          "bn": "তুমি কেমন আছ?",
+          "pronunciationBn": "ভি গেট এস দিয়া"
+        },
+        {
+          "de": "nicht so gut",
+          "en": "not so well",
+          "bn": "তেমন ভালো না",
+          "pronunciationBn": "নিশ্ট জো গুট"
+        },
+        {
+          "de": "ausgezeichnet",
+          "en": "excellent",
+          "bn": "চমৎকার",
+          "pronunciationBn": "আউসগেৎসাইখনেট"
+        },
+        {
+          "de": "müde",
+          "en": "tired",
+          "bn": "ক্লান্ত",
+          "pronunciationBn": "ম্যুডে"
+        },
+        {
+          "de": "die Cousine",
+          "en": "female cousin",
+          "bn": "চাচাতো/মামাতো বোন",
+          "pronunciationBn": "ডি কুজিনে"
+        },
+        {
+          "de": "der Cousin",
+          "en": "male cousin",
+          "bn": "চাচাতো/মামাতো ভাই",
+          "pronunciationBn": "ডেয়া কুজাঁ"
+        },
+        {
+          "de": "die Geschwister",
+          "en": "siblings",
+          "bn": "ভাইবোন",
+          "pronunciationBn": "ডি গেশভিস্টা"
+        },
+        {
+          "de": "das Einzelkind",
+          "en": "only child",
+          "bn": "একমাত্র সন্তান",
+          "pronunciationBn": "দাস আইনৎসেলকিন্ট"
+        },
+        {
+          "de": "die Großfamilie",
+          "en": "extended family",
+          "bn": "বড় পরিবার",
+          "pronunciationBn": "ডি গ্রোসফামিলিয়ে"
+        },
+        {
+          "de": "Wie alt bist du?",
+          "en": "How old are you? (informal)",
+          "bn": "তোমার বয়স কত?",
+          "pronunciationBn": "ভি আল্ট বিস্ট ডু"
+        },
+        {
+          "de": "Ich bin ... Jahre alt.",
+          "en": "I am ... years old.",
+          "bn": "আমার বয়স ... বছর।",
+          "pronunciationBn": "ইখ বিন ... ইয়ারে আল্ট"
+        },
+        {
+          "de": "die Bibliothek",
+          "en": "library",
+          "bn": "গ্রন্থাগার",
+          "pronunciationBn": "ডি বিবলিওটেক"
+        },
+        {
+          "de": "der Ausweis",
+          "en": "library card / ID",
+          "bn": "পরিচয়পত্র",
+          "pronunciationBn": "ডেয়া আউসভাইস"
+        },
+        {
+          "de": "ausleihen",
+          "en": "to borrow",
+          "bn": "ধার নেওয়া",
+          "pronunciationBn": "আউসলাইহেন"
+        },
+        {
+          "de": "die Öffnungszeit",
+          "en": "opening time",
+          "bn": "খোলার সময়",
+          "pronunciationBn": "ডি এফনুংসৎসাইট"
+        },
+        {
+          "de": "deutschsprachig",
+          "en": "German-speaking",
+          "bn": "জার্মানভাষী",
+          "pronunciationBn": "ডয়চশ্প্রাখিশ"
+        },
+        {
+          "de": "die Schweiz",
+          "en": "Switzerland",
+          "bn": "সুইজারল্যান্ড",
+          "pronunciationBn": "ডি শভাইৎস"
+        },
+        {
+          "de": "die Zahl",
+          "en": "number",
+          "bn": "সংখ্যা",
+          "pronunciationBn": "ডি ৎসাল"
         }
       ],
       "grammar": [
@@ -912,7 +1472,41 @@
           "examples": [
             "Wo wohnen deine Eltern?",
             "Sie wohnen in Dhaka."
-          ]
+          ],
+          "table": {
+            "wohnen": [
+              "ich wohne",
+              "du wohnst",
+              "er/sie wohnt",
+              "wir wohnen",
+              "ihr wohnt",
+              "sie/Sie wohnen"
+            ],
+            "leben": [
+              "ich lebe",
+              "du lebst",
+              "er/sie lebt",
+              "wir leben",
+              "ihr lebt",
+              "sie/Sie leben"
+            ],
+            "haben": [
+              "ich habe",
+              "du hast",
+              "er/sie hat",
+              "wir haben",
+              "ihr habt",
+              "sie/Sie haben"
+            ],
+            "sein": [
+              "ich bin",
+              "du bist",
+              "er/sie ist",
+              "wir sind",
+              "ihr seid",
+              "sie/Sie sind"
+            ]
+          }
         },
         {
           "title": "Asking about well-being",
@@ -920,6 +1514,31 @@
           "examples": [
             "Wie geht es Ihnen heute?",
             "Danke, mir geht es gut."
+          ]
+        },
+        {
+          "title": "Age with sein",
+          "explanation": "German uses sein, not haben, to say how old someone is. Add Jahre alt after the number; Jahr is singular with one.",
+          "examples": [
+            "Ich bin 28 Jahre alt.",
+            "Meine Tochter ist ein Jahr alt."
+          ]
+        },
+        {
+          "title": "Possessives agree with the thing owned",
+          "explanation": "mein/dein/Ihr take -e with many feminine nouns and plural nouns: meine Mutter, deine Geschwister, Ihre Kinder. Ihr is capitalized in formal writing.",
+          "examples": [
+            "Das ist mein Vater.",
+            "Das sind meine Eltern.",
+            "Wie heißt Ihre Tochter?"
+          ]
+        },
+        {
+          "title": "Formal and informal well-being questions",
+          "explanation": "Use dir with du and Ihnen with formal Sie. The response can start with Danke; the subject pronoun mir follows the phrase es geht.",
+          "examples": [
+            "Wie geht es dir? – Danke, gut.",
+            "Wie geht es Ihnen? – Es geht mir nicht so gut."
           ]
         }
       ],
@@ -993,6 +1612,98 @@
               "speaker": "B",
               "text": "Mein Bruder und meine Schwester. Meine Eltern wohnen in Dhaka.",
               "pronunciationBn": "মাইন ব্রুডা উন্ট মাইনে শভেস্টা। মাইনে এল্টার্ন ভোনেন ইন ঢাকা।"
+            }
+          ]
+        },
+        {
+          "id": "d2_3",
+          "title": "At the city library",
+          "lines": [
+            {
+              "speaker": "A",
+              "text": "Guten Tag. Kann ich Ihnen helfen?",
+              "pronunciationBn": "গুটেন টাক। কান ইখ ইনেন হেলফেন?"
+            },
+            {
+              "speaker": "B",
+              "text": "Ja, bitte. Ich möchte ein Buch ausleihen.",
+              "pronunciationBn": "ইয়া, বিটে। ইখ ময়খ্টে আইন বুখ আউসলাইহেন।"
+            },
+            {
+              "speaker": "A",
+              "text": "Haben Sie einen Bibliotheksausweis?",
+              "pronunciationBn": "হাবেন জি আইনেন বিবলিওথেকস-আউসভাইস?"
+            },
+            {
+              "speaker": "B",
+              "text": "Nein. Wo kann ich mich anmelden?",
+              "pronunciationBn": "নাইন। ভো কান ইখ মিশ আনমেলডেন?"
+            },
+            {
+              "speaker": "A",
+              "text": "Hier. Bitte schreiben Sie Ihren Namen und Ihre Adresse.",
+              "pronunciationBn": "হিয়া। বিটে শ্রাইবেন জি ইরেন নামেন উন্ট ইয়ারে আদ্রেসে।"
+            },
+            {
+              "speaker": "B",
+              "text": "Wie lange kann ich das Buch behalten?",
+              "pronunciationBn": "ভি লাংগে কান ইখ দাস বুখ বেহাল্টেন?"
+            },
+            {
+              "speaker": "A",
+              "text": "Vier Wochen. Die Bibliothek ist montags geschlossen.",
+              "pronunciationBn": "ফিয়া ভোখেন। ডি বিবলিওথেক ইস্ট মোন্টাক্স গেশ্লোসেন।"
+            },
+            {
+              "speaker": "B",
+              "text": "Vielen Dank. Dann komme ich am Dienstag wieder.",
+              "pronunciationBn": "ফিলেন ডাংক। ডান কমে ইখ আম ডিন্সটাক ভিডা।"
+            }
+          ]
+        },
+        {
+          "id": "d2_4",
+          "title": "Meeting a new classmate: du or Sie?",
+          "lines": [
+            {
+              "speaker": "A",
+              "text": "Guten Morgen. Ich heiße Herr Yilmaz. Wie heißen Sie?",
+              "pronunciationBn": "গুটেন মর্গেন। ইখ হাইসে হেয়া ইয়িলমাজ। ভি হাইসেন জি?"
+            },
+            {
+              "speaker": "B",
+              "text": "Guten Morgen. Mein Name ist Frau Das.",
+              "pronunciationBn": "গুটেন মর্গেন। মাইন নামে ইস্ট ফ্রাউ দাস।"
+            },
+            {
+              "speaker": "A",
+              "text": "Freut mich. Wie geht es Ihnen?",
+              "pronunciationBn": "ফ্রয়ট মিশ। ভি গেট এস ইনেন?"
+            },
+            {
+              "speaker": "B",
+              "text": "Danke, gut. Und Ihnen?",
+              "pronunciationBn": "ডাংকে, গুট। উন্ট ইনেন?"
+            },
+            {
+              "speaker": "A",
+              "text": "Auch gut. Wir sind im gleichen Deutschkurs.",
+              "pronunciationBn": "আউখ গুট। ভিয়া জিন্ট ইম গ্লাইখেন ডয়চকুর্স।"
+            },
+            {
+              "speaker": "B",
+              "text": "Möchten wir uns duzen?",
+              "pronunciationBn": "ময়খ্টেন ভিয়া উন্স ডুট্সেন?"
+            },
+            {
+              "speaker": "A",
+              "text": "Gern. Ich bin Murat. Und du?",
+              "pronunciationBn": "গেয়ান। ইখ বিন মুরাট। উন্ট ডু?"
+            },
+            {
+              "speaker": "B",
+              "text": "Ich heiße Amina. Schön, dich kennenzulernen.",
+              "pronunciationBn": "ইখ হাইসে আমিনা। শ্যোন, দিশ কেনেনৎসুলেরনেন।"
             }
           ]
         }
@@ -1084,7 +1795,8 @@
           "id": "ex2_8",
           "type": "speaking_prompt",
           "question": "Talk about your family. Say how many brothers/sisters you have and where they live.",
-          "exampleAnswer": "Ich habe einen Bruder und eine Schwester. Mein Bruder lebt in Dhaka. Meine Schwester wohnt mit mir."
+          "exampleAnswer": "Ich habe einen Bruder und eine Schwester. Mein Bruder lebt in Dhaka. Meine Schwester wohnt mit mir.",
+          "pronunciationBn": "ইখ হাবে আইনেন ব্রুডার উন্ট আইনে শ্ভেস্টার। মাইন ব্রুডার লেব্ট ইন ঢাকা। মাইনে শ্ভেস্টার ভোন্ট মিট মিয়া।"
         },
         {
           "id": "ex2_9",
@@ -1141,7 +1853,8 @@
           "id": "ex2_14",
           "type": "speaking_prompt",
           "question": "Introduce three relatives and say where they live.",
-          "exampleAnswer": "Das ist mein Vater. Er heißt Rahim. Meine Mutter heißt Laila. Meine Eltern wohnen in Dhaka. Meine Schwester wohnt in Sylhet."
+          "exampleAnswer": "Das ist mein Vater. Er heißt Rahim. Meine Mutter heißt Laila. Meine Eltern wohnen in Dhaka. Meine Schwester wohnt in Sylhet.",
+          "pronunciationBn": "দাস ইস্ট মাইন ফাটা। এয়া হাইস্ট রাহিম। মাইনে মুটার হাইস্ট লাইলা। মাইনে এল্টার্ন ভোনেন ইন ঢাকা। মাইনে শ্ভেস্টার ভোন্ট ইন সিলেট।"
         },
         {
           "id": "ex2_15",
@@ -1196,6 +1909,213 @@
           "type": "true_false",
           "question": "Wie geht es dir? is the formal version.",
           "correct": false
+        },
+        {
+          "id": "ex2_21",
+          "type": "multiple_choice",
+          "question": "A learner is speaking to an unfamiliar adult at a service desk. Which greeting is suitable?",
+          "options": [
+            "Guten Tag. Wie geht es Ihnen?",
+            "Hallo, wie geht's dir?",
+            "Hey, was machst du?"
+          ],
+          "correctIndex": 0,
+          "explanation": "Sie/Ihnen is a safe polite choice with an unfamiliar adult."
+        },
+        {
+          "id": "ex2_22",
+          "type": "fill_blank",
+          "question": "Complete: Meine Schwester _____ 19 Jahre alt.",
+          "answer": "ist",
+          "acceptableAnswers": [],
+          "explanation": "German uses sein for age."
+        },
+        {
+          "id": "ex2_23",
+          "type": "matching",
+          "question": "Match the pronoun with its meaning.",
+          "pairs": [
+            {
+              "left": "er",
+              "right": "he"
+            },
+            {
+              "left": "sie",
+              "right": "she"
+            },
+            {
+              "left": "wir",
+              "right": "we"
+            },
+            {
+              "left": "ihr",
+              "right": "you plural"
+            }
+          ],
+          "explanation": "Notice the difference between er, sie, wir and ihr."
+        },
+        {
+          "id": "ex2_24",
+          "type": "true_false",
+          "question": "The usual question is “Ich habe 20 Jahre.”",
+          "correct": false,
+          "explanation": "Say Ich bin 20 Jahre alt."
+        },
+        {
+          "id": "ex2_25",
+          "type": "multiple_choice",
+          "question": "Library notice: Mo–Fr 09:00–18:00, Sa 10:00–13:00, So geschlossen. When is it closed?",
+          "options": [
+            "Sunday",
+            "Tuesday",
+            "Saturday"
+          ],
+          "correctIndex": 0,
+          "explanation": "geschlossen means closed."
+        },
+        {
+          "id": "ex2_26",
+          "type": "writing_prompt",
+          "question": "Write a short introduction of two family members. Include their names, relationship and where they live.",
+          "exampleAnswer": "Das ist meine Mutter, Salma. Sie wohnt in Dhaka. Das ist mein Bruder, Rafi. Er lebt in Chittagong.",
+          "explanation": "Check the family words, possessives, pronouns and city names."
+        },
+        {
+          "id": "ex2_27",
+          "type": "fill_blank",
+          "question": "Complete: Wie geht es _____? (formal you)",
+          "answer": "Ihnen",
+          "acceptableAnswers": [],
+          "explanation": "Formal Sie uses Ihnen in this phrase.",
+          "pronunciationBn": "ভি গেট এস ইনেন?"
+        },
+        {
+          "id": "ex2_28",
+          "type": "speaking_prompt",
+          "question": "Tell a classmate how you are and ask the same question politely.",
+          "exampleAnswer": "Danke, mir geht es gut. Und dir?",
+          "explanation": "For formal talk use Und Ihnen?",
+          "pronunciationBn": "ডাঙ্কে, মিয়া গেট এস গুট। উন্ট ডিয়া?"
+        },
+        {
+          "id": "ex2_29",
+          "type": "multiple_choice",
+          "question": "A short country card says: Wien – Österreich; Bern – Schweiz; Berlin – Deutschland. Which city is in Austria?",
+          "options": [
+            "Wien",
+            "Bern",
+            "Berlin"
+          ],
+          "correctIndex": 0,
+          "explanation": "Wien is the capital of Austria."
+        },
+        {
+          "id": "ex2_30",
+          "type": "ordering",
+          "question": "Arrange the first meeting.",
+          "items": [
+            "Auch gut, danke.",
+            "Danke, gut. Und Ihnen?",
+            "Wie geht es Ihnen?",
+            "Guten Tag. Ich heiße Nadia."
+          ],
+          "correctOrder": [
+            3,
+            2,
+            1,
+            0
+          ],
+          "explanation": "A greeting and introduction come before a well-being exchange."
+        },
+        {
+          "id": "ex2_31",
+          "type": "writing_prompt",
+          "question": "Complete a simple library registration note with your name, city and telephone number.",
+          "exampleAnswer": "Name: Nadia Ali\nWohnort: Dhaka\nTelefon: 0171 234 56 78",
+          "explanation": "Use clear labels and write the number in readable groups."
+        },
+        {
+          "id": "ex2_32",
+          "type": "multiple_choice",
+          "question": "A classmate says “Wie geht es dir?” Which reply fits?",
+          "options": [
+            "Danke, gut. Und dir?",
+            "Danke, Ihnen?",
+            "Ich bin aus Dhaka."
+          ],
+          "correctIndex": 0,
+          "explanation": "dir is the informal form used with du."
+        },
+        {
+          "id": "ex2_33",
+          "type": "fill_blank",
+          "question": "Complete: Meine Eltern _____ in Dhaka. (live)",
+          "answer": "leben",
+          "acceptableAnswers": [],
+          "explanation": "The plural subject meine Eltern takes leben.",
+          "pronunciationBn": "মাইনে এল্টার্ন লেবেন ইন ঢাকা।"
+        },
+        {
+          "id": "ex2_34",
+          "type": "true_false",
+          "question": "When you ask an unfamiliar adult “Wie geht es Ihnen?”, Ihnen is capitalized.",
+          "correct": true,
+          "explanation": "Formal pronouns are capitalized."
+        },
+        {
+          "id": "ex2_35",
+          "type": "speaking_prompt",
+          "question": "Introduce three family members. Use mein/meine and er/sie, and say where each person lives.",
+          "exampleAnswer": "Das ist mein Vater. Er lebt in Dhaka. Das ist meine Schwester. Sie wohnt in Chittagong. Das sind meine Eltern. Sie leben in Bangladesch.",
+          "explanation": "Keep the pronoun and the person it replaces clear.",
+          "pronunciationBn": "দাস ইস্ট মাইন ফাটা। এয়া লেপ্ট ইন ঢাকা। দাস ইস্ট মাইনে শ্ভেস্টার। জি ভোন্ট ইন চাট্টোগ্রাম। দাস জিন্ট মাইনে এল্টার্ন। জি লেবেন ইন বাংলাদেশ।"
+        },
+        {
+          "id": "ex2_36",
+          "type": "writing_prompt",
+          "question": "Write a short friendly message to a classmate. Ask how they are and tell them one thing about your family.",
+          "exampleAnswer": "Hallo Rina, wie geht es dir? Meine Schwester ist 19 Jahre alt und wohnt in Dhaka. Viele Grüße, Amina.",
+          "explanation": "Include a greeting, dir, one family fact and a closing."
+        },
+        {
+          "id": "ex2_37",
+          "type": "multiple_choice",
+          "question": "A visitor says “Möchten wir uns duzen?” What does this suggest?",
+          "options": [
+            "They would like to use informal du.",
+            "They want to end the conversation.",
+            "They are asking for an address."
+          ],
+          "correctIndex": 0,
+          "explanation": "Sich duzen means to address each other with du."
+        },
+        {
+          "id": "ex2_38",
+          "type": "fill_blank",
+          "question": "Complete: Das sind _____ Geschwister. (my)",
+          "answer": "meine",
+          "acceptableAnswers": [],
+          "explanation": "Plural Geschwister takes meine."
+        },
+        {
+          "type": "speaking_prompt",
+          "question": "Practise the rhythm of a family introduction. Read the model once slowly, then again in a natural rhythm.",
+          "exampleAnswer": "Das ist mein Vater. Das ist meine Mutter. Sie wohnen in Dhaka.",
+          "explanation": "Keep the short function words connected to the main words; stress the family members and city.",
+          "pronunciationBn": "দাস ইস্ট মাইন ফাটা। দাস ইস্ট মাইনে মুটার। জি ভোনেন ইন ঢাকা।",
+          "id": "ex2_39"
+        },
+        {
+          "type": "multiple_choice",
+          "question": "A library notice says “Ausweis bitte an der Information zeigen.” What should visitors show?",
+          "options": [
+            "Their ID or library card",
+            "A shopping receipt",
+            "A school timetable"
+          ],
+          "correctIndex": 0,
+          "explanation": "Ausweis is an ID card; Information is the service desk.",
+          "id": "ex2_40"
         }
       ]
     },
@@ -1210,7 +2130,12 @@
         "Use indefinite articles (ein/eine) and kein/keine",
         "Make a simple shopping dialogue",
         "Understand basic quantities (Kilo, Stück, Packung)",
-        "Ask about quantities and prices; understand a short recipe and shopping list."
+        "Ask about quantities and prices; understand a short recipe and shopping list.",
+        "Understand a short product label, online-shop listing and shopping notice.",
+        "Write a shopping list and a simple recipe with ingredients and quantities.",
+        "Ask what an unfamiliar food is called and make polite requests in a shop.",
+        "Practise yes/no question intonation, word stress and long/short vowels.",
+        "Use food and shopping language to compare prices and decide what to buy."
       ],
       "vocabulary": [
         {
@@ -1410,6 +2335,132 @@
           "en": "oil",
           "bn": "তেল",
           "pronunciationBn": "দাস অয়ল"
+        },
+        {
+          "de": "das Mehl",
+          "en": "flour",
+          "bn": "ময়দা",
+          "pronunciationBn": "দাস মেল"
+        },
+        {
+          "de": "die Butter",
+          "en": "butter",
+          "bn": "মাখন",
+          "pronunciationBn": "ডি বুটা"
+        },
+        {
+          "de": "die Sahne",
+          "en": "cream",
+          "bn": "ক্রিম",
+          "pronunciationBn": "ডি জানে"
+        },
+        {
+          "de": "der Pfeffer",
+          "en": "pepper",
+          "bn": "গোলমরিচ",
+          "pronunciationBn": "ডেয়া ফেফা"
+        },
+        {
+          "de": "das Hackfleisch",
+          "en": "minced meat",
+          "bn": "কিমা",
+          "pronunciationBn": "দাস হাকফ্লাইশ"
+        },
+        {
+          "de": "die Petersilie",
+          "en": "parsley",
+          "bn": "পার্সলে পাতা",
+          "pronunciationBn": "ডি পেটারজিলিয়ে"
+        },
+        {
+          "de": "der Knoblauch",
+          "en": "garlic",
+          "bn": "রসুন",
+          "pronunciationBn": "ডেয়া কোনোব্লাউখ"
+        },
+        {
+          "de": "die Zitrone",
+          "en": "lemon",
+          "bn": "লেবু",
+          "pronunciationBn": "ডি ৎসিট্রোনে"
+        },
+        {
+          "de": "die Erdbeere",
+          "en": "strawberry",
+          "bn": "স্ট্রবেরি",
+          "pronunciationBn": "ডি এয়ার্টবেয়ারে"
+        },
+        {
+          "de": "die Traube",
+          "en": "grape",
+          "bn": "আঙুর",
+          "pronunciationBn": "ডি ট্রাউবে"
+        },
+        {
+          "de": "der Einkaufswagen",
+          "en": "shopping cart",
+          "bn": "কেনাকাটার ট্রলি",
+          "pronunciationBn": "ডেয়া আইনকাউফসভাগেন"
+        },
+        {
+          "de": "das Sonderangebot",
+          "en": "special offer",
+          "bn": "বিশেষ ছাড়",
+          "pronunciationBn": "দাস জোন্ডা-আনগেবোট"
+        },
+        {
+          "de": "der Kassenbon",
+          "en": "receipt",
+          "bn": "রসিদ",
+          "pronunciationBn": "ডেয়া কাসেনবন"
+        },
+        {
+          "de": "die Zutaten",
+          "en": "ingredients",
+          "bn": "উপকরণ",
+          "pronunciationBn": "ডি ৎসুটাটেন"
+        },
+        {
+          "de": "zuerst",
+          "en": "first",
+          "bn": "প্রথমে",
+          "pronunciationBn": "ৎসু-এয়ার্স্ট"
+        },
+        {
+          "de": "danach",
+          "en": "after that",
+          "bn": "তারপর",
+          "pronunciationBn": "দানাখ"
+        },
+        {
+          "de": "umrühren",
+          "en": "to stir",
+          "bn": "নাড়তে থাকা",
+          "pronunciationBn": "উমর্যুরেন"
+        },
+        {
+          "de": "schneiden",
+          "en": "to cut",
+          "bn": "কাটা",
+          "pronunciationBn": "শ্নাইডেন"
+        },
+        {
+          "de": "die Speisekarte",
+          "en": "menu",
+          "bn": "খাবারের তালিকা",
+          "pronunciationBn": "ডি শ্পাইজেকার্টে"
+        },
+        {
+          "de": "der Cent",
+          "en": "cent",
+          "bn": "সেন্ট",
+          "pronunciationBn": "ডেয়া ৎসেন্ট"
+        },
+        {
+          "de": "das Backblech",
+          "en": "baking tray",
+          "bn": "বেকিং ট্রে",
+          "pronunciationBn": "দাস বাকব্লেখ"
         }
       ],
       "grammar": [
@@ -1438,7 +2489,17 @@
           "examples": [
             "Ich möchte ein Kilo Kartoffeln.",
             "Ich hätte gern eine Flasche Wasser."
-          ]
+          ],
+          "table": {
+            "möchten": [
+              "ich möchte",
+              "du möchtest",
+              "er/sie möchte",
+              "wir möchten",
+              "ihr möchtet",
+              "sie/Sie möchten"
+            ]
+          }
         },
         {
           "title": "Quantities and prices",
@@ -1446,6 +2507,41 @@
           "examples": [
             "Was kostet ein Kilo Reis?",
             "Was kosten drei Tomaten?"
+          ]
+        },
+        {
+          "title": "Zero article with food in general",
+          "explanation": "When you mean food in general or an uncounted amount, German often uses no article: Wir brauchen Reis. With a specific countable singular item, use ein/eine; with a negative item use kein/keine.",
+          "examples": [
+            "Haben wir Zucker?",
+            "Ich kaufe Reis.",
+            "Wir haben keine Eier."
+          ]
+        },
+        {
+          "title": "Question word order while shopping",
+          "explanation": "A yes/no question starts with the conjugated verb. A W-question begins with the question word and keeps the verb in position two.",
+          "examples": [
+            "Haben Sie Äpfel?",
+            "Was kostet ein Kilo Reis?",
+            "Wie viel kosten die Tomaten?"
+          ]
+        },
+        {
+          "title": "Polite requests with hätte gern",
+          "explanation": "Ich hätte gern ... is a polite, common way to order or shop. Use bitte and a quantity to make the request complete.",
+          "examples": [
+            "Ich hätte gern 200 Gramm Käse, bitte.",
+            "Ein Kilo Kartoffeln, bitte."
+          ]
+        },
+        {
+          "title": "Plural nouns in food lists",
+          "explanation": "Learn a food noun together with its plural. Some forms change the vowel, some add -e/-en, and some stay the same.",
+          "examples": [
+            "der Apfel – die Äpfel",
+            "das Ei – die Eier",
+            "der Kuchen – die Kuchen"
           ]
         }
       ],
@@ -1519,6 +2615,118 @@
               "speaker": "B",
               "text": "Gut. Danach lesen wir zusammen das Rezept.",
               "pronunciationBn": "গুট। দানাখ লেজেন ভিয়া ৎসুজামেন দাস রেৎসেপ্ট।"
+            }
+          ]
+        },
+        {
+          "id": "d3_3",
+          "title": "Ordering at a bakery",
+          "lines": [
+            {
+              "speaker": "A",
+              "text": "Guten Morgen. Was möchten Sie?",
+              "pronunciationBn": "গুটেন মর্গেন। ভাস ময়খ্টেন জি?"
+            },
+            {
+              "speaker": "B",
+              "text": "Ich hätte gern vier Brötchen und ein Brot, bitte.",
+              "pronunciationBn": "ইখ হেটে গেয়ান ফিয়া ব্র্যোৎখেন উন্ট আইন ব্রোট, বিটে।"
+            },
+            {
+              "speaker": "A",
+              "text": "Möchten Sie auch Kuchen? Der Apfelkuchen ist frisch.",
+              "pronunciationBn": "ময়খ্টেন জি আউখ কুখেন? ডেয়া আপফেলকুখেন ইস্ট ফ্রিশ।"
+            },
+            {
+              "speaker": "B",
+              "text": "Nein, danke. Was kostet das Brot?",
+              "pronunciationBn": "নাইন, ডাংকে। ভাস কোস্টেট দাস ব্রোট?"
+            },
+            {
+              "speaker": "A",
+              "text": "Zwei Euro zehn. Die Brötchen kosten zwei Euro.",
+              "pronunciationBn": "ৎসভাই অয়রো ৎসেন। ডি ব্র্যোৎখেন কোস্টেন ৎসভাই অয়রো।"
+            },
+            {
+              "speaker": "B",
+              "text": "Dann nehme ich noch zwei Brötchen.",
+              "pronunciationBn": "ডান নেমে ইখ নখ ৎসভাই ব্র্যোৎখেন।"
+            },
+            {
+              "speaker": "A",
+              "text": "Das macht vier Euro zehn.",
+              "pronunciationBn": "দাস মাখ্ট ফিয়া অয়রো ৎসেন।"
+            },
+            {
+              "speaker": "B",
+              "text": "Hier, bitte. Kann ich mit Karte zahlen?",
+              "pronunciationBn": "হিয়া, বিটে। কান ইখ মিট কার্টে ৎসালেন?"
+            },
+            {
+              "speaker": "A",
+              "text": "Ja, natürlich. Hier ist Ihr Kassenbon.",
+              "pronunciationBn": "ইয়া, নাট্যুরলিশ। হিয়া ইস্ট ইয়া কাসেনবন।"
+            },
+            {
+              "speaker": "B",
+              "text": "Vielen Dank. Auf Wiedersehen.",
+              "pronunciationBn": "ফিলেন ডাংক। আউফ ভিডারজেয়েন।"
+            }
+          ]
+        },
+        {
+          "id": "d3_4",
+          "title": "Reading a recipe and cooking together",
+          "lines": [
+            {
+              "speaker": "A",
+              "text": "Was brauchen wir für den Bananenkuchen?",
+              "pronunciationBn": "ভাস ব্রাউখেন ভিয়া ফ্যুয়া ডেন বানানেনকুখেন?"
+            },
+            {
+              "speaker": "B",
+              "text": "Zwei Bananen, zwei Eier, 200 Gramm Mehl und etwas Milch.",
+              "pronunciationBn": "ৎসভাই বানানেন, ৎসভাই আইয়া, ৎসভাইহুনডার্ট গ্রাম মেল উন্ট এটভাস মিল্শ।"
+            },
+            {
+              "speaker": "A",
+              "text": "Haben wir noch Butter?",
+              "pronunciationBn": "হাবেন ভিয়া নখ বুটা?"
+            },
+            {
+              "speaker": "B",
+              "text": "Nein, wir haben keine Butter. Ich kaufe ein Stück.",
+              "pronunciationBn": "নাইন, ভিয়া হাবেন কাইনে বুটা। ইখ কাউফে আইন শ্ট্যুক।"
+            },
+            {
+              "speaker": "A",
+              "text": "Was machen wir zuerst?",
+              "pronunciationBn": "ভাস মাখেন ভিয়া ৎসু-এয়ার্স্ট?"
+            },
+            {
+              "speaker": "B",
+              "text": "Zuerst schneiden wir die Bananen. Danach rühren wir alles zusammen.",
+              "pronunciationBn": "ৎসু-এয়ার্স্ট শ্নাইডেন ভিয়া ডি বানানেন। দানাখ র্যুরেন ভিয়া আলেস ৎসুজামেন।"
+            },
+            {
+              "speaker": "A",
+              "text": "Wie lange muss der Kuchen in den Ofen?",
+              "pronunciationBn": "ভি লাংগে মুস ডেয়া কুখেন ইন ডেন ওফেন?"
+            },
+            {
+              "speaker": "B",
+              "text": "Etwa 30 Minuten. Danach lassen wir ihn abkühlen.",
+              "pronunciationBn": "এটভা ড্রাইসিশ মিনিটেন। দানাখ লাসেন ভিয়া ইন আপক্যুলেন।"
+            },
+            {
+              "speaker": "A",
+              "text": "Gut. Ich decke den Tisch.",
+              "pronunciationBn": "গুট। ইখ ডেকে ডেন টিশ।"
+            },
+            {
+              "speaker": "B",
+              "text": "Und ich mache Tee. Das wird lecker!",
+              "pronunciationBn": "উন্ট ইখ মাখে টে। দাস ভির্ট লেকা!"
             }
           ]
         }
@@ -1610,7 +2818,8 @@
           "id": "ex3_8",
           "type": "speaking_prompt",
           "question": "You are in a shop. Ask for 1 kg rice, 2 liters milk and 6 eggs.",
-          "exampleAnswer": "Guten Tag. Ich möchte ein Kilo Reis, zwei Liter Milch und sechs Eier bitte."
+          "exampleAnswer": "Guten Tag. Ich möchte ein Kilo Reis, zwei Liter Milch und sechs Eier bitte.",
+          "pronunciationBn": "গুটেন টাক। ইখ ম্যোখটে আইন কিলো রাইস, ৎসভাই লিটার মিল্শ উন্ট জেক্স আইয়া বিটে।"
         },
         {
           "id": "ex3_9",
@@ -1675,7 +2884,8 @@
           "id": "ex3_14",
           "type": "speaking_prompt",
           "question": "Ask for two ingredients and one price, then finish politely.",
-          "exampleAnswer": "Guten Tag. Ich hätte gern ein Kilo Kartoffeln und sechs Tomaten. Was kostet ein Kilo Kartoffeln? Vielen Dank."
+          "exampleAnswer": "Guten Tag. Ich hätte gern ein Kilo Kartoffeln und sechs Tomaten. Was kostet ein Kilo Kartoffeln? Vielen Dank.",
+          "pronunciationBn": "গুটেন টাক। ইখ হেটে গেয়ান আইন কিলো কার্টোফেল্ন উন্ট জেক্স টোমাটেন। ভাস কোস্টেট আইন কিলো কার্টোফেল্ন? ফিলেন ডাঙ্ক।"
         },
         {
           "id": "ex3_15",
@@ -1730,6 +2940,240 @@
           "type": "true_false",
           "question": "A simple recipe can list ingredients and steps.",
           "correct": true
+        },
+        {
+          "id": "ex3_21",
+          "type": "multiple_choice",
+          "question": "Product label: 1 l milk €1.20; 500 g yogurt €1.80; 1 kg apples €2.40. Which costs €1.20?",
+          "options": [
+            "One litre of milk",
+            "A kilo of apples",
+            "Yogurt"
+          ],
+          "correctIndex": 0,
+          "explanation": "Match the price to the correct product and quantity."
+        },
+        {
+          "id": "ex3_22",
+          "type": "fill_blank",
+          "question": "Complete the request: Ich hätte gern 200 _____ Käse.",
+          "answer": "Gramm",
+          "acceptableAnswers": [],
+          "explanation": "Use Gramm after a weight amount.",
+          "pronunciationBn": "ইখ হেটে গেয়ান ৎসভাইহুনডার্ট গ্রাম কেজে"
+        },
+        {
+          "id": "ex3_23",
+          "type": "multiple_choice",
+          "question": "At a market you want to ask the price of several pears. What do you say?",
+          "options": [
+            "Was kosten die Birnen?",
+            "Woher kosten Birnen?",
+            "Wie heißt die Birnen?"
+          ],
+          "correctIndex": 0,
+          "explanation": "Plural die Birnen takes kosten."
+        },
+        {
+          "id": "ex3_24",
+          "type": "speaking_prompt",
+          "question": "Buy one kilo of apples and ask whether the shop has fresh bread. Finish the conversation politely.",
+          "exampleAnswer": "Guten Tag. Ich hätte gern ein Kilo Äpfel. Haben Sie frisches Brot? Ja, bitte. Das ist alles, danke.",
+          "explanation": "Say the quantity clearly and respond to the shopkeeper.",
+          "pronunciationBn": "গুটেন টাক। ইখ হেটে গেয়ান আইন কিলো আপফেল। হাবেন জি ফ্রিশেস ব্রোট? ইয়া, বিটে। দাস ইস্ট আলেস, ডাঙ্কে।"
+        },
+        {
+          "id": "ex3_25",
+          "type": "matching",
+          "question": "Match each recipe action.",
+          "pairs": [
+            {
+              "left": "zuerst",
+              "right": "first"
+            },
+            {
+              "left": "danach",
+              "right": "after that"
+            },
+            {
+              "left": "schneiden",
+              "right": "cut"
+            },
+            {
+              "left": "umrühren",
+              "right": "stir"
+            }
+          ],
+          "explanation": "These words help explain recipe steps."
+        },
+        {
+          "id": "ex3_26",
+          "type": "writing_prompt",
+          "question": "Write a shopping list for a simple breakfast with at least five foods and two quantities.",
+          "exampleAnswer": "Einkaufsliste: ein Brot, sechs Eier, ein Liter Milch, 200 Gramm Käse, zwei Äpfel.",
+          "explanation": "Use quantities with the correct noun and plural."
+        },
+        {
+          "id": "ex3_27",
+          "type": "true_false",
+          "question": "Haben wir Zucker? is a yes/no question and begins with the verb.",
+          "correct": true,
+          "explanation": "The conjugated verb haben comes before the subject."
+        },
+        {
+          "id": "ex3_28",
+          "type": "multiple_choice",
+          "question": "A shop sign says “Sonderangebot: Äpfel 1 kg – 2,40 €”. What is on special offer?",
+          "options": [
+            "Apples",
+            "Milk",
+            "Bread"
+          ],
+          "correctIndex": 0,
+          "explanation": "Sonderangebot means special offer."
+        },
+        {
+          "id": "ex3_29",
+          "type": "fill_blank",
+          "question": "Complete: Wir brauchen _____ Reis. (no article)",
+          "answer": "Reis",
+          "acceptableAnswers": [],
+          "explanation": "Use no article when talking about an uncounted food in general."
+        },
+        {
+          "id": "ex3_30",
+          "type": "ordering",
+          "question": "Put the recipe steps in a sensible order.",
+          "items": [
+            "Zum Schluss servieren wir den Salat.",
+            "Danach geben wir sie in eine Schüssel.",
+            "Dann schneiden wir die Äpfel.",
+            "Zuerst waschen wir die Äpfel."
+          ],
+          "correctOrder": [
+            3,
+            2,
+            1,
+            0
+          ],
+          "explanation": "Sequence words make instructions easy to follow."
+        },
+        {
+          "id": "ex3_31",
+          "type": "writing_prompt",
+          "question": "Write three simple German steps for making a fruit salad. Use zuerst, dann and danach.",
+          "exampleAnswer": "Zuerst wasche ich die Äpfel. Dann schneide ich die Äpfel und die Bananen. Danach mische ich das Obst.",
+          "explanation": "Use an action verb in each step and keep the order clear."
+        },
+        {
+          "id": "ex3_32",
+          "type": "multiple_choice",
+          "question": "Choose the polite way to ask for potatoes.",
+          "options": [
+            "Ich hätte gern ein Kilo Kartoffeln, bitte.",
+            "Gib Kartoffeln!",
+            "Kartoffeln du?"
+          ],
+          "correctIndex": 0,
+          "explanation": "Ich hätte gern ... bitte is polite in a shop."
+        },
+        {
+          "id": "ex3_33",
+          "type": "speaking_prompt",
+          "question": "Read the pair Ei / ein and Eis / eins slowly. Notice that ei is a glide, then use one in a sentence.",
+          "exampleAnswer": "Ich kaufe ein Ei. Das Eis ist kalt.",
+          "explanation": "Say ei as one moving vowel sound, not as two separate syllables.",
+          "pronunciationBn": "ইখ কাউফে আইন আই। দাস আইস ইস্ট কাল্ট।"
+        },
+        {
+          "id": "ex3_34",
+          "type": "true_false",
+          "question": "A simple recipe can include ingredients, quantities and ordered steps.",
+          "correct": true,
+          "explanation": "Recipes commonly combine ingredient lists with instructions."
+        },
+        {
+          "id": "ex3_35",
+          "type": "multiple_choice",
+          "question": "Product information says “enthält Milch und Ei”. Which statement is correct?",
+          "options": [
+            "It contains milk and egg.",
+            "It contains no milk.",
+            "It is a price label."
+          ],
+          "correctIndex": 0,
+          "explanation": "enthält means contains."
+        },
+        {
+          "id": "ex3_36",
+          "type": "fill_blank",
+          "question": "Complete: Wie viel _____ ein Kilo Orangen?",
+          "answer": "kostet",
+          "acceptableAnswers": [],
+          "explanation": "A singular quantity such as ein Kilo takes kostet."
+        },
+        {
+          "id": "ex3_37",
+          "type": "writing_prompt",
+          "question": "Write a short online order message asking for tea, rice and one bottle of water. Include a polite greeting and closing.",
+          "exampleAnswer": "Guten Tag, ich möchte eine Packung Tee, ein Kilo Reis und eine Flasche Wasser bestellen. Vielen Dank. Freundliche Grüße, Amina.",
+          "explanation": "Check each item and quantity, and use a polite opening and closing."
+        },
+        {
+          "id": "ex3_38",
+          "type": "multiple_choice",
+          "question": "Which pair has a long vowel in the first word and a short vowel in the second?",
+          "options": [
+            "Biete – bitte",
+            "Haus – Maus",
+            "Ei – Ei"
+          ],
+          "correctIndex": 0,
+          "explanation": "The long i in Biete contrasts with the short i in bitte."
+        },
+        {
+          "id": "ex3_39",
+          "type": "fill_blank",
+          "question": "Complete the price: Das macht drei Euro _____.",
+          "answer": "fünfzig",
+          "acceptableAnswers": [],
+          "explanation": "For example, €3.50 is drei Euro fünfzig.",
+          "pronunciationBn": "দাস মাখ্ট ড্রাই অয়রো ফুনফৎসিশ।"
+        },
+        {
+          "id": "ex3_40",
+          "type": "speaking_prompt",
+          "question": "Ask a market seller what an unfamiliar vegetable is called, then confirm the name.",
+          "exampleAnswer": "Wie heißt das auf Deutsch? – Das ist eine Zucchini. – Ach so, danke!",
+          "explanation": "Wie heißt das auf Deutsch? is a useful repair question.",
+          "pronunciationBn": "ভি হাইস্ট দাস আউফ ডয়চ?"
+        },
+        {
+          "type": "writing_prompt",
+          "question": "Project: Create a small Lebensmittel-Alphabet with at least eight German foods. Include the article for each noun.",
+          "exampleAnswer": "A – der Apfel\nB – die Banane\nE – das Ei\nK – der Käse\nM – die Milch\nO – die Orange\nT – die Tomate\nW – das Wasser",
+          "explanation": "Use a dictionary if needed, keep the alphabet order and learn each noun with its article.",
+          "id": "ex3_41"
+        },
+        {
+          "type": "speaking_prompt",
+          "question": "Practise the melody of a yes/no question and a W-question: Haben Sie Eier? Was kostet ein Kilo Äpfel?",
+          "exampleAnswer": "Haben Sie Eier? – Ja, zwei Euro. Was kostet ein Kilo Äpfel? – Drei Euro.",
+          "explanation": "Yes/no questions begin with the verb; W-questions begin with the question word.",
+          "pronunciationBn": "হাবেন জি আইয়া? – ইয়া, ৎসভাই অয়রো। ভাস কোস্টেট আইন কিলো আপফেল? – ড্রাই অয়রো।",
+          "id": "ex3_42"
+        },
+        {
+          "type": "multiple_choice",
+          "question": "Which word has the main stress on its first part as a German compound?",
+          "options": [
+            "Einkaufszettel",
+            "sehr schön",
+            "bitte"
+          ],
+          "correctIndex": 0,
+          "explanation": "In many German compounds the first element carries the main stress.",
+          "id": "ex3_43"
         }
       ]
     },
@@ -1744,7 +3188,12 @@
         "Use definite articles (der/die/das)",
         "Express likes and dislikes about a place",
         "Understand simple housing ads",
-        "Describe colors, rooms and furniture; understand a simple rental notice and large round numbers."
+        "Describe colors, rooms and furniture; understand a simple rental notice and large round numbers.",
+        "Read a short apartment advertisement and ask about rent, rooms and furniture by phone.",
+        "Understand a simple workplace rule notice and a short housing information text.",
+        "Describe an apartment, point to objects and express likes or dislikes.",
+        "Practise stress in compound nouns and hear the difference between long and short e/i.",
+        "Read and compare housing details such as floor, size, location and monthly rent."
       ],
       "vocabulary": [
         {
@@ -1956,6 +3405,120 @@
           "en": "one million",
           "bn": "দশ লক্ষ",
           "pronunciationBn": "আইনে মিলিয়ন"
+        },
+        {
+          "de": "die Wohnungsanzeige",
+          "en": "apartment listing",
+          "bn": "বাসার বিজ্ঞাপন",
+          "pronunciationBn": "ডি ভোনুংস-আনৎসাইগে"
+        },
+        {
+          "de": "die Kaltmiete",
+          "en": "rent excluding utilities",
+          "bn": "ইউটিলিটি ছাড়া ভাড়া",
+          "pronunciationBn": "ডি কাল্টমিতে"
+        },
+        {
+          "de": "die Nebenkosten",
+          "en": "additional costs",
+          "bn": "অতিরিক্ত খরচ",
+          "pronunciationBn": "ডি নেবেনকোস্টেন"
+        },
+        {
+          "de": "die Warmmiete",
+          "en": "rent including utilities",
+          "bn": "ইউটিলিটিসহ ভাড়া",
+          "pronunciationBn": "ডি ভার্মমিতে"
+        },
+        {
+          "de": "der Quadratmeter",
+          "en": "square metres",
+          "bn": "বর্গমিটার",
+          "pronunciationBn": "ডি কভাড্রাটমেটা"
+        },
+        {
+          "de": "das Erdgeschoss",
+          "en": "ground floor",
+          "bn": "ভূতল",
+          "pronunciationBn": "দাস এয়ার্টগেশস"
+        },
+        {
+          "de": "der Stock",
+          "en": "floor / storey",
+          "bn": "তলা",
+          "pronunciationBn": "ডেয়া শ্টক"
+        },
+        {
+          "de": "die Waschmaschine",
+          "en": "washing machine",
+          "bn": "ওয়াশিং মেশিন",
+          "pronunciationBn": "ডি ভাশমাশিনে"
+        },
+        {
+          "de": "der Herd",
+          "en": "stove",
+          "bn": "চুলা",
+          "pronunciationBn": "ডেয়া হেয়ার্ট"
+        },
+        {
+          "de": "die Spülmaschine",
+          "en": "dishwasher",
+          "bn": "ডিশওয়াশার",
+          "pronunciationBn": "ডি শ্প্যুলমাশিনে"
+        },
+        {
+          "de": "der Schreibtisch",
+          "en": "desk",
+          "bn": "লেখার টেবিল",
+          "pronunciationBn": "ডেয়া শ্রাইবটিশ"
+        },
+        {
+          "de": "der Sessel",
+          "en": "armchair",
+          "bn": "আরামকেদারা",
+          "pronunciationBn": "ডেয়া জেসেল"
+        },
+        {
+          "de": "die Decke",
+          "en": "ceiling / blanket",
+          "bn": "ছাদ / কম্বল",
+          "pronunciationBn": "ডি ডেকে"
+        },
+        {
+          "de": "die Heizung",
+          "en": "heating",
+          "bn": "হিটিং ব্যবস্থা",
+          "pronunciationBn": "ডি হাইৎসুং"
+        },
+        {
+          "de": "die Hausordnung",
+          "en": "house rules",
+          "bn": "বাড়ির নিয়ম",
+          "pronunciationBn": "ডি হাউস-অর্ডনুং"
+        },
+        {
+          "de": "erlaubt",
+          "en": "allowed",
+          "bn": "অনুমোদিত",
+          "pronunciationBn": "এয়ারলাউপ্ট"
+        },
+        {
+          "de": "verboten",
+          "en": "forbidden",
+          "bn": "নিষিদ্ধ",
+          "pronunciationBn": "ফেয়াবোটেন"
+        },
+        {
+          "de": "die Besichtigung",
+          "en": "viewing",
+          "bn": "বাসা দেখার সময়",
+          "pronunciationBn": "ডি বেজিশটিগুং"
+        },
+        {
+          "de": "der Mietvertrag",
+          "en": "rental contract",
+          "bn": "ভাড়ার চুক্তি",
+          "pronunciationBn": "ডেয়া মিটফেয়াট্রাক"
         }
       ],
       "grammar": [
@@ -1966,7 +3529,21 @@
             "der Tisch (the table)",
             "die Küche (the kitchen)",
             "das Zimmer (the room)"
-          ]
+          ],
+          "table": {
+            "masculine": [
+              "der Tisch",
+              "der Schrank"
+            ],
+            "feminine": [
+              "die Lampe",
+              "die Küche"
+            ],
+            "neuter": [
+              "das Bett",
+              "das Zimmer"
+            ]
+          }
         },
         {
           "title": "Predicative adjectives",
@@ -1991,6 +3568,32 @@
           "examples": [
             "Die Miete ist nicht billig.",
             "Das Arbeitszimmer ist hell."
+          ]
+        },
+        {
+          "title": "The final noun gives a compound its article",
+          "explanation": "German compound nouns are written as one word. The final noun determines the gender and article: der Tisch → der Schreibtisch; die Maschine → die Waschmaschine.",
+          "examples": [
+            "der Schreibtisch",
+            "die Waschmaschine",
+            "das Kinderzimmer"
+          ]
+        },
+        {
+          "title": "Comparing housing information",
+          "explanation": "Use the unchanged adjective after sein to describe a room or an offer. Add nicht before the adjective to make a negative statement.",
+          "examples": [
+            "Das Zimmer ist hell.",
+            "Die Miete ist nicht teuer.",
+            "Die Wohnung ist sehr ruhig."
+          ]
+        },
+        {
+          "title": "Large numbers in apartment listings",
+          "explanation": "Apartment advertisements may show a monthly price, square metres and a floor. Read the number with the noun and check whether it is Kaltmiete or Warmmiete.",
+          "examples": [
+            "Die Wohnung hat 65 Quadratmeter.",
+            "Die Warmmiete kostet 750 Euro."
           ]
         }
       ],
@@ -2054,6 +3657,108 @@
               "speaker": "B",
               "text": "Der Balkon ist schön. Die Miete ist 650 Euro.",
               "pronunciationBn": "ডেয়া বালকন ইস্ট শ্যোন। ডি মিটে ইস্ট জেক্সহুন্ডার্ট ফুন্‌ফ্ৎসিশ অয়রো।"
+            }
+          ]
+        },
+        {
+          "id": "d4_3",
+          "title": "Calling about an apartment listing",
+          "lines": [
+            {
+              "speaker": "A",
+              "text": "Guten Tag. Ich rufe wegen Ihrer Wohnungsanzeige an.",
+              "pronunciationBn": "গুটেন টাক। ইখ রুফে ভেগেন ইয়ারা ভোনুংস-আনৎসাইগে আন।"
+            },
+            {
+              "speaker": "B",
+              "text": "Guten Tag. Welche Wohnung meinen Sie?",
+              "pronunciationBn": "গুটেন টাক। ভেলখে ভোনুং মাইনেন জি?"
+            },
+            {
+              "speaker": "A",
+              "text": "Die Wohnung in der Gartenstraße. Ist sie noch frei?",
+              "pronunciationBn": "ডি ভোনুং ইন ডেয়া গার্টেনশ্ট্রাসে। ইস্ট জি নখ ফ্রাই?"
+            },
+            {
+              "speaker": "B",
+              "text": "Ja. Sie hat zwei Zimmer und 58 Quadratmeter.",
+              "pronunciationBn": "ইয়া। জি হাট ৎসভাই ৎসিমা উন্ট আখটউনফুনফৎসিশ কভাড্রাটমেটা।"
+            },
+            {
+              "speaker": "A",
+              "text": "Wie hoch ist die Warmmiete?",
+              "pronunciationBn": "ভি হোখ ইস্ট ডি ভার্মমিতে?"
+            },
+            {
+              "speaker": "B",
+              "text": "Sie kostet 720 Euro im Monat. Die Heizung ist dabei.",
+              "pronunciationBn": "জি কোস্টেট জিবেনহুনডার্ট ৎসভানৎসিশ অয়রো ইম মোনাট। ডি হাইৎসুং ইস্ট দাবাই।"
+            },
+            {
+              "speaker": "A",
+              "text": "Gibt es eine Waschmaschine?",
+              "pronunciationBn": "গিপ্ট এস আইনে ভাশমাশিনে?"
+            },
+            {
+              "speaker": "B",
+              "text": "Ja, im Keller. Sie können die Wohnung am Freitag ansehen.",
+              "pronunciationBn": "ইয়া, ইম কেলা। জি ক্যোনেন ডি ভোনুং আম ফ্রাইটাক আনজেয়েন।"
+            },
+            {
+              "speaker": "A",
+              "text": "Das passt. Um wie viel Uhr?",
+              "pronunciationBn": "দাস পাস্ট। উম ভি ফিল উয়া?"
+            },
+            {
+              "speaker": "B",
+              "text": "Um 17 Uhr. Bitte rufen Sie an, wenn Sie später kommen.",
+              "pronunciationBn": "উম জিবৎসেন উয়া। বিটে রুফেন জি আন, ভেন জি শ্পেটা কোমেন।"
+            }
+          ]
+        },
+        {
+          "id": "d4_4",
+          "title": "Understanding the house rules",
+          "lines": [
+            {
+              "speaker": "A",
+              "text": "Kann ich mein Fahrrad im Hausflur lassen?",
+              "pronunciationBn": "কান ইখ মাইন ফাররাট ইম হাউসফ্লুর লাসেন?"
+            },
+            {
+              "speaker": "B",
+              "text": "Nein, das ist leider nicht erlaubt.",
+              "pronunciationBn": "নাইন, দাস ইস্ট লাইডা নিশ্ট এয়ারলাউপ্ট।"
+            },
+            {
+              "speaker": "A",
+              "text": "Wo kann ich es abstellen?",
+              "pronunciationBn": "ভো কান ইখ এস আপশ্টেলেন?"
+            },
+            {
+              "speaker": "B",
+              "text": "Im Fahrradkeller. Die Tür ist dort hinten.",
+              "pronunciationBn": "ইম ফাররাটকেলা। ডি ট্যুর ইস্ট ডোর্ট হিন্টেন।"
+            },
+            {
+              "speaker": "A",
+              "text": "Darf man am Sonntag die Waschmaschine benutzen?",
+              "pronunciationBn": "ডার্ফ মান আম জোনটাক ডি ভাশমাশিনে বেনুৎসেন?"
+            },
+            {
+              "speaker": "B",
+              "text": "Nach 22 Uhr ist Waschen verboten. Bitte achten Sie auf die Nachbarn.",
+              "pronunciationBn": "নাখ ৎসভাইউন্টৎসভানৎসিশ উয়া ইস্ট ভাশেন ফেয়াবোটেন। বিটে আখ্টেন জি আউফ ডি নাখবার্ন।"
+            },
+            {
+              "speaker": "A",
+              "text": "Danke. Und wo ist der Müllraum?",
+              "pronunciationBn": "ডাংকে। উন্ট ভো ইস্ট ডেয়া মুলরাউম?"
+            },
+            {
+              "speaker": "B",
+              "text": "Im Erdgeschoss, neben dem Eingang.",
+              "pronunciationBn": "ইম এয়ার্টগেশস, নেবেন ডেম আইনগাং।"
             }
           ]
         }
@@ -2143,7 +3848,8 @@
           "id": "ex4_8",
           "type": "speaking_prompt",
           "question": "Describe your room or apartment. Say how many rooms and what furniture you have.",
-          "exampleAnswer": "Meine Wohnung hat zwei Zimmer. Es gibt ein Wohnzimmer und ein Schlafzimmer. Im Wohnzimmer steht ein Sofa und ein Tisch."
+          "exampleAnswer": "Meine Wohnung hat zwei Zimmer. Es gibt ein Wohnzimmer und ein Schlafzimmer. Im Wohnzimmer steht ein Sofa und ein Tisch.",
+          "pronunciationBn": "মাইনে ভোনুং হাট ৎসভাই ৎসিমা। এস গিব্ট আইন ভোনৎসিমা উন্ট আইন শ্লাফৎসিমা। ইম ভোনৎসিমা শ্টেট আইন জোফা উন্ট আইন টিশ।"
         },
         {
           "id": "ex4_9",
@@ -2200,7 +3906,8 @@
           "id": "ex4_14",
           "type": "speaking_prompt",
           "question": "Describe two rooms and ask about the rent.",
-          "exampleAnswer": "Die Wohnung hat zwei Zimmer. Das Wohnzimmer ist hell. Der Kühlschrank ist dort. Wie hoch ist die Miete?"
+          "exampleAnswer": "Die Wohnung hat zwei Zimmer. Das Wohnzimmer ist hell. Der Kühlschrank ist dort. Wie hoch ist die Miete?",
+          "pronunciationBn": "ডি ভোনুং হাট ৎসভাই ৎসিমা। দাস ভোনৎসিমা ইস্ট হেল। ডেয়া কুলশরাঙ্ক ইস্ট ডর্ট। ভি হোখ ইস্ট ডি মিটে?"
         },
         {
           "id": "ex4_15",
@@ -2255,6 +3962,231 @@
           "type": "true_false",
           "question": "Das Zimmer ist teuer uses an adjective after sein without an ending.",
           "correct": true
+        },
+        {
+          "id": "ex4_21",
+          "type": "multiple_choice",
+          "question": "Apartment listing: 2 Zimmer, 58 m², Warmmiete 720 €, frei ab 1. Juni. What is the monthly rent including additional costs?",
+          "options": [
+            "720 €",
+            "58 €",
+            "1 €"
+          ],
+          "correctIndex": 0,
+          "explanation": "Warmmiete is the rent including the listed additional costs."
+        },
+        {
+          "id": "ex4_22",
+          "type": "fill_blank",
+          "question": "Complete: Die Wohnung hat 58 _____.",
+          "answer": "Quadratmeter",
+          "acceptableAnswers": [],
+          "explanation": "Listings use Quadratmeter for apartment size."
+        },
+        {
+          "id": "ex4_23",
+          "type": "matching",
+          "question": "Match each compound noun with its final noun.",
+          "pairs": [
+            {
+              "left": "das Kinderzimmer",
+              "right": "das Zimmer"
+            },
+            {
+              "left": "die Waschmaschine",
+              "right": "die Maschine"
+            },
+            {
+              "left": "der Schreibtisch",
+              "right": "der Tisch"
+            },
+            {
+              "left": "der Kühlschrank",
+              "right": "der Schrank"
+            }
+          ],
+          "explanation": "The final noun determines a compound noun's gender."
+        },
+        {
+          "id": "ex4_24",
+          "type": "speaking_prompt",
+          "question": "Call about a room. Ask if it is available, how much the rent is, and when you can view it.",
+          "exampleAnswer": "Guten Tag. Ist das Zimmer noch frei? Wie hoch ist die Miete? Kann ich es am Samstag ansehen?",
+          "explanation": "Practise three useful questions for a real rental call.",
+          "pronunciationBn": "গুটেন টাক। ইস্ট দাস ৎসিমা নোখ ফ্রাই? ভি হোখ ইস্ট ডি মিটে? কান ইখ এস আম জামস্টাক আনজেয়েন?"
+        },
+        {
+          "id": "ex4_25",
+          "type": "writing_prompt",
+          "question": "Write a short message to ask about a room. Ask about the rent, size and a time to view it.",
+          "exampleAnswer": "Guten Tag, ich interessiere mich für das Zimmer. Wie hoch ist die Warmmiete und wie groß ist die Wohnung? Kann ich sie am Freitag besichtigen? Freundliche Grüße, Amina.",
+          "explanation": "Include a greeting, three clear questions and a polite closing."
+        },
+        {
+          "id": "ex4_26",
+          "type": "true_false",
+          "question": "In die Waschmaschine, the final noun Maschine is feminine, so the compound is die Waschmaschine.",
+          "correct": true,
+          "explanation": "The last part of a compound noun determines its article."
+        },
+        {
+          "id": "ex4_27",
+          "type": "multiple_choice",
+          "question": "House notice: Keep bicycles in the cellar. Quiet hours are 22:00–07:00. What is forbidden after 22:00?",
+          "options": [
+            "Making noise",
+            "Using the entrance",
+            "Opening a window"
+          ],
+          "correctIndex": 0,
+          "explanation": "The quiet-hours rule applies at night."
+        },
+        {
+          "id": "ex4_28",
+          "type": "fill_blank",
+          "question": "Complete: Das Zimmer ist _____ teuer. (not)",
+          "answer": "nicht",
+          "acceptableAnswers": [],
+          "explanation": "Place nicht before the adjective being negated."
+        },
+        {
+          "id": "ex4_29",
+          "type": "ordering",
+          "question": "Put the questions for a viewing in a natural order.",
+          "items": [
+            "Kann ich sie am Freitag ansehen?",
+            "Wie hoch ist die Miete?",
+            "Ist die Wohnung noch frei?",
+            "Guten Tag, ich rufe wegen der Anzeige an."
+          ],
+          "correctOrder": [
+            3,
+            2,
+            1,
+            0
+          ],
+          "explanation": "Introduce the reason for the call before asking details."
+        },
+        {
+          "id": "ex4_30",
+          "type": "writing_prompt",
+          "question": "Write a short description of your room with two pieces of furniture, one colour and one opinion.",
+          "exampleAnswer": "Mein Zimmer ist klein, aber hell. Das Bett ist weiß. Neben dem Bett steht ein Schreibtisch. Ich finde mein Zimmer schön.",
+          "explanation": "Use sein + adjective and place one item with hier/dort or neben."
+        },
+        {
+          "id": "ex4_31",
+          "type": "multiple_choice",
+          "question": "Which pair is a compound noun?",
+          "options": [
+            "das Schlafzimmer",
+            "sehr schön",
+            "dort hinten"
+          ],
+          "correctIndex": 0,
+          "explanation": "Schlafzimmer combines Schlaf and Zimmer into one noun."
+        },
+        {
+          "id": "ex4_32",
+          "type": "speaking_prompt",
+          "question": "Describe an apartment advertisement to a friend: number of rooms, size, rent and one feature you like.",
+          "exampleAnswer": "Die Wohnung hat drei Zimmer und 72 Quadratmeter. Die Warmmiete kostet 900 Euro. Mir gefällt der Balkon.",
+          "explanation": "Say the measurement and rent clearly.",
+          "pronunciationBn": "ডি ভোনুং হাট ড্রাই ৎসিমা উন্ট ৎসভাইউন্টজিবৎসিখ কভাডরাটমেটা। ডি ভার্মমিটে কোস্টেট নয়নহুন্ডার্ট অয়রো। মিয়া গেফেল্ট ডেয়া বালকন।"
+        },
+        {
+          "id": "ex4_33",
+          "type": "fill_blank",
+          "question": "Complete: Die Besichtigung ist _____ Freitag um 17 Uhr. (on)",
+          "answer": "am",
+          "acceptableAnswers": [],
+          "explanation": "Use am with a weekday."
+        },
+        {
+          "id": "ex4_34",
+          "type": "multiple_choice",
+          "question": "A workplace notice says: “Bitte die Küche sauber halten. Tassen in den Schrank stellen.” What should staff do?",
+          "options": [
+            "Keep the kitchen clean and put cups away.",
+            "Leave cups on the desk.",
+            "Close the apartment."
+          ],
+          "correctIndex": 0,
+          "explanation": "The notice gives two simple workplace instructions."
+        },
+        {
+          "id": "ex4_35",
+          "type": "true_false",
+          "question": "A predicative adjective after sein usually has no adjective ending: Das Zimmer ist hell.",
+          "correct": true,
+          "explanation": "Unlike an adjective before a noun, hell after ist stays unchanged."
+        },
+        {
+          "id": "ex4_36",
+          "type": "multiple_choice",
+          "question": "Which article belongs to Kinderzimmer?",
+          "options": [
+            "das",
+            "der",
+            "die"
+          ],
+          "correctIndex": 0,
+          "explanation": "The final noun Zimmer is neuter."
+        },
+        {
+          "id": "ex4_37",
+          "type": "fill_blank",
+          "question": "Complete: Der Kühlschrank ist _____, nicht dort. (here)",
+          "answer": "hier",
+          "acceptableAnswers": [],
+          "explanation": "hier means here; dort means there."
+        },
+        {
+          "id": "ex4_38",
+          "type": "speaking_prompt",
+          "question": "Compare two rooms. Say which one is bigger and which one you prefer.",
+          "exampleAnswer": "Das Zimmer hier ist groß. Das Zimmer dort ist klein. Ich mag das große Zimmer lieber.",
+          "explanation": "Use hier/dort and a simple comparison.",
+          "pronunciationBn": "দাস ৎসিমা হিয়া ইস্ট গ্রোস। দাস ৎসিমা ডর্ট ইস্ট ক্লাইন। ইখ মাক দাস গ্রোসে ৎসিমা লিবা।"
+        },
+        {
+          "id": "ex4_39",
+          "type": "writing_prompt",
+          "question": "Read the house notice above. Write a polite one-sentence reminder to a neighbour about quiet hours.",
+          "exampleAnswer": "Bitte seien Sie nach 22 Uhr leise. Die Nachtruhe beginnt um 22 Uhr.",
+          "explanation": "Make the request polite and include the time."
+        },
+        {
+          "type": "multiple_choice",
+          "question": "Housing notice: “Die Küche ist im Erdgeschoss. Der Balkon ist 6 m² groß.” Where is the kitchen?",
+          "options": [
+            "On the ground floor",
+            "On the balcony",
+            "In the basement"
+          ],
+          "correctIndex": 0,
+          "explanation": "Erdgeschoss means ground floor.",
+          "id": "ex4_40"
+        },
+        {
+          "type": "speaking_prompt",
+          "question": "Say these compounds with the main stress on the first part: Kinderzimmer, Schreibtisch, Waschmaschine. Then say which object you have at home.",
+          "exampleAnswer": "Ich habe einen Schreibtisch und eine Waschmaschine. Mein Kinderzimmer ist hell.",
+          "explanation": "German compounds are one word; the first part usually has the strongest stress.",
+          "pronunciationBn": "কিন্ডার-ৎসিমা, শ্রাইব-টিশ, ভাশ-মাশিনে।",
+          "id": "ex4_41"
+        },
+        {
+          "type": "multiple_choice",
+          "question": "Which pair contrasts a short vowel and a long vowel?",
+          "options": [
+            "Bett – Beet",
+            "Haus – Maus",
+            "Tag – Tag"
+          ],
+          "correctIndex": 0,
+          "explanation": "Bett has a short e; Beet has a long e.",
+          "id": "ex4_42"
         }
       ]
     },
@@ -2269,7 +4201,12 @@
         "Use separable verbs",
         "Use time prepositions (am, um, von ... bis)",
         "Describe a typical day",
-        "Talk about weekdays, daily schedules and business opening times."
+        "Talk about weekdays, daily schedules and business opening times.",
+        "Read a weekly timetable, a shop-opening notice and a short childcare information note.",
+        "Talk about daily routines, weekdays, opening hours and family schedules.",
+        "Use time-first sentences and separate verb prefixes correctly.",
+        "Practise stress in separable/non-separable verbs and long/short vowels.",
+        "Write a simple day plan with times and activities."
       ],
       "vocabulary": [
         {
@@ -2457,6 +4394,114 @@
           "en": "open",
           "bn": "খোলা",
           "pronunciationBn": "গেফ্যোনেট"
+        },
+        {
+          "de": "der Stundenplan",
+          "en": "timetable",
+          "bn": "সময়সূচি",
+          "pronunciationBn": "ডেয়া শ্টুনডেনপ্লান"
+        },
+        {
+          "de": "der Tagesablauf",
+          "en": "daily routine",
+          "bn": "দৈনন্দিন রুটিন",
+          "pronunciationBn": "ডেয়া টাগেস-আপলাউফ"
+        },
+        {
+          "de": "der Kindergarten",
+          "en": "kindergarten",
+          "bn": "শিশু বিদ্যালয়",
+          "pronunciationBn": "ডেয়া কিন্ডারগার্টেন"
+        },
+        {
+          "de": "die Kinderbetreuung",
+          "en": "childcare",
+          "bn": "শিশু পরিচর্যা",
+          "pronunciationBn": "ডি কিন্ডারবেট্রয়ুং"
+        },
+        {
+          "de": "die Mittagspause",
+          "en": "lunch break",
+          "bn": "দুপুরের বিরতি",
+          "pronunciationBn": "ডি মিটাগসপাউজে"
+        },
+        {
+          "de": "die Sprechzeit",
+          "en": "office hours",
+          "bn": "সাক্ষাতের সময়",
+          "pronunciationBn": "ডি শ্প্রেখৎসাইট"
+        },
+        {
+          "de": "die Schicht",
+          "en": "work shift",
+          "bn": "কাজের পালা",
+          "pronunciationBn": "ডি শিখ্ট"
+        },
+        {
+          "de": "der Feierabend",
+          "en": "end of the workday",
+          "bn": "কাজ শেষে অবসর",
+          "pronunciationBn": "ডেয়া ফায়ার-আবেন্ট"
+        },
+        {
+          "de": "pünktlich",
+          "en": "on time",
+          "bn": "সময়মতো",
+          "pronunciationBn": "প্যুংক্টলিশ"
+        },
+        {
+          "de": "spät",
+          "en": "late",
+          "bn": "দেরি",
+          "pronunciationBn": "শ্পেট"
+        },
+        {
+          "de": "abholen",
+          "en": "to pick up",
+          "bn": "নিয়ে আসা",
+          "pronunciationBn": "আপহোলেন"
+        },
+        {
+          "de": "bringen",
+          "en": "to bring",
+          "bn": "নিয়ে আসা",
+          "pronunciationBn": "ব্রিঙ্গেন"
+        },
+        {
+          "de": "aufräumen",
+          "en": "to tidy up",
+          "bn": "গোছানো",
+          "pronunciationBn": "আউফরয়মেন"
+        },
+        {
+          "de": "anrufen",
+          "en": "to call",
+          "bn": "ফোন করা",
+          "pronunciationBn": "আনরুফেন"
+        },
+        {
+          "de": "die Pause",
+          "en": "break",
+          "bn": "বিরতি",
+          "pronunciationBn": "ডি পাউজে"
+        },
+        {
+          "de": "der Termin",
+          "en": "appointment",
+          "bn": "সাক্ষাতের সময়",
+          "pronunciationBn": "ডেয়া টেয়ামিন"
+        },
+        {
+          "de": "die Kinderkrippe",
+          "en": "day nursery",
+          "bn": "শিশু দিবাযত্ন কেন্দ্র",
+          "pronunciationBn": "ডি কিন্ডারক্রিপে"
+        },
+        {
+          "de": "der Kalender",
+          "en": "calendar",
+          "bn": "ক্যালেন্ডার",
+          "pronunciationBn": "ডেয়া কালেন্ডা"
         }
       ],
       "grammar": [
@@ -2493,6 +4538,59 @@
             "Am Freitag schließt die Bibliothek um acht.",
             "Von acht bis zwölf Uhr lernt sie."
           ]
+        },
+        {
+          "title": "Separable and non-separable verbs",
+          "explanation": "In aufstehen and anrufen, the stressed prefix separates and goes to the end in a main clause. In arbeiten, there is no separable prefix.",
+          "examples": [
+            "Ich stehe um sechs Uhr auf.",
+            "Rufst du deine Mutter an?",
+            "Ich arbeite am Montag."
+          ]
+        },
+        {
+          "title": "Time phrase first, verb still second",
+          "explanation": "A time phrase can come first for emphasis, but the conjugated verb remains in position two. The subject then comes after the verb.",
+          "examples": [
+            "Am Morgen stehe ich früh auf.",
+            "Um neun Uhr fängt der Kurs an."
+          ]
+        },
+        {
+          "title": "Present-tense stem changes in common routine verbs",
+          "explanation": "Some common verbs change their vowel with du or er/sie: essen → du isst; schlafen → er schläft; fernsehen → du siehst fern.",
+          "examples": [
+            "Du isst um sieben Uhr.",
+            "Er schläft bis acht Uhr.",
+            "Sie sieht am Abend fern."
+          ],
+          "table": {
+            "aufstehen": [
+              "ich stehe auf",
+              "du stehst auf",
+              "er/sie steht auf"
+            ],
+            "anfangen": [
+              "ich fange an",
+              "du fängst an",
+              "er/sie fängt an"
+            ],
+            "essen": [
+              "ich esse",
+              "du isst",
+              "er/sie isst"
+            ],
+            "schlafen": [
+              "ich schlafe",
+              "du schläfst",
+              "er/sie schläft"
+            ],
+            "fernsehen": [
+              "ich sehe fern",
+              "du siehst fern",
+              "er/sie sieht fern"
+            ]
+          }
         }
       ],
       "dialogues": [
@@ -2565,6 +4663,103 @@
               "speaker": "B",
               "text": "Von zwölf bis vier arbeite ich in einem Café.",
               "pronunciationBn": "ফন ৎসভোল্ফ বিস ফিয়া আরবাইতে ইখ ইন আইনেম কাফে।"
+            }
+          ]
+        },
+        {
+          "id": "d5_3",
+          "title": "Arranging childcare and the workday",
+          "lines": [
+            {
+              "speaker": "A",
+              "text": "Wann beginnt deine Arbeit am Montag?",
+              "pronunciationBn": "ভান বেগিন্ট ডাইনে আরবাইট আম মোনটাক?"
+            },
+            {
+              "speaker": "B",
+              "text": "Um acht Uhr. Der Kindergarten öffnet um halb acht.",
+              "pronunciationBn": "উম আখ্ট উয়া। ডেয়া কিন্ডারগার্টেন এফনেট উম হাল্প আখ্ট।"
+            },
+            {
+              "speaker": "A",
+              "text": "Kannst du Nila vorher abholen?",
+              "pronunciationBn": "কান্স্ট ডু নিলা ফোয়া-হেয়া আপহোলেন?"
+            },
+            {
+              "speaker": "B",
+              "text": "Ja. Ich bringe sie um sieben Uhr hin.",
+              "pronunciationBn": "ইয়া। ইখ ব্রিঙ্গে জি উম জিবেন উয়া হিন।"
+            },
+            {
+              "speaker": "A",
+              "text": "Und wer holt sie am Nachmittag ab?",
+              "pronunciationBn": "উন্ট ভেয়া হোল্ট জি আম নাখমিটাক আপ?"
+            },
+            {
+              "speaker": "B",
+              "text": "Meine Schwester. Sie arbeitet bis drei Uhr.",
+              "pronunciationBn": "মাইনে শভেস্টা। জি আরবাইটেট বিস ড্রাই উয়া।"
+            },
+            {
+              "speaker": "A",
+              "text": "Dann haben wir genug Zeit. Ich rufe den Kindergarten an.",
+              "pronunciationBn": "ডান হাবেন ভিয়া গেনুক ৎসাইট। ইখ রুফে ডেন কিন্ডারগার্টেন আন।"
+            },
+            {
+              "speaker": "B",
+              "text": "Gut. Die Sprechzeit ist von acht bis zwölf Uhr.",
+              "pronunciationBn": "গুট। ডি শ্প্রেখৎসাইট ইস্ট ফুন আখ্ট বিস ৎসভলফ উয়া।"
+            },
+            {
+              "speaker": "A",
+              "text": "Danke. Ich schreibe den Termin in den Kalender.",
+              "pronunciationBn": "ডাংকে। ইখ শ্রাইবে ডেন টেয়ামিন ইন ডেন ক্যালেন্ডা।"
+            }
+          ]
+        },
+        {
+          "id": "d5_4",
+          "title": "Checking a shop's opening hours",
+          "lines": [
+            {
+              "speaker": "A",
+              "text": "Ist die Bäckerei am Samstag geöffnet?",
+              "pronunciationBn": "ইস্ট ডি বেকেরাই আম জামস্টাক গেফনেট?"
+            },
+            {
+              "speaker": "B",
+              "text": "Ja, von sieben bis zwölf Uhr.",
+              "pronunciationBn": "ইয়া, ফুন জিবেন বিস ৎসভলফ উয়া।"
+            },
+            {
+              "speaker": "A",
+              "text": "Und am Sonntag?",
+              "pronunciationBn": "উন্ট আম জোনটাক?"
+            },
+            {
+              "speaker": "B",
+              "text": "Am Sonntag ist sie geschlossen.",
+              "pronunciationBn": "আম জোনটাক ইস্ট জি গেশ্লোসেন।"
+            },
+            {
+              "speaker": "A",
+              "text": "Wann macht sie am Montag auf?",
+              "pronunciationBn": "ভান মাখ্ট জি আম মোনটাক আউফ?"
+            },
+            {
+              "speaker": "B",
+              "text": "Um sechs Uhr. Ich gehe vor der Arbeit einkaufen.",
+              "pronunciationBn": "উম জেক্স উয়া। ইখ গেহে ফোয়া ডেয়া আরবাইট আইনকাউফেন।"
+            },
+            {
+              "speaker": "A",
+              "text": "Das ist früh! Wann fängst du an?",
+              "pronunciationBn": "দাস ইস্ট ফ্র্যু! ভান ফ্যাংস্ট ডু আন?"
+            },
+            {
+              "speaker": "B",
+              "text": "Um acht. Ich stehe um halb sechs auf.",
+              "pronunciationBn": "উম আখ্ট। ইখ শ্টেহে উম হাল্প জেক্স আউফ।"
             }
           ]
         }
@@ -2655,7 +4850,8 @@
           "id": "ex5_8",
           "type": "speaking_prompt",
           "question": "Describe your typical day. Use at least 5 activities and times.",
-          "exampleAnswer": "Ich stehe um 6 Uhr auf. Dann frühstücke ich. Um 8 Uhr gehe ich zur Arbeit. Am Abend koche ich und sehe fern. Um 23 Uhr gehe ich schlafen."
+          "exampleAnswer": "Ich stehe um 6 Uhr auf. Dann frühstücke ich. Um 8 Uhr gehe ich zur Arbeit. Am Abend koche ich und sehe fern. Um 23 Uhr gehe ich schlafen.",
+          "pronunciationBn": "ইখ শ্টেহে উম জেক্স উয়া আউফ। ডান ফ্রুশ্টুকে ইখ। উম আখ্ট উয়া গেহে ইখ ৎসুয়া আরবাইট। আম আবেন্ট কোখে ইখ উন্ট জেয়ে ফেয়ার্ন। উম ড্রাইউন্টৎসভানৎসিখ উয়া গেহে ইখ শ্লাফেন।"
         },
         {
           "id": "ex5_9",
@@ -2712,7 +4908,8 @@
           "id": "ex5_14",
           "type": "speaking_prompt",
           "question": "Describe a weekday using two times and a separable verb.",
-          "exampleAnswer": "Am Montag stehe ich um sieben Uhr auf. Um halb neun fängt mein Kurs an. Von zwölf bis vier Uhr arbeite ich."
+          "exampleAnswer": "Am Montag stehe ich um sieben Uhr auf. Um halb neun fängt mein Kurs an. Von zwölf bis vier Uhr arbeite ich.",
+          "pronunciationBn": "আম মোনটাক শ্টেহে ইখ উম জিবেন উয়া আউফ। উম হাল্প নয়ন ফেংট মাইন কুর্স আন। ফুন ৎসভোল্ফ বিস ফিয়া উয়া আরবাইতে ইখ।"
         },
         {
           "id": "ex5_15",
@@ -2767,6 +4964,213 @@
           "type": "true_false",
           "question": "In “Um acht Uhr fängt der Kurs an”, the verb is in position two.",
           "correct": true
+        },
+        {
+          "id": "ex5_21",
+          "type": "multiple_choice",
+          "question": "Weekly plan: Mon work 09:00–17:00; Tue course 18:00; Wed childcare appointment 15:00. When does the course begin?",
+          "options": [
+            "Tuesday at 18:00",
+            "Monday at 09:00",
+            "Wednesday at 15:00"
+          ],
+          "correctIndex": 0,
+          "explanation": "Read the weekday and time together."
+        },
+        {
+          "id": "ex5_22",
+          "type": "fill_blank",
+          "question": "Complete: Um sieben Uhr _____ ich meine Tochter _____. (pick up)",
+          "answer": "hole ab",
+          "acceptableAnswers": [],
+          "explanation": "abholen is separable: hole is second and ab goes to the end.",
+          "pronunciationBn": "হোলে আপ"
+        },
+        {
+          "id": "ex5_23",
+          "type": "multiple_choice",
+          "question": "Which verb is not separable?",
+          "options": [
+            "arbeiten",
+            "aufstehen",
+            "anrufen"
+          ],
+          "correctIndex": 0,
+          "explanation": "arbeiten has no separable prefix."
+        },
+        {
+          "id": "ex5_24",
+          "type": "speaking_prompt",
+          "question": "Describe your weekday using three times, two daily activities and one separable verb.",
+          "exampleAnswer": "Um sechs Uhr stehe ich auf. Um sieben Uhr frühstücke ich. Um acht Uhr fängt meine Arbeit an. Am Abend rufe ich meine Schwester an.",
+          "explanation": "Keep the conjugated verb in position two.",
+          "pronunciationBn": "উম জেক্স উয়া শ্টেহে ইখ আউফ। উম জিবেন উয়া ফ্রুশ্টুকে ইখ। উম আখ্ট উয়া ফেংট মাইনে আরবাইট আন। আম আবেন্ট রুফে ইখ মাইনে শ্ভেস্টার আন।"
+        },
+        {
+          "id": "ex5_25",
+          "type": "matching",
+          "question": "Match the schedule word with its meaning.",
+          "pairs": [
+            {
+              "left": "geöffnet",
+              "right": "open"
+            },
+            {
+              "left": "geschlossen",
+              "right": "closed"
+            },
+            {
+              "left": "pünktlich",
+              "right": "on time"
+            },
+            {
+              "left": "die Mittagspause",
+              "right": "lunch break"
+            }
+          ],
+          "explanation": "These words are common on schedules and notices."
+        },
+        {
+          "id": "ex5_26",
+          "type": "writing_prompt",
+          "question": "Write a simple day plan with at least four times and activities.",
+          "exampleAnswer": "Um 6:30 Uhr stehe ich auf. Um 7 Uhr frühstücke ich. Von 9 bis 17 Uhr arbeite ich. Um 18 Uhr koche ich. Um 22 Uhr schlafe ich.",
+          "explanation": "Include times, am/um/von ... bis and readable sentence order."
+        },
+        {
+          "id": "ex5_27",
+          "type": "true_false",
+          "question": "In “Am Morgen stehe ich auf,” the conjugated verb is still in position two.",
+          "correct": true,
+          "explanation": "The time phrase is position one; stehe is position two."
+        },
+        {
+          "id": "ex5_28",
+          "type": "multiple_choice",
+          "question": "Childcare note: Please bring the child by 08:30. Pick-up is 15:00–16:00. When can a parent pick up the child?",
+          "options": [
+            "Between 15:00 and 16:00",
+            "At 08:30 only",
+            "After 18:00"
+          ],
+          "correctIndex": 0,
+          "explanation": "The note gives a pickup window."
+        },
+        {
+          "id": "ex5_29",
+          "type": "fill_blank",
+          "question": "Complete: Der Deutschkurs fängt um neun Uhr _____.",
+          "answer": "an",
+          "acceptableAnswers": [],
+          "explanation": "anfangen separates: fängt ... an."
+        },
+        {
+          "id": "ex5_30",
+          "type": "ordering",
+          "question": "Put the morning routine in order.",
+          "items": [
+            "Um acht Uhr gehe ich zur Arbeit.",
+            "Um sieben Uhr frühstücke ich.",
+            "Ich dusche und ziehe mich an.",
+            "Ich stehe um sechs Uhr auf."
+          ],
+          "correctOrder": [
+            3,
+            2,
+            1,
+            0
+          ],
+          "explanation": "A daily routine usually follows the order the events happen."
+        },
+        {
+          "id": "ex5_31",
+          "type": "writing_prompt",
+          "question": "Write a short note to a family member explaining when you will pick up a child and when you finish work.",
+          "exampleAnswer": "Hallo, ich arbeite heute von 9 bis 15 Uhr. Ich hole Nila um 16 Uhr vom Kindergarten ab. Viele Grüße, Amina.",
+          "explanation": "Include a time span and the pickup time."
+        },
+        {
+          "id": "ex5_32",
+          "type": "multiple_choice",
+          "question": "In “Du isst um sieben Uhr,” what is the infinitive?",
+          "options": [
+            "essen",
+            "essen gehen",
+            "aufessen"
+          ],
+          "correctIndex": 0,
+          "explanation": "essen changes e to i in the du form."
+        },
+        {
+          "id": "ex5_33",
+          "type": "true_false",
+          "question": "The prefix of aufstehen usually stays next to the verb in a present-tense main clause.",
+          "correct": false,
+          "explanation": "It separates: Ich stehe früh auf."
+        },
+        {
+          "id": "ex5_34",
+          "type": "speaking_prompt",
+          "question": "Explain a shop opening notice: Monday–Friday 08:00–18:00, Saturday 09:00–13:00, Sunday closed.",
+          "exampleAnswer": "Der Laden ist von Montag bis Freitag von acht bis achtzehn Uhr geöffnet. Am Samstag ist er von neun bis dreizehn Uhr offen. Am Sonntag ist er geschlossen.",
+          "explanation": "Use von ... bis ... and am with weekdays.",
+          "pronunciationBn": "ডেয়া লাডেন ইস্ট ফুন মোনটাক বিস ফ্রাইটাক ফুন আখ্ট বিস আখৎসেন উয়া গেয়েফনেট। আম জামস্টাক ইস্ট এয়া ফুন নয়ন বিস ড্রাইৎসেন উয়া অফেন। আম জোনটাক ইস্ট এয়া গেশ্লোসেন।"
+        },
+        {
+          "id": "ex5_35",
+          "type": "fill_blank",
+          "question": "Complete: _____ Montag arbeite ich von acht _____ vier Uhr.",
+          "answer": "Am; bis",
+          "acceptableAnswers": [],
+          "explanation": "Use am with a weekday and bis to finish a time range.",
+          "pronunciationBn": "আম মোনটাক আরবাইতে ইখ ফুন আখ্ট বিস ফিয়া উয়া।"
+        },
+        {
+          "id": "ex5_36",
+          "type": "multiple_choice",
+          "question": "Which sentence has correct word order?",
+          "options": [
+            "Um neun Uhr fängt der Kurs an.",
+            "Um neun Uhr der Kurs fängt an.",
+            "Um neun Uhr an fängt der Kurs."
+          ],
+          "correctIndex": 0,
+          "explanation": "The conjugated verb fängt stays in position two."
+        },
+        {
+          "id": "ex5_37",
+          "type": "writing_prompt",
+          "question": "Write a message to a colleague saying when your office is open and when you are available for a call.",
+          "exampleAnswer": "Unser Büro ist von Montag bis Freitag von 9 bis 17 Uhr geöffnet. Ich bin am Dienstag um 14 Uhr erreichbar.",
+          "explanation": "Use weekday, time range and an appointment time."
+        },
+        {
+          "id": "ex5_38",
+          "type": "speaking_prompt",
+          "question": "Say these verbs aloud and notice the stress: AUFstehen, ARbeiten, ANrufen. Then make one sentence with aufstehen and one with arbeiten.",
+          "exampleAnswer": "Ich stehe um sechs Uhr auf. Ich arbeite am Montag.",
+          "explanation": "Separable prefixes usually carry the main stress; practise saying the whole sentence naturally.",
+          "pronunciationBn": "ইখ শ্টেহে উম জেক্স উয়া আউফ। ইখ আরবাইতে আম মোনটাক।"
+        },
+        {
+          "type": "speaking_prompt",
+          "question": "Say the long and short vowel contrast: schlafen / Stadt. Then say a sentence about when you sleep.",
+          "exampleAnswer": "Ich schlafe um zehn Uhr. Am Samstag stehe ich spät auf.",
+          "explanation": "Keep the vowel in schlafen long and the a in Stadt short.",
+          "pronunciationBn": "ইখ শ্লাফে উম ৎসেন উয়া। আম জামস্টাক শ্টেহে ইখ শ্পেট আউফ।",
+          "id": "ex5_39"
+        },
+        {
+          "type": "multiple_choice",
+          "question": "Childcare information: Children can be picked up from 15:00 to 16:30. A parent arrives at 15:45. Is pickup possible then?",
+          "options": [
+            "Yes, that is within the pickup time.",
+            "No, pickup ends at 15:00.",
+            "No, the note says Sunday only."
+          ],
+          "correctIndex": 0,
+          "explanation": "15:45 falls between 15:00 and 16:30.",
+          "id": "ex5_40"
         }
       ]
     },
@@ -2781,7 +5185,12 @@
         "Answer yes/no questions with ja, nein, doch",
         "Talk about the weather",
         "Make simple suggestions",
-        "Describe weather and direction; make leisure plans and answer negative questions."
+        "Describe weather and direction; make leisure plans and answer negative questions.",
+        "Read a short local weather report, event page and simple work instruction.",
+        "Talk about hobbies, weather, compass directions and plans for free time.",
+        "Use accusative articles and answer negative questions with ja, nein or doch.",
+        "Practise sentence stress in yes/no answers and the reduced ending in -en.",
+        "Suggest an activity, respond politely and agree on a time and place."
       ],
       "vocabulary": [
         {
@@ -2957,6 +5366,102 @@
           "en": "Gladly.",
           "bn": "সানন্দে।",
           "pronunciationBn": "গেয়ার্ন"
+        },
+        {
+          "de": "der Wetterbericht",
+          "en": "weather report",
+          "bn": "আবহাওয়ার খবর",
+          "pronunciationBn": "ডেয়া ভেটারবেরিশ্ট"
+        },
+        {
+          "de": "die Richtung",
+          "en": "direction",
+          "bn": "দিক",
+          "pronunciationBn": "ডি রিশটুং"
+        },
+        {
+          "de": "sonnig",
+          "en": "sunny",
+          "bn": "রৌদ্রোজ্জ্বল",
+          "pronunciationBn": "জোনিশ"
+        },
+        {
+          "de": "bewölkt",
+          "en": "cloudy",
+          "bn": "মেঘলা",
+          "pronunciationBn": "বেভ্যোল্ক্ট"
+        },
+        {
+          "de": "windig",
+          "en": "windy",
+          "bn": "বাতাসযুক্ত",
+          "pronunciationBn": "ভিন্ডিশ"
+        },
+        {
+          "de": "der Regenschirm",
+          "en": "umbrella",
+          "bn": "ছাতা",
+          "pronunciationBn": "ডেয়া রেগেনশির্ম"
+        },
+        {
+          "de": "Rad fahren",
+          "en": "to ride a bicycle",
+          "bn": "সাইকেল চালানো",
+          "pronunciationBn": "রাট ফারেন"
+        },
+        {
+          "de": "Gitarre spielen",
+          "en": "to play guitar",
+          "bn": "গিটার বাজানো",
+          "pronunciationBn": "গিটার শ্পিলেন"
+        },
+        {
+          "de": "tanzen",
+          "en": "to dance",
+          "bn": "নাচা",
+          "pronunciationBn": "তানৎসেন"
+        },
+        {
+          "de": "grillen",
+          "en": "to grill",
+          "bn": "বারবিকিউ করা",
+          "pronunciationBn": "গ্রিলেন"
+        },
+        {
+          "de": "die Veranstaltung",
+          "en": "event",
+          "bn": "অনুষ্ঠান",
+          "pronunciationBn": "ডি ফেয়ানশ্টালটুং"
+        },
+        {
+          "de": "der Treffpunkt",
+          "en": "meeting place",
+          "bn": "দেখা করার স্থান",
+          "pronunciationBn": "ডেয়া ট্রেফপুংক্ট"
+        },
+        {
+          "de": "der Arbeitsauftrag",
+          "en": "work instruction",
+          "bn": "কাজের নির্দেশ",
+          "pronunciationBn": "ডেয়া আরবাইটস-আউফট্রাক"
+        },
+        {
+          "de": "sich informieren",
+          "en": "to get information",
+          "bn": "তথ্য জানা",
+          "pronunciationBn": "জিশ ইনফরমিরেন"
+        },
+        {
+          "de": "die Karte",
+          "en": "map / card",
+          "bn": "মানচিত্র / কার্ড",
+          "pronunciationBn": "ডি কার্টে"
+        },
+        {
+          "de": "der Ausflug",
+          "en": "excursion",
+          "bn": "ভ্রমণ",
+          "pronunciationBn": "ডেয়া আউসফ্লুক"
         }
       ],
       "grammar": [
@@ -2991,6 +5496,58 @@
           "examples": [
             "Fährst du am Samstag? – Ja.",
             "Hast du keine Zeit? – Doch, am Abend."
+          ],
+          "table": {
+            "nehmen": [
+              "ich nehme",
+              "du nimmst",
+              "er/sie nimmt",
+              "wir nehmen"
+            ],
+            "lesen": [
+              "ich lese",
+              "du liest",
+              "er/sie liest",
+              "wir lesen"
+            ],
+            "treffen": [
+              "ich treffe",
+              "du triffst",
+              "er/sie trifft",
+              "wir treffen"
+            ],
+            "fahren": [
+              "ich fahre",
+              "du fährst",
+              "er/sie fährt",
+              "wir fahren"
+            ]
+          }
+        },
+        {
+          "title": "Accusative for the thing you do or choose",
+          "explanation": "With many verbs, the direct object answers “what?”. A masculine noun changes der → den and ein → einen; feminine die/eine and neuter das/ein stay the same.",
+          "examples": [
+            "Ich lese den Roman.",
+            "Wir nehmen einen Regenschirm.",
+            "Sie trifft eine Freundin."
+          ]
+        },
+        {
+          "title": "Answering a negative question",
+          "explanation": "Use doch when you want to contradict a negative question. Use nein when you agree that the negative statement is true; ja confirms a positive statement.",
+          "examples": [
+            "Hast du keinen Hunger? – Doch, ich habe Hunger.",
+            "Hast du Zeit? – Ja, gern.",
+            "Hast du keine Zeit? – Nein, heute nicht."
+          ]
+        },
+        {
+          "title": "Sentence stress in a yes/no exchange",
+          "explanation": "In spoken answers, the important information word receives the strongest stress. Practise keeping the German question melody while making the contrast clear.",
+          "examples": [
+            "Fährst du am Samstag? – Ja, am Samstag.",
+            "Regnet es? – Nein, die Sonne scheint."
           ]
         }
       ],
@@ -3064,6 +5621,103 @@
               "speaker": "B",
               "text": "Elf Uhr ist früh. Geht es auch um zwölf?",
               "pronunciationBn": "এল্ফ উয়া ইস্ট ফ্র্যু। গেট এস আউখ উম ৎসভোল্ফ?"
+            }
+          ]
+        },
+        {
+          "id": "d6_3",
+          "title": "Planning around the weather",
+          "lines": [
+            {
+              "speaker": "A",
+              "text": "Hast du am Samstag Zeit?",
+              "pronunciationBn": "হাস্ট ডু আম জামস্টাক ৎসাইট?"
+            },
+            {
+              "speaker": "B",
+              "text": "Ja, gern. Was möchtest du machen?",
+              "pronunciationBn": "ইয়া, গেয়ান। ভাস ময়খ্টেস্ট ডু মাখেন?"
+            },
+            {
+              "speaker": "A",
+              "text": "Wir können im Park spazieren gehen.",
+              "pronunciationBn": "ভিয়া ক্যোনেন ইম পার্ক শ্পাৎসিরেন গেহেন।"
+            },
+            {
+              "speaker": "B",
+              "text": "Wie wird das Wetter?",
+              "pronunciationBn": "ভি ভির্ট দাস ভেটা?"
+            },
+            {
+              "speaker": "A",
+              "text": "Am Vormittag ist es sonnig, aber am Nachmittag windig.",
+              "pronunciationBn": "আম ফোয়ামিটাক ইস্ট এস জোনিশ, আবা আম নাখমিটাক ভিন্ডিশ।"
+            },
+            {
+              "speaker": "B",
+              "text": "Dann nehme ich eine Jacke und einen Regenschirm mit.",
+              "pronunciationBn": "ডান নেমে ইখ আইনে ইয়াকে উন্ট আইনেন রেগেনশির্ম মিট।"
+            },
+            {
+              "speaker": "A",
+              "text": "Gute Idee. Wir treffen uns um elf am Haupteingang.",
+              "pronunciationBn": "গুটে ইডে। ভিয়া ট্রেফেন উন্স উম এল্ফ আম হাউপ্ট-আইনগাং।"
+            },
+            {
+              "speaker": "B",
+              "text": "Einverstanden. Ich fahre mit dem Rad dorthin.",
+              "pronunciationBn": "আইনফেয়াশ্টান্ডেন। ইখ ফারে মিট ডেম রাট ডর্টহিন।"
+            },
+            {
+              "speaker": "A",
+              "text": "Prima. Wenn es stark regnet, gehen wir ins Café.",
+              "pronunciationBn": "প্রিমা। ভেন এস শ্টার্ক রেগনেট, গেহেন ভিয়া ইনস কাফে।"
+            }
+          ]
+        },
+        {
+          "id": "d6_4",
+          "title": "Understanding a simple work instruction",
+          "lines": [
+            {
+              "speaker": "A",
+              "text": "Was ist heute dein Arbeitsauftrag?",
+              "pronunciationBn": "ভাস ইস্ট হয়টে ডাইন আরবাইটস-আউফট্রাক?"
+            },
+            {
+              "speaker": "B",
+              "text": "Ich soll die Stühle in den großen Raum bringen.",
+              "pronunciationBn": "ইখ জোল ডি শ্ট্যুলে ইন ডেন গ্রোসেন রাউম ব্রিঙ্গেন।"
+            },
+            {
+              "speaker": "A",
+              "text": "Und was soll ich machen?",
+              "pronunciationBn": "উন্ট ভাস জোল ইখ মাখেন?"
+            },
+            {
+              "speaker": "B",
+              "text": "Bitte stell die Bücher auf den Tisch.",
+              "pronunciationBn": "বিটে শ্টেল ডি ব্যুখা আউফ ডেন টিশ।"
+            },
+            {
+              "speaker": "A",
+              "text": "Gern. Treffen wir uns danach im Pausenraum?",
+              "pronunciationBn": "গেয়ান। ট্রেফেন ভিয়া উন্স দানাখ ইম পাউজেনরাউম?"
+            },
+            {
+              "speaker": "B",
+              "text": "Ja. Hast du keinen Kaffee mehr?",
+              "pronunciationBn": "ইয়া। হাস্ট ডু কাইনেন কাফে মেয়া?"
+            },
+            {
+              "speaker": "A",
+              "text": "Doch, ich habe noch eine Packung.",
+              "pronunciationBn": "ডোখ, ইখ হাবে নখ আইনে পাকুং।"
+            },
+            {
+              "speaker": "B",
+              "text": "Super. Dann mache ich später Kaffee.",
+              "pronunciationBn": "জুপা। ডান মাখে ইখ শ্পেটা কাফে।"
             }
           ]
         }
@@ -3153,7 +5807,8 @@
           "id": "ex6_8",
           "type": "speaking_prompt",
           "question": "Talk about your hobbies and what you like to do in free time.",
-          "exampleAnswer": "In meiner Freizeit spiele ich Fußball und höre Musik. Am Wochenende lese ich gern Bücher."
+          "exampleAnswer": "In meiner Freizeit spiele ich Fußball und höre Musik. Am Wochenende lese ich gern Bücher.",
+          "pronunciationBn": "ইন মাইনার ফ্রাইৎসাইট শ্পিলে ইখ ফুসবল উন্ট হোয়ে মুজিক। আম ভোখেনএন্ডে লেজে ইখ গেয়ান বুউখা।"
         },
         {
           "id": "ex6_9",
@@ -3210,7 +5865,8 @@
           "id": "ex6_14",
           "type": "speaking_prompt",
           "question": "Suggest an outdoor plan, discuss weather and agree on a time.",
-          "exampleAnswer": "Am Samstag scheint die Sonne. Hast du Lust, im Park spazieren zu gehen? Wir treffen uns um elf Uhr."
+          "exampleAnswer": "Am Samstag scheint die Sonne. Hast du Lust, im Park spazieren zu gehen? Wir treffen uns um elf Uhr.",
+          "pronunciationBn": "আম জামস্টাক শাইন্ট ডি জোনে। হাস্ট ডু লুস্ট, ইম পার্ক শ্পাৎসিয়ারেন ৎসু গেহেন? ভিয়া ট্রেফেন উন্স উম এল্ফ উয়া।"
         },
         {
           "id": "ex6_15",
@@ -3265,6 +5921,218 @@
           "type": "true_false",
           "question": "Ich treffe den Nachbarn has a masculine accusative object.",
           "correct": true
+        },
+        {
+          "id": "ex6_21",
+          "type": "multiple_choice",
+          "question": "Local event page: Sunday, 11:00, city park, bring comfortable shoes. Where is the event?",
+          "options": [
+            "In the city park",
+            "At the library",
+            "At the school"
+          ],
+          "correctIndex": 0,
+          "explanation": "Read the place in the event information."
+        },
+        {
+          "id": "ex6_22",
+          "type": "fill_blank",
+          "question": "Complete the negative-question reply: Hast du keinen Hunger? – _____, ich habe Hunger.",
+          "answer": "Doch",
+          "acceptableAnswers": [],
+          "explanation": "Doch contradicts the negative question."
+        },
+        {
+          "id": "ex6_23",
+          "type": "matching",
+          "question": "Match the direction with its English meaning.",
+          "pairs": [
+            {
+              "left": "Norden",
+              "right": "north"
+            },
+            {
+              "left": "Süden",
+              "right": "south"
+            },
+            {
+              "left": "Osten",
+              "right": "east"
+            },
+            {
+              "left": "Westen",
+              "right": "west"
+            }
+          ],
+          "explanation": "These four words help describe weather and location."
+        },
+        {
+          "id": "ex6_24",
+          "type": "speaking_prompt",
+          "question": "Suggest a weekend activity, ask about the weather and agree on a meeting point.",
+          "exampleAnswer": "Hast du Lust, Rad zu fahren? – Ja, gern. Wie wird das Wetter? – Es ist sonnig. Wir treffen uns um zehn am Park.",
+          "explanation": "Ask, respond and settle on a time and place.",
+          "pronunciationBn": "হাস্ট ডু লুস্ট, রাট ৎসু ফারেন?"
+        },
+        {
+          "id": "ex6_25",
+          "type": "writing_prompt",
+          "question": "Write a short online message suggesting a free-time activity. Include the day, place and one weather detail.",
+          "exampleAnswer": "Hallo Rafi, hast du am Sonntag Zeit? Wir können im Park spazieren gehen. Es wird sonnig. Treffen wir uns um 10 Uhr am Eingang? Viele Grüße, Amina.",
+          "explanation": "Include a suggestion, day, place and question."
+        },
+        {
+          "id": "ex6_26",
+          "type": "true_false",
+          "question": "To contradict “Hast du keinen Hunger?”, you can answer “Doch, ich habe Hunger.”",
+          "correct": true,
+          "explanation": "Doch corrects a negative question when the positive statement is true."
+        },
+        {
+          "id": "ex6_27",
+          "type": "multiple_choice",
+          "question": "Weather report: North cloudy and windy; south sunny and warm. Which region is sunny?",
+          "options": [
+            "The south",
+            "The north",
+            "Both"
+          ],
+          "correctIndex": 0,
+          "explanation": "Read the direction and weather description together."
+        },
+        {
+          "id": "ex6_28",
+          "type": "fill_blank",
+          "question": "Complete: Ich lese _____ Roman. (the, masculine object)",
+          "answer": "den",
+          "acceptableAnswers": [],
+          "explanation": "Masculine direct object changes der to den."
+        },
+        {
+          "id": "ex6_29",
+          "type": "multiple_choice",
+          "question": "Which item should you take if the forecast says Regen?",
+          "options": [
+            "einen Regenschirm",
+            "eine Sonnenbrille",
+            "ein Fahrrad"
+          ],
+          "correctIndex": 0,
+          "explanation": "A Regenschirm is useful in rain."
+        },
+        {
+          "id": "ex6_30",
+          "type": "ordering",
+          "question": "Put a weekend suggestion exchange in order.",
+          "items": [
+            "Prima. Um 17 Uhr?",
+            "Wir können ins Kino gehen.",
+            "Ja, gern. Was machen wir?",
+            "Hast du am Sonntag Zeit?"
+          ],
+          "correctOrder": [
+            3,
+            2,
+            1,
+            0
+          ],
+          "explanation": "Ask about availability before agreeing on a plan."
+        },
+        {
+          "id": "ex6_31",
+          "type": "writing_prompt",
+          "question": "Read the work instruction: “Stellen Sie die Bücher ins Regal. Schließen Sie danach das Fenster.” Write a checklist with the two actions.",
+          "exampleAnswer": "1. Die Bücher ins Regal stellen.\n2. Danach das Fenster schließen.",
+          "explanation": "Turn each instruction into one clear action; keep danach with the second step."
+        },
+        {
+          "id": "ex6_32",
+          "type": "multiple_choice",
+          "question": "A friend asks “Hast du keine Zeit?” You are free. What is the natural answer?",
+          "options": [
+            "Doch, ich habe Zeit.",
+            "Nein, ich habe Zeit.",
+            "Ja, ich habe keine Zeit."
+          ],
+          "correctIndex": 0,
+          "explanation": "Doch contradicts a negative question."
+        },
+        {
+          "id": "ex6_33",
+          "type": "speaking_prompt",
+          "question": "Give a short weather report for two directions and recommend one outdoor activity.",
+          "exampleAnswer": "Im Norden regnet es. Im Süden ist es sonnig. Im Süden können wir wandern.",
+          "explanation": "Use a direction, weather phrase and an activity.",
+          "pronunciationBn": "ইম নর্ডেন রেগনেট এস। ইম জুডেন ইস্ট এস জোনিখ। ইম জুডেন ক্যোনেন ভিয়া ভান্ডার্ন।"
+        },
+        {
+          "id": "ex6_34",
+          "type": "true_false",
+          "question": "In “Ich nehme den Bus,” den is the masculine accusative form.",
+          "correct": true,
+          "explanation": "The direct object der Bus becomes den Bus."
+        },
+        {
+          "id": "ex6_35",
+          "type": "fill_blank",
+          "question": "Complete: Am Himmel ist es _____; die Sonne scheint.",
+          "answer": "sonnig",
+          "acceptableAnswers": [],
+          "explanation": "sonnig describes sunny weather."
+        },
+        {
+          "id": "ex6_36",
+          "type": "writing_prompt",
+          "question": "Write a simple plan for meeting a friend. Say what you will do, when and where.",
+          "exampleAnswer": "Hallo Mina, hast du am Samstag Zeit? Wir können Gitarre spielen. Treffen wir uns um 15 Uhr bei mir? Viele Grüße, Amina.",
+          "explanation": "Make the plan easy to answer."
+        },
+        {
+          "id": "ex6_37",
+          "type": "multiple_choice",
+          "question": "In careful pronunciation, the ending -en in many unstressed verbs is reduced. Which word ends in -en?",
+          "options": [
+            "machen",
+            "Haus",
+            "Buch"
+          ],
+          "correctIndex": 0,
+          "explanation": "machen ends with the unstressed syllable -en."
+        },
+        {
+          "id": "ex6_38",
+          "type": "speaking_prompt",
+          "question": "Practise the contrast in “Ja, am SAMSTAG.” and “Nein, am SONNTAG.” Stress the day that gives the new information.",
+          "exampleAnswer": "Ja, am Samstag. Nein, am Sonntag.",
+          "explanation": "Make the contrast clear without shouting.",
+          "pronunciationBn": "ইয়া, আম জামস্টাক। নাইন, আম জোনটাক।"
+        },
+        {
+          "type": "multiple_choice",
+          "question": "Online event listing: “Rad-Tour am Sonntag, Treffpunkt Nordtor, 10 Uhr.” Where do participants meet?",
+          "options": [
+            "At the north gate",
+            "At the south station",
+            "At the library"
+          ],
+          "correctIndex": 0,
+          "explanation": "Nordtor means north gate.",
+          "id": "ex6_39"
+        },
+        {
+          "type": "speaking_prompt",
+          "question": "Read the answers with the contrastive stress marked: “JA, am Samstag.” “NEIN, am Sonntag.” Then ask the two questions.",
+          "exampleAnswer": "Fährst du am Samstag? – Ja, am Samstag. Fährst du am Sonntag? – Nein, am Sonntag.",
+          "explanation": "Stress the answer that corrects or confirms the day; reduce the unstressed -en ending naturally.",
+          "pronunciationBn": "ফেয়ার্স্ট ডু আম জামস্টাক? – ইয়া, আম জামস্টাক।",
+          "id": "ex6_40"
+        },
+        {
+          "type": "writing_prompt",
+          "question": "Read the work instruction: “Nehmen Sie den Bus 4. Steigen Sie am Rathaus aus.” Write the two actions as a numbered list.",
+          "exampleAnswer": "1. Bus 4 nehmen.\n2. Am Rathaus aussteigen.",
+          "explanation": "Keep both actions in order and copy the stop name accurately.",
+          "id": "ex6_41"
         }
       ]
     },
@@ -3279,7 +6147,12 @@
         "Form the Perfekt (present perfect) with haben and sein",
         "Talk about past events simply",
         "Make and respond to suggestions",
-        "Report a simple past event, explain a school absence, and make or decline a plan."
+        "Report a simple past event, explain a school absence, and make or decline a plan.",
+        "Read a short parent letter and respond to a school absence by telephone or message.",
+        "Report yesterday's activities using Perfekt with haben and sein.",
+        "Express ability and intention with können and wollen.",
+        "Make, accept and politely decline a suggestion and offer another time.",
+        "Practise sch, st and sp spelling patterns and write a short A1-level note."
       ],
       "vocabulary": [
         {
@@ -3437,6 +6310,126 @@
           "en": "story",
           "bn": "গল্প",
           "pronunciationBn": "ডি গেশিশ্টে"
+        },
+        {
+          "de": "die Entschuldigung",
+          "en": "apology / excuse note",
+          "bn": "ছুটির কারণ জানানো চিঠি",
+          "pronunciationBn": "ডি এন্টশুলডিগুং"
+        },
+        {
+          "de": "die Krankmeldung",
+          "en": "sick notice",
+          "bn": "অসুস্থতার খবর",
+          "pronunciationBn": "ডি ক্রাংকমেলডুং"
+        },
+        {
+          "de": "die Erkältung",
+          "en": "cold (illness)",
+          "bn": "সর্দি",
+          "pronunciationBn": "ডি এয়ারকেলটুং"
+        },
+        {
+          "de": "das Fieber",
+          "en": "fever",
+          "bn": "জ্বর",
+          "pronunciationBn": "দাস ফিবা"
+        },
+        {
+          "de": "der Husten",
+          "en": "cough",
+          "bn": "কাশি",
+          "pronunciationBn": "ডেয়া হুস্টেন"
+        },
+        {
+          "de": "die Bauchschmerzen",
+          "en": "stomach ache",
+          "bn": "পেটব্যথা",
+          "pronunciationBn": "ডি বাউখশমেয়ৎসেন"
+        },
+        {
+          "de": "die Klassenfahrt",
+          "en": "class trip",
+          "bn": "শ্রেণির ভ্রমণ",
+          "pronunciationBn": "ডি ক্লাসেনফার্ট"
+        },
+        {
+          "de": "der Treffpunkt",
+          "en": "meeting point",
+          "bn": "দেখা করার স্থান",
+          "pronunciationBn": "ডেয়া ট্রেফপুংক্ট"
+        },
+        {
+          "de": "teilnehmen",
+          "en": "to take part",
+          "bn": "অংশ নেওয়া",
+          "pronunciationBn": "টাইলনেমেন"
+        },
+        {
+          "de": "absagen",
+          "en": "to cancel",
+          "bn": "বাতিল করা",
+          "pronunciationBn": "আপজাগেন"
+        },
+        {
+          "de": "vorschlagen",
+          "en": "to suggest",
+          "bn": "প্রস্তাব করা",
+          "pronunciationBn": "ফোয়া-শ্লাগেন"
+        },
+        {
+          "de": "vielleicht",
+          "en": "perhaps",
+          "bn": "হয়তো",
+          "pronunciationBn": "ফিলাইখ্ট"
+        },
+        {
+          "de": "leider",
+          "en": "unfortunately",
+          "bn": "দুর্ভাগ্যবশত",
+          "pronunciationBn": "লাইডা"
+        },
+        {
+          "de": "gesund",
+          "en": "healthy",
+          "bn": "সুস্থ",
+          "pronunciationBn": "গেজুংট"
+        },
+        {
+          "de": "die Betreuung",
+          "en": "care / supervision",
+          "bn": "পরিচর্যা",
+          "pronunciationBn": "ডি বেট্রয়ুং"
+        },
+        {
+          "de": "der Elternabend",
+          "en": "parents' evening",
+          "bn": "অভিভাবক সভা",
+          "pronunciationBn": "ডেয়া এল্টার্ন-আবেন্ট"
+        },
+        {
+          "de": "das Lernangebot",
+          "en": "learning activity",
+          "bn": "শিক্ষামূলক কার্যক্রম",
+          "pronunciationBn": "দাস লেয়ান-আনগেবোট"
+        },
+        {
+          "de": "die Freizeit",
+          "en": "free time",
+          "bn": "অবসর সময়",
+          "pronunciationBn": "ডি ফ্রাইৎসাইট"
+        },
+        {
+          "de": "der Sport",
+          "en": "sport",
+          "bn": "খেলাধুলা",
+          "pronunciationBn": "ডেয়া শ্পোর্ট"
+        },
+        {
+          "de": "die Sprache",
+          "en": "language",
+          "bn": "ভাষা",
+          "pronunciationBn": "ডি শ্প্রাখে"
         }
       ],
       "grammar": [
@@ -3447,7 +6440,25 @@
             "Ich kann gut schwimmen.",
             "Er will Deutsch lernen.",
             "Kannst du mir helfen?"
-          ]
+          ],
+          "table": {
+            "können": [
+              "ich kann",
+              "du kannst",
+              "er/sie kann",
+              "wir können",
+              "ihr könnt",
+              "sie/Sie können"
+            ],
+            "wollen": [
+              "ich will",
+              "du willst",
+              "er/sie will",
+              "wir wollen",
+              "ihr wollt",
+              "sie/Sie wollen"
+            ]
+          }
         },
         {
           "title": "Perfekt with haben",
@@ -3490,6 +6501,33 @@
             "Hast du am Samstag Zeit?",
             "Ja, gern. Wann treffen wir uns?",
             "Leider kann ich am Vormittag nicht."
+          ]
+        },
+        {
+          "title": "Perfekt: the auxiliary is second, participle is last",
+          "explanation": "In a normal past-tense statement, haben or sein is conjugated in position two; the past participle goes at the end. Keep nicht before the participle when negating the action.",
+          "examples": [
+            "Ich habe gestern nicht gelernt.",
+            "Wir sind am Samstag nach Hause gefahren."
+          ]
+        },
+        {
+          "title": "Build common participles",
+          "explanation": "Many regular verbs use ge- + stem + -t; some common forms are irregular and should be learned as a pair. Movement or change-of-place verbs often use sein.",
+          "examples": [
+            "machen – hat gemacht",
+            "lernen – hat gelernt",
+            "gehen – ist gegangen",
+            "fahren – ist gefahren"
+          ]
+        },
+        {
+          "title": "Polite suggestions and alternatives",
+          "explanation": "Use Hast du Lust ...? or Wollen wir ...? to suggest an activity. Accept with gern; decline politely with leider and, if possible, suggest another time.",
+          "examples": [
+            "Hast du Lust, ins Kino zu gehen?",
+            "Leider kann ich heute nicht. Geht es morgen?",
+            "Ja, gern."
           ]
         }
       ],
@@ -3558,6 +6596,108 @@
               "speaker": "B",
               "text": "Die Kinder haben eine Geschichte gelesen. Gute Besserung!",
               "pronunciationBn": "ডি কিন্ডা হাবেন আইনে গেশিশ্টে গেলেজেন। গুটে বেসারুং।"
+            }
+          ]
+        },
+        {
+          "id": "d7_3",
+          "title": "Calling the school: illness and parent meeting",
+          "lines": [
+            {
+              "speaker": "A",
+              "text": "Grundschule am Park, guten Morgen.",
+              "pronunciationBn": "গ্রুন্ডশুলে আম পার্ক, গুটেন মর্গেন।"
+            },
+            {
+              "speaker": "B",
+              "text": "Guten Morgen. Mein Sohn Amir kann heute nicht kommen.",
+              "pronunciationBn": "গুটেন মর্গেন। মাইন জোন আমির কান হয়টে নিশ্ট কোমেন।"
+            },
+            {
+              "speaker": "A",
+              "text": "Was fehlt ihm?",
+              "pronunciationBn": "ভাস ফেল্ট ইম?"
+            },
+            {
+              "speaker": "B",
+              "text": "Er hat Fieber und Husten. Er bleibt heute zu Hause.",
+              "pronunciationBn": "এয়া হাট ফিবা উন্ট হুস্টেন। এয়া ব্লাইপ্ট হয়টে ৎসু হাউজে।"
+            },
+            {
+              "speaker": "A",
+              "text": "Danke. Hat er die Hausaufgaben gemacht?",
+              "pronunciationBn": "ডাংকে। হাট এয়া ডি হাউস-আউফগাবেন গেমাখ্ট?"
+            },
+            {
+              "speaker": "B",
+              "text": "Ja, gestern hat er Deutsch gelernt. Das Heft bringt seine Schwester morgen.",
+              "pronunciationBn": "ইয়া, গেস্টার্ন হাট এয়া ডয়চ গেলার্ন্ট। দাস হেফ্ট ব্রিংট জাইনে শভেস্টা মর্গেন।"
+            },
+            {
+              "speaker": "A",
+              "text": "Gut. Bitte schreiben Sie auch eine Entschuldigung.",
+              "pronunciationBn": "গুট। বিটে শ্রাইবেন জি আউখ আইনে এন্টশুলডিগুং।"
+            },
+            {
+              "speaker": "B",
+              "text": "Natürlich. Wann ist der nächste Elternabend?",
+              "pronunciationBn": "নাট্যুরলিশ। ভান ইস্ট ডেয়া নেখ্স্টে এল্টার্ন-আবেন্ট?"
+            },
+            {
+              "speaker": "A",
+              "text": "Am Donnerstag um 18 Uhr. Gute Besserung für Amir.",
+              "pronunciationBn": "আম ডোনারস্টাক উম আখৎসেন উয়া। গুটে বেসারুং ফ্যুয়া আমির।"
+            }
+          ]
+        },
+        {
+          "id": "d7_4",
+          "title": "Making and changing a weekend plan",
+          "lines": [
+            {
+              "speaker": "A",
+              "text": "Hast du am Samstag Lust auf einen Ausflug?",
+              "pronunciationBn": "হাস্ট ডু আম জামস্টাক লুস্ট আউফ আইনেন আউসফ্লুক?"
+            },
+            {
+              "speaker": "B",
+              "text": "Gern. Wohin wollen wir fahren?",
+              "pronunciationBn": "গেয়ান। ভোহিন ভোলেন ভিয়া ফারেন?"
+            },
+            {
+              "speaker": "A",
+              "text": "Wir können zum See fahren. Ich habe ein Picknick vorbereitet.",
+              "pronunciationBn": "ভিয়া ক্যোনেন ৎসুম জে ফারেন। ইখ হাবে আইন পিকনিক ফোয়াবেরাইটেট।"
+            },
+            {
+              "speaker": "B",
+              "text": "Das klingt gut, aber ich muss am Vormittag arbeiten.",
+              "pronunciationBn": "দাস ক্লিংট গুট, আবা ইখ মুস আম ফোয়ামিটাক আরবাইটেন।"
+            },
+            {
+              "speaker": "A",
+              "text": "Dann fahren wir am Nachmittag. Geht es um drei Uhr?",
+              "pronunciationBn": "ডান ফারেন ভিয়া আম নাখমিটাক। গেট এস উম ড্রাই উয়া?"
+            },
+            {
+              "speaker": "B",
+              "text": "Ja, das passt. Wo treffen wir uns?",
+              "pronunciationBn": "ইয়া, দাস পাস্ট। ভো ট্রেফেন ভিয়া উন্স?"
+            },
+            {
+              "speaker": "A",
+              "text": "Vor dem Bahnhof. Ich komme mit dem Bus.",
+              "pronunciationBn": "ফোয়া ডেম বানহোফ। ইখ কমে মিট ডেম বুস।"
+            },
+            {
+              "speaker": "B",
+              "text": "Prima. Ich bringe Wasser und Obst mit.",
+              "pronunciationBn": "প্রিমা। ইখ ব্রিঙ্গে ভাসা উন্ট ওপ্স্ট মিট।"
+            },
+            {
+              "speaker": "A",
+              "text": "Bis Samstag!",
+              "pronunciationBn": "বিস জামস্টাক!"
             }
           ]
         }
@@ -3648,7 +6788,8 @@
           "id": "ex7_8",
           "type": "speaking_prompt",
           "question": "Tell what you did yesterday. Use at least 4 sentences in Perfekt.",
-          "exampleAnswer": "Gestern bin ich früh aufgestanden. Ich habe gefrühstückt und bin zur Arbeit gegangen. Am Abend habe ich gekocht und ferngesehen."
+          "exampleAnswer": "Gestern bin ich früh aufgestanden. Ich habe gefrühstückt und bin zur Arbeit gegangen. Am Abend habe ich gekocht und ferngesehen.",
+          "pronunciationBn": "গেস্টার্ন বিন ইখ ফ্রু আউফগেশ্টান্ডেন। ইখ হাবে গেফ্রুশ্টুক্ট উন্ট বিন ৎসুয়া আরবাইট গেগাঙ্গেন। আম আবেন্ট হাবে ইখ গেকোখ্ট উন্ট ফেয়ার্নগেজেন।"
         },
         {
           "id": "ex7_9",
@@ -3705,7 +6846,8 @@
           "id": "ex7_14",
           "type": "speaking_prompt",
           "question": "Say what you did yesterday and explain why a child is absent today.",
-          "exampleAnswer": "Gestern habe ich Deutsch gelernt. Mein Sohn ist heute krank und kann nicht zur Schule kommen."
+          "exampleAnswer": "Gestern habe ich Deutsch gelernt. Mein Sohn ist heute krank und kann nicht zur Schule kommen.",
+          "pronunciationBn": "গেস্টার্ন হাবে ইখ ডয়চ গেলেয়ার্ন্ট। মাইন জোন ইস্ট হয়টে ক্রাঙ্ক উন্ট কান নিখ্ট ৎসুয়া শুলে কোমেন।"
         },
         {
           "id": "ex7_15",
@@ -3760,27 +6902,243 @@
           "type": "true_false",
           "question": "After können, a second verb stays in the infinitive at the end.",
           "correct": true
+        },
+        {
+          "id": "ex7_21",
+          "type": "multiple_choice",
+          "question": "Parent letter: The class trip is Friday. Children need a packed lunch and must arrive by 08:15. What should a child bring?",
+          "options": [
+            "A packed lunch",
+            "A library card",
+            "A rent contract"
+          ],
+          "correctIndex": 0,
+          "explanation": "The parent letter lists what children need for the trip."
+        },
+        {
+          "id": "ex7_22",
+          "type": "fill_blank",
+          "question": "Complete: Gestern _____ ich meine Hausaufgaben gemacht.",
+          "answer": "habe",
+          "acceptableAnswers": [],
+          "explanation": "machen forms Perfekt with haben."
+        },
+        {
+          "id": "ex7_23",
+          "type": "multiple_choice",
+          "question": "Which sentence reports a movement in the past correctly?",
+          "options": [
+            "Ich bin nach Hause gegangen.",
+            "Ich habe nach Hause gegangen.",
+            "Ich bin nach Hause gehen."
+          ],
+          "correctIndex": 0,
+          "explanation": "gehen forms the Perfekt with sein and the participle gegangen."
+        },
+        {
+          "id": "ex7_24",
+          "type": "speaking_prompt",
+          "question": "Tell a friend three things you did yesterday. Use one haben verb and one movement verb with sein.",
+          "exampleAnswer": "Gestern habe ich Deutsch gelernt. Danach habe ich mit meiner Schwester gekocht. Am Abend bin ich nach Hause gegangen.",
+          "explanation": "Put the participle at the end and select the correct auxiliary.",
+          "pronunciationBn": "গেস্টার্ন হাবে ইখ ডয়চ গেলেয়ার্ন্ট। ডানাখ হাবে ইখ মিট মাইনার শ্ভেস্টার গেকোখ্ট। আম আবেন্ট বিন ইখ নাখ হাউসে গেগাঙ্গেন।"
+        },
+        {
+          "id": "ex7_25",
+          "type": "writing_prompt",
+          "question": "Write a short absence note to a teacher. Include the child's name, date and a simple reason.",
+          "exampleAnswer": "Guten Morgen, mein Sohn Amir kann heute, am 12. Mai, nicht in die Schule kommen. Er ist krank und hat Fieber. Freundliche Grüße, Amina Das.",
+          "explanation": "Include a greeting, name, date, reason and closing."
+        },
+        {
+          "id": "ex7_26",
+          "type": "true_false",
+          "question": "The sentence “Ich bin meine Hausaufgaben gemacht” is correct.",
+          "correct": false,
+          "explanation": "machen uses haben: Ich habe meine Hausaufgaben gemacht."
+        },
+        {
+          "id": "ex7_27",
+          "type": "matching",
+          "question": "Match each infinitive with its participle.",
+          "pairs": [
+            {
+              "left": "lernen",
+              "right": "gelernt"
+            },
+            {
+              "left": "machen",
+              "right": "gemacht"
+            },
+            {
+              "left": "gehen",
+              "right": "gegangen"
+            },
+            {
+              "left": "fahren",
+              "right": "gefahren"
+            }
+          ],
+          "explanation": "Learn frequent infinitive-participle pairs."
+        },
+        {
+          "id": "ex7_28",
+          "type": "fill_blank",
+          "question": "Complete the modal sentence: Wir _____ morgen die Lehrerin anrufen. (can)",
+          "answer": "können",
+          "acceptableAnswers": [],
+          "explanation": "With a modal verb, the second verb stays infinitive at the end.",
+          "pronunciationBn": "ভিয়া ক্যোনেন মর্গেন ডি লেয়ারারিন আনরুফেন।"
+        },
+        {
+          "id": "ex7_29",
+          "type": "ordering",
+          "question": "Put a school absence call in order.",
+          "items": [
+            "Danke. Gute Besserung.",
+            "Er hat Fieber.",
+            "Mein Sohn kann heute nicht kommen.",
+            "Guten Morgen. Hier ist Amina Das."
+          ],
+          "correctOrder": [
+            3,
+            2,
+            1,
+            0
+          ],
+          "explanation": "Identify yourself, explain the absence, then respond to the school."
+        },
+        {
+          "id": "ex7_30",
+          "type": "multiple_choice",
+          "question": "A school note says “Bitte melden Sie Amir bis 08:00 krank.” What should the parent do?",
+          "options": [
+            "Call or notify the school before 08:00.",
+            "Bring Amir to the library at 08:00.",
+            "Cancel the parents' meeting."
+          ],
+          "correctIndex": 0,
+          "explanation": "krankmelden means report an illness."
+        },
+        {
+          "id": "ex7_31",
+          "type": "writing_prompt",
+          "question": "Write a short reply accepting a class outing invitation. Include the day and meeting time.",
+          "exampleAnswer": "Hallo Rafi, ja, ich komme gern mit. Am Samstag um 10 Uhr bin ich am Bahnhof. Viele Grüße, Amir.",
+          "explanation": "State clearly that you accept and repeat the time/place."
+        },
+        {
+          "id": "ex7_32",
+          "type": "multiple_choice",
+          "question": "Which word has the spelling sch?",
+          "options": [
+            "Schule",
+            "Stunde",
+            "Sprache"
+          ],
+          "correctIndex": 0,
+          "explanation": "Schule begins with sch; practise the three-letter sound together."
+        },
+        {
+          "id": "ex7_33",
+          "type": "speaking_prompt",
+          "question": "Practise sch, st and sp at the start of words: Schule, Stunde, Sport, spielen. Then use two in a sentence.",
+          "exampleAnswer": "Am Samstag spiele ich Sport in der Schule.",
+          "explanation": "Say the consonant cluster clearly, then speak the sentence naturally.",
+          "pronunciationBn": "আম জামস্টাক শ্পিলে শ্পোর্ট ইন ডেয়া শুলে।"
+        },
+        {
+          "id": "ex7_34",
+          "type": "fill_blank",
+          "question": "Complete a polite decline: Leider _____ ich heute nicht kommen.",
+          "answer": "kann",
+          "acceptableAnswers": [],
+          "explanation": "Use kann ich nicht to give a polite reason."
+        },
+        {
+          "id": "ex7_35",
+          "type": "true_false",
+          "question": "After wollen, the second verb normally stays in the infinitive at the end.",
+          "correct": true,
+          "explanation": "For example: Wir wollen am Samstag fahren."
+        },
+        {
+          "id": "ex7_36",
+          "type": "multiple_choice",
+          "question": "Which is a polite alternative after declining a plan?",
+          "options": [
+            "Leider kann ich heute nicht. Geht es morgen?",
+            "Nein. Nie.",
+            "Du musst heute kommen."
+          ],
+          "correctIndex": 0,
+          "explanation": "A polite decline can offer another time."
+        },
+        {
+          "id": "ex7_37",
+          "type": "writing_prompt",
+          "question": "Write a short message to the school about an absence. Use krank, heute and one past-tense sentence about yesterday's homework.",
+          "exampleAnswer": "Guten Morgen, mein Sohn Amir ist heute krank und kann nicht in die Schule kommen. Gestern hat er seine Hausaufgaben gemacht. Freundliche Grüße, Amina.",
+          "explanation": "Check the present absence, a clear Perfekt sentence, greeting and closing."
+        },
+        {
+          "id": "ex7_38",
+          "type": "speaking_prompt",
+          "question": "Suggest an outing, accept or decline, and give a new time if needed.",
+          "exampleAnswer": "Hast du Lust, am Sonntag zum See zu fahren? – Leider kann ich Sonntag nicht. Geht es am Samstag? – Ja, gern.",
+          "explanation": "Practise the full exchange, not just the invitation.",
+          "pronunciationBn": "হাস্ট ডু লুস্ট, আম জোনটাক ৎসুম জে ৎসু ফারেন? – লাইডার কান ইখ জোনটাক নিখ্ট। গেট এস আম জামস্টাক? – ইয়া, গেয়ান।"
+        },
+        {
+          "type": "fill_blank",
+          "question": "Complete the spelling pattern: _____ule (school).",
+          "answer": "Sch",
+          "acceptableAnswers": [],
+          "explanation": "Schule begins with sch; keep the three letters together.",
+          "pronunciationBn": "শুলে",
+          "id": "ex7_39"
+        },
+        {
+          "type": "multiple_choice",
+          "question": "Which word begins with st?",
+          "options": [
+            "Stunde",
+            "Schule",
+            "Sprache"
+          ],
+          "correctIndex": 0,
+          "explanation": "Stunde begins with st; Schule begins with sch and Sprache with sp.",
+          "id": "ex7_40"
+        },
+        {
+          "type": "writing_prompt",
+          "question": "Short exam-style note: Write two or three sentences to your teacher explaining why you cannot come today and when you hope to return.",
+          "exampleAnswer": "Guten Morgen, ich bin heute krank und kann nicht zum Deutschkurs kommen. Ich hoffe, dass ich morgen wieder da bin. Viele Grüße, Amina",
+          "explanation": "Include a greeting, reason, today/return information and a closing.",
+          "id": "ex7_41"
         }
       ]
     }
   ],
   "metadata": {
-    "totalExercises": 140,
+    "totalExercises": 285,
     "exerciseTypes": [
       "multiple_choice",
       "fill_blank",
       "matching",
       "true_false",
       "speaking_prompt",
+      "writing_prompt",
       "ordering"
     ],
     "notes_for_developer": [
-      "All lesson text and added practice are original supplementary material aligned to unit outcomes; textbook dialogues and exercise sets are not reproduced.",
-      "Each of the seven lessons has 20 interactive exercises.",
-      "Bangla pronunciation is an approximate reading aid, not a substitute for listening to standard German."
+      "Course content is original supplementary teaching material aligned to the non-audio learning outcomes listed in the supplied Schritte plus Neu A1.1 contents pages.",
+      "All seven units include expanded vocabulary, grammar explanations, everyday dialogue, written tasks, reading-style notices, phonetics, speaking practice and self-check exercises.",
+      "Textbook audio listening activities are not represented because the app has no licensed audio assets. Book dialogue and exercise wording is not copied.",
+      "Bangla pronunciation is approximate and should support, not replace, standard German listening and pronunciation."
     ],
-    "contentApproach": "Original supplementary material aligned to unit topics and learning outcomes in the supplied table of contents; textbook prose and exercise sets are not reproduced.",
+    "contentApproach": "Original practice and examples map to the seven lessons and non-audio course outcomes in the supplied contents pages; textbook passages and exercise sets are not reproduced.",
     "pronunciationNoteBn": "বাংলা হরফে উচ্চারণ আনুমানিক; এটি জার্মানির মানক উচ্চারণ ও শোনার অনুশীলনের বিকল্প নয়.",
-    "contentReference": "Schritte plus Neu 1 Kurs- und Arbeitsbuch contents supplied in project assets; Hueber Verlag public A1.1 overview."
+    "contentReference": "Schritte plus Neu 1 Kurs- und Arbeitsbuch contents supplied in assets; official Hueber Verlag A1.1 course overview and contents PDF."
   }
 }

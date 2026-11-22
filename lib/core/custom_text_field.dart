@@ -10,6 +10,8 @@ class CustomTextField extends StatelessWidget {
     this.onChanged,
     this.onSubmitted,
     this.enabled = true,
+    this.minLines = 1,
+    this.maxLines = 1,
     this.prefixIcon,
     this.suffixIcon,
   });
@@ -20,6 +22,8 @@ class CustomTextField extends StatelessWidget {
   final ValueChanged<String>? onChanged;
   final ValueChanged<String>? onSubmitted;
   final bool enabled;
+  final int minLines;
+  final int? maxLines;
   final Widget? prefixIcon;
   final Widget? suffixIcon;
 
@@ -32,6 +36,8 @@ class CustomTextField extends StatelessWidget {
     return TextField(
       controller: controller,
       enabled: enabled,
+      minLines: minLines,
+      maxLines: maxLines,
       onChanged: onChanged,
       onSubmitted: onSubmitted,
       style: getTextStyle(fontSize: 15, color: colorScheme.onSurface),

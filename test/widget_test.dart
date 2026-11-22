@@ -20,7 +20,7 @@ void main() {
   tearDown(Get.reset);
 
   test(
-    'CourseRepository loads 7 lessons and 140 exercises from assets JSON',
+    'CourseRepository loads all 7 lessons and expanded exercise types',
     () async {
       const repository = CourseRepository();
       final course = await repository.loadCourse();
@@ -33,12 +33,27 @@ void main() {
       final allExercises = course.lessons
           .expand((lesson) => lesson.exercises)
           .toList();
-      expect(allExercises.length, 140);
+      expect(allExercises.length, 285);
+      expect(course.metadata?.totalExercises, allExercises.length);
 
       expect(
         course.lessons
             .expand((lesson) => lesson.vocabulary)
             .every((item) => item.pronunciationBn?.isNotEmpty == true),
+        isTrue,
+      );
+      expect(
+        course.lessons.every(
+          (lesson) =>
+              lesson.grammar.length >= 7 && lesson.dialogues.length >= 4,
+        ),
+        isTrue,
+      );
+      expect(
+        course.lessons
+            .expand((lesson) => lesson.dialogues)
+            .expand((dialogue) => dialogue.lines)
+            .every((line) => line.pronunciationBn?.isNotEmpty == true),
         isTrue,
       );
 
@@ -47,7 +62,14 @@ void main() {
       expect(allExercises.whereType<MatchingExercise>(), isNotEmpty);
       expect(allExercises.whereType<TrueFalseExercise>(), isNotEmpty);
       expect(allExercises.whereType<SpeakingPromptExercise>(), isNotEmpty);
+      expect(
+        allExercises.whereType<SpeakingPromptExercise>().every(
+          (exercise) => exercise.pronunciationBn?.isNotEmpty == true,
+        ),
+        isTrue,
+      );
       expect(allExercises.whereType<OrderingExercise>(), isNotEmpty);
+      expect(allExercises.whereType<WritingPromptExercise>(), isNotEmpty);
     },
   );
 
@@ -167,7 +189,7 @@ void main() {
 
       expect(find.text('German A1.1'), findsOneWidget);
 
-      // Mark 2 of 20 exercises in lesson_01 completed (10%)
+      // Mark 2 of 38 exercises in lesson_01 completed.
       await progressController.markExerciseCompleted(
         lessonId: 'lesson_01',
         exerciseId: 'ex1_1',
@@ -178,15 +200,15 @@ void main() {
       );
       await tester.pumpAndSettle();
 
-      expect(find.text('10%'), findsOneWidget);
+      expect(find.text('1%'), findsOneWidget);
 
       // Open Lesson 1 and verify completed status
       await tester.tap(find.byKey(const ValueKey<String>('lesson_01')));
       await tester.pumpAndSettle();
 
-      expect(find.text('2 / 20 Completed'), findsOneWidget);
+      expect(find.text('2 / 38 Completed'), findsOneWidget);
       expect(find.text('Completed'), findsNWidgets(2));
-      expect(find.text('Not started'), findsNWidgets(18));
+      expect(find.text('Not started'), findsNWidgets(36));
 
       // Navigate back to Home
       await tester.tap(find.byTooltip('Back'));
@@ -223,7 +245,7 @@ void main() {
   );
 
   testWidgets(
-    'ExercisePlayer renders and evaluates all 6 exercise types (correct & incorrect) and navigates between exercises',
+    'ExercisePlayer renders and evaluates all 7 exercise types and reviews mistakes',
     (WidgetTester tester) async {
       const sampleExercises = <Exercise>[
         Exercise.multipleChoice(
@@ -264,6 +286,11 @@ void main() {
           question: 'Order the dialogue',
           items: <String>['Second line', 'First line'],
           correctOrder: <int>[1, 0],
+        ),
+        Exercise.writingPrompt(
+          id: 'write_1',
+          question: 'Write a greeting in German.',
+          exampleAnswer: 'Guten Tag! Ich heiße Karim.',
         ),
       ];
 
@@ -354,6 +381,32 @@ void main() {
       );
       await tester.pump();
       expect(find.text('Correct!'), findsOneWidget);
+      await tester.tap(find.byKey(const ValueKey<String>('exercise_next_btn')));
+      await tester.pumpAndSettle();
+
+      // 7. Written response
+      await tester.enterText(
+        find.byKey(const ValueKey<String>('writing_response')),
+        'Guten Tag! Ich heiße Karim.',
+      );
+      await tester.ensureVisible(
+        find.byKey(const ValueKey<String>('writing_eval_ready')),
+      );
+      await tester.tap(
+        find.byKey(const ValueKey<String>('writing_eval_ready')),
+      );
+      await tester.pumpAndSettle();
+      await tester.ensureVisible(
+        find.byKey(const ValueKey<String>('exercise_check_btn')),
+      );
+      await tester.tap(
+        find.byKey(const ValueKey<String>('exercise_check_btn')),
+      );
+      await tester.pumpAndSettle();
+      expect(find.text('Writing reviewed'), findsOneWidget);
+      await tester.ensureVisible(
+        find.byKey(const ValueKey<String>('exercise_next_btn')),
+      );
       await tester.tap(find.byKey(const ValueKey<String>('exercise_next_btn')));
       await tester.pumpAndSettle();
 
