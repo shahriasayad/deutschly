@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import 'package:deutschly/features/exercise/screen/exercise_placeholder_screen.dart';
+import 'package:deutschly/features/exercise/screen/exercise_screen.dart';
 import 'package:deutschly/features/home/screen/home_screen.dart';
 import 'package:deutschly/features/lesson/screen/lesson_detail_screen.dart';
 import 'package:deutschly/features/shell/screen/app_shell_screen.dart';
@@ -71,7 +71,7 @@ class AppRouter {
             final lessonId = state.pathParameters['lessonId'] ?? '';
             final indexParam = state.uri.queryParameters['index'];
             final initialIndex = int.tryParse(indexParam ?? '') ?? 0;
-            return ExercisePlaceholderScreen(
+            return ExerciseScreen(
               lessonId: lessonId,
               initialIndex: initialIndex,
             );
