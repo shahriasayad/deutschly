@@ -3,12 +3,14 @@ class LessonProgress {
     this.completedExercises = const <String>[],
     this.reviewSchedule = const <String, ExerciseReviewState>{},
     this.canDoObjectives = const <String>[],
+    this.hardWords = const <String>[],
     this.score = 0,
   });
 
   final List<String> completedExercises;
   final Map<String, ExerciseReviewState> reviewSchedule;
   final List<String> canDoObjectives;
+  final List<String> hardWords;
   final int score;
 
   factory LessonProgress.fromJson(Map<dynamic, dynamic> json) {
@@ -37,6 +39,7 @@ class LessonProgress {
       completedExercises: exercises,
       reviewSchedule: schedule,
       canDoObjectives: _readStringList(json['canDoObjectives']),
+      hardWords: _readStringList(json['hardWords']),
       score: parsedScore,
     );
   }
@@ -49,6 +52,7 @@ class LessonProgress {
           entry.key: entry.value.toJson(),
       },
       'canDoObjectives': canDoObjectives,
+      'hardWords': hardWords,
       'score': score,
     };
   }
@@ -62,6 +66,7 @@ class LessonProgress {
       completedExercises: updated,
       reviewSchedule: reviewSchedule,
       canDoObjectives: canDoObjectives,
+      hardWords: hardWords,
       score: updated.length,
     );
   }
@@ -98,6 +103,7 @@ class LessonProgress {
       completedExercises: nextCompleted,
       reviewSchedule: nextSchedule,
       canDoObjectives: canDoObjectives,
+      hardWords: hardWords,
       score: nextCompleted.length,
     );
   }
@@ -125,6 +131,7 @@ class LessonProgress {
       completedExercises: completedExercises,
       reviewSchedule: nextSchedule,
       canDoObjectives: canDoObjectives,
+      hardWords: hardWords,
       score: score,
     );
   }
@@ -143,6 +150,24 @@ class LessonProgress {
       completedExercises: completedExercises,
       reviewSchedule: reviewSchedule,
       canDoObjectives: nextObjectives.toList(growable: false),
+      hardWords: hardWords,
+      score: score,
+    );
+  }
+
+  LessonProgress copyWithHardWord(String wordDe, bool isHard) {
+    final nextHardWords = hardWords.toSet();
+    final changed = isHard
+        ? nextHardWords.add(wordDe)
+        : nextHardWords.remove(wordDe);
+    if (!changed) {
+      return this;
+    }
+    return LessonProgress(
+      completedExercises: completedExercises,
+      reviewSchedule: reviewSchedule,
+      canDoObjectives: canDoObjectives,
+      hardWords: nextHardWords.toList(growable: false),
       score: score,
     );
   }

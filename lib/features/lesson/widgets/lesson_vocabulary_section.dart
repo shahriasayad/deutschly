@@ -4,6 +4,7 @@ import 'package:deutschly/core/global_text_style.dart';
 import 'package:deutschly/core/pronunciation_button.dart';
 import 'package:deutschly/core/screen_util.dart';
 import 'package:deutschly/data/models/vocabulary_item.dart';
+import 'package:deutschly/features/vocabulary/widgets/hard_vocabulary_toggle_button.dart';
 
 class LessonVocabularySection extends StatelessWidget {
   const LessonVocabularySection({
@@ -12,16 +13,24 @@ class LessonVocabularySection extends StatelessWidget {
     required this.vocabulary,
     required this.hideMeanings,
     required this.revealedWordKeys,
+    required this.hardWords,
+    required this.showHardOnly,
     required this.onToggleHideMeanings,
     required this.onToggleWordReveal,
+    required this.onSelectShowHardOnly,
+    required this.onToggleWordHard,
   });
 
   final String lessonId;
   final List<VocabularyItem> vocabulary;
   final bool hideMeanings;
   final Set<String> revealedWordKeys;
+  final Set<String> hardWords;
+  final bool showHardOnly;
   final VoidCallback onToggleHideMeanings;
   final ValueChanged<String> onToggleWordReveal;
+  final ValueChanged<bool> onSelectShowHardOnly;
+  final ValueChanged<String> onToggleWordHard;
 
   @override
   Widget build(BuildContext context) {
@@ -36,6 +45,11 @@ class LessonVocabularySection extends StatelessWidget {
       );
     }
 
+    final hardVocabulary = vocabulary
+        .where((VocabularyItem item) => hardWords.contains(item.de))
+        .toList(growable: false);
+    final displayedVocabulary = showHardOnly ? hardVocabulary : vocabulary;
+
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: <Widget>[
@@ -43,7 +57,9 @@ class LessonVocabularySection extends StatelessWidget {
           children: <Widget>[
             Expanded(
               child: Text(
-                '${vocabulary.length} Vocabulary Words',
+                showHardOnly
+                    ? '${displayedVocabulary.length} Hard Vocabulary'
+                    : '${vocabulary.length} Vocabulary Words',
                 style: getTextStyle(
                   fontSize: 15,
                   fontWeight: FontWeight.w700,
@@ -92,59 +108,160 @@ class LessonVocabularySection extends StatelessWidget {
             ),
           ],
         ),
+        10.vSpace,
+        SingleChildScrollView(
+          scrollDirection: Axis.horizontal,
+          child: Row(
+            children: <Widget>[
+              _VocabularyFilterPill(
+                key: const ValueKey<String>('lesson_vocab_all_tab'),
+                label: 'All Words (${vocabulary.length})',
+                isSelected: !showHardOnly,
+                onTap: () => onSelectShowHardOnly(false),
+              ),
+              8.hSpace,
+              _VocabularyFilterPill(
+                key: const ValueKey<String>('lesson_vocab_hard_tab'),
+                label: 'Hard Vocabulary (${hardVocabulary.length})',
+                icon: Icons.bookmark_rounded,
+                isSelected: showHardOnly,
+                onTap: () => onSelectShowHardOnly(true),
+              ),
+            ],
+          ),
+        ),
         12.vSpace,
-        LayoutBuilder(
-          builder: (BuildContext context, BoxConstraints constraints) {
-            final isWide = constraints.maxWidth >= 600;
-            if (isWide) {
-              final itemWidth = (constraints.maxWidth - 12.w) / 2;
-              return Wrap(
-                spacing: 12.w,
-                runSpacing: 12.h,
-                children: vocabulary.map((VocabularyItem item) {
-                  final wordKey = '${lessonId}_${item.de}';
-                  final isRevealed =
-                      !hideMeanings || revealedWordKeys.contains(wordKey);
-                  return SizedBox(
-                    width: itemWidth,
-                    child: _VocabularyTile(
-                      item: item,
-                      isRevealed: isRevealed,
-                      isFlashcardMode: hideMeanings,
-                      onTap: hideMeanings
-                          ? () => onToggleWordReveal(wordKey)
-                          : null,
-                    ),
-                  );
-                }).toList(),
-              );
-            }
-            return Column(
-              children: <Widget>[
-                for (int i = 0; i < vocabulary.length; i++) ...<Widget>[
-                  Builder(
-                    builder: (BuildContext context) {
-                      final item = vocabulary[i];
-                      final wordKey = '${lessonId}_${item.de}';
-                      final isRevealed =
-                          !hideMeanings || revealedWordKeys.contains(wordKey);
-                      return _VocabularyTile(
+        if (displayedVocabulary.isEmpty)
+          EmptyStateWidget(
+            icon: Icons.bookmark_border_rounded,
+            title: 'No Hard Vocabulary Yet',
+            subtitle:
+                'Tap the bookmark icon on any word to add it to this lesson\'s Hard Vocabulary list.',
+            actionLabel: 'Show All Words',
+            onAction: () => onSelectShowHardOnly(false),
+          )
+        else
+          LayoutBuilder(
+            builder: (BuildContext context, BoxConstraints constraints) {
+              final isWide = constraints.maxWidth >= 600;
+              if (isWide) {
+                final itemWidth = (constraints.maxWidth - 12.w) / 2;
+                return Wrap(
+                  spacing: 12.w,
+                  runSpacing: 12.h,
+                  children: displayedVocabulary.map((VocabularyItem item) {
+                    final wordKey = '${lessonId}_${item.de}';
+                    final isRevealed =
+                        !hideMeanings || revealedWordKeys.contains(wordKey);
+                    return SizedBox(
+                      width: itemWidth,
+                      child: _VocabularyTile(
                         item: item,
                         isRevealed: isRevealed,
                         isFlashcardMode: hideMeanings,
+                        isHard: hardWords.contains(item.de),
+                        hardButtonKey: ValueKey<String>(
+                          'lesson_word_hard_${lessonId}_${item.de}',
+                        ),
+                        onToggleHard: () => onToggleWordHard(item.de),
                         onTap: hideMeanings
                             ? () => onToggleWordReveal(wordKey)
                             : null,
-                      );
-                    },
-                  ),
-                  if (i < vocabulary.length - 1) 10.vSpace,
+                      ),
+                    );
+                  }).toList(),
+                );
+              }
+              return Column(
+                children: <Widget>[
+                  for (int i = 0; i < displayedVocabulary.length; i++) ...<Widget>[
+                    Builder(
+                      builder: (BuildContext context) {
+                        final item = displayedVocabulary[i];
+                        final wordKey = '${lessonId}_${item.de}';
+                        final isRevealed =
+                            !hideMeanings || revealedWordKeys.contains(wordKey);
+                        return _VocabularyTile(
+                          item: item,
+                          isRevealed: isRevealed,
+                          isFlashcardMode: hideMeanings,
+                          isHard: hardWords.contains(item.de),
+                          hardButtonKey: ValueKey<String>(
+                            'lesson_word_hard_${lessonId}_${item.de}',
+                          ),
+                          onToggleHard: () => onToggleWordHard(item.de),
+                          onTap: hideMeanings
+                              ? () => onToggleWordReveal(wordKey)
+                              : null,
+                        );
+                      },
+                    ),
+                    if (i < displayedVocabulary.length - 1) 10.vSpace,
+                  ],
                 ],
-              ],
-            );
-          },
-        ),
+              );
+            },
+          ),
       ],
+    );
+  }
+}
+
+class _VocabularyFilterPill extends StatelessWidget {
+  const _VocabularyFilterPill({
+    super.key,
+    required this.label,
+    required this.isSelected,
+    required this.onTap,
+    this.icon,
+  });
+
+  final String label;
+  final bool isSelected;
+  final VoidCallback onTap;
+  final IconData? icon;
+
+  @override
+  Widget build(BuildContext context) {
+    final theme = Theme.of(context);
+    final colorScheme = theme.colorScheme;
+
+    return InkWell(
+      onTap: onTap,
+      borderRadius: BorderRadius.circular(999.r),
+      child: Container(
+        padding: EdgeInsets.symmetric(horizontal: 12.w, vertical: 7.h),
+        decoration: BoxDecoration(
+          color: isSelected ? colorScheme.primary : colorScheme.surface,
+          borderRadius: BorderRadius.circular(999.r),
+          border: Border.all(
+            color: isSelected ? colorScheme.primary : theme.dividerColor,
+          ),
+        ),
+        child: Row(
+          mainAxisSize: MainAxisSize.min,
+          children: <Widget>[
+            if (icon != null) ...<Widget>[
+              Icon(
+                icon,
+                size: 14.r,
+                color: isSelected
+                    ? colorScheme.onPrimary
+                    : colorScheme.secondary,
+              ),
+              5.hSpace,
+            ],
+            Text(
+              label,
+              style: getTextStyle(
+                fontSize: 12,
+                fontWeight: FontWeight.w600,
+                color: isSelected ? colorScheme.onPrimary : colorScheme.onSurface,
+              ),
+            ),
+          ],
+        ),
+      ),
     );
   }
 }
@@ -154,12 +271,18 @@ class _VocabularyTile extends StatelessWidget {
     required this.item,
     required this.isRevealed,
     required this.isFlashcardMode,
+    required this.isHard,
+    required this.onToggleHard,
+    this.hardButtonKey,
     this.onTap,
   });
 
   final VocabularyItem item;
   final bool isRevealed;
   final bool isFlashcardMode;
+  final bool isHard;
+  final VoidCallback onToggleHard;
+  final Key? hardButtonKey;
   final VoidCallback? onTap;
 
   @override
@@ -250,7 +373,17 @@ class _VocabularyTile extends StatelessWidget {
                 ),
               ),
               8.hSpace,
-              PronunciationIconButton(text: item.de),
+              Row(
+                mainAxisSize: MainAxisSize.min,
+                children: <Widget>[
+                  HardVocabularyToggleButton(
+                    key: hardButtonKey,
+                    isHard: isHard,
+                    onPressed: onToggleHard,
+                  ),
+                  PronunciationIconButton(text: item.de),
+                ],
+              ),
             ],
           ),
         ),

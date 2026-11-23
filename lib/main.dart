@@ -53,7 +53,12 @@ Future<void> main() async {
       progressController: progressController,
     ),
   );
-  Get.put(VocabularyController(courseController: courseController));
+  Get.put(
+    VocabularyController(
+      courseController: courseController,
+      progressController: progressController,
+    ),
+  );
 
   runApp(const DeutschlyApp());
 }

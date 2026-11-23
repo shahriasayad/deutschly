@@ -96,6 +96,45 @@ class ProgressController extends GetxController {
     );
   }
 
+  Set<String> getHardWords(String lessonId) {
+    return getLessonProgressData(lessonId).hardWords.toSet();
+  }
+
+  bool isWordHard(String lessonId, String wordDe) {
+    return getLessonProgressData(lessonId).hardWords.contains(wordDe);
+  }
+
+  int getHardWordCount(String lessonId) {
+    return getLessonProgressData(lessonId).hardWords.length;
+  }
+
+  Future<void> setWordHard({
+    required String lessonId,
+    required String wordDe,
+    required bool isHard,
+  }) async {
+    final current = getLessonProgressData(lessonId);
+    final updated = current.copyWithHardWord(wordDe, isHard);
+    if (identical(current, updated)) {
+      return;
+    }
+    progressByLesson[lessonId] = updated;
+    await _progressService.saveAllProgress(
+      Map<String, LessonProgress>.from(progressByLesson),
+    );
+  }
+
+  Future<void> toggleWordHard({
+    required String lessonId,
+    required String wordDe,
+  }) {
+    return setWordHard(
+      lessonId: lessonId,
+      wordDe: wordDe,
+      isHard: !isWordHard(lessonId, wordDe),
+    );
+  }
+
   Map<String, ExerciseReviewState> getDueReviewSchedule(
     String lessonId, {
     DateTime? now,

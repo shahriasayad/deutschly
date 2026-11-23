@@ -7,6 +7,7 @@ import 'package:deutschly/core/global_text_style.dart';
 import 'package:deutschly/core/pronunciation_button.dart';
 import 'package:deutschly/core/screen_util.dart';
 import 'package:deutschly/features/vocabulary/controller/vocabulary_controller.dart';
+import 'package:deutschly/features/vocabulary/widgets/hard_vocabulary_toggle_button.dart';
 import 'package:deutschly/features/vocabulary/widgets/vocabulary_filter_bar.dart';
 
 class VocabularyScreen extends StatelessWidget {
@@ -28,6 +29,8 @@ class VocabularyScreen extends StatelessWidget {
       ),
       body: Obx(() {
         final entries = controller.filteredEntries;
+        final showHardOnly = controller.showHardOnly.value;
+        final hardCount = controller.hardEntriesCount;
         final hideTranslations = controller.hideTranslations.value;
         final isDeckMode = controller.isDeckMode.value;
         final revealedSet = controller.revealedWordKeys.toSet();
@@ -45,6 +48,8 @@ class VocabularyScreen extends StatelessWidget {
                     searchController: controller.searchTextController,
                     lessons: controller.lessons,
                     selectedLessonId: controller.selectedLessonId.value,
+                    showHardOnly: showHardOnly,
+                    hardCount: hardCount,
                     hideTranslations: hideTranslations,
                     isDeckMode: isDeckMode,
                     hasSearchQuery: controller.searchQuery.value.isNotEmpty,
@@ -52,6 +57,7 @@ class VocabularyScreen extends StatelessWidget {
                     onSearchChanged: controller.updateSearchQuery,
                     onClearSearch: controller.clearSearch,
                     onSelectLesson: controller.selectLessonFilter,
+                    onToggleHardOnly: controller.toggleShowHardOnly,
                     onToggleHideTranslations: controller.toggleHideTranslations,
                     onToggleDeckMode: controller.setDeckMode,
                   ),
@@ -59,25 +65,50 @@ class VocabularyScreen extends StatelessWidget {
                   Expanded(
                     child: entries.isEmpty
                         ? EmptyStateWidget(
-                            icon: Icons.search_off_rounded,
-                            title: 'No Vocabulary Matches',
-                            subtitle:
-                                'No German, English, or Bengali words matched your current filter.',
-                            actionLabel: 'Reset Filters',
-                            onAction: controller.clearFilters,
+                            icon: showHardOnly
+                                ? Icons.bookmark_border_rounded
+                                : Icons.search_off_rounded,
+                            title: showHardOnly
+                                ? 'No Hard Vocabulary Yet'
+                                : 'No Vocabulary Matches',
+                            subtitle: showHardOnly
+                                ? 'Bookmark difficult words to review them here.'
+                                : 'No German, English, or Bengali words matched your current filter.',
+                            actionLabel: showHardOnly &&
+                                    controller.searchQuery.value.isEmpty
+                                ? 'Show All Words'
+                                : 'Reset Filters',
+                            onAction: showHardOnly &&
+                                    controller.searchQuery.value.isEmpty
+                                ? () => controller.setShowHardOnly(false)
+                                : controller.clearFilters,
                           )
                         : isDeckMode
-                        ? _FlashcardDeckView(
-                            entries: entries,
-                            currentIndex: controller.deckIndex.value
-                                .clamp(0, entries.length - 1)
-                                .toInt(),
-                            isFlipped: controller.isDeckCardFlipped.value,
-                            onFlip: controller.flipDeckCard,
-                            onPrevious: () =>
-                                controller.previousDeckCard(entries.length),
-                            onNext: () =>
-                                controller.nextDeckCard(entries.length),
+                        ? Builder(
+                            builder: (BuildContext context) {
+                              final clampedIndex = controller.deckIndex.value
+                                  .clamp(0, entries.length - 1)
+                                  .toInt();
+                              final deckEntry = entries[clampedIndex];
+                              return _FlashcardDeckView(
+                                entries: entries,
+                                currentIndex: clampedIndex,
+                                isFlipped: controller.isDeckCardFlipped.value,
+                                isHard: controller.isWordHard(
+                                  deckEntry.lessonId,
+                                  deckEntry.item.de,
+                                ),
+                                onToggleHard: () => controller.toggleWordHard(
+                                  deckEntry.lessonId,
+                                  deckEntry.item.de,
+                                ),
+                                onFlip: controller.flipDeckCard,
+                                onPrevious: () =>
+                                    controller.previousDeckCard(entries.length),
+                                onNext: () =>
+                                    controller.nextDeckCard(entries.length),
+                              );
+                            },
                           )
                         : ListView.separated(
                             padding: EdgeInsets.only(bottom: 24.h),
@@ -215,8 +246,27 @@ class VocabularyScreen extends StatelessWidget {
                                           ),
                                         ),
                                         8.hSpace,
-                                        PronunciationIconButton(
-                                          text: entry.item.de,
+                                        Row(
+                                          mainAxisSize: MainAxisSize.min,
+                                          children: <Widget>[
+                                            HardVocabularyToggleButton(
+                                              key: ValueKey<String>(
+                                                'vocab_hard_${entry.lessonId}_${entry.item.de}',
+                                              ),
+                                              isHard: controller.isWordHard(
+                                                entry.lessonId,
+                                                entry.item.de,
+                                              ),
+                                              onPressed: () =>
+                                                  controller.toggleWordHard(
+                                                    entry.lessonId,
+                                                    entry.item.de,
+                                                  ),
+                                            ),
+                                            PronunciationIconButton(
+                                              text: entry.item.de,
+                                            ),
+                                          ],
                                         ),
                                       ],
                                     ),
@@ -241,6 +291,8 @@ class _FlashcardDeckView extends StatelessWidget {
     required this.entries,
     required this.currentIndex,
     required this.isFlipped,
+    required this.isHard,
+    required this.onToggleHard,
     required this.onFlip,
     required this.onPrevious,
     required this.onNext,
@@ -249,6 +301,8 @@ class _FlashcardDeckView extends StatelessWidget {
   final List<LessonVocabularyEntry> entries;
   final int currentIndex;
   final bool isFlipped;
+  final bool isHard;
+  final VoidCallback onToggleHard;
   final VoidCallback onFlip;
   final VoidCallback onPrevious;
   final VoidCallback onNext;
@@ -337,7 +391,19 @@ class _FlashcardDeckView extends StatelessWidget {
                             ),
                           ),
                         ),
-                        PronunciationIconButton(text: entry.item.de),
+                        Row(
+                          mainAxisSize: MainAxisSize.min,
+                          children: <Widget>[
+                            HardVocabularyToggleButton(
+                              key: ValueKey<String>(
+                                'vocab_deck_hard_${entry.lessonId}_${entry.item.de}',
+                              ),
+                              isHard: isHard,
+                              onPressed: onToggleHard,
+                            ),
+                            PronunciationIconButton(text: entry.item.de),
+                          ],
+                        ),
                       ],
                     ),
                     24.vSpace,

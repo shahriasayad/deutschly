@@ -19,6 +19,7 @@ class LessonDetailController extends GetxController {
   final RxInt selectedTabIndex = 0.obs;
   final RxBool isVocabularyExpanded = true.obs;
   final RxBool hideVocabularyMeanings = false.obs;
+  final RxBool showHardVocabularyOnly = false.obs;
   final RxSet<String> revealedWordKeys = <String>{}.obs;
   final RxBool hideDialogueTranslations = false.obs;
   final RxSet<String> revealedDialogueKeys = <String>{}.obs;
@@ -51,6 +52,18 @@ class LessonDetailController extends GetxController {
     hideVocabularyMeanings.value = !hideVocabularyMeanings.value;
     revealedWordKeys.clear();
   }
+
+  void setShowHardVocabularyOnly(bool value) {
+    showHardVocabularyOnly.value = value;
+  }
+
+  Set<String> get hardWords => _resolvedProgressController.getHardWords(lessonId);
+
+  bool isWordHard(String wordDe) =>
+      _resolvedProgressController.isWordHard(lessonId, wordDe);
+
+  Future<void> toggleWordHard(String wordDe) => _resolvedProgressController
+      .toggleWordHard(lessonId: lessonId, wordDe: wordDe);
 
   void toggleWordReveal(String wordKey) {
     if (revealedWordKeys.contains(wordKey)) {

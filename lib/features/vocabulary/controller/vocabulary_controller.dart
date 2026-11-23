@@ -3,6 +3,7 @@ import 'package:get/get.dart';
 import 'package:deutschly/data/models/lesson.dart';
 import 'package:deutschly/data/models/vocabulary_item.dart';
 import 'package:deutschly/features/course/controller/course_controller.dart';
+import 'package:deutschly/features/progress/controller/progress_controller.dart';
 
 class LessonVocabularyEntry {
   const LessonVocabularyEntry({
@@ -19,19 +20,34 @@ class LessonVocabularyEntry {
 }
 
 class VocabularyController extends GetxController {
-  VocabularyController({CourseController? courseController})
-    : _courseController = courseController ?? Get.find<CourseController>();
+  VocabularyController({
+    CourseController? courseController,
+    ProgressController? progressController,
+  }) : _courseController = courseController ?? Get.find<CourseController>(),
+       _progressController = progressController;
 
   final CourseController _courseController;
+  final ProgressController? _progressController;
 
   final TextEditingController searchTextController = TextEditingController();
   final RxString searchQuery = ''.obs;
   final RxnString selectedLessonId = RxnString();
+  final RxBool showHardOnly = false.obs;
   final RxBool hideTranslations = false.obs;
   final RxSet<String> revealedWordKeys = <String>{}.obs;
   final RxBool isDeckMode = false.obs;
   final RxInt deckIndex = 0.obs;
   final RxBool isDeckCardFlipped = false.obs;
+
+  ProgressController get _resolvedProgressController {
+    if (_progressController != null) {
+      return _progressController;
+    }
+    if (Get.isRegistered<ProgressController>()) {
+      return Get.find<ProgressController>();
+    }
+    return Get.put(ProgressController(courseController: _courseController));
+  }
 
   List<Lesson> get lessons =>
       _courseController.course.value?.lessons ?? const <Lesson>[];
@@ -53,12 +69,37 @@ class VocabularyController extends GetxController {
     return entries;
   }
 
+  bool isWordHard(String lessonId, String wordDe) {
+    return _resolvedProgressController.isWordHard(lessonId, wordDe);
+  }
+
+  Future<void> toggleWordHard(String lessonId, String wordDe) {
+    return _resolvedProgressController.toggleWordHard(
+      lessonId: lessonId,
+      wordDe: wordDe,
+    );
+  }
+
+  int get hardEntriesCount {
+    final filterLessonId = selectedLessonId.value;
+    return allEntries.where((LessonVocabularyEntry entry) {
+      if (filterLessonId != null && entry.lessonId != filterLessonId) {
+        return false;
+      }
+      return isWordHard(entry.lessonId, entry.item.de);
+    }).length;
+  }
+
   List<LessonVocabularyEntry> get filteredEntries {
     final filterLessonId = selectedLessonId.value;
     final query = searchQuery.value.trim().toLowerCase();
+    final hardOnly = showHardOnly.value;
 
     return allEntries.where((LessonVocabularyEntry entry) {
       if (filterLessonId != null && entry.lessonId != filterLessonId) {
+        return false;
+      }
+      if (hardOnly && !isWordHard(entry.lessonId, entry.item.de)) {
         return false;
       }
       if (query.isEmpty) {
@@ -93,9 +134,19 @@ class VocabularyController extends GetxController {
 
   void clearFilters() {
     selectedLessonId.value = null;
+    showHardOnly.value = false;
     searchTextController.clear();
     searchQuery.value = '';
     _resetDeckPosition();
+  }
+
+  void setShowHardOnly(bool value) {
+    showHardOnly.value = value;
+    _resetDeckPosition();
+  }
+
+  void toggleShowHardOnly() {
+    setShowHardOnly(!showHardOnly.value);
   }
 
   void toggleHideTranslations() {

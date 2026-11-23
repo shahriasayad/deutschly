@@ -10,6 +10,8 @@ class VocabularyFilterBar extends StatelessWidget {
     required this.searchController,
     required this.lessons,
     required this.selectedLessonId,
+    required this.showHardOnly,
+    required this.hardCount,
     required this.hideTranslations,
     required this.isDeckMode,
     required this.hasSearchQuery,
@@ -17,6 +19,7 @@ class VocabularyFilterBar extends StatelessWidget {
     required this.onSearchChanged,
     required this.onClearSearch,
     required this.onSelectLesson,
+    required this.onToggleHardOnly,
     required this.onToggleHideTranslations,
     required this.onToggleDeckMode,
   });
@@ -24,6 +27,8 @@ class VocabularyFilterBar extends StatelessWidget {
   final TextEditingController searchController;
   final List<Lesson> lessons;
   final String? selectedLessonId;
+  final bool showHardOnly;
+  final int hardCount;
   final bool hideTranslations;
   final bool isDeckMode;
   final bool hasSearchQuery;
@@ -31,6 +36,7 @@ class VocabularyFilterBar extends StatelessWidget {
   final ValueChanged<String> onSearchChanged;
   final VoidCallback onClearSearch;
   final ValueChanged<String?> onSelectLesson;
+  final VoidCallback onToggleHardOnly;
   final VoidCallback onToggleHideTranslations;
   final ValueChanged<bool> onToggleDeckMode;
 
@@ -90,6 +96,51 @@ class VocabularyFilterBar extends StatelessWidget {
               ),
             ),
             const Spacer(),
+            InkWell(
+              key: const ValueKey<String>('vocab_hard_only_toggle'),
+              onTap: onToggleHardOnly,
+              borderRadius: BorderRadius.circular(999.r),
+              child: Container(
+                padding: EdgeInsets.symmetric(horizontal: 10.w, vertical: 6.h),
+                decoration: BoxDecoration(
+                  color: showHardOnly
+                      ? colorScheme.secondaryContainer
+                      : colorScheme.surface,
+                  borderRadius: BorderRadius.circular(999.r),
+                  border: Border.all(
+                    color: showHardOnly
+                        ? colorScheme.secondary
+                        : theme.dividerColor,
+                  ),
+                ),
+                child: Row(
+                  mainAxisSize: MainAxisSize.min,
+                  children: <Widget>[
+                    Icon(
+                      showHardOnly
+                          ? Icons.bookmark_rounded
+                          : Icons.bookmark_border_rounded,
+                      size: 15.r,
+                      color: showHardOnly
+                          ? colorScheme.secondary
+                          : colorScheme.onSurfaceVariant,
+                    ),
+                    5.hSpace,
+                    Text(
+                      'Hard ($hardCount)',
+                      style: getTextStyle(
+                        fontSize: 12,
+                        fontWeight: FontWeight.w600,
+                        color: showHardOnly
+                            ? colorScheme.onSecondaryContainer
+                            : colorScheme.onSurface,
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            ),
+            8.hSpace,
             if (!isDeckMode) ...<Widget>[
               InkWell(
                 key: const ValueKey<String>('vocab_quiz_mode_toggle'),

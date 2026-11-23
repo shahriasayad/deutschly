@@ -188,9 +188,14 @@ class LessonDetailScreen extends StatelessWidget {
                         vocabulary: lesson.vocabulary,
                         hideMeanings: controller.hideVocabularyMeanings.value,
                         revealedWordKeys: controller.revealedWordKeys.toSet(),
+                        hardWords: controller.hardWords,
+                        showHardOnly: controller.showHardVocabularyOnly.value,
                         onToggleHideMeanings:
                             controller.toggleHideVocabularyMeanings,
                         onToggleWordReveal: controller.toggleWordReveal,
+                        onSelectShowHardOnly:
+                            controller.setShowHardVocabularyOnly,
+                        onToggleWordHard: controller.toggleWordHard,
                       ),
                       2 => LessonGrammarSection(grammarPoints: lesson.grammar),
                       3 => LessonDialoguesSection(
