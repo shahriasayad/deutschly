@@ -15,7 +15,7 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$DialogueLine {
 
- String get speaker; String get text; String? get pronunciationBn;
+ String get speaker; String get text; String? get pronunciationBn; String? get translationBn;
 /// Create a copy of DialogueLine
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -28,16 +28,16 @@ $DialogueLineCopyWith<DialogueLine> get copyWith => _$DialogueLineCopyWithImpl<D
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is DialogueLine&&(identical(other.speaker, speaker) || other.speaker == speaker)&&(identical(other.text, text) || other.text == text)&&(identical(other.pronunciationBn, pronunciationBn) || other.pronunciationBn == pronunciationBn));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is DialogueLine&&(identical(other.speaker, speaker) || other.speaker == speaker)&&(identical(other.text, text) || other.text == text)&&(identical(other.pronunciationBn, pronunciationBn) || other.pronunciationBn == pronunciationBn)&&(identical(other.translationBn, translationBn) || other.translationBn == translationBn));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,speaker,text,pronunciationBn);
+int get hashCode => Object.hash(runtimeType,speaker,text,pronunciationBn,translationBn);
 
 @override
 String toString() {
-  return 'DialogueLine(speaker: $speaker, text: $text, pronunciationBn: $pronunciationBn)';
+  return 'DialogueLine(speaker: $speaker, text: $text, pronunciationBn: $pronunciationBn, translationBn: $translationBn)';
 }
 
 
@@ -48,7 +48,7 @@ abstract mixin class $DialogueLineCopyWith<$Res>  {
   factory $DialogueLineCopyWith(DialogueLine value, $Res Function(DialogueLine) _then) = _$DialogueLineCopyWithImpl;
 @useResult
 $Res call({
- String speaker, String text, String? pronunciationBn
+ String speaker, String text, String? pronunciationBn, String? translationBn
 });
 
 
@@ -65,11 +65,12 @@ class _$DialogueLineCopyWithImpl<$Res>
 
 /// Create a copy of DialogueLine
 /// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') @override $Res call({Object? speaker = null,Object? text = null,Object? pronunciationBn = freezed,}) {
+@pragma('vm:prefer-inline') @override $Res call({Object? speaker = null,Object? text = null,Object? pronunciationBn = freezed,Object? translationBn = freezed,}) {
   return _then(_self.copyWith(
 speaker: null == speaker ? _self.speaker : speaker // ignore: cast_nullable_to_non_nullable
 as String,text: null == text ? _self.text : text // ignore: cast_nullable_to_non_nullable
 as String,pronunciationBn: freezed == pronunciationBn ? _self.pronunciationBn : pronunciationBn // ignore: cast_nullable_to_non_nullable
+as String?,translationBn: freezed == translationBn ? _self.translationBn : translationBn // ignore: cast_nullable_to_non_nullable
 as String?,
   ));
 }
@@ -155,10 +156,10 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String speaker,  String text,  String? pronunciationBn)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String speaker,  String text,  String? pronunciationBn,  String? translationBn)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _DialogueLine() when $default != null:
-return $default(_that.speaker,_that.text,_that.pronunciationBn);case _:
+return $default(_that.speaker,_that.text,_that.pronunciationBn,_that.translationBn);case _:
   return orElse();
 
 }
@@ -176,10 +177,10 @@ return $default(_that.speaker,_that.text,_that.pronunciationBn);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String speaker,  String text,  String? pronunciationBn)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String speaker,  String text,  String? pronunciationBn,  String? translationBn)  $default,) {final _that = this;
 switch (_that) {
 case _DialogueLine():
-return $default(_that.speaker,_that.text,_that.pronunciationBn);case _:
+return $default(_that.speaker,_that.text,_that.pronunciationBn,_that.translationBn);case _:
   throw StateError('Unexpected subclass');
 
 }
@@ -196,10 +197,10 @@ return $default(_that.speaker,_that.text,_that.pronunciationBn);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String speaker,  String text,  String? pronunciationBn)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String speaker,  String text,  String? pronunciationBn,  String? translationBn)?  $default,) {final _that = this;
 switch (_that) {
 case _DialogueLine() when $default != null:
-return $default(_that.speaker,_that.text,_that.pronunciationBn);case _:
+return $default(_that.speaker,_that.text,_that.pronunciationBn,_that.translationBn);case _:
   return null;
 
 }
@@ -211,12 +212,13 @@ return $default(_that.speaker,_that.text,_that.pronunciationBn);case _:
 @JsonSerializable()
 
 class _DialogueLine implements DialogueLine {
-  const _DialogueLine({required this.speaker, required this.text, this.pronunciationBn});
+  const _DialogueLine({required this.speaker, required this.text, this.pronunciationBn, this.translationBn});
   factory _DialogueLine.fromJson(Map<String, dynamic> json) => _$DialogueLineFromJson(json);
 
 @override final  String speaker;
 @override final  String text;
 @override final  String? pronunciationBn;
+@override final  String? translationBn;
 
 /// Create a copy of DialogueLine
 /// with the given fields replaced by the non-null parameter values.
@@ -231,16 +233,16 @@ Map<String, dynamic> toJson() {
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _DialogueLine&&(identical(other.speaker, speaker) || other.speaker == speaker)&&(identical(other.text, text) || other.text == text)&&(identical(other.pronunciationBn, pronunciationBn) || other.pronunciationBn == pronunciationBn));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _DialogueLine&&(identical(other.speaker, speaker) || other.speaker == speaker)&&(identical(other.text, text) || other.text == text)&&(identical(other.pronunciationBn, pronunciationBn) || other.pronunciationBn == pronunciationBn)&&(identical(other.translationBn, translationBn) || other.translationBn == translationBn));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,speaker,text,pronunciationBn);
+int get hashCode => Object.hash(runtimeType,speaker,text,pronunciationBn,translationBn);
 
 @override
 String toString() {
-  return 'DialogueLine(speaker: $speaker, text: $text, pronunciationBn: $pronunciationBn)';
+  return 'DialogueLine(speaker: $speaker, text: $text, pronunciationBn: $pronunciationBn, translationBn: $translationBn)';
 }
 
 
@@ -251,7 +253,7 @@ abstract mixin class _$DialogueLineCopyWith<$Res> implements $DialogueLineCopyWi
   factory _$DialogueLineCopyWith(_DialogueLine value, $Res Function(_DialogueLine) _then) = __$DialogueLineCopyWithImpl;
 @override @useResult
 $Res call({
- String speaker, String text, String? pronunciationBn
+ String speaker, String text, String? pronunciationBn, String? translationBn
 });
 
 
@@ -268,11 +270,12 @@ class __$DialogueLineCopyWithImpl<$Res>
 
 /// Create a copy of DialogueLine
 /// with the given fields replaced by the non-null parameter values.
-@override @pragma('vm:prefer-inline') $Res call({Object? speaker = null,Object? text = null,Object? pronunciationBn = freezed,}) {
+@override @pragma('vm:prefer-inline') $Res call({Object? speaker = null,Object? text = null,Object? pronunciationBn = freezed,Object? translationBn = freezed,}) {
   return _then(_DialogueLine(
 speaker: null == speaker ? _self.speaker : speaker // ignore: cast_nullable_to_non_nullable
 as String,text: null == text ? _self.text : text // ignore: cast_nullable_to_non_nullable
 as String,pronunciationBn: freezed == pronunciationBn ? _self.pronunciationBn : pronunciationBn // ignore: cast_nullable_to_non_nullable
+as String?,translationBn: freezed == translationBn ? _self.translationBn : translationBn // ignore: cast_nullable_to_non_nullable
 as String?,
   ));
 }

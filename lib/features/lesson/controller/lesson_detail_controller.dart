@@ -20,6 +20,8 @@ class LessonDetailController extends GetxController {
   final RxBool isVocabularyExpanded = true.obs;
   final RxBool hideVocabularyMeanings = false.obs;
   final RxSet<String> revealedWordKeys = <String>{}.obs;
+  final RxBool hideDialogueTranslations = false.obs;
+  final RxSet<String> revealedDialogueKeys = <String>{}.obs;
   final RxString exerciseFilter = 'all'.obs;
 
   ProgressController get _resolvedProgressController {
@@ -60,6 +62,22 @@ class LessonDetailController extends GetxController {
 
   bool isWordRevealed(String wordKey) =>
       !hideVocabularyMeanings.value || revealedWordKeys.contains(wordKey);
+
+  void toggleHideDialogueTranslations() {
+    hideDialogueTranslations.value = !hideDialogueTranslations.value;
+    revealedDialogueKeys.clear();
+  }
+
+  void toggleDialogueLineReveal(String lineKey) {
+    if (revealedDialogueKeys.contains(lineKey)) {
+      revealedDialogueKeys.remove(lineKey);
+    } else {
+      revealedDialogueKeys.add(lineKey);
+    }
+  }
+
+  bool isDialogueLineRevealed(String lineKey) =>
+      !hideDialogueTranslations.value || revealedDialogueKeys.contains(lineKey);
 
   void setExerciseFilter(String filter) {
     exerciseFilter.value = filter;

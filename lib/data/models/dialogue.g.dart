@@ -11,6 +11,7 @@ _DialogueLine _$DialogueLineFromJson(Map<String, dynamic> json) =>
       speaker: json['speaker'] as String,
       text: json['text'] as String,
       pronunciationBn: json['pronunciationBn'] as String?,
+      translationBn: json['translationBn'] as String?,
     );
 
 Map<String, dynamic> _$DialogueLineToJson(_DialogueLine instance) =>
@@ -18,6 +19,7 @@ Map<String, dynamic> _$DialogueLineToJson(_DialogueLine instance) =>
       'speaker': instance.speaker,
       'text': instance.text,
       'pronunciationBn': instance.pronunciationBn,
+      'translationBn': instance.translationBn,
     };
 
 _Dialogue _$DialogueFromJson(Map<String, dynamic> json) => _Dialogue(

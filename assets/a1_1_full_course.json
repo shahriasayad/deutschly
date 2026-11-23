@@ -439,27 +439,32 @@
             {
               "speaker": "A",
               "text": "Guten Tag. Mein Name ist Anna Müller.",
-              "pronunciationBn": "গুটেন টাক। মাইন নামে ইস্ট আন্না মুলা."
+              "pronunciationBn": "গুটেন টাক। মাইন নামে ইস্ট আন্না মুলা.",
+              "translationBn": "শুভ দিন। আমার নাম আনা মুলার।"
             },
             {
               "speaker": "B",
               "text": "Guten Tag, Frau Müller. Ich bin Tom Becker. Freut mich.",
-              "pronunciationBn": "গুটেন টাক, ফ্রাউ মুলা। ইখ বিন টম বেকা। ফ্রয়ট মিশ।"
+              "pronunciationBn": "গুটেন টাক, ফ্রাউ মুলা। ইখ বিন টম বেকা। ফ্রয়ট মিশ।",
+              "translationBn": "শুভ দিন, মিসেস মুলার। আমি টম বেকার। আপনার সাথে পরিচিত হয়ে ভালো লাগলো।"
             },
             {
               "speaker": "A",
               "text": "Freut mich auch. Woher kommen Sie, Herr Becker?",
-              "pronunciationBn": "ফ্রয়ট মিশ আউখ। ভোহেয়া কমেন জি, হেয়া বেকা?"
+              "pronunciationBn": "ফ্রয়ট মিশ আউখ। ভোহেয়া কমেন জি, হেয়া বেকা?",
+              "translationBn": "আমারও ভালো লাগলো। মি. বেকার, আপনি কোথা থেকে এসেছেন?"
             },
             {
               "speaker": "B",
               "text": "Ich komme aus Österreich. Und Sie?",
-              "pronunciationBn": "ইখ কমে আউস ওস্টাররাইখ। উন্ট জি?"
+              "pronunciationBn": "ইখ কমে আউস ওস্টাররাইখ। উন্ট জি?",
+              "translationBn": "আমি অস্ট্রিয়া থেকে এসেছি। আর আপনি?"
             },
             {
               "speaker": "A",
               "text": "Ich komme aus Deutschland.",
-              "pronunciationBn": "ইখ কমে আউস ডয়চলান্ট।"
+              "pronunciationBn": "ইখ কমে আউস ডয়চলান্ট।",
+              "translationBn": "আমি জার্মানি থেকে এসেছি।"
             }
           ]
         },
@@ -470,22 +475,26 @@
             {
               "speaker": "A",
               "text": "Hallo! Ich bin Sara. Und du?",
-              "pronunciationBn": "হালো! ইখ বিন সারা। উন্ট ডু?"
+              "pronunciationBn": "হালো! ইখ বিন সারা। উন্ট ডু?",
+              "translationBn": "হ্যালো! আমি সারা। আর তুমি?"
             },
             {
               "speaker": "B",
               "text": "Hallo Sara! Ich heiße Omar.",
-              "pronunciationBn": "হালো সারা! ইখ হাইসে ওমার।"
+              "pronunciationBn": "হালো সারা! ইখ হাইসে ওমার।",
+              "translationBn": "হ্যালো সারা! আমার নাম ওমর।"
             },
             {
               "speaker": "A",
               "text": "Woher kommst du, Omar?",
-              "pronunciationBn": "ভোহেয়া কম্স্ট ডু, ওমার?"
+              "pronunciationBn": "ভোহেয়া কম্স্ট ডু, ওমার?",
+              "translationBn": "ওমর, তুমি কোথা থেকে এসেছো?"
             },
             {
               "speaker": "B",
               "text": "Ich komme aus Syrien. Ich spreche Arabisch und ein bisschen Deutsch.",
-              "pronunciationBn": "ইখ কমে আউস জিরিয়েন। ইখ শ্প্রেখে আরাবিশ উন্ট আইন বিস্‌খেন ডয়চ।"
+              "pronunciationBn": "ইখ কমে আউস জিরিয়েন। ইখ শ্প্রেখে আরাবিশ উন্ট আইন বিস্‌খেন ডয়চ।",
+              "translationBn": "আমি সিরিয়া থেকে এসেছি। আমি আরবি এবং একটু একটু জার্মান বলি।"
             }
           ]
         },
@@ -496,32 +505,38 @@
             {
               "speaker": "A",
               "text": "Guten Morgen. Ich möchte mich für den Deutschkurs anmelden.",
-              "pronunciationBn": "গুটেন মর্গেন। ইখ ময়খ্টে মিশ ফ্যুয়া ডেন ডয়চকুর্স আনমেলডেন।"
+              "pronunciationBn": "গুটেন মর্গেন। ইখ ময়খ্টে মিশ ফ্যুয়া ডেন ডয়চকুর্স আনমেলডেন।",
+              "translationBn": "সুপ্রভাত। আমি জার্মান কোর্সে নাম নিবন্ধন করতে চাই।"
             },
             {
               "speaker": "B",
               "text": "Wie ist Ihr Vorname und Familienname?",
-              "pronunciationBn": "ভি ইস্ট ইয়া ফোর্নামে উন্ট ফামিলিয়েননামে?"
+              "pronunciationBn": "ভি ইস্ট ইয়া ফোর্নামে উন্ট ফামিলিয়েননামে?",
+              "translationBn": "আপনার প্রথম নাম এবং পারিবারিক নাম (পদবি) কী?"
             },
             {
               "speaker": "A",
               "text": "Mein Vorname ist Samira, mein Familienname ist Rahman.",
-              "pronunciationBn": "মাইন ফোর্নামে ইস্ট সামিরা, মাইন ফামিলিয়েননামে ইস্ট রহমান।"
+              "pronunciationBn": "মাইন ফোর্নামে ইস্ট সামিরা, মাইন ফামিলিয়েননামে ইস্ট রহমান।",
+              "translationBn": "আমার প্রথম নাম সামিরা, আর আমার পারিবারিক নাম রহমান।"
             },
             {
               "speaker": "B",
               "text": "Wie schreibt man Rahman?",
-              "pronunciationBn": "ভি শ্রাইব্ট মান রহমান?"
+              "pronunciationBn": "ভি শ্রাইব্ট মান রহমান?",
+              "translationBn": "রহমান বানান কীভাবে লেখা হয়?"
             },
             {
               "speaker": "A",
               "text": "R-A-H-M-A-N. Ich wohne in Dhaka und spreche Bengali.",
-              "pronunciationBn": "আর-আ-হা-এম-আ-এন। ইখ ভোনে ইন ঢাকা উন্ট শ্প্রেখে বেঙ্গালি।"
+              "pronunciationBn": "আর-আ-হা-এম-আ-এন। ইখ ভোনে ইন ঢাকা উন্ট শ্প্রেখে বেঙ্গালি।",
+              "translationBn": "আর-এ-এইচ-এম-এ-এন। আমি ঢাকায় থাকি এবং বাংলা বলি।"
             },
             {
               "speaker": "B",
               "text": "Danke. Hier ist Ihr Formular. Willkommen im Kurs!",
-              "pronunciationBn": "ডাংকে। হিয়া ইস্ট ইয়া ফর্মুলা। ভিলকোমেন ইম কুর্স।"
+              "pronunciationBn": "ডাংকে। হিয়া ইস্ট ইয়া ফর্মুলা। ভিলকোমেন ইম কুর্স।",
+              "translationBn": "ধন্যবাদ। এই যে আপনার ফর্ম। কোর্সে স্বাগতম!"
             }
           ]
         },
@@ -532,52 +547,62 @@
             {
               "speaker": "A",
               "text": "Guten Tag. Sprachschule Nord, mein Name ist Weber.",
-              "pronunciationBn": "গুটেন টাক। শ্প্রাখশুলে নোয়াট, মাইন নামে ইস্ট ভেবা।"
+              "pronunciationBn": "গুটেন টাক। শ্প্রাখশুলে নোয়াট, মাইন নামে ইস্ট ভেবা।",
+              "translationBn": "শুভ দিন। স্প্রাখশুলে নর্ড, আমি ভেবার বলছি।"
             },
             {
               "speaker": "B",
               "text": "Guten Tag. Ist Frau Karim bitte da?",
-              "pronunciationBn": "গুটেন টাক। ইস্ট ফ্রাউ কারিম বিটে দা?"
+              "pronunciationBn": "গুটেন টাক। ইস্ট ফ্রাউ কারিম বিটে দা?",
+              "translationBn": "শুভ দিন। মিসেস করিম কি দয়া করে আছেন?"
             },
             {
               "speaker": "A",
               "text": "Einen Moment, bitte. Ich verbinde Sie.",
-              "pronunciationBn": "আইনেন মোমেন্ট, বিটে। ইখ ফেয়াবিন্ডে জি।"
+              "pronunciationBn": "আইনেন মোমেন্ট, বিটে। ইখ ফেয়াবিন্ডে জি।",
+              "translationBn": "একটু অপেক্ষা করুন, দয়া করে। আমি আপনাকে সংযুক্ত করছি।"
             },
             {
               "speaker": "B",
               "text": "Danke. Können Sie meinen Namen buchstabieren?",
-              "pronunciationBn": "ডাংকে। ক্যানেন জি মাইনেন নামেন বুখশ্টাবিরেন?"
+              "pronunciationBn": "ডাংকে। ক্যানেন জি মাইনেন নামেন বুখশ্টাবিরেন?",
+              "translationBn": "ধন্যবাদ। আপনি কি আমার নামটি বানান করে নিতে পারেন?"
             },
             {
               "speaker": "A",
               "text": "Wie schreibt man Ihren Familiennamen?",
-              "pronunciationBn": "ভি শ্রাইব্ট মান ইরেন ফামিলিয়েননামেন?"
+              "pronunciationBn": "ভি শ্রাইব্ট মান ইরেন ফামিলিয়েননামেন?",
+              "translationBn": "আপনার পারিবারিক নাম (পদবি) কীভাবে লেখা হয়?"
             },
             {
               "speaker": "B",
               "text": "Rahman. R-A-H-M-A-N.",
-              "pronunciationBn": "রাহমান। আর-আ-হা-এম-আ-এন।"
+              "pronunciationBn": "রাহমান। আর-আ-হা-এম-আ-এন।",
+              "translationBn": "রহমান। আর-এ-এইচ-এম-এ-এন।"
             },
             {
               "speaker": "A",
               "text": "Danke. Frau Karim ist gerade im Kurs.",
-              "pronunciationBn": "ডাংকে। ফ্রাউ কারিম ইস্ট গেরাডে ইম কুর্স।"
+              "pronunciationBn": "ডাংকে। ফ্রাউ কারিম ইস্ট গেরাডে ইম কুর্স।",
+              "translationBn": "ধন্যবাদ। মিসেস করিম এই মুহূর্তে ক্লাসে আছেন।"
             },
             {
               "speaker": "B",
               "text": "Bitte sagen Sie ihr: Samira hat angerufen.",
-              "pronunciationBn": "বিটে জাগেন জি ইয়া: সামিরা হাট আঙ্গেরুফেন।"
+              "pronunciationBn": "বিটে জাগেন জি ইয়া: সামিরা হাট আঙ্গেরুফেন।",
+              "translationBn": "দয়া করে তাঁকে বলবেন: সামিরা ফোন করেছিল।"
             },
             {
               "speaker": "A",
               "text": "Gern. Welche Telefonnummer kann sie zurückrufen?",
-              "pronunciationBn": "গেয়ান। ভেলখে টেলেফোননুমা কান জি ৎসুরুকরুফেন?"
+              "pronunciationBn": "গেয়ান। ভেলখে টেলেফোননুমা কান জি ৎসুরুকরুফেন?",
+              "translationBn": "অবশ্যই। তিনি কোন ফোন নম্বরে ফিরতি কল করতে পারেন?"
             },
             {
               "speaker": "B",
               "text": "Unter 0172 456 80 19. Vielen Dank.",
-              "pronunciationBn": "উন্টা নুল আইনস জিভেনৎসিশ ৎসভাই ফুনফ জেক্সট্সিশ আখটৎসিশ নোয়েনৎসেন। ফিলেন ডাংক।"
+              "pronunciationBn": "উন্টা নুল আইনস জিভেনৎসিশ ৎসভাই ফুনফ জেক্সট্সিশ আখটৎসিশ নোয়েনৎসেন। ফিলেন ডাংক।",
+              "translationBn": "০১৭২ ৪৫৬ ৮০ ১৯ নম্বরে। অনেক ধন্যবাদ।"
             }
           ]
         },
@@ -588,52 +613,62 @@
             {
               "speaker": "A",
               "text": "Guten Morgen. Möchten Sie sich anmelden?",
-              "pronunciationBn": "গুটেন মর্গেন। ময়খ্টেন জি জিশ আনমেলডেন?"
+              "pronunciationBn": "গুটেন মর্গেন। ময়খ্টেন জি জিশ আনমেলডেন?",
+              "translationBn": "সুপ্রভাত। আপনি কি নিবন্ধন করতে চান?"
             },
             {
               "speaker": "B",
               "text": "Ja, bitte. Ich heiße Amina Das.",
-              "pronunciationBn": "ইয়া, বিটে। ইখ হাইসে আমিনা দাস।"
+              "pronunciationBn": "ইয়া, বিটে। ইখ হাইসে আমিনা দাস।",
+              "translationBn": "হ্যাঁ, দয়া করে। আমার নাম আমিনা দাস।"
             },
             {
               "speaker": "A",
               "text": "Wie schreibt man Ihren Vornamen?",
-              "pronunciationBn": "ভি শ্রাইব্ট মান ইরেন ফোর্নামেন?"
+              "pronunciationBn": "ভি শ্রাইব্ট মান ইরেন ফোর্নামেন?",
+              "translationBn": "আপনার প্রথম নাম কীভাবে লেখা হয়?"
             },
             {
               "speaker": "B",
               "text": "A-M-I-N-A. Und mein Familienname ist D-A-S.",
-              "pronunciationBn": "আ-এম-ই-এন-আ। উন্ট মাইন ফামিলিয়েননামে ইস্ট ডি-আ-এস।"
+              "pronunciationBn": "আ-এম-ই-এন-আ। উন্ট মাইন ফামিলিয়েননামে ইস্ট ডি-আ-এস।",
+              "translationBn": "এ-এম-আই-এন-এ। আর আমার পারিবারিক নাম ডি-এ-এস।"
             },
             {
               "speaker": "A",
               "text": "Wo wohnen Sie?",
-              "pronunciationBn": "ভো ভোনেন জি?"
+              "pronunciationBn": "ভো ভোনেন জি?",
+              "translationBn": "আপনি কোথায় থাকেন?"
             },
             {
               "speaker": "B",
               "text": "In Dhaka. Ich komme aus Bangladesch.",
-              "pronunciationBn": "ইন ঢাকা। ইখ কমে আউস বাংলাদেশ।"
+              "pronunciationBn": "ইন ঢাকা। ইখ কমে আউস বাংলাদেশ।",
+              "translationBn": "ঢাকায়। আমি বাংলাদেশ থেকে এসেছি।"
             },
             {
               "speaker": "A",
               "text": "Welche Sprachen sprechen Sie?",
-              "pronunciationBn": "ভেলখে শ্প্রাখেন শ্প্রেখেন জি?"
+              "pronunciationBn": "ভেলখে শ্প্রাখেন শ্প্রেখেন জি?",
+              "translationBn": "আপনি কোন কোন ভাষা বলেন?"
             },
             {
               "speaker": "B",
               "text": "Bengali und ein bisschen Deutsch.",
-              "pronunciationBn": "বেঙ্গালি উন্ট আইন বিস্‌খেন ডয়চ।"
+              "pronunciationBn": "বেঙ্গালি উন্ট আইন বিস্‌খেন ডয়চ।",
+              "translationBn": "বাংলা এবং একটু একটু জার্মান।"
             },
             {
               "speaker": "A",
               "text": "Danke. Hier ist Ihre Karte. Bitte unterschreiben Sie hier.",
-              "pronunciationBn": "ডাংকে। হিয়া ইস্ট ইয়ারে কার্টে। বিটে উন্টারশ্রাইবেন জি হিয়া।"
+              "pronunciationBn": "ডাংকে। হিয়া ইস্ট ইয়ারে কার্টে। বিটে উন্টারশ্রাইবেন জি হিয়া।",
+              "translationBn": "ধন্যবাদ। এই যে আপনার কার্ড। দয়া করে এখানে স্বাক্ষর করুন।"
             },
             {
               "speaker": "B",
               "text": "Gern. Können Sie die Adresse noch einmal wiederholen?",
-              "pronunciationBn": "গেয়ান। ক্যানেন জি ডি আদ্রেসে নখ আইনমাল ভিডারহোলেন?"
+              "pronunciationBn": "গেয়ান। ক্যানেন জি ডি আদ্রেসে নখ আইনমাল ভিডারহোলেন?",
+              "translationBn": "অবশ্যই। আপনি কি ঠিকানাটি আরেকবার বলতে পারবেন?"
             }
           ]
         }
@@ -1561,32 +1596,38 @@
             {
               "speaker": "A",
               "text": "Hast du Geschwister?",
-              "pronunciationBn": "হাস্ট ডু গেশভিস্টা?"
+              "pronunciationBn": "হাস্ট ডু গেশভিস্টা?",
+              "translationBn": "তোমার কি কোনো ভাই-বোন আছে?"
             },
             {
               "speaker": "B",
               "text": "Ja, ich habe einen Bruder und eine Schwester.",
-              "pronunciationBn": "ইয়া, ইখ হাবে আইনেন ব্রুডা উন্ট আইনে শভেস্টা।"
+              "pronunciationBn": "ইয়া, ইখ হাবে আইনেন ব্রুডা উন্ট আইনে শভেস্টা।",
+              "translationBn": "হ্যাঁ, আমার একজন ভাই এবং একজন বোন আছে।"
             },
             {
               "speaker": "A",
               "text": "Wie heißen sie?",
-              "pronunciationBn": "ভি হাইসেন জি?"
+              "pronunciationBn": "ভি হাইসেন জি?",
+              "translationBn": "তাদের নাম কী?"
             },
             {
               "speaker": "B",
               "text": "Mein Bruder heißt Rahim und meine Schwester heißt Fatima.",
-              "pronunciationBn": "মাইন ব্রুডা হাইস্ট রহিম উন্ট মাইনে শভেস্টা হাইস্ট ফাতিমা।"
+              "pronunciationBn": "মাইন ব্রুডা হাইস্ট রহিম উন্ট মাইনে শভেস্টা হাইস্ট ফাতিমা।",
+              "translationBn": "আমার ভাইয়ের নাম রহিম এবং আমার বোনের নাম ফাতিমা।"
             },
             {
               "speaker": "A",
               "text": "Wohnen sie auch hier?",
-              "pronunciationBn": "ভোনেন জি আউখ হিয়া?"
+              "pronunciationBn": "ভোনেন জি আউখ হিয়া?",
+              "translationBn": "তারাও কি এখানে থাকে?"
             },
             {
               "speaker": "B",
               "text": "Nein, mein Bruder lebt in Dhaka. Meine Schwester wohnt in Sylhet.",
-              "pronunciationBn": "নাইন, মাইন ব্রুডা লেপ্ট ইন ঢাকা। মাইনে শভেস্টা ভোন্ট ইন সিলেট।"
+              "pronunciationBn": "নাইন, মাইন ব্রুডা লেপ্ট ইন ঢাকা। মাইনে শভেস্টা ভোন্ট ইন সিলেট।",
+              "translationBn": "না, আমার ভাই ঢাকায় থাকে। আমার বোন সিলেটে থাকে।"
             }
           ]
         },
@@ -1597,32 +1638,38 @@
             {
               "speaker": "A",
               "text": "Hallo Mina, wie geht es dir?",
-              "pronunciationBn": "হালো মিনা, ভি গেট এস ডিয়া?"
+              "pronunciationBn": "হালো মিনা, ভি গেট এস ডিয়া?",
+              "translationBn": "হ্যালো মিনা, কেমন আছো?"
             },
             {
               "speaker": "B",
               "text": "Danke, gut. Und dir?",
-              "pronunciationBn": "ডাংকে, গুট। উন্ট ডিয়া?"
+              "pronunciationBn": "ডাংকে, গুট। উন্ট ডিয়া?",
+              "translationBn": "ধন্যবাদ, ভালো আছি। আর তুমি?"
             },
             {
               "speaker": "A",
               "text": "Ist das deine Familie?",
-              "pronunciationBn": "ইস্ট দাস ডাইনে ফামিলিয়ে?"
+              "pronunciationBn": "ইস্ট দাস ডাইনে ফামিলিয়ে?",
+              "translationBn": "এটা কি তোমার পরিবার?"
             },
             {
               "speaker": "B",
               "text": "Ja. Das ist mein Vater und meine Mutter.",
-              "pronunciationBn": "ইয়া। দাস ইস্ট মাইন ফাটা উন্ট মাইনে মুটার।"
+              "pronunciationBn": "ইয়া। দাস ইস্ট মাইন ফাটা উন্ট মাইনে মুটার।",
+              "translationBn": "হ্যাঁ। ইনি আমার বাবা এবং ইনি আমার মা।"
             },
             {
               "speaker": "A",
               "text": "Und wer sind die beiden?",
-              "pronunciationBn": "উন্ট ভেয়া জিন্ট ডি বাইডেন?"
+              "pronunciationBn": "উন্ট ভেয়া জিন্ট ডি বাইডেন?",
+              "translationBn": "আর ওই দুজন কে?"
             },
             {
               "speaker": "B",
               "text": "Mein Bruder und meine Schwester. Meine Eltern wohnen in Dhaka.",
-              "pronunciationBn": "মাইন ব্রুডা উন্ট মাইনে শভেস্টা। মাইনে এল্টার্ন ভোনেন ইন ঢাকা।"
+              "pronunciationBn": "মাইন ব্রুডা উন্ট মাইনে শভেস্টা। মাইনে এল্টার্ন ভোনেন ইন ঢাকা।",
+              "translationBn": "আমার ভাই এবং আমার বোন। আমার বাবা-মা ঢাকায় থাকেন।"
             }
           ]
         },
@@ -1633,42 +1680,50 @@
             {
               "speaker": "A",
               "text": "Guten Tag. Kann ich Ihnen helfen?",
-              "pronunciationBn": "গুটেন টাক। কান ইখ ইনেন হেলফেন?"
+              "pronunciationBn": "গুটেন টাক। কান ইখ ইনেন হেলফেন?",
+              "translationBn": "শুভ দিন। আমি কি আপনাকে সাহায্য করতে পারি?"
             },
             {
               "speaker": "B",
               "text": "Ja, bitte. Ich möchte ein Buch ausleihen.",
-              "pronunciationBn": "ইয়া, বিটে। ইখ ময়খ্টে আইন বুখ আউসলাইহেন।"
+              "pronunciationBn": "ইয়া, বিটে। ইখ ময়খ্টে আইন বুখ আউসলাইহেন।",
+              "translationBn": "হ্যাঁ, দয়া করে। আমি একটি বই ধার নিতে চাই।"
             },
             {
               "speaker": "A",
               "text": "Haben Sie einen Bibliotheksausweis?",
-              "pronunciationBn": "হাবেন জি আইনেন বিবলিওথেকস-আউসভাইস?"
+              "pronunciationBn": "হাবেন জি আইনেন বিবলিওথেকস-আউসভাইস?",
+              "translationBn": "আপনার কি লাইব্রেরি কার্ড আছে?"
             },
             {
               "speaker": "B",
               "text": "Nein. Wo kann ich mich anmelden?",
-              "pronunciationBn": "নাইন। ভো কান ইখ মিশ আনমেলডেন?"
+              "pronunciationBn": "নাইন। ভো কান ইখ মিশ আনমেলডেন?",
+              "translationBn": "না। আমি কোথায় নিবন্ধন করতে পারি?"
             },
             {
               "speaker": "A",
               "text": "Hier. Bitte schreiben Sie Ihren Namen und Ihre Adresse.",
-              "pronunciationBn": "হিয়া। বিটে শ্রাইবেন জি ইরেন নামেন উন্ট ইয়ারে আদ্রেসে।"
+              "pronunciationBn": "হিয়া। বিটে শ্রাইবেন জি ইরেন নামেন উন্ট ইয়ারে আদ্রেসে।",
+              "translationBn": "এখানে। দয়া করে আপনার নাম ও ঠিকানা লিখুন।"
             },
             {
               "speaker": "B",
               "text": "Wie lange kann ich das Buch behalten?",
-              "pronunciationBn": "ভি লাংগে কান ইখ দাস বুখ বেহাল্টেন?"
+              "pronunciationBn": "ভি লাংগে কান ইখ দাস বুখ বেহাল্টেন?",
+              "translationBn": "আমি কতদিন বইটি নিজের কাছে রাখতে পারবো?"
             },
             {
               "speaker": "A",
               "text": "Vier Wochen. Die Bibliothek ist montags geschlossen.",
-              "pronunciationBn": "ফিয়া ভোখেন। ডি বিবলিওথেক ইস্ট মোন্টাক্স গেশ্লোসেন।"
+              "pronunciationBn": "ফিয়া ভোখেন। ডি বিবলিওথেক ইস্ট মোন্টাক্স গেশ্লোসেন।",
+              "translationBn": "চার সপ্তাহ। লাইব্রেরি প্রতি সোমবার বন্ধ থাকে।"
             },
             {
               "speaker": "B",
               "text": "Vielen Dank. Dann komme ich am Dienstag wieder.",
-              "pronunciationBn": "ফিলেন ডাংক। ডান কমে ইখ আম ডিন্সটাক ভিডা।"
+              "pronunciationBn": "ফিলেন ডাংক। ডান কমে ইখ আম ডিন্সটাক ভিডা।",
+              "translationBn": "অনেক ধন্যবাদ। তাহলে আমি মঙ্গলবার আবার আসবো।"
             }
           ]
         },
@@ -1679,42 +1734,50 @@
             {
               "speaker": "A",
               "text": "Guten Morgen. Ich heiße Herr Yilmaz. Wie heißen Sie?",
-              "pronunciationBn": "গুটেন মর্গেন। ইখ হাইসে হেয়া ইয়িলমাজ। ভি হাইসেন জি?"
+              "pronunciationBn": "গুটেন মর্গেন। ইখ হাইসে হেয়া ইয়িলমাজ। ভি হাইসেন জি?",
+              "translationBn": "সুপ্রভাত। আমার নাম মি. ইয়িলমাজ। আপনার নাম কী?"
             },
             {
               "speaker": "B",
               "text": "Guten Morgen. Mein Name ist Frau Das.",
-              "pronunciationBn": "গুটেন মর্গেন। মাইন নামে ইস্ট ফ্রাউ দাস।"
+              "pronunciationBn": "গুটেন মর্গেন। মাইন নামে ইস্ট ফ্রাউ দাস।",
+              "translationBn": "সুপ্রভাত। আমার নাম মিসেস দাস।"
             },
             {
               "speaker": "A",
               "text": "Freut mich. Wie geht es Ihnen?",
-              "pronunciationBn": "ফ্রয়ট মিশ। ভি গেট এস ইনেন?"
+              "pronunciationBn": "ফ্রয়ট মিশ। ভি গেট এস ইনেন?",
+              "translationBn": "পরিচয় হয়ে ভালো লাগলো। আপনি কেমন আছেন?"
             },
             {
               "speaker": "B",
               "text": "Danke, gut. Und Ihnen?",
-              "pronunciationBn": "ডাংকে, গুট। উন্ট ইনেন?"
+              "pronunciationBn": "ডাংকে, গুট। উন্ট ইনেন?",
+              "translationBn": "ধন্যবাদ, ভালো আছি। আর আপনি?"
             },
             {
               "speaker": "A",
               "text": "Auch gut. Wir sind im gleichen Deutschkurs.",
-              "pronunciationBn": "আউখ গুট। ভিয়া জিন্ট ইম গ্লাইখেন ডয়চকুর্স।"
+              "pronunciationBn": "আউখ গুট। ভিয়া জিন্ট ইম গ্লাইখেন ডয়চকুর্স।",
+              "translationBn": "আমিও ভালো আছি। আমরা একই জার্মান কোর্সে আছি।"
             },
             {
               "speaker": "B",
               "text": "Möchten wir uns duzen?",
-              "pronunciationBn": "ময়খ্টেন ভিয়া উন্স ডুট্সেন?"
+              "pronunciationBn": "ময়খ্টেন ভিয়া উন্স ডুট্সেন?",
+              "translationBn": "আমরা কি একে অপরকে 'তুমি' বলে সম্বোধন করতে পারি?"
             },
             {
               "speaker": "A",
               "text": "Gern. Ich bin Murat. Und du?",
-              "pronunciationBn": "গেয়ান। ইখ বিন মুরাট। উন্ট ডু?"
+              "pronunciationBn": "গেয়ান। ইখ বিন মুরাট। উন্ট ডু?",
+              "translationBn": "অবশ্যই। আমি মুরাত। আর তুমি?"
             },
             {
               "speaker": "B",
               "text": "Ich heiße Amina. Schön, dich kennenzulernen.",
-              "pronunciationBn": "ইখ হাইসে আমিনা। শ্যোন, দিশ কেনেনৎসুলেরনেন।"
+              "pronunciationBn": "ইখ হাইসে আমিনা। শ্যোন, দিশ কেনেনৎসুলেরনেন।",
+              "translationBn": "আমার নাম আমিনা। তোমার সাথে পরিচিত হয়ে ভালো লাগলো।"
             }
           ]
         }
@@ -2634,32 +2697,38 @@
             {
               "speaker": "A",
               "text": "Guten Tag. Ich möchte ein Kilo Äpfel und eine Packung Milch.",
-              "pronunciationBn": "গুটেন টাক। ইখ ম্যোখটে আইন কিলো এপফেল উন্ট আইনে পাকুং মিল্খ।"
+              "pronunciationBn": "গুটেন টাক। ইখ ম্যোখটে আইন কিলো এপফেল উন্ট আইনে পাকুং মিল্খ।",
+              "translationBn": "শুভ দিন। আমি এক কেজি আপেল এবং এক প্যাকেট দুধ চাই।"
             },
             {
               "speaker": "B",
               "text": "Bitte schön. Sonst noch etwas?",
-              "pronunciationBn": "বিটে শ্যোন। জোন্স্ট নখ এটভাস?"
+              "pronunciationBn": "বিটে শ্যোন। জোন্স্ট নখ এটভাস?",
+              "translationBn": "এই নিন। আর কিছু লাগবে?"
             },
             {
               "speaker": "A",
               "text": "Ja, haben Sie Eier?",
-              "pronunciationBn": "ইয়া, হাবেন জি আইয়া?"
+              "pronunciationBn": "ইয়া, হাবেন জি আইয়া?",
+              "translationBn": "হ্যাঁ, আপনাদের কাছে কি ডিম আছে?"
             },
             {
               "speaker": "B",
               "text": "Ja, natürlich. Wie viele?",
-              "pronunciationBn": "ইয়া, নাট্যুরলিশ। ভি ফিলে?"
+              "pronunciationBn": "ইয়া, নাট্যুরলিশ। ভি ফিলে?",
+              "translationBn": "হ্যাঁ, অবশ্যই। কয়টি লাগবে?"
             },
             {
               "speaker": "A",
               "text": "Zehn Eier bitte.",
-              "pronunciationBn": "ৎসেন আইয়া বিটে।"
+              "pronunciationBn": "ৎসেন আইয়া বিটে।",
+              "translationBn": "দয়া করে দশটি ডিম দিন।"
             },
             {
               "speaker": "B",
               "text": "Das macht 6 Euro 50.",
-              "pronunciationBn": "দাস মাখ্ট জেক্স অয়রো ফুন্‌ফ্ৎসিশ।"
+              "pronunciationBn": "দাস মাখ্ট জেক্স অয়রো ফুন্‌ফ্ৎসিশ।",
+              "translationBn": "মোট ৬ ইউরো ৫০ সেন্ট হয়েছে।"
             }
           ]
         },
@@ -2670,32 +2739,38 @@
             {
               "speaker": "A",
               "text": "Wir kochen heute Abend. Was brauchen wir?",
-              "pronunciationBn": "ভিয়া কখেন হয়টে আবেন্ট। ভাস ব্রাউখেন ভিয়া?"
+              "pronunciationBn": "ভিয়া কখেন হয়টে আবেন্ট। ভাস ব্রাউখেন ভিয়া?",
+              "translationBn": "আমরা আজ রাতে রান্না করবো। আমাদের কী কী লাগবে?"
             },
             {
               "speaker": "B",
               "text": "Kartoffeln, Tomaten und zwei Zwiebeln.",
-              "pronunciationBn": "কার্টোফেলন, টোমাটেন উন্ট ৎসভাই ৎসভিবেলন।"
+              "pronunciationBn": "কার্টোফেলন, টোমাটেন উন্ট ৎসভাই ৎসভিবেলন।",
+              "translationBn": "আলু, টমেটো এবং দুটি পেঁয়াজ।"
             },
             {
               "speaker": "A",
               "text": "Haben wir noch Reis und Öl?",
-              "pronunciationBn": "হাবেন ভিয়া নখ রাইস উন্ট অয়ল?"
+              "pronunciationBn": "হাবেন ভিয়া নখ রাইস উন্ট অয়ল?",
+              "translationBn": "আমাদের কাছে কি এখনো চাল আর তেল আছে?"
             },
             {
               "speaker": "B",
               "text": "Reis haben wir, aber kein Öl.",
-              "pronunciationBn": "রাইস হাবেন ভিয়া, আবা কাইন অয়ল।"
+              "pronunciationBn": "রাইস হাবেন ভিয়া, আবা কাইন অয়ল।",
+              "translationBn": "আমাদের কাছে চাল আছে, কিন্তু কোনো তেল নেই।"
             },
             {
               "speaker": "A",
               "text": "Dann kaufen wir eine Flasche Öl.",
-              "pronunciationBn": "দান কাউফেন ভিয়া আইনে ফ্লাশে অয়ল।"
+              "pronunciationBn": "দান কাউফেন ভিয়া আইনে ফ্লাশে অয়ল।",
+              "translationBn": "তাহলে আমরা এক বোতল তেল কিনবো।"
             },
             {
               "speaker": "B",
               "text": "Gut. Danach lesen wir zusammen das Rezept.",
-              "pronunciationBn": "গুট। দানাখ লেজেন ভিয়া ৎসুজামেন দাস রেৎসেপ্ট।"
+              "pronunciationBn": "গুট। দানাখ লেজেন ভিয়া ৎসুজামেন দাস রেৎসেপ্ট।",
+              "translationBn": "ভালো। তারপর আমরা একসাথে রেসিপিটি পড়বো।"
             }
           ]
         },
@@ -2706,52 +2781,62 @@
             {
               "speaker": "A",
               "text": "Guten Morgen. Was möchten Sie?",
-              "pronunciationBn": "গুটেন মর্গেন। ভাস ময়খ্টেন জি?"
+              "pronunciationBn": "গুটেন মর্গেন। ভাস ময়খ্টেন জি?",
+              "translationBn": "সুপ্রভাত। আপনি কী নিতে চান?"
             },
             {
               "speaker": "B",
               "text": "Ich hätte gern vier Brötchen und ein Brot, bitte.",
-              "pronunciationBn": "ইখ হেটে গেয়ান ফিয়া ব্র্যোৎখেন উন্ট আইন ব্রোট, বিটে।"
+              "pronunciationBn": "ইখ হেটে গেয়ান ফিয়া ব্র্যোৎখেন উন্ট আইন ব্রোট, বিটে।",
+              "translationBn": "দয়া করে আমাকে চারটি ছোট রুটি (ব্রেড রোল) এবং একটি পাউরুটি দিন।"
             },
             {
               "speaker": "A",
               "text": "Möchten Sie auch Kuchen? Der Apfelkuchen ist frisch.",
-              "pronunciationBn": "ময়খ্টেন জি আউখ কুখেন? ডেয়া আপফেলকুখেন ইস্ট ফ্রিশ।"
+              "pronunciationBn": "ময়খ্টেন জি আউখ কুখেন? ডেয়া আপফেলকুখেন ইস্ট ফ্রিশ।",
+              "translationBn": "আপনি কি কেকও নেবেন? আপেল কেকটা একদম টাটকা।"
             },
             {
               "speaker": "B",
               "text": "Nein, danke. Was kostet das Brot?",
-              "pronunciationBn": "নাইন, ডাংকে। ভাস কোস্টেট দাস ব্রোট?"
+              "pronunciationBn": "নাইন, ডাংকে। ভাস কোস্টেট দাস ব্রোট?",
+              "translationBn": "না, ধন্যবাদ। পাউরুটিটার দাম কত?"
             },
             {
               "speaker": "A",
               "text": "Zwei Euro zehn. Die Brötchen kosten zwei Euro.",
-              "pronunciationBn": "ৎসভাই অয়রো ৎসেন। ডি ব্র্যোৎখেন কোস্টেন ৎসভাই অয়রো।"
+              "pronunciationBn": "ৎসভাই অয়রো ৎসেন। ডি ব্র্যোৎখেন কোস্টেন ৎসভাই অয়রো।",
+              "translationBn": "দুই ইউরো দশ সেন্ট। ছোট রুটিগুলোর দাম দুই ইউরো।"
             },
             {
               "speaker": "B",
               "text": "Dann nehme ich noch zwei Brötchen.",
-              "pronunciationBn": "ডান নেমে ইখ নখ ৎসভাই ব্র্যোৎখেন।"
+              "pronunciationBn": "ডান নেমে ইখ নখ ৎসভাই ব্র্যোৎখেন।",
+              "translationBn": "তাহলে আমি আরও দুটি ছোট রুটি নেব।"
             },
             {
               "speaker": "A",
               "text": "Das macht vier Euro zehn.",
-              "pronunciationBn": "দাস মাখ্ট ফিয়া অয়রো ৎসেন।"
+              "pronunciationBn": "দাস মাখ্ট ফিয়া অয়রো ৎসেন।",
+              "translationBn": "মোট চার ইউরো দশ সেন্ট হয়েছে।"
             },
             {
               "speaker": "B",
               "text": "Hier, bitte. Kann ich mit Karte zahlen?",
-              "pronunciationBn": "হিয়া, বিটে। কান ইখ মিট কার্টে ৎসালেন?"
+              "pronunciationBn": "হিয়া, বিটে। কান ইখ মিট কার্টে ৎসালেন?",
+              "translationBn": "এই নিন। আমি কি কার্ড দিয়ে পেমেন্ট করতে পারি?"
             },
             {
               "speaker": "A",
               "text": "Ja, natürlich. Hier ist Ihr Kassenbon.",
-              "pronunciationBn": "ইয়া, নাট্যুরলিশ। হিয়া ইস্ট ইয়া কাসেনবন।"
+              "pronunciationBn": "ইয়া, নাট্যুরলিশ। হিয়া ইস্ট ইয়া কাসেনবন।",
+              "translationBn": "হ্যাঁ, অবশ্যই। এই যে আপনার রসিদ।"
             },
             {
               "speaker": "B",
               "text": "Vielen Dank. Auf Wiedersehen.",
-              "pronunciationBn": "ফিলেন ডাংক। আউফ ভিডারজেয়েন।"
+              "pronunciationBn": "ফিলেন ডাংক। আউফ ভিডারজেয়েন।",
+              "translationBn": "অনেক ধন্যবাদ। বিদায়।"
             }
           ]
         },
@@ -2762,52 +2847,62 @@
             {
               "speaker": "A",
               "text": "Was brauchen wir für den Bananenkuchen?",
-              "pronunciationBn": "ভাস ব্রাউখেন ভিয়া ফ্যুয়া ডেন বানানেনকুখেন?"
+              "pronunciationBn": "ভাস ব্রাউখেন ভিয়া ফ্যুয়া ডেন বানানেনকুখেন?",
+              "translationBn": "বানানা কেকের জন্য আমাদের কী কী লাগবে?"
             },
             {
               "speaker": "B",
               "text": "Zwei Bananen, zwei Eier, 200 Gramm Mehl und etwas Milch.",
-              "pronunciationBn": "ৎসভাই বানানেন, ৎসভাই আইয়া, ৎসভাইহুনডার্ট গ্রাম মেল উন্ট এটভাস মিল্শ।"
+              "pronunciationBn": "ৎসভাই বানানেন, ৎসভাই আইয়া, ৎসভাইহুনডার্ট গ্রাম মেল উন্ট এটভাস মিল্শ।",
+              "translationBn": "দুটি কলা, দুটি ডিম, ২০০ গ্রাম ময়দা এবং সামান্য দুধ।"
             },
             {
               "speaker": "A",
               "text": "Haben wir noch Butter?",
-              "pronunciationBn": "হাবেন ভিয়া নখ বুটা?"
+              "pronunciationBn": "হাবেন ভিয়া নখ বুটা?",
+              "translationBn": "আমাদের কাছে কি এখনো মাখন আছে?"
             },
             {
               "speaker": "B",
               "text": "Nein, wir haben keine Butter. Ich kaufe ein Stück.",
-              "pronunciationBn": "নাইন, ভিয়া হাবেন কাইনে বুটা। ইখ কাউফে আইন শ্ট্যুক।"
+              "pronunciationBn": "নাইন, ভিয়া হাবেন কাইনে বুটা। ইখ কাউফে আইন শ্ট্যুক।",
+              "translationBn": "না, আমাদের কাছে কোনো মাখন নেই। আমি এক প্যাকেট কিনে আনছি।"
             },
             {
               "speaker": "A",
               "text": "Was machen wir zuerst?",
-              "pronunciationBn": "ভাস মাখেন ভিয়া ৎসু-এয়ার্স্ট?"
+              "pronunciationBn": "ভাস মাখেন ভিয়া ৎসু-এয়ার্স্ট?",
+              "translationBn": "আমরা প্রথমে কী করবো?"
             },
             {
               "speaker": "B",
               "text": "Zuerst schneiden wir die Bananen. Danach rühren wir alles zusammen.",
-              "pronunciationBn": "ৎসু-এয়ার্স্ট শ্নাইডেন ভিয়া ডি বানানেন। দানাখ র্যুরেন ভিয়া আলেস ৎসুজামেন।"
+              "pronunciationBn": "ৎসু-এয়ার্স্ট শ্নাইডেন ভিয়া ডি বানানেন। দানাখ র্যুরেন ভিয়া আলেস ৎসুজামেন।",
+              "translationBn": "প্রথমে আমরা কলাগুলো কাটবো। তারপর সবকিছু একসাথে মেশাবো।"
             },
             {
               "speaker": "A",
               "text": "Wie lange muss der Kuchen in den Ofen?",
-              "pronunciationBn": "ভি লাংগে মুস ডেয়া কুখেন ইন ডেন ওফেন?"
+              "pronunciationBn": "ভি লাংগে মুস ডেয়া কুখেন ইন ডেন ওফেন?",
+              "translationBn": "কেকটি কতক্ষণ ওভেনে রাখতে হবে?"
             },
             {
               "speaker": "B",
               "text": "Etwa 30 Minuten. Danach lassen wir ihn abkühlen.",
-              "pronunciationBn": "এটভা ড্রাইসিশ মিনিটেন। দানাখ লাসেন ভিয়া ইন আপক্যুলেন।"
+              "pronunciationBn": "এটভা ড্রাইসিশ মিনিটেন। দানাখ লাসেন ভিয়া ইন আপক্যুলেন।",
+              "translationBn": "প্রায় ৩০ মিনিট। তারপর আমরা এটিকে ঠান্ডা হতে দেব।"
             },
             {
               "speaker": "A",
               "text": "Gut. Ich decke den Tisch.",
-              "pronunciationBn": "গুট। ইখ ডেকে ডেন টিশ।"
+              "pronunciationBn": "গুট। ইখ ডেকে ডেন টিশ।",
+              "translationBn": "ভালো। আমি টেবিল সাজাচ্ছি।"
             },
             {
               "speaker": "B",
               "text": "Und ich mache Tee. Das wird lecker!",
-              "pronunciationBn": "উন্ট ইখ মাখে টে। দাস ভির্ট লেকা!"
+              "pronunciationBn": "উন্ট ইখ মাখে টে। দাস ভির্ট লেকা!",
+              "translationBn": "আর আমি চা বানাচ্ছি। এটা দারুণ মজার হবে!"
             }
           ]
         }
@@ -3800,22 +3895,26 @@
             {
               "speaker": "A",
               "text": "Wie ist deine Wohnung?",
-              "pronunciationBn": "ভি ইস্ট ডাইনে ভোনুং?"
+              "pronunciationBn": "ভি ইস্ট ডাইনে ভোনুং?",
+              "translationBn": "তোমার ফ্ল্যাটটি কেমন?"
             },
             {
               "speaker": "B",
               "text": "Sie ist schön und nicht so teuer. Ich habe ein Wohnzimmer, ein Schlafzimmer, eine Küche und ein Bad.",
-              "pronunciationBn": "জি ইস্ট শ্যোন উন্ট নিখ্ট জো টয়য়া। ইখ হাবে আইন ভোনৎসিমা, আইন শ্লাফৎসিমা, আইনে কিউখে উন্ট আইন বা্ট।"
+              "pronunciationBn": "জি ইস্ট শ্যোন উন্ট নিখ্ট জো টয়য়া। ইখ হাবে আইন ভোনৎসিমা, আইন শ্লাফৎসিমা, আইনে কিউখে উন্ট আইন বা্ট।",
+              "translationBn": "এটি সুন্দর এবং তেমন ব্যয়বহুল নয়। আমার একটি বসার ঘর, একটি শোবার ঘর, একটি রান্নাঘর এবং একটি বাথরুম আছে।"
             },
             {
               "speaker": "A",
               "text": "Gibt es einen Balkon?",
-              "pronunciationBn": "গিপ্ট এস আইনেন বালকন?"
+              "pronunciationBn": "গিপ্ট এস আইনেন বালকন?",
+              "translationBn": "কোনো বারান্দা আছে কি?"
             },
             {
               "speaker": "B",
               "text": "Ja, einen kleinen Balkon. Die Küche ist modern.",
-              "pronunciationBn": "ইয়া, আইনেন ক্লাইনেন বালকন। ডি কিউখে ইস্ট মডার্ন।"
+              "pronunciationBn": "ইয়া, আইনেন ক্লাইনেন বালকন। ডি কিউখে ইস্ট মডার্ন।",
+              "translationBn": "হ্যাঁ, একটি ছোট বারান্দা আছে। রান্নাঘরটি আধুনিক।"
             }
           ]
         },
@@ -3826,32 +3925,38 @@
             {
               "speaker": "A",
               "text": "Guten Tag. Ich rufe wegen Ihrer Wohnungsanzeige an.",
-              "pronunciationBn": "গুটেন টাক। ইখ রুফে ভেগেন ইয়ারা ভোনুংসআনৎসাইগে আন।"
+              "pronunciationBn": "গুটেন টাক। ইখ রুফে ভেগেন ইয়ারা ভোনুংসআনৎসাইগে আন।",
+              "translationBn": "শুভ দিন। আমি আপনার বাসা ভাড়ার বিজ্ঞাপনের ব্যাপারে ফোন করেছি।"
             },
             {
               "speaker": "B",
               "text": "Ja, das Zimmer ist noch frei.",
-              "pronunciationBn": "ইয়া, দাস ৎসিমা ইস্ট নখ ফ্রাই।"
+              "pronunciationBn": "ইয়া, দাস ৎসিমা ইস্ট নখ ফ্রাই।",
+              "translationBn": "হ্যাঁ, রুমটি এখনো খালি আছে।"
             },
             {
               "speaker": "A",
               "text": "Wie groß ist die Wohnung?",
-              "pronunciationBn": "ভি গ্রোস ইস্ট ডি ভোনুং?"
+              "pronunciationBn": "ভি গ্রোস ইস্ট ডি ভোনুং?",
+              "translationBn": "ফ্ল্যাটটি কত বড়?"
             },
             {
               "speaker": "B",
               "text": "Sie hat drei Zimmer, eine Küche und ein Bad.",
-              "pronunciationBn": "জি হাট ড্রাই ৎসিমা, আইনে কিউখে উন্ট আইন বা্ট।"
+              "pronunciationBn": "জি হাট ড্রাই ৎসিমা, আইনে কিউখে উন্ট আইন বা্ট।",
+              "translationBn": "এটিতে তিনটি রুম, একটি রান্নাঘর এবং একটি বাথরুম আছে।"
             },
             {
               "speaker": "A",
               "text": "Gibt es auch einen Balkon? Wie hoch ist die Miete?",
-              "pronunciationBn": "গিপ্ট এস আউখ আইনেন বালকন? ভি হোখ ইস্ট ডি মিটে?"
+              "pronunciationBn": "গিপ্ট এস আউখ আইনেন বালকন? ভি হোখ ইস্ট ডি মিটে?",
+              "translationBn": "কোনো বারান্দাও কি আছে? ভাড়া কত?"
             },
             {
               "speaker": "B",
               "text": "Der Balkon ist schön. Die Miete ist 650 Euro.",
-              "pronunciationBn": "ডেয়া বালকন ইস্ট শ্যোন। ডি মিটে ইস্ট জেক্সহুন্ডার্ট ফুন্‌ফ্ৎসিশ অয়রো।"
+              "pronunciationBn": "ডেয়া বালকন ইস্ট শ্যোন। ডি মিটে ইস্ট জেক্সহুন্ডার্ট ফুন্‌ফ্ৎসিশ অয়রো।",
+              "translationBn": "বারান্দাটি সুন্দর। ভাড়া ৬৫০ ইউরো।"
             }
           ]
         },
@@ -3862,52 +3967,62 @@
             {
               "speaker": "A",
               "text": "Guten Tag. Ich rufe wegen Ihrer Wohnungsanzeige an.",
-              "pronunciationBn": "গুটেন টাক। ইখ রুফে ভেগেন ইয়ারা ভোনুংস-আনৎসাইগে আন।"
+              "pronunciationBn": "গুটেন টাক। ইখ রুফে ভেগেন ইয়ারা ভোনুংস-আনৎসাইগে আন।",
+              "translationBn": "শুভ দিন। আমি আপনার বাসা ভাড়ার বিজ্ঞাপনের ব্যাপারে ফোন করেছি।"
             },
             {
               "speaker": "B",
               "text": "Guten Tag. Welche Wohnung meinen Sie?",
-              "pronunciationBn": "গুটেন টাক। ভেলখে ভোনুং মাইনেন জি?"
+              "pronunciationBn": "গুটেন টাক। ভেলখে ভোনুং মাইনেন জি?",
+              "translationBn": "শুভ দিন। আপনি কোন ফ্ল্যাটটির কথা বলছেন?"
             },
             {
               "speaker": "A",
               "text": "Die Wohnung in der Gartenstraße. Ist sie noch frei?",
-              "pronunciationBn": "ডি ভোনুং ইন ডেয়া গার্টেনশ্ট্রাসে। ইস্ট জি নখ ফ্রাই?"
+              "pronunciationBn": "ডি ভোনুং ইন ডেয়া গার্টেনশ্ট্রাসে। ইস্ট জি নখ ফ্রাই?",
+              "translationBn": "গার্টেনস্ট্রাসের ফ্ল্যাটটি। ওটা কি এখনো খালি আছে?"
             },
             {
               "speaker": "B",
               "text": "Ja. Sie hat zwei Zimmer und 58 Quadratmeter.",
-              "pronunciationBn": "ইয়া। জি হাট ৎসভাই ৎসিমা উন্ট আখটউনফুনফৎসিশ কভাড্রাটমেটা।"
+              "pronunciationBn": "ইয়া। জি হাট ৎসভাই ৎসিমা উন্ট আখটউনফুনফৎসিশ কভাড্রাটমেটা।",
+              "translationBn": "হ্যাঁ। এটিতে দুটি রুম আছে এবং আয়তন ৫৮ বর্গমিটার।"
             },
             {
               "speaker": "A",
               "text": "Wie hoch ist die Warmmiete?",
-              "pronunciationBn": "ভি হোখ ইস্ট ডি ভার্মমিতে?"
+              "pronunciationBn": "ভি হোখ ইস্ট ডি ভার্মমিতে?",
+              "translationBn": "সকল খরচসহ মোট ভাড়া কত?"
             },
             {
               "speaker": "B",
               "text": "Sie kostet 720 Euro im Monat. Die Heizung ist dabei.",
-              "pronunciationBn": "জি কোস্টেট জিবেনহুনডার্ট ৎসভানৎসিশ অয়রো ইম মোনাট। ডি হাইৎসুং ইস্ট দাবাই।"
+              "pronunciationBn": "জি কোস্টেট জিবেনহুনডার্ট ৎসভানৎসিশ অয়রো ইম মোনাট। ডি হাইৎসুং ইস্ট দাবাই।",
+              "translationBn": "মাসে এর ভাড়া ৭২০ ইউরো। হিটিং খরচ এর মধ্যে অন্তর্ভুক্ত।"
             },
             {
               "speaker": "A",
               "text": "Gibt es eine Waschmaschine?",
-              "pronunciationBn": "গিপ্ট এস আইনে ভাশমাশিনে?"
+              "pronunciationBn": "গিপ্ট এস আইনে ভাশমাশিনে?",
+              "translationBn": "কোনো ওয়াশিং মেশিন আছে কি?"
             },
             {
               "speaker": "B",
               "text": "Ja, im Keller. Sie können die Wohnung am Freitag ansehen.",
-              "pronunciationBn": "ইয়া, ইম কেলা। জি ক্যোনেন ডি ভোনুং আম ফ্রাইটাক আনজেয়েন।"
+              "pronunciationBn": "ইয়া, ইম কেলা। জি ক্যোনেন ডি ভোনুং আম ফ্রাইটাক আনজেয়েন।",
+              "translationBn": "হ্যাঁ, বেজমেন্টে আছে। আপনি শুক্রবার ফ্ল্যাটটি দেখতে আসতে পারেন।"
             },
             {
               "speaker": "A",
               "text": "Das passt. Um wie viel Uhr?",
-              "pronunciationBn": "দাস পাস্ট। উম ভি ফিল উয়া?"
+              "pronunciationBn": "দাস পাস্ট। উম ভি ফিল উয়া?",
+              "translationBn": "তা বেশ ভালো হয়। কয়টার সময়?"
             },
             {
               "speaker": "B",
               "text": "Um 17 Uhr. Bitte rufen Sie an, wenn Sie später kommen.",
-              "pronunciationBn": "উম জিবৎসেন উয়া। বিটে রুফেন জি আন, ভেন জি শ্পেটা কোমেন।"
+              "pronunciationBn": "উম জিবৎসেন উয়া। বিটে রুফেন জি আন, ভেন জি শ্পেটা কোমেন।",
+              "translationBn": "বিকেল ৫টায়। দেরি হলে দয়া করে ফোন করে জানাবেন।"
             }
           ]
         },
@@ -3918,42 +4033,50 @@
             {
               "speaker": "A",
               "text": "Kann ich mein Fahrrad im Hausflur lassen?",
-              "pronunciationBn": "কান ইখ মাইন ফাররাট ইম হাউসফ্লুর লাসেন?"
+              "pronunciationBn": "কান ইখ মাইন ফাররাট ইম হাউসফ্লুর লাসেন?",
+              "translationBn": "আমি কি আমার সাইকেলটি সিঁড়িঘরের করিডোরে রাখতে পারি?"
             },
             {
               "speaker": "B",
               "text": "Nein, das ist leider nicht erlaubt.",
-              "pronunciationBn": "নাইন, দাস ইস্ট লাইডা নিশ্ট এয়ারলাউপ্ট।"
+              "pronunciationBn": "নাইন, দাস ইস্ট লাইডা নিশ্ট এয়ারলাউপ্ট।",
+              "translationBn": "না, দুঃখিত, এটির অনুমতি নেই।"
             },
             {
               "speaker": "A",
               "text": "Wo kann ich es abstellen?",
-              "pronunciationBn": "ভো কান ইখ এস আপশ্টেলেন?"
+              "pronunciationBn": "ভো কান ইখ এস আপশ্টেলেন?",
+              "translationBn": "আমি এটি কোথায় রাখতে পারি?"
             },
             {
               "speaker": "B",
               "text": "Im Fahrradkeller. Die Tür ist dort hinten.",
-              "pronunciationBn": "ইম ফাররাটকেলা। ডি ট্যুর ইস্ট ডোর্ট হিন্টেন।"
+              "pronunciationBn": "ইম ফাররাটকেলা। ডি ট্যুর ইস্ট ডোর্ট হিন্টেন।",
+              "translationBn": "সাইকেল রাখার বেজমেন্টে। দরজাটি ওই পেছন দিকে।"
             },
             {
               "speaker": "A",
               "text": "Darf man am Sonntag die Waschmaschine benutzen?",
-              "pronunciationBn": "ডার্ফ মান আম জোনটাক ডি ভাশমাশিনে বেনুৎসেন?"
+              "pronunciationBn": "ডার্ফ মান আম জোনটাক ডি ভাশমাশিনে বেনুৎসেন?",
+              "translationBn": "রবিবারে কি ওয়াশিং মেশিন ব্যবহার করা যায়?"
             },
             {
               "speaker": "B",
               "text": "Nach 22 Uhr ist Waschen verboten. Bitte achten Sie auf die Nachbarn.",
-              "pronunciationBn": "নাখ ৎসভাইউন্টৎসভানৎসিশ উয়া ইস্ট ভাশেন ফেয়াবোটেন। বিটে আখ্টেন জি আউফ ডি নাখবার্ন।"
+              "pronunciationBn": "নাখ ৎসভাইউন্টৎসভানৎসিশ উয়া ইস্ট ভাশেন ফেয়াবোটেন। বিটে আখ্টেন জি আউফ ডি নাখবার্ন।",
+              "translationBn": "রাত ১০টার পর কাপড় ধোয়া নিষেধ। দয়া করে প্রতিবেশীদের সুবিধার দিকে খেয়াল রাখবেন।"
             },
             {
               "speaker": "A",
               "text": "Danke. Und wo ist der Müllraum?",
-              "pronunciationBn": "ডাংকে। উন্ট ভো ইস্ট ডেয়া মুলরাউম?"
+              "pronunciationBn": "ডাংকে। উন্ট ভো ইস্ট ডেয়া মুলরাউম?",
+              "translationBn": "ধন্যবাদ। আর ময়লা ফেলার রুমটি কোথায়?"
             },
             {
               "speaker": "B",
               "text": "Im Erdgeschoss, neben dem Eingang.",
-              "pronunciationBn": "ইম এয়ার্টগেশস, নেবেন ডেম আইনগাং।"
+              "pronunciationBn": "ইম এয়ার্টগেশস, নেবেন ডেম আইনগাং।",
+              "translationBn": "নিচতলায়, প্রবেশপথের পাশেই।"
             }
           ]
         }
@@ -4847,32 +4970,38 @@
             {
               "speaker": "A",
               "text": "Wann stehst du auf?",
-              "pronunciationBn": "ভান শ্টেস্ট ডু আউফ?"
+              "pronunciationBn": "ভান শ্টেস্ট ডু আউফ?",
+              "translationBn": "তুমি কখন ঘুম থেকে ওঠো?"
             },
             {
               "speaker": "B",
               "text": "Ich stehe um halb sieben auf. Dann frühstücke ich.",
-              "pronunciationBn": "ইখ শ্টেয়ে উম হাল্প জিবেন আউফ। দান ফ্র্যুশ্টুকে ইখ।"
+              "pronunciationBn": "ইখ শ্টেয়ে উম হাল্প জিবেন আউফ। দান ফ্র্যুশ্টুকে ইখ।",
+              "translationBn": "আমি সকাল সাড়ে ছয়টায় ঘুম থেকে উঠি। তারপর নাস্তা করি।"
             },
             {
               "speaker": "A",
               "text": "Und wann beginnst du zu arbeiten?",
-              "pronunciationBn": "উন্ট ভান বেগিন্স্ট ডু ৎসু আরবাইটেন?"
+              "pronunciationBn": "উন্ট ভান বেগিন্স্ট ডু ৎসু আরবাইটেন?",
+              "translationBn": "আর তুমি কখন কাজ শুরু করো?"
             },
             {
               "speaker": "B",
               "text": "Um 8 Uhr. Ich arbeite von 8 bis 16 Uhr.",
-              "pronunciationBn": "উম আখ্ট উয়া। ইখ আরবাইতে ফন আখ্ট বিস জেক্সৎসেন উয়া।"
+              "pronunciationBn": "উম আখ্ট উয়া। ইখ আরবাইতে ফন আখ্ট বিস জেক্সৎসেন উয়া।",
+              "translationBn": "সকাল ৮টায়। আমি সকাল ৮টা থেকে বিকেল ৪টা পর্যন্ত কাজ করি।"
             },
             {
               "speaker": "A",
               "text": "Was machst du am Abend?",
-              "pronunciationBn": "ভাস মাখ্স্ট ডু আম আবেন্ট?"
+              "pronunciationBn": "ভাস মাখ্স্ট ডু আম আবেন্ট?",
+              "translationBn": "সন্ধ্যায় তুমি কী করো?"
             },
             {
               "speaker": "B",
               "text": "Am Abend koche ich und sehe ein bisschen fern.",
-              "pronunciationBn": "আম আবেন্ট কখে ইখ উন্ট জেয়ে আইন বিস্‌খেন ফেয়ার্ন।"
+              "pronunciationBn": "আম আবেন্ট কখে ইখ উন্ট জেয়ে আইন বিস্‌খেন ফেয়ার্ন।",
+              "translationBn": "সন্ধ্যায় আমি রান্না করি এবং একটু টিভি দেখি।"
             }
           ]
         },
@@ -4883,32 +5012,38 @@
             {
               "speaker": "A",
               "text": "Wann stehst du an Arbeitstagen auf?",
-              "pronunciationBn": "ভান শ্টেস্ট ডু আন আরবাইট্‌সটাগেন আউফ?"
+              "pronunciationBn": "ভান শ্টেস্ট ডু আন আরবাইট্‌সটাগেন আউফ?",
+              "translationBn": "কাজের দিনগুলোতে তুমি কখন ঘুম থেকে ওঠো?"
             },
             {
               "speaker": "B",
               "text": "Um halb sieben. Dann frühstücke ich.",
-              "pronunciationBn": "উম হাল্প জিবেন। দান ফ্র্যুশ্টুকে ইখ।"
+              "pronunciationBn": "উম হাল্প জিবেন। দান ফ্র্যুশ্টুকে ইখ।",
+              "translationBn": "সাড়ে ছয়টায়। তারপর নাস্তা করি।"
             },
             {
               "speaker": "A",
               "text": "Wann fängt dein Deutschkurs an?",
-              "pronunciationBn": "ভান ফেংট ডাইন ডয়চকুর্স আন?"
+              "pronunciationBn": "ভান ফেংট ডাইন ডয়চকুর্স আন?",
+              "translationBn": "তোমার জার্মান কোর্স কখন শুরু হয়?"
             },
             {
               "speaker": "B",
               "text": "Am Montag und Mittwoch um neun Uhr.",
-              "pronunciationBn": "আম মোন্টাক উন্ট মিটভখ উম নাইন উয়া।"
+              "pronunciationBn": "আম মোন্টাক উন্ট মিটভখ উম নাইন উয়া।",
+              "translationBn": "সোমবার ও বুধবার সকাল নয়টায়।"
             },
             {
               "speaker": "A",
               "text": "Was machst du nach dem Kurs?",
-              "pronunciationBn": "ভাস মাখ্স্ট ডু নাখ ডেম কুর্স?"
+              "pronunciationBn": "ভাস মাখ্স্ট ডু নাখ ডেম কুর্স?",
+              "translationBn": "ক্লাসের পর তুমি কী করো?"
             },
             {
               "speaker": "B",
               "text": "Von zwölf bis vier arbeite ich in einem Café.",
-              "pronunciationBn": "ফন ৎসভোল্ফ বিস ফিয়া আরবাইতে ইখ ইন আইনেম কাফে।"
+              "pronunciationBn": "ফন ৎসভোল্ফ বিস ফিয়া আরবাইতে ইখ ইন আইনেম কাফে।",
+              "translationBn": "দুপুর বারোটা থেকে বিকেল চারটা পর্যন্ত আমি একটি ক্যাফেতে কাজ করি।"
             }
           ]
         },
@@ -4919,47 +5054,56 @@
             {
               "speaker": "A",
               "text": "Wann beginnt deine Arbeit am Montag?",
-              "pronunciationBn": "ভান বেগিন্ট ডাইনে আরবাইট আম মোনটাক?"
+              "pronunciationBn": "ভান বেগিন্ট ডাইনে আরবাইট আম মোনটাক?",
+              "translationBn": "সোমবার তোমার কাজ কখন শুরু হয়?"
             },
             {
               "speaker": "B",
               "text": "Um acht Uhr. Der Kindergarten öffnet um halb acht.",
-              "pronunciationBn": "উম আখ্ট উয়া। ডেয়া কিন্ডারগার্টেন এফনেট উম হাল্প আখ্ট।"
+              "pronunciationBn": "উম আখ্ট উয়া। ডেয়া কিন্ডারগার্টেন এফনেট উম হাল্প আখ্ট।",
+              "translationBn": "সকাল আটটায়। কিন্ডারগার্টেন সাড়ে সাতটায় খোলে।"
             },
             {
               "speaker": "A",
               "text": "Kannst du Nila vorher abholen?",
-              "pronunciationBn": "কান্স্ট ডু নিলা ফোয়া-হেয়া আপহোলেন?"
+              "pronunciationBn": "কান্স্ট ডু নিলা ফোয়া-হেয়া আপহোলেন?",
+              "translationBn": "তুমি কি এর আগে নিলাকে নিয়ে আসতে পারবে?"
             },
             {
               "speaker": "B",
               "text": "Ja. Ich bringe sie um sieben Uhr hin.",
-              "pronunciationBn": "ইয়া। ইখ ব্রিঙ্গে জি উম জিবেন উয়া হিন।"
+              "pronunciationBn": "ইয়া। ইখ ব্রিঙ্গে জি উম জিবেন উয়া হিন।",
+              "translationBn": "হ্যাঁ। আমি ওকে সকাল সাতটায় সেখানে পৌঁছে দেব।"
             },
             {
               "speaker": "A",
               "text": "Und wer holt sie am Nachmittag ab?",
-              "pronunciationBn": "উন্ট ভেয়া হোল্ট জি আম নাখমিটাক আপ?"
+              "pronunciationBn": "উন্ট ভেয়া হোল্ট জি আম নাখমিটাক আপ?",
+              "translationBn": "আর বিকেলে ওকে কে নিয়ে আসবে?"
             },
             {
               "speaker": "B",
               "text": "Meine Schwester. Sie arbeitet bis drei Uhr.",
-              "pronunciationBn": "মাইনে শভেস্টা। জি আরবাইটেট বিস ড্রাই উয়া।"
+              "pronunciationBn": "মাইনে শভেস্টা। জি আরবাইটেট বিস ড্রাই উয়া।",
+              "translationBn": "আমার বোন। সে তিনটা পর্যন্ত কাজ করে।"
             },
             {
               "speaker": "A",
               "text": "Dann haben wir genug Zeit. Ich rufe den Kindergarten an.",
-              "pronunciationBn": "ডান হাবেন ভিয়া গেনুক ৎসাইট। ইখ রুফে ডেন কিন্ডারগার্টেন আন।"
+              "pronunciationBn": "ডান হাবেন ভিয়া গেনুক ৎসাইট। ইখ রুফে ডেন কিন্ডারগার্টেন আন।",
+              "translationBn": "তাহলে আমাদের হাতে যথেষ্ট সময় আছে। আমি কিন্ডারগার্টেনে ফোন করছি।"
             },
             {
               "speaker": "B",
               "text": "Gut. Die Sprechzeit ist von acht bis zwölf Uhr.",
-              "pronunciationBn": "গুট। ডি শ্প্রেখৎসাইট ইস্ট ফুন আখ্ট বিস ৎসভলফ উয়া।"
+              "pronunciationBn": "গুট। ডি শ্প্রেখৎসাইট ইস্ট ফুন আখ্ট বিস ৎসভলফ উয়া।",
+              "translationBn": "ভালো। কথা বলার নির্ধারিত সময় সকাল আটটা থেকে দুপুর বারোটা পর্যন্ত।"
             },
             {
               "speaker": "A",
               "text": "Danke. Ich schreibe den Termin in den Kalender.",
-              "pronunciationBn": "ডাংকে। ইখ শ্রাইবে ডেন টেয়ামিন ইন ডেন ক্যালেন্ডা।"
+              "pronunciationBn": "ডাংকে। ইখ শ্রাইবে ডেন টেয়ামিন ইন ডেন ক্যালেন্ডা।",
+              "translationBn": "ধন্যবাদ। আমি সময়সূচিটি ক্যালেন্ডারে লিখে রাখছি।"
             }
           ]
         },
@@ -4970,42 +5114,50 @@
             {
               "speaker": "A",
               "text": "Ist die Bäckerei am Samstag geöffnet?",
-              "pronunciationBn": "ইস্ট ডি বেকেরাই আম জামস্টাক গেফনেট?"
+              "pronunciationBn": "ইস্ট ডি বেকেরাই আম জামস্টাক গেফনেট?",
+              "translationBn": "শনিবার কি বেকারিটি খোলা থাকে?"
             },
             {
               "speaker": "B",
               "text": "Ja, von sieben bis zwölf Uhr.",
-              "pronunciationBn": "ইয়া, ফুন জিবেন বিস ৎসভলফ উয়া।"
+              "pronunciationBn": "ইয়া, ফুন জিবেন বিস ৎসভলফ উয়া।",
+              "translationBn": "হ্যাঁ, সকাল সাতটা থেকে দুপুর বারোটা পর্যন্ত।"
             },
             {
               "speaker": "A",
               "text": "Und am Sonntag?",
-              "pronunciationBn": "উন্ট আম জোনটাক?"
+              "pronunciationBn": "উন্ট আম জোনটাক?",
+              "translationBn": "আর রবিবার?"
             },
             {
               "speaker": "B",
               "text": "Am Sonntag ist sie geschlossen.",
-              "pronunciationBn": "আম জোনটাক ইস্ট জি গেশ্লোসেন।"
+              "pronunciationBn": "আম জোনটাক ইস্ট জি গেশ্লোসেন।",
+              "translationBn": "রবিবার এটি বন্ধ থাকে।"
             },
             {
               "speaker": "A",
               "text": "Wann macht sie am Montag auf?",
-              "pronunciationBn": "ভান মাখ্ট জি আম মোনটাক আউফ?"
+              "pronunciationBn": "ভান মাখ্ট জি আম মোনটাক আউফ?",
+              "translationBn": "সোমবার এটি কখন খোলে?"
             },
             {
               "speaker": "B",
               "text": "Um sechs Uhr. Ich gehe vor der Arbeit einkaufen.",
-              "pronunciationBn": "উম জেক্স উয়া। ইখ গেহে ফোয়া ডেয়া আরবাইট আইনকাউফেন।"
+              "pronunciationBn": "উম জেক্স উয়া। ইখ গেহে ফোয়া ডেয়া আরবাইট আইনকাউফেন।",
+              "translationBn": "সকাল ছয়টায়। আমি কাজের আগে বাজার করতে যাই।"
             },
             {
               "speaker": "A",
               "text": "Das ist früh! Wann fängst du an?",
-              "pronunciationBn": "দাস ইস্ট ফ্র্যু! ভান ফ্যাংস্ট ডু আন?"
+              "pronunciationBn": "দাস ইস্ট ফ্র্যু! ভান ফ্যাংস্ট ডু আন?",
+              "translationBn": "সে তো বেশ সকাল! তুমি কখন কাজ শুরু করো?"
             },
             {
               "speaker": "B",
               "text": "Um acht. Ich stehe um halb sechs auf.",
-              "pronunciationBn": "উম আখ্ট। ইখ শ্টেহে উম হাল্প জেক্স আউফ।"
+              "pronunciationBn": "উম আখ্ট। ইখ শ্টেহে উম হাল্প জেক্স আউফ।",
+              "translationBn": "আটটায়। আমি ভোর সাড়ে পাঁচটায় ঘুম থেকে উঠি।"
             }
           ]
         }
@@ -5909,32 +6061,38 @@
             {
               "speaker": "A",
               "text": "Was machst du in deiner Freizeit?",
-              "pronunciationBn": "ভাস মাখ্স্ট ডু ইন ডাইনা ফ্রাইট্সাইট?"
+              "pronunciationBn": "ভাস মাখ্স্ট ডু ইন ডাইনা ফ্রাইট্সাইট?",
+              "translationBn": "অবসর সময়ে তুমি কী করো?"
             },
             {
               "speaker": "B",
               "text": "Ich spiele gern Fußball und höre Musik. Und du?",
-              "pronunciationBn": "ইখ শ্পিলে গেয়ার্ন ফুসবল উন্ট হোরে মুজিক। উন্ট ডু?"
+              "pronunciationBn": "ইখ শ্পিলে গেয়ার্ন ফুসবল উন্ট হোরে মুজিক। উন্ট ডু?",
+              "translationBn": "আমি ফুটবল খেলতে ও গান শুনতে ভালোবাসি। আর তুমি?"
             },
             {
               "speaker": "A",
               "text": "Ich lese Bücher und koche gern.",
-              "pronunciationBn": "ইখ লেজে বিউখা উন্ট কখে গেয়ার্ন।"
+              "pronunciationBn": "ইখ লেজে বিউখা উন্ট কখে গেয়ার্ন।",
+              "translationBn": "আমি বই পড়তে ও রান্না করতে পছন্দ করি।"
             },
             {
               "speaker": "B",
               "text": "Hast du Lust, am Samstag Fußball zu spielen?",
-              "pronunciationBn": "হাস্ট ডু লুস্ট, আম জাম্স্টাক ফুসবল ৎসু শ্পিলেন?"
+              "pronunciationBn": "হাস্ট ডু লুস্ট, আম জাম্স্টাক ফুসবল ৎসু শ্পিলেন?",
+              "translationBn": "শনিবার তোমার কি ফুটবল খেলার ইচ্ছে আছে?"
             },
             {
               "speaker": "A",
               "text": "Ja, gerne! Wann?",
-              "pronunciationBn": "ইয়া, গেয়ার্ন! ভান?"
+              "pronunciationBn": "ইয়া, গেয়ার্ন! ভান?",
+              "translationBn": "হ্যাঁ, অবশ্যই! কখন?"
             },
             {
               "speaker": "B",
               "text": "Um 15 Uhr im Park.",
-              "pronunciationBn": "উম ফুন্‌ফৎসেন উয়া ইম পার্ক।"
+              "pronunciationBn": "উম ফুন্‌ফৎসেন উয়া ইম পার্ক।",
+              "translationBn": "বিকেল ৩টায় পার্কে।"
             }
           ]
         },
@@ -5945,32 +6103,38 @@
             {
               "speaker": "A",
               "text": "Wie wird das Wetter am Samstag?",
-              "pronunciationBn": "ভি ভির্ট দাস ভেটা আম জাম্স্টাক?"
+              "pronunciationBn": "ভি ভির্ট দাস ভেটা আম জাম্স্টাক?",
+              "translationBn": "শনিবার আবহাওয়া কেমন থাকবে?"
             },
             {
               "speaker": "B",
               "text": "Am Nachmittag scheint die Sonne.",
-              "pronunciationBn": "আম নাখমিটাক শাইন্ট ডি জোনে।"
+              "pronunciationBn": "আম নাখমিটাক শাইন্ট ডি জোনে।",
+              "translationBn": "বিকেলে রোদ উঠবে।"
             },
             {
               "speaker": "A",
               "text": "Möchtest du im Park spazieren gehen?",
-              "pronunciationBn": "ম্যোখটেস্ট ডু ইম পার্ক শ্পাৎসিরেন গেন?"
+              "pronunciationBn": "ম্যোখটেস্ট ডু ইম পার্ক শ্পাৎসিরেন গেন?",
+              "translationBn": "তুমি কি পার্কে হাঁটতে যেতে চাও?"
             },
             {
               "speaker": "B",
               "text": "Gern. Können wir einen Salat mitbringen?",
-              "pronunciationBn": "গেয়ার্ন। ক্যোনেন ভিয়া আইনেন জালাট মিটব্রিঙ্গেন?"
+              "pronunciationBn": "গেয়ার্ন। ক্যোনেন ভিয়া আইনেন জালাট মিটব্রিঙ্গেন?",
+              "translationBn": "অবশ্যই। আমরা কি একটি সালাদ সাথে নিয়ে আসতে পারি?"
             },
             {
               "speaker": "A",
               "text": "Ja. Treffen wir uns um elf Uhr am Bahnhof?",
-              "pronunciationBn": "ইয়া। ট্রেফেন ভিয়া উন্স উম এল্ফ উয়া আম বানহফ?"
+              "pronunciationBn": "ইয়া। ট্রেফেন ভিয়া উন্স উম এল্ফ উয়া আম বানহফ?",
+              "translationBn": "হ্যাঁ। আমরা কি সকাল এগারোটায় রেলস্টেশনে দেখা করবো?"
             },
             {
               "speaker": "B",
               "text": "Elf Uhr ist früh. Geht es auch um zwölf?",
-              "pronunciationBn": "এল্ফ উয়া ইস্ট ফ্র্যু। গেট এস আউখ উম ৎসভোল্ফ?"
+              "pronunciationBn": "এল্ফ উয়া ইস্ট ফ্র্যু। গেট এস আউখ উম ৎসভোল্ফ?",
+              "translationBn": "এগারোটা একটু তাড়াতাড়ি হয়ে যায়। বারোটায় কি চলবে?"
             }
           ]
         },
@@ -5981,47 +6145,56 @@
             {
               "speaker": "A",
               "text": "Hast du am Samstag Zeit?",
-              "pronunciationBn": "হাস্ট ডু আম জামস্টাক ৎসাইট?"
+              "pronunciationBn": "হাস্ট ডু আম জামস্টাক ৎসাইট?",
+              "translationBn": "শনিবার কি তোমার সময় আছে?"
             },
             {
               "speaker": "B",
               "text": "Ja, gern. Was möchtest du machen?",
-              "pronunciationBn": "ইয়া, গেয়ান। ভাস ময়খ্টেস্ট ডু মাখেন?"
+              "pronunciationBn": "ইয়া, গেয়ান। ভাস ময়খ্টেস্ট ডু মাখেন?",
+              "translationBn": "হ্যাঁ, অবশ্যই। তুমি কী করতে চাও?"
             },
             {
               "speaker": "A",
               "text": "Wir können im Park spazieren gehen.",
-              "pronunciationBn": "ভিয়া ক্যোনেন ইম পার্ক শ্পাৎসিরেন গেহেন।"
+              "pronunciationBn": "ভিয়া ক্যোনেন ইম পার্ক শ্পাৎসিরেন গেহেন।",
+              "translationBn": "আমরা পার্কে হাঁটতে যেতে পারি।"
             },
             {
               "speaker": "B",
               "text": "Wie wird das Wetter?",
-              "pronunciationBn": "ভি ভির্ট দাস ভেটা?"
+              "pronunciationBn": "ভি ভির্ট দাস ভেটা?",
+              "translationBn": "আবহাওয়া কেমন থাকবে?"
             },
             {
               "speaker": "A",
               "text": "Am Vormittag ist es sonnig, aber am Nachmittag windig.",
-              "pronunciationBn": "আম ফোয়ামিটাক ইস্ট এস জোনিশ, আবা আম নাখমিটাক ভিন্ডিশ।"
+              "pronunciationBn": "আম ফোয়ামিটাক ইস্ট এস জোনিশ, আবা আম নাখমিটাক ভিন্ডিশ।",
+              "translationBn": "সকালে রোদ থাকবে, তবে বিকেলে বাতাস বইবে।"
             },
             {
               "speaker": "B",
               "text": "Dann nehme ich eine Jacke und einen Regenschirm mit.",
-              "pronunciationBn": "ডান নেমে ইখ আইনে ইয়াকে উন্ট আইনেন রেগেনশির্ম মিট।"
+              "pronunciationBn": "ডান নেমে ইখ আইনে ইয়াকে উন্ট আইনেন রেগেনশির্ম মিট।",
+              "translationBn": "তাহলে আমি সাথে একটি জ্যাকেট এবং একটি ছাতা নিয়ে নেব।"
             },
             {
               "speaker": "A",
               "text": "Gute Idee. Wir treffen uns um elf am Haupteingang.",
-              "pronunciationBn": "গুটে ইডে। ভিয়া ট্রেফেন উন্স উম এল্ফ আম হাউপ্ট-আইনগাং।"
+              "pronunciationBn": "গুটে ইডে। ভিয়া ট্রেফেন উন্স উম এল্ফ আম হাউপ্ট-আইনগাং।",
+              "translationBn": "দারুণ বুদ্ধি। আমরা সকাল এগারোটায় প্রধান ফটকে দেখা করবো।"
             },
             {
               "speaker": "B",
               "text": "Einverstanden. Ich fahre mit dem Rad dorthin.",
-              "pronunciationBn": "আইনফেয়াশ্টান্ডেন। ইখ ফারে মিট ডেম রাট ডর্টহিন।"
+              "pronunciationBn": "আইনফেয়াশ্টান্ডেন। ইখ ফারে মিট ডেম রাট ডর্টহিন।",
+              "translationBn": "রাজি। আমি সাইকেলে করে সেখানে যাব।"
             },
             {
               "speaker": "A",
               "text": "Prima. Wenn es stark regnet, gehen wir ins Café.",
-              "pronunciationBn": "প্রিমা। ভেন এস শ্টার্ক রেগনেট, গেহেন ভিয়া ইনস কাফে।"
+              "pronunciationBn": "প্রিমা। ভেন এস শ্টার্ক রেগনেট, গেহেন ভিয়া ইনস কাফে।",
+              "translationBn": "চমৎকার। যদি জোরে বৃষ্টি নামে, তবে আমরা ক্যাফেতে চলে যাব।"
             }
           ]
         },
@@ -6032,42 +6205,50 @@
             {
               "speaker": "A",
               "text": "Was ist heute dein Arbeitsauftrag?",
-              "pronunciationBn": "ভাস ইস্ট হয়টে ডাইন আরবাইটস-আউফট্রাক?"
+              "pronunciationBn": "ভাস ইস্ট হয়টে ডাইন আরবাইটস-আউফট্রাক?",
+              "translationBn": "আজ তোমার কাজের দায়িত্ব কী?"
             },
             {
               "speaker": "B",
               "text": "Ich soll die Stühle in den großen Raum bringen.",
-              "pronunciationBn": "ইখ জোল ডি শ্ট্যুলে ইন ডেন গ্রোসেন রাউম ব্রিঙ্গেন।"
+              "pronunciationBn": "ইখ জোল ডি শ্ট্যুলে ইন ডেন গ্রোসেন রাউম ব্রিঙ্গেন।",
+              "translationBn": "আমার চেয়ারগুলো বড় রুমে নিয়ে যাওয়ার কথা।"
             },
             {
               "speaker": "A",
               "text": "Und was soll ich machen?",
-              "pronunciationBn": "উন্ট ভাস জোল ইখ মাখেন?"
+              "pronunciationBn": "উন্ট ভাস জোল ইখ মাখেন?",
+              "translationBn": "আর আমার কী করার কথা?"
             },
             {
               "speaker": "B",
               "text": "Bitte stell die Bücher auf den Tisch.",
-              "pronunciationBn": "বিটে শ্টেল ডি ব্যুখা আউফ ডেন টিশ।"
+              "pronunciationBn": "বিটে শ্টেল ডি ব্যুখা আউফ ডেন টিশ।",
+              "translationBn": "দয়া করে বইগুলো টেবিলের ওপর রাখো।"
             },
             {
               "speaker": "A",
               "text": "Gern. Treffen wir uns danach im Pausenraum?",
-              "pronunciationBn": "গেয়ান। ট্রেফেন ভিয়া উন্স দানাখ ইম পাউজেনরাউম?"
+              "pronunciationBn": "গেয়ান। ট্রেফেন ভিয়া উন্স দানাখ ইম পাউজেনরাউম?",
+              "translationBn": "অবশ্যই। তারপর আমরা কি বিশ্রাম কক্ষে দেখা করবো?"
             },
             {
               "speaker": "B",
               "text": "Ja. Hast du keinen Kaffee mehr?",
-              "pronunciationBn": "ইয়া। হাস্ট ডু কাইনেন কাফে মেয়া?"
+              "pronunciationBn": "ইয়া। হাস্ট ডু কাইনেন কাফে মেয়া?",
+              "translationBn": "হ্যাঁ। তোমার কাছে কি আর কফি নেই?"
             },
             {
               "speaker": "A",
               "text": "Doch, ich habe noch eine Packung.",
-              "pronunciationBn": "ডোখ, ইখ হাবে নখ আইনে পাকুং।"
+              "pronunciationBn": "ডোখ, ইখ হাবে নখ আইনে পাকুং।",
+              "translationBn": "না, আছে তো! আমার কাছে এখনো এক প্যাকেট আছে।"
             },
             {
               "speaker": "B",
               "text": "Super. Dann mache ich später Kaffee.",
-              "pronunciationBn": "জুপা। ডান মাখে ইখ শ্পেটা কাফে।"
+              "pronunciationBn": "জুপা। ডান মাখে ইখ শ্পেটা কাফে।",
+              "translationBn": "দারুণ। তাহলে আমি পরে কফি বানাবো।"
             }
           ]
         },
@@ -6078,42 +6259,50 @@
             {
               "speaker": "A",
               "text": "Guten Tag. Was möchten Sie?",
-              "pronunciationBn": "গুটেন টাক। ভাস ম্যোখটেন জি?"
+              "pronunciationBn": "গুটেন টাক। ভাস ম্যোখটেন জি?",
+              "translationBn": "শুভ দিন। আপনি কী নেবেন?"
             },
             {
               "speaker": "B",
               "text": "Ich nehme den Salat, bitte.",
-              "pronunciationBn": "ইখ নেমে ডেন জালাট, বিটে।"
+              "pronunciationBn": "ইখ নেমে ডেন জালাট, বিটে।",
+              "translationBn": "দয়া করে আমি সালাদটি নেব।"
             },
             {
               "speaker": "A",
               "text": "Möchten Sie Käse dazu?",
-              "pronunciationBn": "ম্যোখটেন জি কেজে দাৎসু?"
+              "pronunciationBn": "ম্যোখটেন জি কেজে দাৎসু?",
+              "translationBn": "সাথে কি পনির (চিজ) নেবেন?"
             },
             {
               "speaker": "B",
               "text": "Ja, bitte. Und einen Tee.",
-              "pronunciationBn": "ইয়া, বিটে। উন্ট আইনেন টে।"
+              "pronunciationBn": "ইয়া, বিটে। উন্ট আইনেন টে।",
+              "translationBn": "হ্যাঁ, দিন। আর এক কাপ চা।"
             },
             {
               "speaker": "A",
               "text": "Möchten Sie auch einen Saft?",
-              "pronunciationBn": "ম্যোখটেন জি আউখ আইনেন জাফ্ট?"
+              "pronunciationBn": "ম্যোখটেন জি আউখ আইনেন জাফ্ট?",
+              "translationBn": "আপনি কি এক গ্লাস জুসও নেবেন?"
             },
             {
               "speaker": "B",
               "text": "Nein, danke. Keinen Saft. Ich nehme Wasser.",
-              "pronunciationBn": "নাইন, ডাঙ্কে। কাইনেন জাফ্ট। ইখ নেমে ভাসার।"
+              "pronunciationBn": "নাইন, ডাঙ্কে। কাইনেন জাফ্ট। ইখ নেমে ভাসার।",
+              "translationBn": "না, ধন্যবাদ। জুস লাগবে না। আমি পানি নেব।"
             },
             {
               "speaker": "A",
               "text": "Das macht neun Euro fünfzig.",
-              "pronunciationBn": "দাস মাখ্ট নয়ন অয়রো ফুন্‌ফৎসিশ।"
+              "pronunciationBn": "দাস মাখ্ট নয়ন অয়রো ফুন্‌ফৎসিশ।",
+              "translationBn": "মোট নয় ইউরো পঞ্চাশ সেন্ট হয়েছে।"
             },
             {
               "speaker": "B",
               "text": "Hier bitte. Vielen Dank. Auf Wiedersehen.",
-              "pronunciationBn": "হিয়া বিটে। ফিলেন ডাঙ্ক। আউফ ভিডারজেন।"
+              "pronunciationBn": "হিয়া বিটে। ফিলেন ডাঙ্ক। আউফ ভিডারজেন।",
+              "translationBn": "এই নিন। অনেক ধন্যবাদ। বিদায়।"
             }
           ]
         }
@@ -7056,27 +7245,32 @@
             {
               "speaker": "A",
               "text": "Was hast du gestern gemacht?",
-              "pronunciationBn": "ভাস হাস্ট ডু গেস্টার্ন গেমাখ্ট?"
+              "pronunciationBn": "ভাস হাস্ট ডু গেস্টার্ন গেমাখ্ট?",
+              "translationBn": "গতকাল তুমি কী করেছো?"
             },
             {
               "speaker": "B",
               "text": "Ich bin in die Schule gegangen und habe viel gelernt.",
-              "pronunciationBn": "ইখ বিন ইন ডি শুলে গেগাঙ্গেন উন্ট হাবে ফিল গেলেয়ার্ন্ট।"
+              "pronunciationBn": "ইখ বিন ইন ডি শুলে গেগাঙ্গেন উন্ট হাবে ফিল গেলেয়ার্ন্ট।",
+              "translationBn": "আমি স্কুলে গিয়েছিলাম এবং অনেক পড়াশোনা করেছি।"
             },
             {
               "speaker": "A",
               "text": "Und nach der Schule?",
-              "pronunciationBn": "উন্ট নাখ ডেয়া শুলে?"
+              "pronunciationBn": "উন্ট নাখ ডেয়া শুলে?",
+              "translationBn": "আর স্কুলের পর?"
             },
             {
               "speaker": "B",
               "text": "Ich habe Hausaufgaben gemacht und dann Fußball gespielt.",
-              "pronunciationBn": "ইখ হাবে হাউসআউফগাবেন গেমাখ্ট উন্ট দান ফুসবল গেশ্পিল্ট।"
+              "pronunciationBn": "ইখ হাবে হাউসআউফগাবেন গেমাখ্ট উন্ট দান ফুসবল গেশ্পিল্ট।",
+              "translationBn": "আমি বাড়ির কাজ করেছি এবং তারপর ফুটবল খেলেছি।"
             },
             {
               "speaker": "A",
               "text": "Das klingt gut. Ich habe nur ferngesehen.",
-              "pronunciationBn": "দাস ক্লিংট গুট। ইখ হাবে নুর ফেয়ার্নগেজেয়েন।"
+              "pronunciationBn": "দাস ক্লিংট গুট। ইখ হাবে নুর ফেয়ার্নগেজেয়েন।",
+              "translationBn": "শুনতে বেশ ভালো লাগছে। আমি শুধু টিভি দেখেছি।"
             }
           ]
         },
@@ -7087,32 +7281,38 @@
             {
               "speaker": "A",
               "text": "Guten Morgen. Hier spricht Rafis Mutter aus der Klasse 1B.",
-              "pronunciationBn": "গুটেন মর্গেন। হিয়া শ্প্রিশ্ট রাফিস মুটার আউস ডেয়া ক্লাসে আইন বে।"
+              "pronunciationBn": "গুটেন মর্গেন। হিয়া শ্প্রিশ্ট রাফিস মুটার আউস ডেয়া ক্লাসে আইন বে।",
+              "translationBn": "সুপ্রভাত। আমি ক্লাস ১বি-এর রাফির মা বলছি।"
             },
             {
               "speaker": "B",
               "text": "Guten Morgen. Was ist passiert?",
-              "pronunciationBn": "গুটেন মর্গেন। ভাস ইস্ট পাসিয়ার্ট?"
+              "pronunciationBn": "গুটেন মর্গেন। ভাস ইস্ট পাসিয়ার্ট?",
+              "translationBn": "সুপ্রভাত। কী হয়েছে?"
             },
             {
               "speaker": "A",
               "text": "Rafi ist krank und kann heute nicht zum Unterricht kommen.",
-              "pronunciationBn": "রাফি ইস্ট ক্রাঙ্ক উন্ট কান হয়টে নিখ্ট ৎসুম উন্টা‌রিশ্ট কমেন।"
+              "pronunciationBn": "রাফি ইস্ট ক্রাঙ্ক উন্ট কান হয়টে নিখ্ট ৎসুম উন্টা‌রিশ্ট কমেন।",
+              "translationBn": "রাফি অসুস্থ এবং আজ ক্লাসে আসতে পারবে না।"
             },
             {
               "speaker": "B",
               "text": "Kann er die Hausaufgaben später machen?",
-              "pronunciationBn": "কান এয়া ডি হাউসআউফগাবেন শ্পেটা মাখেন?"
+              "pronunciationBn": "কান এয়া ডি হাউসআউফগাবেন শ্পেটা মাখেন?",
+              "translationBn": "সে কি বাড়ির কাজগুলো পরে করতে পারবে?"
             },
             {
               "speaker": "A",
               "text": "Ja. Was hat die Klasse heute gelernt?",
-              "pronunciationBn": "ইয়া। ভাস হাট ডি ক্লাসে হয়টে গেলেয়ার্ন্ট?"
+              "pronunciationBn": "ইয়া। ভাস হাট ডি ক্লাসে হয়টে গেলেয়ার্ন্ট?",
+              "translationBn": "হ্যাঁ। আজ ক্লাসে কী পড়ানো হয়েছে?"
             },
             {
               "speaker": "B",
               "text": "Die Kinder haben eine Geschichte gelesen. Gute Besserung!",
-              "pronunciationBn": "ডি কিন্ডা হাবেন আইনে গেশিশ্টে গেলেজেন। গুটে বেসারুং।"
+              "pronunciationBn": "ডি কিন্ডা হাবেন আইনে গেশিশ্টে গেলেজেন। গুটে বেসারুং।",
+              "translationBn": "বাচ্চারা একটি গল্প পড়েছে। সে দ্রুত সুস্থ হয়ে উঠুক!"
             }
           ]
         },
@@ -7123,47 +7323,56 @@
             {
               "speaker": "A",
               "text": "Grundschule am Park, guten Morgen.",
-              "pronunciationBn": "গ্রুন্ডশুলে আম পার্ক, গুটেন মর্গেন।"
+              "pronunciationBn": "গ্রুন্ডশুলে আম পার্ক, গুটেন মর্গেন।",
+              "translationBn": "গ্রুন্ডশুলে আম পার্ক (প্রাথমিক বিদ্যালয়), সুপ্রভাত।"
             },
             {
               "speaker": "B",
               "text": "Guten Morgen. Mein Sohn Amir kann heute nicht kommen.",
-              "pronunciationBn": "গুটেন মর্গেন। মাইন জোন আমির কান হয়টে নিশ্ট কোমেন।"
+              "pronunciationBn": "গুটেন মর্গেন। মাইন জোন আমির কান হয়টে নিশ্ট কোমেন।",
+              "translationBn": "সুপ্রভাত। আমার ছেলে আমির আজ আসতে পারবে না।"
             },
             {
               "speaker": "A",
               "text": "Was fehlt ihm?",
-              "pronunciationBn": "ভাস ফেল্ট ইম?"
+              "pronunciationBn": "ভাস ফেল্ট ইম?",
+              "translationBn": "ওর কী হয়েছে?"
             },
             {
               "speaker": "B",
               "text": "Er hat Fieber und Husten. Er bleibt heute zu Hause.",
-              "pronunciationBn": "এয়া হাট ফিবা উন্ট হুস্টেন। এয়া ব্লাইপ্ট হয়টে ৎসু হাউজে।"
+              "pronunciationBn": "এয়া হাট ফিবা উন্ট হুস্টেন। এয়া ব্লাইপ্ট হয়টে ৎসু হাউজে।",
+              "translationBn": "ওর জ্বর এবং কাশি হয়েছে। সে আজ বাসায় থাকবে।"
             },
             {
               "speaker": "A",
               "text": "Danke. Hat er die Hausaufgaben gemacht?",
-              "pronunciationBn": "ডাংকে। হাট এয়া ডি হাউস-আউফগাবেন গেমাখ্ট?"
+              "pronunciationBn": "ডাংকে। হাট এয়া ডি হাউস-আউফগাবেন গেমাখ্ট?",
+              "translationBn": "ধন্যবাদ। সে কি বাড়ির কাজ করেছে?"
             },
             {
               "speaker": "B",
               "text": "Ja, gestern hat er Deutsch gelernt. Das Heft bringt seine Schwester morgen.",
-              "pronunciationBn": "ইয়া, গেস্টার্ন হাট এয়া ডয়চ গেলার্ন্ট। দাস হেফ্ট ব্রিংট জাইনে শভেস্টা মর্গেন।"
+              "pronunciationBn": "ইয়া, গেস্টার্ন হাট এয়া ডয়চ গেলার্ন্ট। দাস হেফ্ট ব্রিংট জাইনে শভেস্টা মর্গেন।",
+              "translationBn": "হ্যাঁ, গতকাল সে জার্মান পড়েছে। ওর বোন আগামীকাল খাতাটি নিয়ে আসবে।"
             },
             {
               "speaker": "A",
               "text": "Gut. Bitte schreiben Sie auch eine Entschuldigung.",
-              "pronunciationBn": "গুট। বিটে শ্রাইবেন জি আউখ আইনে এন্টশুলডিগুং।"
+              "pronunciationBn": "গুট। বিটে শ্রাইবেন জি আউখ আইনে এন্টশুলডিগুং।",
+              "translationBn": "ভালো। দয়া করে অনুপস্থিতির একটি লিখিত আবেদন দিয়ে দেবেন।"
             },
             {
               "speaker": "B",
               "text": "Natürlich. Wann ist der nächste Elternabend?",
-              "pronunciationBn": "নাট্যুরলিশ। ভান ইস্ট ডেয়া নেখ্স্টে এল্টার্ন-আবেন্ট?"
+              "pronunciationBn": "নাট্যুরলিশ। ভান ইস্ট ডেয়া নেখ্স্টে এল্টার্ন-আবেন্ট?",
+              "translationBn": "অবশ্যই। পরবর্তী অভিভাবক সভা কবে?"
             },
             {
               "speaker": "A",
               "text": "Am Donnerstag um 18 Uhr. Gute Besserung für Amir.",
-              "pronunciationBn": "আম ডোনারস্টাক উম আখৎসেন উয়া। গুটে বেসারুং ফ্যুয়া আমির।"
+              "pronunciationBn": "আম ডোনারস্টাক উম আখৎসেন উয়া। গুটে বেসারুং ফ্যুয়া আমির।",
+              "translationBn": "বৃহস্পতিবার সন্ধ্যা ৬টায়। আমির দ্রুত সুস্থ হয়ে উঠুক।"
             }
           ]
         },
@@ -7174,47 +7383,56 @@
             {
               "speaker": "A",
               "text": "Hast du am Samstag Lust auf einen Ausflug?",
-              "pronunciationBn": "হাস্ট ডু আম জামস্টাক লুস্ট আউফ আইনেন আউসফ্লুক?"
+              "pronunciationBn": "হাস্ট ডু আম জামস্টাক লুস্ট আউফ আইনেন আউসফ্লুক?",
+              "translationBn": "শনিবার কি তোমার কোথাও ঘুরতে যাওয়ার ইচ্ছে আছে?"
             },
             {
               "speaker": "B",
               "text": "Gern. Wohin wollen wir fahren?",
-              "pronunciationBn": "গেয়ান। ভোহিন ভোলেন ভিয়া ফারেন?"
+              "pronunciationBn": "গেয়ান। ভোহিন ভোলেন ভিয়া ফারেন?",
+              "translationBn": "অবশ্যই। আমরা কোথায় যেতে চাই?"
             },
             {
               "speaker": "A",
               "text": "Wir können zum See fahren. Ich habe ein Picknick vorbereitet.",
-              "pronunciationBn": "ভিয়া ক্যোনেন ৎসুম জে ফারেন। ইখ হাবে আইন পিকনিক ফোয়াবেরাইটেট।"
+              "pronunciationBn": "ভিয়া ক্যোনেন ৎসুম জে ফারেন। ইখ হাবে আইন পিকনিক ফোয়াবেরাইটেট।",
+              "translationBn": "আমরা লেকে যেতে পারি। আমি একটি পিকনিকের আয়োজন করেছি।"
             },
             {
               "speaker": "B",
               "text": "Das klingt gut, aber ich muss am Vormittag arbeiten.",
-              "pronunciationBn": "দাস ক্লিংট গুট, আবা ইখ মুস আম ফোয়ামিটাক আরবাইটেন।"
+              "pronunciationBn": "দাস ক্লিংট গুট, আবা ইখ মুস আম ফোয়ামিটাক আরবাইটেন।",
+              "translationBn": "শুনতে দারুণ, কিন্তু আমাকে সকালে কাজ করতে হবে।"
             },
             {
               "speaker": "A",
               "text": "Dann fahren wir am Nachmittag. Geht es um drei Uhr?",
-              "pronunciationBn": "ডান ফারেন ভিয়া আম নাখমিটাক। গেট এস উম ড্রাই উয়া?"
+              "pronunciationBn": "ডান ফারেন ভিয়া আম নাখমিটাক। গেট এস উম ড্রাই উয়া?",
+              "translationBn": "তাহলে আমরা বিকেলে যাই। তিনটার সময় কি চলবে?"
             },
             {
               "speaker": "B",
               "text": "Ja, das passt. Wo treffen wir uns?",
-              "pronunciationBn": "ইয়া, দাস পাস্ট। ভো ট্রেফেন ভিয়া উন্স?"
+              "pronunciationBn": "ইয়া, দাস পাস্ট। ভো ট্রেফেন ভিয়া উন্স?",
+              "translationBn": "হ্যাঁ, তা ঠিক আছে। আমরা কোথায় দেখা করবো?"
             },
             {
               "speaker": "A",
               "text": "Vor dem Bahnhof. Ich komme mit dem Bus.",
-              "pronunciationBn": "ফোয়া ডেম বানহোফ। ইখ কমে মিট ডেম বুস।"
+              "pronunciationBn": "ফোয়া ডেম বানহোফ। ইখ কমে মিট ডেম বুস।",
+              "translationBn": "রেলস্টেশনের সামনে। আমি বাসে করে আসবো।"
             },
             {
               "speaker": "B",
               "text": "Prima. Ich bringe Wasser und Obst mit.",
-              "pronunciationBn": "প্রিমা। ইখ ব্রিঙ্গে ভাসা উন্ট ওপ্স্ট মিট।"
+              "pronunciationBn": "প্রিমা। ইখ ব্রিঙ্গে ভাসা উন্ট ওপ্স্ট মিট।",
+              "translationBn": "চমৎকার। আমি সাথে পানি ও ফল নিয়ে আসবো।"
             },
             {
               "speaker": "A",
               "text": "Bis Samstag!",
-              "pronunciationBn": "বিস জামস্টাক!"
+              "pronunciationBn": "বিস জামস্টাক!",
+              "translationBn": "শনিবার দেখা হবে!"
             }
           ]
         }

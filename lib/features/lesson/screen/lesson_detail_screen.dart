@@ -193,7 +193,17 @@ class LessonDetailScreen extends StatelessWidget {
                         onToggleWordReveal: controller.toggleWordReveal,
                       ),
                       2 => LessonGrammarSection(grammarPoints: lesson.grammar),
-                      3 => LessonDialoguesSection(dialogues: lesson.dialogues),
+                      3 => LessonDialoguesSection(
+                        lessonId: lesson.id,
+                        dialogues: lesson.dialogues,
+                        hideTranslations:
+                            controller.hideDialogueTranslations.value,
+                        revealedLineKeys:
+                            controller.revealedDialogueKeys.toSet(),
+                        onToggleHideTranslations:
+                            controller.toggleHideDialogueTranslations,
+                        onToggleLineReveal: controller.toggleDialogueLineReveal,
+                      ),
                       _ => LessonExercisesSection(
                         exercises: lesson.exercises,
                         completedExerciseIds: completedIds,

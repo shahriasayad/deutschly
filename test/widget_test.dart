@@ -53,7 +53,11 @@ void main() {
         course.lessons
             .expand((lesson) => lesson.dialogues)
             .expand((dialogue) => dialogue.lines)
-            .every((line) => line.pronunciationBn?.isNotEmpty == true),
+            .every(
+              (line) =>
+                  line.pronunciationBn?.isNotEmpty == true &&
+                  line.translationBn?.isNotEmpty == true,
+            ),
         isTrue,
       );
 
@@ -229,6 +233,33 @@ void main() {
       await tester.pumpAndSettle();
 
       expect(find.text('2 / 39 Completed'), findsOneWidget);
+      // Open Dialogues tab and verify Bangla translation + Flashcard ON/OFF toggle
+      final dialoguesTab = find.byKey(
+        const ValueKey<String>('lesson_tab_dialogues'),
+      );
+      await tester.ensureVisible(dialoguesTab);
+      await tester.tap(dialoguesTab);
+      await tester.pumpAndSettle();
+
+      expect(find.text('শুভ দিন। আমার নাম আনা মুলার।'), findsOneWidget);
+      expect(find.textContaining('(আনুমানিক)'), findsNothing);
+      expect(find.text('Flashcard: OFF'), findsOneWidget);
+
+      await tester.tap(
+        find.byKey(const ValueKey<String>('dialogues_flashcard_toggle')),
+      );
+      await tester.pumpAndSettle();
+
+      expect(find.text('Flashcard: ON'), findsOneWidget);
+      expect(find.text('শুভ দিন। আমার নাম আনা মুলার।'), findsNothing);
+      expect(find.text('Tap line to reveal translation'), findsWidgets);
+
+      await tester.tap(
+        find.byKey(const ValueKey<String>('dialogue_line_lesson_01_0_d1_0')),
+      );
+      await tester.pumpAndSettle();
+      expect(find.text('শুভ দিন। আমার নাম আনা মুলার।'), findsOneWidget);
+
       final exercisesTab = find.byKey(
         const ValueKey<String>('lesson_tab_exercises'),
       );

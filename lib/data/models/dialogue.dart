@@ -9,6 +9,7 @@ abstract class DialogueLine with _$DialogueLine {
     required String speaker,
     required String text,
     String? pronunciationBn,
+    String? translationBn,
   }) = _DialogueLine;
 
   factory DialogueLine.fromJson(Map<String, dynamic> json) =>

@@ -388,7 +388,7 @@ class _ExercisePlayerState extends State<ExercisePlayer> {
                                   borderRadius: BorderRadius.circular(8.r),
                                 ),
                                 child: Text(
-                                  'উচ্চারণ (আনুমানিক): ${exercise.pronunciationBn}',
+                                  'উচ্চারণ: ${exercise.pronunciationBn}',
                                   style: getTextStyle(
                                     fontSize: 12,
                                     color: colorScheme.onSurfaceVariant,
