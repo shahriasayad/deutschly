@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:deutschly/core/app_colors.dart';
 import 'package:deutschly/core/global_text_style.dart';
+import 'package:deutschly/core/screen_util.dart';
 import 'package:deutschly/data/models/exercise.dart';
 
 class MatchingWidget extends StatelessWidget {
@@ -58,7 +59,7 @@ class MatchingWidget extends StatelessWidget {
             color: colorScheme.onSurfaceVariant,
           ),
         ),
-        const SizedBox(height: 12),
+        12.vSpace,
         Row(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
@@ -82,12 +83,12 @@ class MatchingWidget extends StatelessWidget {
                           ? null
                           : () => onSelectLeft(leftItems[i]),
                     ),
-                    if (i < leftItems.length - 1) const SizedBox(height: 10),
+                    if (i < leftItems.length - 1) 10.vSpace,
                   ],
                 ],
               ),
             ),
-            const SizedBox(width: 12),
+            12.hSpace,
             Expanded(
               child: Column(
                 children: <Widget>[
@@ -121,7 +122,7 @@ class MatchingWidget extends StatelessWidget {
                         );
                       },
                     ),
-                    if (i < rightOptions.length - 1) const SizedBox(height: 10),
+                    if (i < rightOptions.length - 1) 10.vSpace,
                   ],
                 ],
               ),
@@ -174,25 +175,25 @@ class _MatchingTile extends StatelessWidget {
 
     return InkWell(
       onTap: onTap,
-      borderRadius: BorderRadius.circular(12),
+      borderRadius: BorderRadius.circular(12.r),
       child: Container(
         width: double.infinity,
-        constraints: const BoxConstraints(minHeight: 54),
-        padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 10),
+        constraints: BoxConstraints(minHeight: 54.h),
+        padding: EdgeInsets.symmetric(horizontal: 12.w, vertical: 10.h),
         decoration: BoxDecoration(
           color: bgColor,
-          borderRadius: BorderRadius.circular(12),
+          borderRadius: BorderRadius.circular(12.r),
           border: Border.all(
             color: borderColor,
-            width: (isSelected || isMatched) ? 1.6 : 1,
+            width: ((isSelected || isMatched) ? 1.6 : 1).w,
           ),
         ),
         child: Row(
           children: <Widget>[
             if (badgeNumber != null) ...<Widget>[
               Container(
-                width: 22,
-                height: 22,
+                width: 22.r,
+                height: 22.r,
                 alignment: Alignment.center,
                 decoration: BoxDecoration(
                   color: colorScheme.primary,
@@ -207,7 +208,7 @@ class _MatchingTile extends StatelessWidget {
                   ),
                 ),
               ),
-              const SizedBox(width: 8),
+              8.hSpace,
             ],
             Expanded(
               child: Text(

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:deutschly/core/app_router.dart';
+import 'package:deutschly/core/screen_util.dart';
 
 class AppShellScreen extends StatelessWidget {
   const AppShellScreen({
@@ -26,6 +27,7 @@ class AppShellScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    AppScreenUtil.init(context);
     final colorScheme = Theme.of(context).colorScheme;
     final selectedIndex = _calculateSelectedIndex(context);
 

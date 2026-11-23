@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:deutschly/core/app_colors.dart';
 import 'package:deutschly/core/global_text_style.dart';
+import 'package:deutschly/core/screen_util.dart';
 import 'package:deutschly/data/models/exercise.dart';
 
 class MultipleChoiceWidget extends StatelessWidget {
@@ -35,7 +36,7 @@ class MultipleChoiceWidget extends StatelessWidget {
             dividerColor: theme.dividerColor,
             onTap: () => onSelectOption(i),
           ),
-          if (i < exercise.options.length - 1) const SizedBox(height: 10),
+          if (i < exercise.options.length - 1) 10.vSpace,
         ],
       ],
     );
@@ -91,22 +92,22 @@ class _OptionTile extends StatelessWidget {
     return InkWell(
       key: ValueKey<String>('mc_option_$index'),
       onTap: isChecked ? null : onTap,
-      borderRadius: BorderRadius.circular(14),
+      borderRadius: BorderRadius.circular(14.r),
       child: Container(
-        padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 14),
+        padding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 14.h),
         decoration: BoxDecoration(
           color: backgroundColor,
-          borderRadius: BorderRadius.circular(14),
+          borderRadius: BorderRadius.circular(14.r),
           border: Border.all(
             color: borderColor,
-            width: (isSelected || (isChecked && isCorrectOption)) ? 1.8 : 1,
+            width: ((isSelected || (isChecked && isCorrectOption)) ? 1.8 : 1).w,
           ),
         ),
         child: Row(
           children: <Widget>[
             Container(
-              width: 30,
-              height: 30,
+              width: 30.r,
+              height: 30.r,
               alignment: Alignment.center,
               decoration: BoxDecoration(
                 color: isSelected
@@ -125,7 +126,7 @@ class _OptionTile extends StatelessWidget {
                 ),
               ),
             ),
-            const SizedBox(width: 14),
+            14.hSpace,
             Expanded(
               child: Text(
                 label,
@@ -137,8 +138,8 @@ class _OptionTile extends StatelessWidget {
               ),
             ),
             if (trailingIcon != null) ...<Widget>[
-              const SizedBox(width: 8),
-              Icon(trailingIcon, color: trailingColor, size: 22),
+              8.hSpace,
+              Icon(trailingIcon, color: trailingColor, size: 22.r),
             ],
           ],
         ),

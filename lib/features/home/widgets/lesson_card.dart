@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:deutschly/core/global_text_style.dart';
+import 'package:deutschly/core/screen_util.dart';
 import 'package:deutschly/data/models/lesson.dart';
 
 class LessonCard extends StatelessWidget {
@@ -25,14 +26,14 @@ class LessonCard extends StatelessWidget {
       elevation: 0,
       color: colorScheme.surface,
       shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(16),
+        borderRadius: BorderRadius.circular(16.r),
         side: BorderSide(color: theme.dividerColor),
       ),
       clipBehavior: Clip.antiAlias,
       child: InkWell(
         onTap: onTap,
         child: Padding(
-          padding: const EdgeInsets.all(16),
+          padding: EdgeInsets.all(16.w),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: <Widget>[
@@ -40,12 +41,12 @@ class LessonCard extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: <Widget>[
                   Container(
-                    width: 44,
-                    height: 44,
+                    width: 44.r,
+                    height: 44.r,
                     alignment: Alignment.center,
                     decoration: BoxDecoration(
                       color: colorScheme.primaryContainer,
-                      borderRadius: BorderRadius.circular(12),
+                      borderRadius: BorderRadius.circular(12.r),
                     ),
                     child: Text(
                       lesson.number.toString().padLeft(2, '0'),
@@ -56,7 +57,7 @@ class LessonCard extends StatelessWidget {
                       ),
                     ),
                   ),
-                  const SizedBox(width: 14),
+                  14.hSpace,
                   Expanded(
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
@@ -69,7 +70,7 @@ class LessonCard extends StatelessWidget {
                             color: colorScheme.primary,
                           ),
                         ),
-                        const SizedBox(height: 2),
+                        2.vSpace,
                         Text(
                           lesson.title,
                           style: getTextStyle(
@@ -78,7 +79,7 @@ class LessonCard extends StatelessWidget {
                             color: colorScheme.onSurface,
                           ),
                         ),
-                        const SizedBox(height: 2),
+                        2.vSpace,
                         Text(
                           lesson.titleBn,
                           style: getTextStyle(
@@ -89,22 +90,23 @@ class LessonCard extends StatelessWidget {
                       ],
                     ),
                   ),
-                  const SizedBox(width: 8),
+                  8.hSpace,
                   Icon(
                     Icons.chevron_right_rounded,
+                    size: 22.r,
                     color: colorScheme.onSurfaceVariant,
                   ),
                 ],
               ),
-              const SizedBox(height: 14),
+              14.vSpace,
               Row(
                 children: <Widget>[
                   Icon(
                     Icons.translate_rounded,
-                    size: 15,
+                    size: 15.r,
                     color: colorScheme.onSurfaceVariant,
                   ),
-                  const SizedBox(width: 4),
+                  4.hSpace,
                   Text(
                     '${lesson.vocabulary.length} words',
                     style: getTextStyle(
@@ -112,13 +114,13 @@ class LessonCard extends StatelessWidget {
                       color: colorScheme.onSurfaceVariant,
                     ),
                   ),
-                  const SizedBox(width: 14),
+                  14.hSpace,
                   Icon(
                     Icons.quiz_outlined,
-                    size: 15,
+                    size: 15.r,
                     color: colorScheme.onSurfaceVariant,
                   ),
-                  const SizedBox(width: 4),
+                  4.hSpace,
                   Text(
                     '${lesson.exercises.length} exercises',
                     style: getTextStyle(
@@ -137,12 +139,12 @@ class LessonCard extends StatelessWidget {
                   ),
                 ],
               ),
-              const SizedBox(height: 8),
+              8.vSpace,
               ClipRRect(
-                borderRadius: BorderRadius.circular(999),
+                borderRadius: BorderRadius.circular(999.r),
                 child: LinearProgressIndicator(
                   value: progress,
-                  minHeight: 6,
+                  minHeight: 6.h,
                   backgroundColor: colorScheme.surfaceContainerHighest,
                   valueColor:
                       AlwaysStoppedAnimation<Color>(colorScheme.primary),

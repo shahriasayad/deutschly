@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:deutschly/core/app_colors.dart';
 import 'package:deutschly/core/global_text_style.dart';
+import 'package:deutschly/core/screen_util.dart';
 import 'package:deutschly/data/models/exercise.dart';
 
 class TrueFalseWidget extends StatelessWidget {
@@ -39,7 +40,7 @@ class TrueFalseWidget extends StatelessWidget {
             onTap: () => onSelect(true),
           ),
         ),
-        const SizedBox(width: 12),
+        12.hSpace,
         Expanded(
           child: _TrueFalseButton(
             key: const ValueKey<String>('tf_false'),
@@ -108,27 +109,27 @@ class _TrueFalseButton extends StatelessWidget {
 
     return InkWell(
       onTap: isChecked ? null : onTap,
-      borderRadius: BorderRadius.circular(16),
+      borderRadius: BorderRadius.circular(16.r),
       child: Container(
-        padding: const EdgeInsets.symmetric(vertical: 20, horizontal: 16),
+        padding: EdgeInsets.symmetric(vertical: 20.h, horizontal: 16.w),
         decoration: BoxDecoration(
           color: bgColor,
-          borderRadius: BorderRadius.circular(16),
+          borderRadius: BorderRadius.circular(16.r),
           border: Border.all(
             color: borderColor,
-            width: (isSelected || (isChecked && isCorrectOption)) ? 1.8 : 1,
+            width: ((isSelected || (isChecked && isCorrectOption)) ? 1.8 : 1).w,
           ),
         ),
         child: Column(
           children: <Widget>[
             Icon(
               icon,
-              size: 28,
+              size: 28.r,
               color: isSelected
                   ? colorScheme.primary
                   : colorScheme.onSurfaceVariant,
             ),
-            const SizedBox(height: 8),
+            8.vSpace,
             Text(
               label,
               style: getTextStyle(
@@ -137,7 +138,7 @@ class _TrueFalseButton extends StatelessWidget {
                 color: colorScheme.onSurface,
               ),
             ),
-            const SizedBox(height: 2),
+            2.vSpace,
             Text(
               subtitle,
               style: getTextStyle(

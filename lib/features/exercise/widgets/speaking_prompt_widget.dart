@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:deutschly/core/app_colors.dart';
 import 'package:deutschly/core/global_text_style.dart';
+import 'package:deutschly/core/screen_util.dart';
 import 'package:deutschly/data/models/exercise.dart';
 
 class SpeakingPromptWidget extends StatelessWidget {
@@ -31,10 +32,10 @@ class SpeakingPromptWidget extends StatelessWidget {
       children: <Widget>[
         Container(
           width: double.infinity,
-          padding: const EdgeInsets.all(16),
+          padding: EdgeInsets.all(16.w),
           decoration: BoxDecoration(
             color: colorScheme.primaryContainer.withValues(alpha: 0.35),
-            borderRadius: BorderRadius.circular(14),
+            borderRadius: BorderRadius.circular(14.r),
             border: Border.all(
               color: colorScheme.primary.withValues(alpha: 0.3),
             ),
@@ -44,9 +45,9 @@ class SpeakingPromptWidget extends StatelessWidget {
               Icon(
                 Icons.record_voice_over_rounded,
                 color: colorScheme.primary,
-                size: 24,
+                size: 24.r,
               ),
-              const SizedBox(width: 12),
+              12.hSpace,
               Expanded(
                 child: Text(
                   'Say your answer out loud in German, then compare with the example answer below and self-evaluate.',
@@ -60,17 +61,17 @@ class SpeakingPromptWidget extends StatelessWidget {
             ],
           ),
         ),
-        const SizedBox(height: 14),
+        14.vSpace,
         InkWell(
           key: const ValueKey<String>('speaking_toggle_example'),
           onTap: onToggleExample,
-          borderRadius: BorderRadius.circular(12),
+          borderRadius: BorderRadius.circular(12.r),
           child: Container(
             width: double.infinity,
-            padding: const EdgeInsets.all(14),
+            padding: EdgeInsets.all(14.w),
             decoration: BoxDecoration(
               color: colorScheme.surface,
-              borderRadius: BorderRadius.circular(12),
+              borderRadius: BorderRadius.circular(12.r),
               border: Border.all(color: theme.dividerColor),
             ),
             child: Column(
@@ -80,10 +81,10 @@ class SpeakingPromptWidget extends StatelessWidget {
                   children: <Widget>[
                     Icon(
                       Icons.lightbulb_outline_rounded,
-                      size: 18,
+                      size: 18.r,
                       color: colorScheme.primary,
                     ),
-                    const SizedBox(width: 8),
+                    8.hSpace,
                     Expanded(
                       child: Text(
                         showExample
@@ -100,13 +101,13 @@ class SpeakingPromptWidget extends StatelessWidget {
                       showExample
                           ? Icons.visibility_off_outlined
                           : Icons.visibility_outlined,
-                      size: 18,
+                      size: 18.r,
                       color: colorScheme.onSurfaceVariant,
                     ),
                   ],
                 ),
                 if (showExample) ...<Widget>[
-                  const SizedBox(height: 10),
+                  10.vSpace,
                   Text(
                     exercise.exampleAnswer,
                     style: getTextStyle(
@@ -121,7 +122,7 @@ class SpeakingPromptWidget extends StatelessWidget {
             ),
           ),
         ),
-        const SizedBox(height: 16),
+        16.vSpace,
         Text(
           'How did you do?',
           style: getTextStyle(
@@ -130,7 +131,7 @@ class SpeakingPromptWidget extends StatelessWidget {
             color: colorScheme.onSurface,
           ),
         ),
-        const SizedBox(height: 10),
+        10.vSpace,
         Row(
           children: <Widget>[
             Expanded(
@@ -145,7 +146,7 @@ class SpeakingPromptWidget extends StatelessWidget {
                 onTap: isChecked ? null : () => onSelectSelfEvaluation(true),
               ),
             ),
-            const SizedBox(width: 12),
+            12.hSpace,
             Expanded(
               child: _SelfEvalButton(
                 key: const ValueKey<String>('speaking_eval_retry'),
@@ -189,17 +190,17 @@ class _SelfEvalButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return InkWell(
       onTap: onTap,
-      borderRadius: BorderRadius.circular(12),
+      borderRadius: BorderRadius.circular(12.r),
       child: Container(
-        padding: const EdgeInsets.symmetric(vertical: 14, horizontal: 12),
+        padding: EdgeInsets.symmetric(vertical: 14.h, horizontal: 12.w),
         decoration: BoxDecoration(
           color: isSelected
               ? activeColor.withValues(alpha: 0.14)
               : colorScheme.surface,
-          borderRadius: BorderRadius.circular(12),
+          borderRadius: BorderRadius.circular(12.r),
           border: Border.all(
             color: isSelected ? activeColor : dividerColor,
-            width: isSelected ? 1.8 : 1,
+            width: (isSelected ? 1.8 : 1).w,
           ),
         ),
         child: Row(
@@ -207,10 +208,10 @@ class _SelfEvalButton extends StatelessWidget {
           children: <Widget>[
             Icon(
               icon,
-              size: 18,
+              size: 18.r,
               color: isSelected ? activeColor : colorScheme.onSurfaceVariant,
             ),
-            const SizedBox(width: 8),
+            8.hSpace,
             Flexible(
               child: Text(
                 label,

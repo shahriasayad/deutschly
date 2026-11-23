@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:deutschly/core/screen_util.dart';
 
 TextStyle getTextStyle({
   double fontSize = 14,
@@ -8,7 +9,7 @@ TextStyle getTextStyle({
   TextDecoration? decoration,
 }) {
   return TextStyle(
-    fontSize: fontSize,
+    fontSize: fontSize.sp,
     fontWeight: fontWeight,
     color: color,
     height: height,

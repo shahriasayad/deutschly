@@ -9,6 +9,7 @@ import 'package:deutschly/core/app_router.dart';
 import 'package:deutschly/core/custom_appbar.dart';
 import 'package:deutschly/core/custom_button.dart';
 import 'package:deutschly/core/global_text_style.dart';
+import 'package:deutschly/core/screen_util.dart';
 import 'package:deutschly/data/models/exercise.dart';
 import 'package:deutschly/data/models/lesson.dart';
 import 'package:deutschly/data/models/practice_session_item.dart';
@@ -49,6 +50,7 @@ class ExerciseScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    AppScreenUtil.init(context);
     final courseController = Get.find<CourseController>();
     final lessons = courseController.course.value?.lessons ?? const <Lesson>[];
     final lesson = lessons.firstWhereOrNull((Lesson l) => l.id == lessonId);
@@ -198,6 +200,7 @@ class _ExercisePlayerState extends State<ExercisePlayer> {
 
   @override
   Widget build(BuildContext context) {
+    AppScreenUtil.init(context);
     final theme = Theme.of(context);
     final colorScheme = theme.colorScheme;
 
@@ -231,7 +234,7 @@ class _ExercisePlayerState extends State<ExercisePlayer> {
         child: ConstrainedBox(
           constraints: const BoxConstraints(maxWidth: 760),
           child: SingleChildScrollView(
-            padding: const EdgeInsets.fromLTRB(16, 16, 16, 32),
+            padding: EdgeInsets.fromLTRB(16.w, 16.h, 16.w, 32.h),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: <Widget>[
@@ -247,13 +250,13 @@ class _ExercisePlayerState extends State<ExercisePlayer> {
                     ),
                     const Spacer(),
                     Container(
-                      padding: const EdgeInsets.symmetric(
-                        horizontal: 10,
-                        vertical: 4,
+                      padding: EdgeInsets.symmetric(
+                        horizontal: 10.w,
+                        vertical: 4.h,
                       ),
                       decoration: BoxDecoration(
                         color: colorScheme.primaryContainer,
-                        borderRadius: BorderRadius.circular(999),
+                        borderRadius: BorderRadius.circular(999.r),
                       ),
                       child: Text(
                         'Score: ${_controller.correctCount} / ${_controller.answeredCount}',
@@ -266,38 +269,38 @@ class _ExercisePlayerState extends State<ExercisePlayer> {
                     ),
                   ],
                 ),
-                const SizedBox(height: 8),
+                8.vSpace,
                 ClipRRect(
-                  borderRadius: BorderRadius.circular(999),
+                  borderRadius: BorderRadius.circular(999.r),
                   child: LinearProgressIndicator(
                     value: progress,
-                    minHeight: 7,
+                    minHeight: 7.h,
                     backgroundColor: colorScheme.surfaceContainerHighest,
                     valueColor: AlwaysStoppedAnimation<Color>(
                       colorScheme.primary,
                     ),
                   ),
                 ),
-                const SizedBox(height: 20),
+                20.vSpace,
                 Container(
                   width: double.infinity,
-                  padding: const EdgeInsets.all(18),
+                  padding: EdgeInsets.all(18.w),
                   decoration: BoxDecoration(
                     color: colorScheme.surface,
-                    borderRadius: BorderRadius.circular(16),
+                    borderRadius: BorderRadius.circular(16.r),
                     border: Border.all(color: theme.dividerColor),
                   ),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: <Widget>[
                       Container(
-                        padding: const EdgeInsets.symmetric(
-                          horizontal: 10,
-                          vertical: 4,
+                        padding: EdgeInsets.symmetric(
+                          horizontal: 10.w,
+                          vertical: 4.h,
                         ),
                         decoration: BoxDecoration(
                           color: colorScheme.surfaceContainerHighest,
-                          borderRadius: BorderRadius.circular(8),
+                          borderRadius: BorderRadius.circular(8.r),
                         ),
                         child: Text(
                           LessonDetailController.formatExerciseType(
@@ -310,7 +313,7 @@ class _ExercisePlayerState extends State<ExercisePlayer> {
                           ),
                         ),
                       ),
-                      const SizedBox(height: 12),
+                      12.vSpace,
                       Text(
                         exercise.question,
                         style: getTextStyle(
@@ -322,7 +325,7 @@ class _ExercisePlayerState extends State<ExercisePlayer> {
                       ),
                       if (exercise.pronunciationBn?.isNotEmpty ==
                           true) ...<Widget>[
-                        const SizedBox(height: 8),
+                        8.vSpace,
                         Text(
                           'উচ্চারণ (আনুমানিক): ${exercise.pronunciationBn}',
                           style: getTextStyle(
@@ -335,7 +338,7 @@ class _ExercisePlayerState extends State<ExercisePlayer> {
                     ],
                   ),
                 ),
-                const SizedBox(height: 18),
+                18.vSpace,
                 switch (exercise) {
                   MultipleChoiceExercise() => MultipleChoiceWidget(
                     exercise: exercise,
@@ -401,7 +404,7 @@ class _ExercisePlayerState extends State<ExercisePlayer> {
                   ),
                 },
                 if (isChecked) ...<Widget>[
-                  const SizedBox(height: 18),
+                  18.vSpace,
                   ExerciseFeedbackCard(
                     isCorrect: _controller.isCurrentCorrect.value,
                     correctAnswerSummary:
@@ -416,7 +419,7 @@ class _ExercisePlayerState extends State<ExercisePlayer> {
                     isWritingPrompt: exercise is WritingPromptExercise,
                   ),
                 ],
-                const SizedBox(height: 22),
+                22.vSpace,
                 if (!isChecked)
                   CustomButton(
                     key: const ValueKey<String>('exercise_check_btn'),
@@ -463,6 +466,7 @@ class _ExerciseSummaryView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    AppScreenUtil.init(context);
     final theme = Theme.of(context);
     final colorScheme = theme.colorScheme;
     final percentage = totalCount == 0
@@ -473,32 +477,32 @@ class _ExerciseSummaryView extends StatelessWidget {
       child: ConstrainedBox(
         constraints: const BoxConstraints(maxWidth: 480),
         child: Padding(
-          padding: const EdgeInsets.all(24),
+          padding: EdgeInsets.all(24.w),
           child: Container(
-            padding: const EdgeInsets.all(24),
+            padding: EdgeInsets.all(24.w),
             decoration: BoxDecoration(
               color: colorScheme.surface,
-              borderRadius: BorderRadius.circular(20),
+              borderRadius: BorderRadius.circular(20.r),
               border: Border.all(color: theme.dividerColor),
             ),
             child: Column(
               mainAxisSize: MainAxisSize.min,
               children: <Widget>[
                 Container(
-                  width: 64,
-                  height: 64,
+                  width: 64.r,
+                  height: 64.r,
                   alignment: Alignment.center,
                   decoration: BoxDecoration(
                     color: AppColors.success.withValues(alpha: 0.14),
                     shape: BoxShape.circle,
                   ),
-                  child: const Icon(
+                  child: Icon(
                     Icons.emoji_events_rounded,
                     color: AppColors.success,
-                    size: 36,
+                    size: 36.r,
                   ),
                 ),
-                const SizedBox(height: 16),
+                16.vSpace,
                 Text(
                   'Exercises Completed!',
                   style: getTextStyle(
@@ -508,7 +512,7 @@ class _ExerciseSummaryView extends StatelessWidget {
                   ),
                   textAlign: TextAlign.center,
                 ),
-                const SizedBox(height: 8),
+                8.vSpace,
                 Text(
                   'You scored $correctCount out of $totalCount ($percentage%)',
                   style: getTextStyle(
@@ -519,7 +523,7 @@ class _ExerciseSummaryView extends StatelessWidget {
                   textAlign: TextAlign.center,
                 ),
                 if (reviewedCount > 0) ...<Widget>[
-                  const SizedBox(height: 8),
+                  8.vSpace,
                   Text(
                     'You revisited $reviewedCount ${reviewedCount == 1 ? 'tricky exercise' : 'tricky exercises'} to strengthen recall.',
                     style: getTextStyle(
@@ -529,7 +533,7 @@ class _ExerciseSummaryView extends StatelessWidget {
                     textAlign: TextAlign.center,
                   ),
                 ],
-                const SizedBox(height: 24),
+                24.vSpace,
                 CustomButton(
                   key: const ValueKey<String>('exercise_retry_btn'),
                   label: 'Practice Again',
@@ -538,7 +542,7 @@ class _ExerciseSummaryView extends StatelessWidget {
                   onPressed: onRestart,
                 ),
                 if (onDone != null) ...<Widget>[
-                  const SizedBox(height: 12),
+                  12.vSpace,
                   CustomButton(
                     key: const ValueKey<String>('exercise_done_btn'),
                     label: 'Back to Lesson',

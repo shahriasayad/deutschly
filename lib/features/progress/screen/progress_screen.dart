@@ -4,6 +4,7 @@ import 'package:deutschly/core/app_colors.dart';
 import 'package:deutschly/core/custom_appbar.dart';
 import 'package:deutschly/core/custom_button.dart';
 import 'package:deutschly/core/global_text_style.dart';
+import 'package:deutschly/core/screen_util.dart';
 import 'package:deutschly/data/models/lesson.dart';
 import 'package:deutschly/features/course/controller/course_controller.dart';
 import 'package:deutschly/features/progress/controller/progress_controller.dart';
@@ -14,6 +15,7 @@ class ProgressScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    AppScreenUtil.init(context);
     final progressController = Get.isRegistered<ProgressController>()
         ? Get.find<ProgressController>()
         : Get.put(ProgressController());
@@ -51,16 +53,16 @@ class ProgressScreen extends StatelessWidget {
           child: ConstrainedBox(
             constraints: const BoxConstraints(maxWidth: 820),
             child: SingleChildScrollView(
-              padding: const EdgeInsets.fromLTRB(16, 16, 16, 32),
+              padding: EdgeInsets.fromLTRB(16.w, 16.h, 16.w, 32.h),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: <Widget>[
                   Container(
                     width: double.infinity,
-                    padding: const EdgeInsets.all(20),
+                    padding: EdgeInsets.all(20.w),
                     decoration: BoxDecoration(
                       color: colorScheme.surface,
-                      borderRadius: BorderRadius.circular(20),
+                      borderRadius: BorderRadius.circular(20.r),
                       border: Border.all(color: theme.dividerColor),
                     ),
                     child: Column(
@@ -87,7 +89,7 @@ class ProgressScreen extends StatelessWidget {
                             ),
                           ],
                         ),
-                        const SizedBox(height: 8),
+                        8.vSpace,
                         Text(
                           '$completedTotal of $courseTotal exercises completed',
                           style: getTextStyle(
@@ -95,12 +97,12 @@ class ProgressScreen extends StatelessWidget {
                             color: colorScheme.onSurfaceVariant,
                           ),
                         ),
-                        const SizedBox(height: 14),
+                        14.vSpace,
                         ClipRRect(
-                          borderRadius: BorderRadius.circular(999),
+                          borderRadius: BorderRadius.circular(999.r),
                           child: LinearProgressIndicator(
                             value: overallRatio,
-                            minHeight: 9,
+                            minHeight: 9.h,
                             backgroundColor:
                                 colorScheme.surfaceContainerHighest,
                             valueColor: AlwaysStoppedAnimation<Color>(
@@ -111,12 +113,12 @@ class ProgressScreen extends StatelessWidget {
                       ],
                     ),
                   ),
-                  const SizedBox(height: 24),
+                  24.vSpace,
                   _CanDoProgressSection(
                     lessons: lessons,
                     controller: progressController,
                   ),
-                  const SizedBox(height: 24),
+                  24.vSpace,
                   Text(
                     'Lesson Breakdown',
                     style: getTextStyle(
@@ -125,7 +127,7 @@ class ProgressScreen extends StatelessWidget {
                       color: colorScheme.onSurface,
                     ),
                   ),
-                  const SizedBox(height: 12),
+                  12.vSpace,
                   for (int i = 0; i < lessons.length; i++) ...<Widget>[
                     Builder(
                       builder: (BuildContext context) {
@@ -145,10 +147,10 @@ class ProgressScreen extends StatelessWidget {
                             );
 
                         return Container(
-                          padding: const EdgeInsets.all(16),
+                          padding: EdgeInsets.all(16.w),
                           decoration: BoxDecoration(
                             color: colorScheme.surface,
-                            borderRadius: BorderRadius.circular(16),
+                            borderRadius: BorderRadius.circular(16.r),
                             border: Border.all(color: theme.dividerColor),
                           ),
                           child: Column(
@@ -166,7 +168,7 @@ class ProgressScreen extends StatelessWidget {
                                       ),
                                     ),
                                   ),
-                                  const SizedBox(width: 8),
+                                  8.hSpace,
                                   Text(
                                     '$completed / $total ($percent%)',
                                     style: getTextStyle(
@@ -179,12 +181,12 @@ class ProgressScreen extends StatelessWidget {
                                   ),
                                 ],
                               ),
-                              const SizedBox(height: 10),
+                              10.vSpace,
                               ClipRRect(
-                                borderRadius: BorderRadius.circular(999),
+                                borderRadius: BorderRadius.circular(999.r),
                                 child: LinearProgressIndicator(
                                   value: ratio,
-                                  minHeight: 6,
+                                  minHeight: 6.h,
                                   backgroundColor:
                                       colorScheme.surfaceContainerHighest,
                                   valueColor: AlwaysStoppedAnimation<Color>(
@@ -199,9 +201,9 @@ class ProgressScreen extends StatelessWidget {
                         );
                       },
                     ),
-                    if (i < lessons.length - 1) const SizedBox(height: 10),
+                    if (i < lessons.length - 1) 10.vSpace,
                   ],
-                  const SizedBox(height: 24),
+                  24.vSpace,
                   CustomButton(
                     key: const ValueKey<String>('reset_progress_full_btn'),
                     label: 'Reset Progress',
@@ -251,7 +253,7 @@ class _CanDoProgressSection extends StatelessWidget {
             color: colorScheme.onSurface,
           ),
         ),
-        const SizedBox(height: 6),
+        6.vSpace,
         Text(
           'Check an ability when you can do it without help. Your self-checks are saved on this device.',
           style: getTextStyle(
@@ -259,13 +261,13 @@ class _CanDoProgressSection extends StatelessWidget {
             color: colorScheme.onSurfaceVariant,
           ),
         ),
-        const SizedBox(height: 12),
+        12.vSpace,
         Container(
           width: double.infinity,
-          padding: const EdgeInsets.all(16),
+          padding: EdgeInsets.all(16.w),
           decoration: BoxDecoration(
             color: colorScheme.primaryContainer,
-            borderRadius: BorderRadius.circular(16),
+            borderRadius: BorderRadius.circular(16.r),
           ),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
@@ -291,12 +293,12 @@ class _CanDoProgressSection extends StatelessWidget {
                   ),
                 ],
               ),
-              const SizedBox(height: 10),
+              10.vSpace,
               ClipRRect(
-                borderRadius: BorderRadius.circular(999),
+                borderRadius: BorderRadius.circular(999.r),
                 child: LinearProgressIndicator(
                   value: controller.canDoProgressRatio,
-                  minHeight: 7,
+                  minHeight: 7.h,
                   backgroundColor: colorScheme.surface.withValues(alpha: 0.55),
                   valueColor: AlwaysStoppedAnimation<Color>(
                     colorScheme.primary,
@@ -306,17 +308,17 @@ class _CanDoProgressSection extends StatelessWidget {
             ],
           ),
         ),
-        const SizedBox(height: 12),
+        12.vSpace,
         for (final lesson in lessons) ...<Widget>[
           Container(
             decoration: BoxDecoration(
               color: colorScheme.surface,
-              borderRadius: BorderRadius.circular(16),
+              borderRadius: BorderRadius.circular(16.r),
               border: Border.all(color: theme.dividerColor),
             ),
             child: ExpansionTile(
-              tilePadding: const EdgeInsets.symmetric(horizontal: 16),
-              childrenPadding: const EdgeInsets.fromLTRB(8, 0, 8, 8),
+              tilePadding: EdgeInsets.symmetric(horizontal: 16.w),
+              childrenPadding: EdgeInsets.fromLTRB(8.w, 0, 8.w, 8.h),
               title: Text(
                 'Lesson ${lesson.number}: ${lesson.title}',
                 style: getTextStyle(
@@ -360,12 +362,12 @@ class _CanDoProgressSection extends StatelessWidget {
                     ),
                     dense: true,
                     controlAffinity: ListTileControlAffinity.leading,
-                    contentPadding: const EdgeInsets.symmetric(horizontal: 8),
+                    contentPadding: EdgeInsets.symmetric(horizontal: 8.w),
                   ),
               ],
             ),
           ),
-          if (lesson != lessons.last) const SizedBox(height: 8),
+          if (lesson != lessons.last) 8.vSpace,
         ],
       ],
     );

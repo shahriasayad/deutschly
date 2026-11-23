@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:deutschly/core/global_text_style.dart';
+import 'package:deutschly/core/screen_util.dart';
 
 class ExamPracticeEntryCard extends StatelessWidget {
   const ExamPracticeEntryCard({super.key, required this.onTap});
@@ -13,18 +14,22 @@ class ExamPracticeEntryCard extends StatelessWidget {
       elevation: 0,
       color: colorScheme.surface,
       shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(18),
+        borderRadius: BorderRadius.circular(18.r),
         side: BorderSide(color: Theme.of(context).dividerColor),
       ),
       child: InkWell(
         onTap: onTap,
-        borderRadius: BorderRadius.circular(18),
+        borderRadius: BorderRadius.circular(18.r),
         child: Padding(
-          padding: const EdgeInsets.all(18),
+          padding: EdgeInsets.all(18.w),
           child: Row(
             children: <Widget>[
-              Icon(Icons.assignment_outlined, color: colorScheme.primary),
-              const SizedBox(width: 12),
+              Icon(
+                Icons.assignment_outlined,
+                size: 22.r,
+                color: colorScheme.primary,
+              ),
+              12.hSpace,
               Expanded(
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
@@ -37,7 +42,7 @@ class ExamPracticeEntryCard extends StatelessWidget {
                         color: colorScheme.onSurface,
                       ),
                     ),
-                    const SizedBox(height: 3),
+                    3.vSpace,
                     Text(
                       'Prepare listening, reading, writing, and speaking.',
                       style: getTextStyle(
@@ -48,8 +53,12 @@ class ExamPracticeEntryCard extends StatelessWidget {
                   ],
                 ),
               ),
-              const SizedBox(width: 8),
-              Icon(Icons.chevron_right_rounded, color: colorScheme.primary),
+              8.hSpace,
+              Icon(
+                Icons.chevron_right_rounded,
+                size: 22.r,
+                color: colorScheme.primary,
+              ),
             ],
           ),
         ),

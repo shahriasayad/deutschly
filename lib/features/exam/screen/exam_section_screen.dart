@@ -6,6 +6,7 @@ import 'package:go_router/go_router.dart';
 import 'package:deutschly/core/custom_appbar.dart';
 import 'package:deutschly/core/empty_state_widget.dart';
 import 'package:deutschly/core/global_text_style.dart';
+import 'package:deutschly/core/screen_util.dart';
 import 'package:deutschly/data/models/practice_session_item.dart';
 import 'package:deutschly/features/exam/controller/exam_practice_controller.dart';
 import 'package:deutschly/features/exam/controller/exam_timer_controller.dart';
@@ -109,6 +110,7 @@ class _ExamSectionScreenState extends State<ExamSectionScreen> {
 
   @override
   Widget build(BuildContext context) {
+    AppScreenUtil.init(context);
     final colorScheme = Theme.of(context).colorScheme;
     return Scaffold(
       appBar: CustomAppBar(
@@ -121,7 +123,7 @@ class _ExamSectionScreenState extends State<ExamSectionScreen> {
         actions: widget.timed
             ? <Widget>[
                 Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 16),
+                  padding: EdgeInsets.symmetric(horizontal: 16.w),
                   child: Center(
                     child: Obx(
                       () => Text(
@@ -145,7 +147,7 @@ class _ExamSectionScreenState extends State<ExamSectionScreen> {
           if (!widget.timed)
             Container(
               width: double.infinity,
-              padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 9),
+              padding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 9.h),
               color: colorScheme.surfaceContainerHighest,
               child: Text(
                 'Untimed practice · Exam section time: ${widget.skill.durationMinutes} minutes',

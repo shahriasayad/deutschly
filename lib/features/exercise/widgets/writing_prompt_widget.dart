@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:deutschly/core/custom_text_field.dart';
 import 'package:deutschly/core/global_text_style.dart';
+import 'package:deutschly/core/screen_util.dart';
 import 'package:deutschly/data/models/exercise.dart';
 
 class WritingPromptWidget extends StatelessWidget {
@@ -40,7 +41,7 @@ class WritingPromptWidget extends StatelessWidget {
             color: colorScheme.onSurfaceVariant,
           ),
         ),
-        const SizedBox(height: 10),
+        10.vSpace,
         CustomTextField(
           key: const ValueKey<String>('writing_response'),
           controller: textController,
@@ -50,17 +51,17 @@ class WritingPromptWidget extends StatelessWidget {
           maxLines: 6,
           onChanged: onChanged,
         ),
-        const SizedBox(height: 14),
+        14.vSpace,
         InkWell(
           key: const ValueKey<String>('writing_toggle_example'),
           onTap: onToggleExample,
-          borderRadius: BorderRadius.circular(12),
+          borderRadius: BorderRadius.circular(12.r),
           child: Container(
             width: double.infinity,
-            padding: const EdgeInsets.all(14),
+            padding: EdgeInsets.all(14.w),
             decoration: BoxDecoration(
               color: colorScheme.surface,
-              borderRadius: BorderRadius.circular(12),
+              borderRadius: BorderRadius.circular(12.r),
               border: Border.all(color: theme.dividerColor),
             ),
             child: Column(
@@ -75,7 +76,7 @@ class WritingPromptWidget extends StatelessWidget {
                   ),
                 ),
                 if (showExample) ...<Widget>[
-                  const SizedBox(height: 8),
+                  8.vSpace,
                   Text(
                     exercise.exampleAnswer,
                     style: getTextStyle(
@@ -90,7 +91,7 @@ class WritingPromptWidget extends StatelessWidget {
             ),
           ),
         ),
-        const SizedBox(height: 14),
+        14.vSpace,
         Text(
           'Compare your response with the example. Did you include the key information?',
           style: getTextStyle(
@@ -99,14 +100,17 @@ class WritingPromptWidget extends StatelessWidget {
             color: colorScheme.onSurface,
           ),
         ),
-        const SizedBox(height: 10),
+        10.vSpace,
         Wrap(
-          spacing: 10,
-          runSpacing: 8,
+          spacing: 10.w,
+          runSpacing: 8.h,
           children: <Widget>[
             ChoiceChip(
               key: const ValueKey<String>('writing_eval_ready'),
-              label: const Text('I included the key details'),
+              label: Text(
+                'I included the key details',
+                style: getTextStyle(fontSize: 13, fontWeight: FontWeight.w500),
+              ),
               selected: selfEvaluation == true,
               onSelected: isChecked
                   ? null
@@ -114,7 +118,10 @@ class WritingPromptWidget extends StatelessWidget {
             ),
             ChoiceChip(
               key: const ValueKey<String>('writing_eval_retry'),
-              label: const Text('I need to revise it'),
+              label: Text(
+                'I need to revise it',
+                style: getTextStyle(fontSize: 13, fontWeight: FontWeight.w500),
+              ),
               selected: selfEvaluation == false,
               onSelected: isChecked
                   ? null

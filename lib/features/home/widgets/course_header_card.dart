@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:deutschly/core/global_text_style.dart';
+import 'package:deutschly/core/screen_util.dart';
 import 'package:deutschly/data/models/course.dart';
 
 class CourseHeaderCard extends StatelessWidget {
@@ -20,7 +21,7 @@ class CourseHeaderCard extends StatelessWidget {
 
     return Container(
       width: double.infinity,
-      padding: const EdgeInsets.all(20),
+      padding: EdgeInsets.all(20.w),
       decoration: BoxDecoration(
         gradient: LinearGradient(
           colors: <Color>[
@@ -30,7 +31,7 @@ class CourseHeaderCard extends StatelessWidget {
           begin: Alignment.topLeft,
           end: Alignment.bottomRight,
         ),
-        borderRadius: BorderRadius.circular(20),
+        borderRadius: BorderRadius.circular(20.r),
       ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -38,13 +39,13 @@ class CourseHeaderCard extends StatelessWidget {
           Row(
             children: <Widget>[
               Container(
-                padding: const EdgeInsets.symmetric(
-                  horizontal: 10,
-                  vertical: 4,
+                padding: EdgeInsets.symmetric(
+                  horizontal: 10.w,
+                  vertical: 4.h,
                 ),
                 decoration: BoxDecoration(
                   color: colorScheme.onPrimary.withValues(alpha: 0.18),
-                  borderRadius: BorderRadius.circular(999),
+                  borderRadius: BorderRadius.circular(999.r),
                 ),
                 child: Text(
                   'CEFR ${course.level}',
@@ -66,7 +67,7 @@ class CourseHeaderCard extends StatelessWidget {
               ),
             ],
           ),
-          const SizedBox(height: 12),
+          12.vSpace,
           Text(
             course.title,
             style: getTextStyle(
@@ -75,7 +76,7 @@ class CourseHeaderCard extends StatelessWidget {
               color: colorScheme.onPrimary,
             ),
           ),
-          const SizedBox(height: 6),
+          6.vSpace,
           Text(
             course.description,
             style: getTextStyle(
@@ -84,7 +85,7 @@ class CourseHeaderCard extends StatelessWidget {
               height: 1.4,
             ),
           ),
-          const SizedBox(height: 16),
+          16.vSpace,
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: <Widget>[
@@ -106,12 +107,12 @@ class CourseHeaderCard extends StatelessWidget {
               ),
             ],
           ),
-          const SizedBox(height: 8),
+          8.vSpace,
           ClipRRect(
-            borderRadius: BorderRadius.circular(999),
+            borderRadius: BorderRadius.circular(999.r),
             child: LinearProgressIndicator(
               value: overallProgress,
-              minHeight: 8,
+              minHeight: 8.h,
               backgroundColor: colorScheme.onPrimary.withValues(alpha: 0.24),
               valueColor: AlwaysStoppedAnimation<Color>(colorScheme.onPrimary),
             ),

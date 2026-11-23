@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:deutschly/core/custom_text_field.dart';
 import 'package:deutschly/core/global_text_style.dart';
+import 'package:deutschly/core/screen_util.dart';
 import 'package:deutschly/data/models/exercise.dart';
 
 class FillBlankWidget extends StatelessWidget {
@@ -46,24 +47,24 @@ class FillBlankWidget extends StatelessWidget {
           onChanged: onChanged,
           onSubmitted: onSubmitted,
         ),
-        const SizedBox(height: 12),
+        12.vSpace,
         Wrap(
-          spacing: 8,
-          runSpacing: 8,
+          spacing: 8.w,
+          runSpacing: 8.h,
           children: _germanChars
               .map(
                 (String char) => InkWell(
                   key: ValueKey<String>('umlaut_$char'),
                   onTap: isChecked ? null : () => onInsertSpecialChar(char),
-                  borderRadius: BorderRadius.circular(8),
+                  borderRadius: BorderRadius.circular(8.r),
                   child: Container(
-                    padding: const EdgeInsets.symmetric(
-                      horizontal: 12,
-                      vertical: 6,
+                    padding: EdgeInsets.symmetric(
+                      horizontal: 12.w,
+                      vertical: 6.h,
                     ),
                     decoration: BoxDecoration(
                       color: colorScheme.surface,
-                      borderRadius: BorderRadius.circular(8),
+                      borderRadius: BorderRadius.circular(8.r),
                       border: Border.all(color: theme.dividerColor),
                     ),
                     child: Text(

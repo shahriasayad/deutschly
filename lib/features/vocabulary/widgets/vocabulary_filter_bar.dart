@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:deutschly/core/custom_text_field.dart';
 import 'package:deutschly/core/global_text_style.dart';
+import 'package:deutschly/core/screen_util.dart';
 import 'package:deutschly/data/models/lesson.dart';
 
 class VocabularyFilterBar extends StatelessWidget {
@@ -39,7 +40,7 @@ class VocabularyFilterBar extends StatelessWidget {
           prefixIcon: const Icon(Icons.search_rounded),
           onChanged: onSearchChanged,
         ),
-        const SizedBox(height: 12),
+        12.vSpace,
         SingleChildScrollView(
           scrollDirection: Axis.horizontal,
           child: Row(
@@ -51,7 +52,7 @@ class VocabularyFilterBar extends StatelessWidget {
                 onTap: () => onSelectLesson(null),
               ),
               for (final Lesson lesson in lessons) ...<Widget>[
-                const SizedBox(width: 8),
+                8.hSpace,
                 _FilterChipItem(
                   key: ValueKey<String>('vocab_filter_${lesson.id}'),
                   label: 'Lesson ${lesson.number}',
@@ -62,7 +63,7 @@ class VocabularyFilterBar extends StatelessWidget {
             ],
           ),
         ),
-        const SizedBox(height: 12),
+        12.vSpace,
         Row(
           children: <Widget>[
             Text(
@@ -77,17 +78,17 @@ class VocabularyFilterBar extends StatelessWidget {
             InkWell(
               key: const ValueKey<String>('vocab_quiz_mode_toggle'),
               onTap: onToggleHideTranslations,
-              borderRadius: BorderRadius.circular(8),
+              borderRadius: BorderRadius.circular(8.r),
               child: Container(
-                padding: const EdgeInsets.symmetric(
-                  horizontal: 10,
-                  vertical: 6,
+                padding: EdgeInsets.symmetric(
+                  horizontal: 10.w,
+                  vertical: 6.h,
                 ),
                 decoration: BoxDecoration(
                   color: hideTranslations
                       ? colorScheme.primaryContainer
                       : colorScheme.surface,
-                  borderRadius: BorderRadius.circular(8),
+                  borderRadius: BorderRadius.circular(8.r),
                   border: Border.all(
                     color: hideTranslations
                         ? colorScheme.primary
@@ -101,10 +102,10 @@ class VocabularyFilterBar extends StatelessWidget {
                       hideTranslations
                           ? Icons.visibility_off_outlined
                           : Icons.visibility_outlined,
-                      size: 16,
+                      size: 16.r,
                       color: colorScheme.primary,
                     ),
-                    const SizedBox(width: 6),
+                    6.hSpace,
                     Text(
                       hideTranslations
                           ? 'Flashcard Mode: ON'
@@ -145,12 +146,12 @@ class _FilterChipItem extends StatelessWidget {
 
     return InkWell(
       onTap: onTap,
-      borderRadius: BorderRadius.circular(999),
+      borderRadius: BorderRadius.circular(999.r),
       child: Container(
-        padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 8),
+        padding: EdgeInsets.symmetric(horizontal: 14.w, vertical: 8.h),
         decoration: BoxDecoration(
           color: isSelected ? colorScheme.primary : colorScheme.surface,
-          borderRadius: BorderRadius.circular(999),
+          borderRadius: BorderRadius.circular(999.r),
           border: Border.all(
             color: isSelected ? colorScheme.primary : theme.dividerColor,
           ),

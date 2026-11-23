@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:deutschly/core/custom_button.dart';
 import 'package:deutschly/core/global_text_style.dart';
+import 'package:deutschly/core/screen_util.dart';
 
 class EmptyStateWidget extends StatelessWidget {
   const EmptyStateWidget({
@@ -24,15 +25,15 @@ class EmptyStateWidget extends StatelessWidget {
 
     return Center(
       child: Padding(
-        padding: const EdgeInsets.all(24),
+        padding: EdgeInsets.all(24.w),
         child: ConstrainedBox(
           constraints: const BoxConstraints(maxWidth: 380),
           child: Column(
             mainAxisSize: MainAxisSize.min,
             children: <Widget>[
               Container(
-                width: 64,
-                height: 64,
+                width: 64.r,
+                height: 64.r,
                 alignment: Alignment.center,
                 decoration: BoxDecoration(
                   color: colorScheme.primaryContainer.withValues(alpha: 0.5),
@@ -40,11 +41,11 @@ class EmptyStateWidget extends StatelessWidget {
                 ),
                 child: Icon(
                   icon,
-                  size: 32,
+                  size: 32.r,
                   color: colorScheme.primary,
                 ),
               ),
-              const SizedBox(height: 16),
+              16.vSpace,
               Text(
                 title,
                 style: getTextStyle(
@@ -54,7 +55,7 @@ class EmptyStateWidget extends StatelessWidget {
                 ),
                 textAlign: TextAlign.center,
               ),
-              const SizedBox(height: 8),
+              8.vSpace,
               Text(
                 subtitle,
                 style: getTextStyle(
@@ -65,10 +66,10 @@ class EmptyStateWidget extends StatelessWidget {
                 textAlign: TextAlign.center,
               ),
               if (actionLabel != null && onAction != null) ...<Widget>[
-                const SizedBox(height: 20),
+                20.vSpace,
                 CustomButton(
                   label: actionLabel!,
-                  width: 180,
+                  width: 180.w,
                   backgroundColor: colorScheme.primary,
                   textColor: colorScheme.onPrimary,
                   onPressed: onAction,

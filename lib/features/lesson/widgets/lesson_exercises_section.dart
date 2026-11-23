@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:deutschly/core/app_colors.dart';
 import 'package:deutschly/core/custom_button.dart';
 import 'package:deutschly/core/global_text_style.dart';
+import 'package:deutschly/core/screen_util.dart';
 import 'package:deutschly/data/models/exercise.dart';
 import 'package:deutschly/features/lesson/controller/lesson_detail_controller.dart';
 
@@ -26,10 +27,10 @@ class LessonExercisesSection extends StatelessWidget {
 
     return Container(
       width: double.infinity,
-      padding: const EdgeInsets.all(18),
+      padding: EdgeInsets.all(18.w),
       decoration: BoxDecoration(
         color: colorScheme.surface,
-        borderRadius: BorderRadius.circular(16),
+        borderRadius: BorderRadius.circular(16.r),
         border: Border.all(color: theme.dividerColor),
       ),
       child: Column(
@@ -40,9 +41,9 @@ class LessonExercisesSection extends StatelessWidget {
               Icon(
                 Icons.quiz_outlined,
                 color: colorScheme.primary,
-                size: 20,
+                size: 20.r,
               ),
-              const SizedBox(width: 8),
+              8.hSpace,
               Expanded(
                 child: Text(
                   'Exercises (${exercises.length})',
@@ -55,7 +56,7 @@ class LessonExercisesSection extends StatelessWidget {
               ),
             ],
           ),
-          const SizedBox(height: 14),
+          14.vSpace,
           for (int i = 0; i < exercises.length; i++) ...<Widget>[
             _ExerciseListTile(
               index: i,
@@ -63,9 +64,9 @@ class LessonExercisesSection extends StatelessWidget {
               isCompleted: completedExerciseIds.contains(exercises[i].id),
               onTap: () => onSelectExercise(i),
             ),
-            if (i < exercises.length - 1) const SizedBox(height: 10),
+            if (i < exercises.length - 1) 10.vSpace,
           ],
-          const SizedBox(height: 16),
+          16.vSpace,
           CustomButton(
             label: 'Start Exercises',
             backgroundColor: colorScheme.primary,
@@ -100,12 +101,12 @@ class _ExerciseListTile extends StatelessWidget {
 
     return InkWell(
       onTap: onTap,
-      borderRadius: BorderRadius.circular(12),
+      borderRadius: BorderRadius.circular(12.r),
       child: Container(
-        padding: const EdgeInsets.all(14),
+        padding: EdgeInsets.all(14.w),
         decoration: BoxDecoration(
           color: colorScheme.surfaceContainerHighest.withValues(alpha: 0.35),
-          borderRadius: BorderRadius.circular(12),
+          borderRadius: BorderRadius.circular(12.r),
           border: Border.all(
             color: isCompleted
                 ? AppColors.success.withValues(alpha: 0.5)
@@ -116,19 +117,19 @@ class _ExerciseListTile extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
             Container(
-              width: 32,
-              height: 32,
+              width: 32.r,
+              height: 32.r,
               alignment: Alignment.center,
               decoration: BoxDecoration(
                 color: isCompleted
                     ? AppColors.success.withValues(alpha: 0.15)
                     : colorScheme.primaryContainer,
-                borderRadius: BorderRadius.circular(8),
+                borderRadius: BorderRadius.circular(8.r),
               ),
               child: isCompleted
-                  ? const Icon(
+                  ? Icon(
                       Icons.check_rounded,
-                      size: 18,
+                      size: 18.r,
                       color: AppColors.success,
                     )
                   : Text(
@@ -140,7 +141,7 @@ class _ExerciseListTile extends StatelessWidget {
                       ),
                     ),
             ),
-            const SizedBox(width: 12),
+            12.hSpace,
             Expanded(
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -148,13 +149,13 @@ class _ExerciseListTile extends StatelessWidget {
                   Row(
                     children: <Widget>[
                       Container(
-                        padding: const EdgeInsets.symmetric(
-                          horizontal: 8,
-                          vertical: 2,
+                        padding: EdgeInsets.symmetric(
+                          horizontal: 8.w,
+                          vertical: 2.h,
                         ),
                         decoration: BoxDecoration(
                           color: colorScheme.surface,
-                          borderRadius: BorderRadius.circular(6),
+                          borderRadius: BorderRadius.circular(6.r),
                           border: Border.all(color: theme.dividerColor),
                         ),
                         child: Text(
@@ -179,7 +180,7 @@ class _ExerciseListTile extends StatelessWidget {
                       ),
                     ],
                   ),
-                  const SizedBox(height: 6),
+                  6.vSpace,
                   Text(
                     exercise.question,
                     style: getTextStyle(

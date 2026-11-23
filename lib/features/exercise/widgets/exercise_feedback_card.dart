@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:deutschly/core/app_colors.dart';
 import 'package:deutschly/core/global_text_style.dart';
+import 'package:deutschly/core/screen_util.dart';
 
 class ExerciseFeedbackCard extends StatelessWidget {
   const ExerciseFeedbackCard({
@@ -41,10 +42,10 @@ class ExerciseFeedbackCard extends StatelessWidget {
 
     return Container(
       width: double.infinity,
-      padding: const EdgeInsets.all(16),
+      padding: EdgeInsets.all(16.w),
       decoration: BoxDecoration(
         color: statusColor.withValues(alpha: 0.12),
-        borderRadius: BorderRadius.circular(16),
+        borderRadius: BorderRadius.circular(16.r),
         border: Border.all(color: statusColor.withValues(alpha: 0.6)),
       ),
       child: Column(
@@ -59,9 +60,9 @@ class ExerciseFeedbackCard extends StatelessWidget {
                     ? Icons.lightbulb_outline_rounded
                     : Icons.cancel_rounded,
                 color: statusColor,
-                size: 22,
+                size: 22.r,
               ),
-              const SizedBox(width: 8),
+              8.hSpace,
               Text(
                 feedbackTitle,
                 style: getTextStyle(
@@ -74,7 +75,7 @@ class ExerciseFeedbackCard extends StatelessWidget {
           ),
           if ((isSelfAssessment || !isCorrect) &&
               correctAnswerSummary.isNotEmpty) ...<Widget>[
-            const SizedBox(height: 8),
+            8.vSpace,
             Text(
               '${isSelfAssessment ? 'Example answer' : 'Correct answer'}: $correctAnswerSummary',
               style: getTextStyle(
@@ -86,7 +87,7 @@ class ExerciseFeedbackCard extends StatelessWidget {
           ],
           if (explanation != null &&
               explanation!.trim().isNotEmpty) ...<Widget>[
-            const SizedBox(height: 8),
+            8.vSpace,
             Text(
               explanation!,
               style: getTextStyle(

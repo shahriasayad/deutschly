@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:deutschly/core/global_text_style.dart';
+import 'package:deutschly/core/screen_util.dart';
 import 'package:deutschly/data/models/grammar_point.dart';
 
 class LessonGrammarSection extends StatelessWidget {
@@ -17,10 +18,10 @@ class LessonGrammarSection extends StatelessWidget {
 
     return Container(
       width: double.infinity,
-      padding: const EdgeInsets.all(18),
+      padding: EdgeInsets.all(18.w),
       decoration: BoxDecoration(
         color: colorScheme.surface,
-        borderRadius: BorderRadius.circular(16),
+        borderRadius: BorderRadius.circular(16.r),
         border: Border.all(color: theme.dividerColor),
       ),
       child: Column(
@@ -31,9 +32,9 @@ class LessonGrammarSection extends StatelessWidget {
               Icon(
                 Icons.auto_stories_outlined,
                 color: colorScheme.primary,
-                size: 20,
+                size: 20.r,
               ),
-              const SizedBox(width: 8),
+              8.hSpace,
               Text(
                 'Grammar (${grammarPoints.length})',
                 style: getTextStyle(
@@ -44,10 +45,10 @@ class LessonGrammarSection extends StatelessWidget {
               ),
             ],
           ),
-          const SizedBox(height: 14),
+          14.vSpace,
           for (int i = 0; i < grammarPoints.length; i++) ...<Widget>[
             _GrammarPointCard(point: grammarPoints[i]),
-            if (i < grammarPoints.length - 1) const SizedBox(height: 12),
+            if (i < grammarPoints.length - 1) 12.vSpace,
           ],
         ],
       ),
@@ -68,10 +69,10 @@ class _GrammarPointCard extends StatelessWidget {
 
     return Container(
       width: double.infinity,
-      padding: const EdgeInsets.all(14),
+      padding: EdgeInsets.all(14.w),
       decoration: BoxDecoration(
         color: colorScheme.surfaceContainerHighest.withValues(alpha: 0.35),
-        borderRadius: BorderRadius.circular(12),
+        borderRadius: BorderRadius.circular(12.r),
         border: Border.all(color: theme.dividerColor),
       ),
       child: Column(
@@ -85,7 +86,7 @@ class _GrammarPointCard extends StatelessWidget {
               color: colorScheme.onSurface,
             ),
           ),
-          const SizedBox(height: 4),
+          4.vSpace,
           Text(
             point.explanation,
             style: getTextStyle(
@@ -95,23 +96,23 @@ class _GrammarPointCard extends StatelessWidget {
             ),
           ),
           if (point.examples.isNotEmpty) ...<Widget>[
-            const SizedBox(height: 10),
+            10.vSpace,
             for (final String example in point.examples)
               Padding(
-                padding: const EdgeInsets.only(bottom: 6),
+                padding: EdgeInsets.only(bottom: 6.h),
                 child: Row(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: <Widget>[
                     Container(
-                      margin: const EdgeInsets.only(top: 6),
-                      width: 6,
-                      height: 6,
+                      margin: EdgeInsets.only(top: 6.h),
+                      width: 6.r,
+                      height: 6.r,
                       decoration: BoxDecoration(
                         color: colorScheme.primary,
                         shape: BoxShape.circle,
                       ),
                     ),
-                    const SizedBox(width: 8),
+                    8.hSpace,
                     Expanded(
                       child: Text(
                         example,
@@ -127,11 +128,11 @@ class _GrammarPointCard extends StatelessWidget {
               ),
           ],
           if (table != null && table.isNotEmpty) ...<Widget>[
-            const SizedBox(height: 12),
+            12.vSpace,
             for (final MapEntry<String, List<String>> entry
                 in table.entries) ...<Widget>[
               Padding(
-                padding: const EdgeInsets.only(bottom: 8),
+                padding: EdgeInsets.only(bottom: 8.h),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: <Widget>[
@@ -143,20 +144,20 @@ class _GrammarPointCard extends StatelessWidget {
                         color: colorScheme.primary,
                       ),
                     ),
-                    const SizedBox(height: 4),
+                    4.vSpace,
                     Wrap(
-                      spacing: 8,
-                      runSpacing: 6,
+                      spacing: 8.w,
+                      runSpacing: 6.h,
                       children: entry.value
                           .map(
                             (String form) => Container(
-                              padding: const EdgeInsets.symmetric(
-                                horizontal: 10,
-                                vertical: 4,
+                              padding: EdgeInsets.symmetric(
+                                horizontal: 10.w,
+                                vertical: 4.h,
                               ),
                               decoration: BoxDecoration(
                                 color: colorScheme.surface,
-                                borderRadius: BorderRadius.circular(8),
+                                borderRadius: BorderRadius.circular(8.r),
                                 border: Border.all(color: theme.dividerColor),
                               ),
                               child: Text(

@@ -3,6 +3,7 @@ import 'package:get/get.dart';
 import 'package:deutschly/core/custom_appbar.dart';
 import 'package:deutschly/core/empty_state_widget.dart';
 import 'package:deutschly/core/global_text_style.dart';
+import 'package:deutschly/core/screen_util.dart';
 import 'package:deutschly/features/vocabulary/controller/vocabulary_controller.dart';
 import 'package:deutschly/features/vocabulary/widgets/vocabulary_filter_bar.dart';
 
@@ -11,6 +12,7 @@ class VocabularyScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    AppScreenUtil.init(context);
     final controller = Get.isRegistered<VocabularyController>()
         ? Get.find<VocabularyController>()
         : Get.put(VocabularyController());
@@ -29,7 +31,7 @@ class VocabularyScreen extends StatelessWidget {
           child: ConstrainedBox(
             constraints: const BoxConstraints(maxWidth: 920),
             child: Padding(
-              padding: const EdgeInsets.fromLTRB(16, 16, 16, 0),
+              padding: EdgeInsets.fromLTRB(16.w, 16.h, 16.w, 0),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: <Widget>[
@@ -43,7 +45,7 @@ class VocabularyScreen extends StatelessWidget {
                     onSelectLesson: controller.selectLessonFilter,
                     onToggleHideTranslations: controller.toggleHideTranslations,
                   ),
-                  const SizedBox(height: 12),
+                  12.vSpace,
                   Expanded(
                     child: entries.isEmpty
                         ? EmptyStateWidget(
@@ -55,10 +57,9 @@ class VocabularyScreen extends StatelessWidget {
                             onAction: controller.clearFilters,
                           )
                         : ListView.separated(
-                            padding: const EdgeInsets.only(bottom: 24),
+                            padding: EdgeInsets.only(bottom: 24.h),
                             itemCount: entries.length,
-                            separatorBuilder: (_, _) =>
-                                const SizedBox(height: 10),
+                            separatorBuilder: (_, _) => 10.vSpace,
                             itemBuilder: (BuildContext context, int index) {
                               final entry = entries[index];
                               final wordKey =
@@ -72,12 +73,12 @@ class VocabularyScreen extends StatelessWidget {
                                 onTap: hideTranslations
                                     ? () => controller.toggleWordReveal(wordKey)
                                     : null,
-                                borderRadius: BorderRadius.circular(14),
+                                borderRadius: BorderRadius.circular(14.r),
                                 child: Container(
-                                  padding: const EdgeInsets.all(16),
+                                  padding: EdgeInsets.all(16.w),
                                   decoration: BoxDecoration(
                                     color: colorScheme.surface,
-                                    borderRadius: BorderRadius.circular(14),
+                                    borderRadius: BorderRadius.circular(14.r),
                                     border: Border.all(
                                       color: theme.dividerColor,
                                     ),
@@ -87,14 +88,14 @@ class VocabularyScreen extends StatelessWidget {
                                         CrossAxisAlignment.start,
                                     children: <Widget>[
                                       Container(
-                                        padding: const EdgeInsets.symmetric(
-                                          horizontal: 8,
-                                          vertical: 4,
+                                        padding: EdgeInsets.symmetric(
+                                          horizontal: 8.w,
+                                          vertical: 4.h,
                                         ),
                                         decoration: BoxDecoration(
                                           color: colorScheme.primaryContainer,
                                           borderRadius: BorderRadius.circular(
-                                            8,
+                                            8.r,
                                           ),
                                         ),
                                         child: Text(
@@ -107,7 +108,7 @@ class VocabularyScreen extends StatelessWidget {
                                           ),
                                         ),
                                       ),
-                                      const SizedBox(width: 12),
+                                      12.hSpace,
                                       Expanded(
                                         child: Column(
                                           crossAxisAlignment:
@@ -126,7 +127,7 @@ class VocabularyScreen extends StatelessWidget {
                                                     .pronunciationBn
                                                     ?.isNotEmpty ==
                                                 true) ...<Widget>[
-                                              const SizedBox(height: 3),
+                                              3.vSpace,
                                               Text(
                                                 'উচ্চারণ (আনুমানিক): ${entry.item.pronunciationBn}',
                                                 style: getTextStyle(
@@ -136,7 +137,7 @@ class VocabularyScreen extends StatelessWidget {
                                                 ),
                                               ),
                                             ],
-                                            const SizedBox(height: 4),
+                                            4.vSpace,
                                             if (isRevealed) ...<Widget>[
                                               Text(
                                                 entry.item.en,
@@ -146,7 +147,7 @@ class VocabularyScreen extends StatelessWidget {
                                                   color: colorScheme.primary,
                                                 ),
                                               ),
-                                              const SizedBox(height: 2),
+                                              2.vSpace,
                                               Text(
                                                 entry.item.bn,
                                                 style: getTextStyle(

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:deutschly/core/app_colors.dart';
 import 'package:deutschly/core/global_text_style.dart';
+import 'package:deutschly/core/screen_util.dart';
 import 'package:deutschly/data/models/exercise.dart';
 
 class OrderingWidget extends StatelessWidget {
@@ -34,7 +35,7 @@ class OrderingWidget extends StatelessWidget {
             color: colorScheme.onSurfaceVariant,
           ),
         ),
-        const SizedBox(height: 12),
+        12.vSpace,
         ReorderableListView.builder(
           shrinkWrap: true,
           physics: const NeverScrollableScrollPhysics(),
@@ -60,22 +61,22 @@ class OrderingWidget extends StatelessWidget {
 
             return Container(
               key: ValueKey<String>('ordering_item_$itemIndex'),
-              margin: const EdgeInsets.only(bottom: 10),
-              padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 10),
+              margin: EdgeInsets.only(bottom: 10.h),
+              padding: EdgeInsets.symmetric(horizontal: 12.w, vertical: 10.h),
               decoration: BoxDecoration(
                 color: bgColor,
-                borderRadius: BorderRadius.circular(12),
+                borderRadius: BorderRadius.circular(12.r),
                 border: Border.all(color: borderColor),
               ),
               child: Row(
                 children: <Widget>[
                   Container(
-                    width: 26,
-                    height: 26,
+                    width: 26.r,
+                    height: 26.r,
                     alignment: Alignment.center,
                     decoration: BoxDecoration(
                       color: colorScheme.primaryContainer,
-                      borderRadius: BorderRadius.circular(8),
+                      borderRadius: BorderRadius.circular(8.r),
                     ),
                     child: Text(
                       '${position + 1}',
@@ -86,7 +87,7 @@ class OrderingWidget extends StatelessWidget {
                       ),
                     ),
                   ),
-                  const SizedBox(width: 12),
+                  12.hSpace,
                   Expanded(
                     child: Text(
                       text,

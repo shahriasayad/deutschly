@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:deutschly/core/global_text_style.dart';
+import 'package:deutschly/core/screen_util.dart';
 import 'package:deutschly/data/models/dialogue.dart';
 
 class LessonDialoguesSection extends StatelessWidget {
@@ -14,10 +15,10 @@ class LessonDialoguesSection extends StatelessWidget {
 
     return Container(
       width: double.infinity,
-      padding: const EdgeInsets.all(18),
+      padding: EdgeInsets.all(18.w),
       decoration: BoxDecoration(
         color: colorScheme.surface,
-        borderRadius: BorderRadius.circular(16),
+        borderRadius: BorderRadius.circular(16.r),
         border: Border.all(color: theme.dividerColor),
       ),
       child: Column(
@@ -25,8 +26,8 @@ class LessonDialoguesSection extends StatelessWidget {
         children: <Widget>[
           Row(
             children: <Widget>[
-              Icon(Icons.forum_outlined, color: colorScheme.primary, size: 20),
-              const SizedBox(width: 8),
+              Icon(Icons.forum_outlined, color: colorScheme.primary, size: 20.r),
+              8.hSpace,
               Text(
                 'Dialogues (${dialogues.length})',
                 style: getTextStyle(
@@ -37,10 +38,10 @@ class LessonDialoguesSection extends StatelessWidget {
               ),
             ],
           ),
-          const SizedBox(height: 14),
+          14.vSpace,
           for (int i = 0; i < dialogues.length; i++) ...<Widget>[
             _DialogueCard(dialogue: dialogues[i]),
-            if (i < dialogues.length - 1) const SizedBox(height: 14),
+            if (i < dialogues.length - 1) 14.vSpace,
           ],
         ],
       ),
@@ -60,10 +61,10 @@ class _DialogueCard extends StatelessWidget {
 
     return Container(
       width: double.infinity,
-      padding: const EdgeInsets.all(14),
+      padding: EdgeInsets.all(14.w),
       decoration: BoxDecoration(
         color: colorScheme.surfaceContainerHighest.withValues(alpha: 0.35),
-        borderRadius: BorderRadius.circular(12),
+        borderRadius: BorderRadius.circular(12.r),
         border: Border.all(color: theme.dividerColor),
       ),
       child: Column(
@@ -77,10 +78,10 @@ class _DialogueCard extends StatelessWidget {
               color: colorScheme.primary,
             ),
           ),
-          const SizedBox(height: 12),
+          12.vSpace,
           for (int i = 0; i < dialogue.lines.length; i++) ...<Widget>[
             _DialogueLineRow(line: dialogue.lines[i], isEvenSpeaker: i.isEven),
-            if (i < dialogue.lines.length - 1) const SizedBox(height: 10),
+            if (i < dialogue.lines.length - 1) 10.vSpace,
           ],
         ],
       ),
@@ -108,8 +109,8 @@ class _DialogueLineRow extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: <Widget>[
         Container(
-          width: 28,
-          height: 28,
+          width: 28.r,
+          height: 28.r,
           alignment: Alignment.center,
           decoration: BoxDecoration(color: avatarBg, shape: BoxShape.circle),
           child: Text(
@@ -121,13 +122,13 @@ class _DialogueLineRow extends StatelessWidget {
             ),
           ),
         ),
-        const SizedBox(width: 10),
+        10.hSpace,
         Expanded(
           child: Container(
-            padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 10),
+            padding: EdgeInsets.symmetric(horizontal: 12.w, vertical: 10.h),
             decoration: BoxDecoration(
               color: colorScheme.surface,
-              borderRadius: BorderRadius.circular(12),
+              borderRadius: BorderRadius.circular(12.r),
             ),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
@@ -141,7 +142,7 @@ class _DialogueLineRow extends StatelessWidget {
                   ),
                 ),
                 if (line.pronunciationBn?.isNotEmpty == true) ...<Widget>[
-                  const SizedBox(height: 4),
+                  4.vSpace,
                   Text(
                     'উচ্চারণ (আনুমানিক): ${line.pronunciationBn}',
                     style: getTextStyle(

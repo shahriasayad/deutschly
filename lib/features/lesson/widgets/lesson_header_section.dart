@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:deutschly/core/custom_button.dart';
 import 'package:deutschly/core/global_text_style.dart';
+import 'package:deutschly/core/screen_util.dart';
 import 'package:deutschly/data/models/lesson.dart';
 
 class LessonHeaderSection extends StatelessWidget {
@@ -25,10 +26,10 @@ class LessonHeaderSection extends StatelessWidget {
 
     return Container(
       width: double.infinity,
-      padding: const EdgeInsets.all(20),
+      padding: EdgeInsets.all(20.w),
       decoration: BoxDecoration(
         color: colorScheme.surface,
-        borderRadius: BorderRadius.circular(20),
+        borderRadius: BorderRadius.circular(20.r),
         border: Border.all(color: theme.dividerColor),
       ),
       child: Column(
@@ -37,13 +38,13 @@ class LessonHeaderSection extends StatelessWidget {
           Row(
             children: <Widget>[
               Container(
-                padding: const EdgeInsets.symmetric(
-                  horizontal: 12,
-                  vertical: 6,
+                padding: EdgeInsets.symmetric(
+                  horizontal: 12.w,
+                  vertical: 6.h,
                 ),
                 decoration: BoxDecoration(
                   color: colorScheme.primaryContainer,
-                  borderRadius: BorderRadius.circular(999),
+                  borderRadius: BorderRadius.circular(999.r),
                 ),
                 child: Text(
                   'Lesson ${lesson.number}',
@@ -65,7 +66,7 @@ class LessonHeaderSection extends StatelessWidget {
               ),
             ],
           ),
-          const SizedBox(height: 14),
+          14.vSpace,
           Text(
             lesson.title,
             style: getTextStyle(
@@ -74,7 +75,7 @@ class LessonHeaderSection extends StatelessWidget {
               color: colorScheme.onSurface,
             ),
           ),
-          const SizedBox(height: 4),
+          4.vSpace,
           Text(
             lesson.titleBn,
             style: getTextStyle(
@@ -82,10 +83,10 @@ class LessonHeaderSection extends StatelessWidget {
               color: colorScheme.onSurfaceVariant,
             ),
           ),
-          const SizedBox(height: 16),
+          16.vSpace,
           Wrap(
-            spacing: 8,
-            runSpacing: 8,
+            spacing: 8.w,
+            runSpacing: 8.h,
             children: <Widget>[
               _StatChip(
                 icon: Icons.flag_outlined,
@@ -109,17 +110,17 @@ class LessonHeaderSection extends StatelessWidget {
               ),
             ],
           ),
-          const SizedBox(height: 16),
+          16.vSpace,
           ClipRRect(
-            borderRadius: BorderRadius.circular(999),
+            borderRadius: BorderRadius.circular(999.r),
             child: LinearProgressIndicator(
               value: progress,
-              minHeight: 7,
+              minHeight: 7.h,
               backgroundColor: colorScheme.surfaceContainerHighest,
               valueColor: AlwaysStoppedAnimation<Color>(colorScheme.primary),
             ),
           ),
-          const SizedBox(height: 16),
+          16.vSpace,
           CustomButton(
             label: 'Start Exercises',
             backgroundColor: colorScheme.primary,
@@ -145,16 +146,16 @@ class _StatChip extends StatelessWidget {
   Widget build(BuildContext context) {
     final colorScheme = Theme.of(context).colorScheme;
     return Container(
-      padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 6),
+      padding: EdgeInsets.symmetric(horizontal: 10.w, vertical: 6.h),
       decoration: BoxDecoration(
         color: colorScheme.surfaceContainerHighest.withValues(alpha: 0.6),
-        borderRadius: BorderRadius.circular(10),
+        borderRadius: BorderRadius.circular(10.r),
       ),
       child: Row(
         mainAxisSize: MainAxisSize.min,
         children: <Widget>[
-          Icon(icon, size: 15, color: colorScheme.primary),
-          const SizedBox(width: 6),
+          Icon(icon, size: 15.r, color: colorScheme.primary),
+          6.hSpace,
           Text(
             label,
             style: getTextStyle(

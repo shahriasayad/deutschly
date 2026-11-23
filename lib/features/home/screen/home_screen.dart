@@ -6,6 +6,7 @@ import 'package:deutschly/core/custom_appbar.dart';
 import 'package:deutschly/core/empty_state_widget.dart';
 import 'package:deutschly/core/global_text_style.dart';
 import 'package:deutschly/core/image_path.dart';
+import 'package:deutschly/core/screen_util.dart';
 import 'package:deutschly/features/home/controller/home_controller.dart';
 import 'package:deutschly/features/home/widgets/course_header_card.dart';
 import 'package:deutschly/features/home/widgets/continue_learning_card.dart';
@@ -18,6 +19,7 @@ class HomeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    AppScreenUtil.init(context);
     final controller = Get.isRegistered<HomeController>()
         ? Get.find<HomeController>()
         : Get.put(HomeController());
@@ -27,9 +29,9 @@ class HomeScreen extends StatelessWidget {
       appBar: CustomAppBar(
         title: 'German A1.1',
         leading: Padding(
-          padding: const EdgeInsets.all(10),
+          padding: EdgeInsets.all(10.r),
           child: ClipRRect(
-            borderRadius: BorderRadius.circular(8),
+            borderRadius: BorderRadius.circular(8.r),
             child: Image.asset(
               ImagePath.appLogo,
               fit: BoxFit.cover,
@@ -84,7 +86,7 @@ class HomeScreen extends StatelessWidget {
           child: ConstrainedBox(
             constraints: const BoxConstraints(maxWidth: 920),
             child: SingleChildScrollView(
-              padding: const EdgeInsets.fromLTRB(16, 16, 16, 24),
+              padding: EdgeInsets.fromLTRB(16.w, 16.h, 16.w, 24.h),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: <Widget>[
@@ -93,7 +95,7 @@ class HomeScreen extends StatelessWidget {
                     overallProgress: controller.overallProgress,
                     overallProgressPercent: controller.overallProgressPercent,
                   ),
-                  const SizedBox(height: 16),
+                  16.vSpace,
                   ContinueLearningCard(
                     exerciseCount: sessionExerciseCount,
                     reviewCount: nextSession?.reviewCount ?? 0,
@@ -108,11 +110,11 @@ class HomeScreen extends StatelessWidget {
                             extra: nextSession.items,
                           ),
                   ),
-                  const SizedBox(height: 10),
+                  10.vSpace,
                   ExamPracticeEntryCard(
                     onTap: () => context.push(AppRoutes.examPractice),
                   ),
-                  const SizedBox(height: 24),
+                  24.vSpace,
                   Text(
                     'Course Lessons',
                     style: getTextStyle(
@@ -121,7 +123,7 @@ class HomeScreen extends StatelessWidget {
                       color: colorScheme.onSurface,
                     ),
                   ),
-                  const SizedBox(height: 12),
+                  12.vSpace,
                   for (
                     int index = 0;
                     index < lessons.length;
@@ -138,7 +140,7 @@ class HomeScreen extends StatelessWidget {
                         context.push(AppRoutes.lessonDetail(lessons[index].id));
                       },
                     ),
-                    if (index < lessons.length - 1) const SizedBox(height: 12),
+                    if (index < lessons.length - 1) 12.vSpace,
                   ],
                 ],
               ),

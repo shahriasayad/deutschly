@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:deutschly/core/app_colors.dart';
 import 'package:deutschly/core/global_text_style.dart';
+import 'package:deutschly/core/screen_util.dart';
 
 Future<bool> showResetProgressDialog(BuildContext context) async {
   final colorScheme = Theme.of(context).colorScheme;
@@ -10,7 +11,7 @@ Future<bool> showResetProgressDialog(BuildContext context) async {
       return AlertDialog(
         backgroundColor: colorScheme.surface,
         shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(18),
+          borderRadius: BorderRadius.circular(18.r),
         ),
         title: Text(
           'Reset Progress?',

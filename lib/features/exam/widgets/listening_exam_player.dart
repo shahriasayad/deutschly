@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:deutschly/core/custom_button.dart';
 import 'package:deutschly/core/global_text_style.dart';
+import 'package:deutschly/core/screen_util.dart';
 import 'package:deutschly/features/exam/controller/exam_timer_controller.dart';
 import 'package:deutschly/features/exam/controller/listening_exam_controller.dart';
 
@@ -40,7 +41,7 @@ class ListeningExamPlayer extends StatelessWidget {
       final answerCorrect = controller.currentAnswerCorrect;
 
       return SingleChildScrollView(
-        padding: const EdgeInsets.fromLTRB(16, 20, 16, 32),
+        padding: EdgeInsets.fromLTRB(16.w, 20.h, 16.w, 32.h),
         child: Align(
           alignment: Alignment.topCenter,
           child: ConstrainedBox(
@@ -56,23 +57,23 @@ class ListeningExamPlayer extends StatelessWidget {
                     color: colorScheme.primary,
                   ),
                 ),
-                const SizedBox(height: 8),
+                8.vSpace,
                 ClipRRect(
-                  borderRadius: BorderRadius.circular(999),
+                  borderRadius: BorderRadius.circular(999.r),
                   child: LinearProgressIndicator(
                     value:
                         (controller.currentIndex.value + 1) /
                         controller.tasks.length,
-                    minHeight: 7,
+                    minHeight: 7.h,
                   ),
                 ),
-                const SizedBox(height: 20),
+                20.vSpace,
                 Container(
                   width: double.infinity,
-                  padding: const EdgeInsets.all(18),
+                  padding: EdgeInsets.all(18.w),
                   decoration: BoxDecoration(
                     color: colorScheme.primaryContainer.withValues(alpha: 0.55),
-                    borderRadius: BorderRadius.circular(16),
+                    borderRadius: BorderRadius.circular(16.r),
                   ),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
@@ -85,7 +86,7 @@ class ListeningExamPlayer extends StatelessWidget {
                           color: colorScheme.onPrimaryContainer,
                         ),
                       ),
-                      const SizedBox(height: 14),
+                      14.vSpace,
                       FilledButton.icon(
                         onPressed: controller.canPlay
                             ? controller.playCurrent
@@ -94,17 +95,24 @@ class ListeningExamPlayer extends StatelessWidget {
                           controller.isSpeaking.value
                               ? Icons.volume_up_rounded
                               : Icons.play_arrow_rounded,
+                          size: 18.r,
                         ),
-                        label: Text(controller.playButtonLabel),
+                        label: Text(
+                          controller.playButtonLabel,
+                          style: getTextStyle(
+                            fontSize: 14,
+                            fontWeight: FontWeight.w600,
+                          ),
+                        ),
                       ),
                       if (!controller.isSpeechReady.value &&
                           controller.speechError.value == null) ...<Widget>[
-                        const SizedBox(height: 8),
+                        8.vSpace,
                         const LinearProgressIndicator(),
                       ],
                       if (controller.speechError.value
                           case final error?) ...<Widget>[
-                        const SizedBox(height: 10),
+                        10.vSpace,
                         Text(
                           error,
                           style: getTextStyle(
@@ -114,16 +122,22 @@ class ListeningExamPlayer extends StatelessWidget {
                         ),
                         TextButton(
                           onPressed: controller.retrySpeechSetup,
-                          child: const Text('Try audio again'),
+                          child: Text(
+                            'Try audio again',
+                            style: getTextStyle(
+                              fontSize: 14,
+                              fontWeight: FontWeight.w600,
+                            ),
+                          ),
                         ),
                       ],
                     ],
                   ),
                 ),
-                const SizedBox(height: 18),
+                18.vSpace,
                 for (int index = 0; index < task.options.length; index++)
                   Padding(
-                    padding: const EdgeInsets.only(bottom: 10),
+                    padding: EdgeInsets.only(bottom: 10.h),
                     child: _ListeningOption(
                       index: index,
                       text: task.options[index],
@@ -134,7 +148,7 @@ class ListeningExamPlayer extends StatelessWidget {
                     ),
                   ),
                 if (answerCorrect != null) ...<Widget>[
-                  const SizedBox(height: 4),
+                  4.vSpace,
                   Text(
                     answerCorrect
                         ? 'Correct. You heard:'
@@ -147,7 +161,7 @@ class ListeningExamPlayer extends StatelessWidget {
                           : colorScheme.error,
                     ),
                   ),
-                  const SizedBox(height: 5),
+                  5.vSpace,
                   Text(
                     task.spokenText,
                     style: getTextStyle(
@@ -157,7 +171,7 @@ class ListeningExamPlayer extends StatelessWidget {
                     ),
                   ),
                 ],
-                const SizedBox(height: 16),
+                16.vSpace,
                 CustomButton(
                   label: isChecked
                       ? controller.currentIndex.value >=
@@ -207,25 +221,32 @@ class _ListeningOption extends StatelessWidget {
         : Theme.of(context).dividerColor;
     return InkWell(
       onTap: isChecked ? null : onTap,
-      borderRadius: BorderRadius.circular(14),
+      borderRadius: BorderRadius.circular(14.r),
       child: Container(
         width: double.infinity,
-        padding: const EdgeInsets.all(14),
+        padding: EdgeInsets.all(14.w),
         decoration: BoxDecoration(
           color: selected
               ? colorScheme.primaryContainer.withValues(alpha: 0.3)
               : colorScheme.surface,
-          borderRadius: BorderRadius.circular(14),
+          borderRadius: BorderRadius.circular(14.r),
           border: Border.all(color: color),
         ),
         child: Row(
           children: <Widget>[
             CircleAvatar(
-              radius: 13,
+              radius: 13.r,
               backgroundColor: colorScheme.surfaceContainerHighest,
-              child: Text(String.fromCharCode(65 + index)),
+              child: Text(
+                String.fromCharCode(65 + index),
+                style: getTextStyle(
+                  fontSize: 13,
+                  fontWeight: FontWeight.w600,
+                  color: colorScheme.onSurface,
+                ),
+              ),
             ),
-            const SizedBox(width: 12),
+            12.hSpace,
             Expanded(
               child: Text(
                 text,
@@ -233,7 +254,11 @@ class _ListeningOption extends StatelessWidget {
               ),
             ),
             if (isChecked && isCorrectAnswer)
-              Icon(Icons.check_circle_rounded, color: colorScheme.primary),
+              Icon(
+                Icons.check_circle_rounded,
+                size: 22.r,
+                color: colorScheme.primary,
+              ),
           ],
         ),
       ),
@@ -261,16 +286,16 @@ class _ListeningSummary extends StatelessWidget {
     final colorScheme = Theme.of(context).colorScheme;
     return Center(
       child: Padding(
-        padding: const EdgeInsets.all(24),
+        padding: EdgeInsets.all(24.w),
         child: Column(
           mainAxisSize: MainAxisSize.min,
           children: <Widget>[
             Icon(
               isTimedOut ? Icons.timer_off_rounded : Icons.task_alt_rounded,
-              size: 52,
+              size: 52.r,
               color: colorScheme.primary,
             ),
-            const SizedBox(height: 12),
+            12.vSpace,
             Text(
               isTimedOut ? 'Time is up' : 'Listening section complete',
               style: getTextStyle(
@@ -279,7 +304,7 @@ class _ListeningSummary extends StatelessWidget {
                 color: colorScheme.onSurface,
               ),
             ),
-            const SizedBox(height: 8),
+            8.vSpace,
             Text(
               '$correctCount correct · $answeredCount of $totalCount answered',
               style: getTextStyle(
@@ -287,7 +312,7 @@ class _ListeningSummary extends StatelessWidget {
                 color: colorScheme.onSurfaceVariant,
               ),
             ),
-            const SizedBox(height: 20),
+            20.vSpace,
             CustomButton(label: 'Return to exam practice', onPressed: onDone),
           ],
         ),

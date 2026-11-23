@@ -4,6 +4,7 @@ import 'package:go_router/go_router.dart';
 import 'package:deutschly/core/app_router.dart';
 import 'package:deutschly/core/custom_appbar.dart';
 import 'package:deutschly/core/global_text_style.dart';
+import 'package:deutschly/core/screen_util.dart';
 import 'package:deutschly/features/lesson/controller/lesson_detail_controller.dart';
 import 'package:deutschly/features/lesson/widgets/lesson_dialogues_section.dart';
 import 'package:deutschly/features/lesson/widgets/lesson_exercises_section.dart';
@@ -30,6 +31,7 @@ class LessonDetailScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    AppScreenUtil.init(context);
     final controller = Get.put(
       LessonDetailController(lessonId: lessonId),
       tag: lessonId,
@@ -74,7 +76,7 @@ class LessonDetailScreen extends StatelessWidget {
           child: ConstrainedBox(
             constraints: const BoxConstraints(maxWidth: 920),
             child: SingleChildScrollView(
-              padding: const EdgeInsets.fromLTRB(16, 16, 16, 32),
+              padding: EdgeInsets.fromLTRB(16.w, 16.h, 16.w, 32.h),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: <Widget>[
@@ -85,19 +87,19 @@ class LessonDetailScreen extends StatelessWidget {
                       context.push(AppRoutes.lessonExercises(lesson.id));
                     },
                   ),
-                  const SizedBox(height: 16),
+                  16.vSpace,
                   LessonObjectivesSection(objectives: lesson.objectives),
-                  const SizedBox(height: 16),
+                  16.vSpace,
                   LessonVocabularySection(
                     vocabulary: lesson.vocabulary,
                     isExpanded: controller.isVocabularyExpanded.value,
                     onToggleExpanded: controller.toggleVocabularyExpanded,
                   ),
-                  const SizedBox(height: 16),
+                  16.vSpace,
                   LessonGrammarSection(grammarPoints: lesson.grammar),
-                  const SizedBox(height: 16),
+                  16.vSpace,
                   LessonDialoguesSection(dialogues: lesson.dialogues),
-                  const SizedBox(height: 16),
+                  16.vSpace,
                   LessonExercisesSection(
                     exercises: lesson.exercises,
                     completedExerciseIds:

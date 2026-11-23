@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:deutschly/core/global_text_style.dart';
+import 'package:deutschly/core/screen_util.dart';
 
 class LessonObjectivesSection extends StatelessWidget {
   const LessonObjectivesSection({
@@ -16,10 +17,10 @@ class LessonObjectivesSection extends StatelessWidget {
 
     return Container(
       width: double.infinity,
-      padding: const EdgeInsets.all(18),
+      padding: EdgeInsets.all(18.w),
       decoration: BoxDecoration(
         color: colorScheme.surface,
-        borderRadius: BorderRadius.circular(16),
+        borderRadius: BorderRadius.circular(16.r),
         border: Border.all(color: theme.dividerColor),
       ),
       child: Column(
@@ -30,9 +31,9 @@ class LessonObjectivesSection extends StatelessWidget {
               Icon(
                 Icons.check_circle_outline_rounded,
                 color: colorScheme.primary,
-                size: 20,
+                size: 20.r,
               ),
-              const SizedBox(width: 8),
+              8.hSpace,
               Text(
                 'Learning Objectives',
                 style: getTextStyle(
@@ -43,20 +44,20 @@ class LessonObjectivesSection extends StatelessWidget {
               ),
             ],
           ),
-          const SizedBox(height: 12),
+          12.vSpace,
           for (int i = 0; i < objectives.length; i++) ...<Widget>[
             Row(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: <Widget>[
                 Padding(
-                  padding: const EdgeInsets.only(top: 3),
+                  padding: EdgeInsets.only(top: 3.h),
                   child: Icon(
                     Icons.task_alt_rounded,
-                    size: 16,
+                    size: 16.r,
                     color: colorScheme.primary,
                   ),
                 ),
-                const SizedBox(width: 10),
+                10.hSpace,
                 Expanded(
                   child: Text(
                     objectives[i],
@@ -69,7 +70,7 @@ class LessonObjectivesSection extends StatelessWidget {
                 ),
               ],
             ),
-            if (i < objectives.length - 1) const SizedBox(height: 8),
+            if (i < objectives.length - 1) 8.vSpace,
           ],
         ],
       ),

@@ -6,6 +6,7 @@ import 'package:deutschly/core/Shared_preference_helper.dart';
 import 'package:deutschly/core/api_logger.dart';
 import 'package:deutschly/core/app_colors.dart';
 import 'package:deutschly/core/app_router.dart';
+import 'package:deutschly/core/screen_util.dart';
 import 'package:deutschly/data/repositories/course_repository.dart';
 import 'package:deutschly/features/course/controller/course_controller.dart';
 import 'package:deutschly/features/home/controller/home_controller.dart';
@@ -62,6 +63,7 @@ class DeutschlyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final easyLoadingBuilder = EasyLoading.init();
     return MaterialApp.router(
       title: 'Deutschly',
       debugShowCheckedModeBanner: false,
@@ -69,7 +71,10 @@ class DeutschlyApp extends StatelessWidget {
       darkTheme: AppColors.darkTheme,
       themeMode: ThemeMode.system,
       routerConfig: AppRouter.router,
-      builder: EasyLoading.init(),
+      builder: (BuildContext context, Widget? child) {
+        AppScreenUtil.init(context);
+        return easyLoadingBuilder(context, child);
+      },
     );
   }
 }

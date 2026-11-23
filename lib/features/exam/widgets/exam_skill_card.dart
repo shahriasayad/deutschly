@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:deutschly/core/global_text_style.dart';
+import 'package:deutschly/core/screen_util.dart';
 import 'package:deutschly/features/exam/models/exam_skill.dart';
 
 class ExamSkillCard extends StatelessWidget {
@@ -30,26 +31,30 @@ class ExamSkillCard extends StatelessWidget {
       elevation: 0,
       color: colorScheme.surface,
       shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(16),
+        borderRadius: BorderRadius.circular(16.r),
         side: BorderSide(color: theme.dividerColor),
       ),
       child: Padding(
-        padding: const EdgeInsets.all(16),
+        padding: EdgeInsets.all(16.w),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
             Row(
               children: <Widget>[
                 Container(
-                  width: 44,
-                  height: 44,
+                  width: 44.r,
+                  height: 44.r,
                   decoration: BoxDecoration(
                     color: colorScheme.primaryContainer,
-                    borderRadius: BorderRadius.circular(12),
+                    borderRadius: BorderRadius.circular(12.r),
                   ),
-                  child: Icon(_icon, color: colorScheme.onPrimaryContainer),
+                  child: Icon(
+                    _icon,
+                    size: 22.r,
+                    color: colorScheme.onPrimaryContainer,
+                  ),
                 ),
-                const SizedBox(width: 12),
+                12.hSpace,
                 Expanded(
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
@@ -82,7 +87,7 @@ class ExamSkillCard extends StatelessWidget {
                 ),
               ],
             ),
-            const SizedBox(height: 12),
+            12.vSpace,
             Text(
               skill.description,
               style: getTextStyle(
@@ -91,7 +96,7 @@ class ExamSkillCard extends StatelessWidget {
                 height: 1.4,
               ),
             ),
-            const SizedBox(height: 12),
+            12.vSpace,
             Row(
               children: <Widget>[
                 Expanded(
@@ -105,8 +110,14 @@ class ExamSkillCard extends StatelessWidget {
                 ),
                 FilledButton.icon(
                   onPressed: taskCount == 0 ? null : onStart,
-                  icon: const Icon(Icons.play_arrow_rounded),
-                  label: const Text('Start section'),
+                  icon: Icon(Icons.play_arrow_rounded, size: 18.r),
+                  label: Text(
+                    'Start section',
+                    style: getTextStyle(
+                      fontSize: 14,
+                      fontWeight: FontWeight.w600,
+                    ),
+                  ),
                 ),
               ],
             ),

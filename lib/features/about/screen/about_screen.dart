@@ -6,6 +6,7 @@ import 'package:deutschly/core/custom_button.dart';
 import 'package:deutschly/core/empty_state_widget.dart';
 import 'package:deutschly/core/global_text_style.dart';
 import 'package:deutschly/core/image_path.dart';
+import 'package:deutschly/core/screen_util.dart';
 import 'package:deutschly/features/course/controller/course_controller.dart';
 import 'package:deutschly/features/progress/controller/progress_controller.dart';
 import 'package:deutschly/features/progress/widgets/reset_progress_dialog.dart';
@@ -15,6 +16,7 @@ class AboutScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    AppScreenUtil.init(context);
     final courseController = Get.find<CourseController>();
     final progressController = Get.isRegistered<ProgressController>()
         ? Get.find<ProgressController>()
@@ -58,16 +60,16 @@ class AboutScreen extends StatelessWidget {
           child: ConstrainedBox(
             constraints: const BoxConstraints(maxWidth: 820),
             child: SingleChildScrollView(
-              padding: const EdgeInsets.fromLTRB(16, 16, 16, 32),
+              padding: EdgeInsets.fromLTRB(16.w, 16.h, 16.w, 32.h),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: <Widget>[
                   Container(
                     width: double.infinity,
-                    padding: const EdgeInsets.all(20),
+                    padding: EdgeInsets.all(20.w),
                     decoration: BoxDecoration(
                       color: colorScheme.surface,
-                      borderRadius: BorderRadius.circular(20),
+                      borderRadius: BorderRadius.circular(20.r),
                       border: Border.all(color: theme.dividerColor),
                     ),
                     child: Column(
@@ -76,29 +78,29 @@ class AboutScreen extends StatelessWidget {
                         Row(
                           children: <Widget>[
                             ClipRRect(
-                              borderRadius: BorderRadius.circular(14),
+                              borderRadius: BorderRadius.circular(14.r),
                               child: Image.asset(
                                 ImagePath.appLogo,
-                                width: 52,
-                                height: 52,
+                                width: 52.r,
+                                height: 52.r,
                                 fit: BoxFit.cover,
                                 errorBuilder: (_, _, _) => Container(
-                                  width: 52,
-                                  height: 52,
+                                  width: 52.r,
+                                  height: 52.r,
                                   alignment: Alignment.center,
                                   decoration: BoxDecoration(
                                     color: colorScheme.primaryContainer,
-                                    borderRadius: BorderRadius.circular(14),
+                                    borderRadius: BorderRadius.circular(14.r),
                                   ),
                                   child: Icon(
                                     Icons.school_rounded,
                                     color: colorScheme.onPrimaryContainer,
-                                    size: 26,
+                                    size: 26.r,
                                   ),
                                 ),
                               ),
                             ),
-                            const SizedBox(width: 14),
+                            14.hSpace,
                             Expanded(
                               child: Column(
                                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -111,7 +113,7 @@ class AboutScreen extends StatelessWidget {
                                       color: colorScheme.onSurface,
                                     ),
                                   ),
-                                  const SizedBox(height: 2),
+                                  2.vSpace,
                                   Text(
                                     course.title,
                                     style: getTextStyle(
@@ -120,7 +122,7 @@ class AboutScreen extends StatelessWidget {
                                       color: colorScheme.onSurfaceVariant,
                                     ),
                                   ),
-                                  const SizedBox(height: 2),
+                                  2.vSpace,
                                   Text(
                                     'Level ${course.level} • Version ${course.version}',
                                     style: getTextStyle(
@@ -134,7 +136,7 @@ class AboutScreen extends StatelessWidget {
                             ),
                           ],
                         ),
-                        const SizedBox(height: 14),
+                        14.vSpace,
                         Text(
                           course.description,
                           style: getTextStyle(
@@ -143,10 +145,10 @@ class AboutScreen extends StatelessWidget {
                             height: 1.45,
                           ),
                         ),
-                        const SizedBox(height: 14),
+                        14.vSpace,
                         Wrap(
-                          spacing: 8,
-                          runSpacing: 8,
+                          spacing: 8.w,
+                          runSpacing: 8.h,
                           children: <Widget>[
                             _InfoBadge(
                               icon: Icons.offline_pin_rounded,
@@ -163,7 +165,7 @@ class AboutScreen extends StatelessWidget {
                       ],
                     ),
                   ),
-                  const SizedBox(height: 20),
+                  20.vSpace,
                   Text(
                     'Course Statistics',
                     style: getTextStyle(
@@ -172,13 +174,13 @@ class AboutScreen extends StatelessWidget {
                       color: colorScheme.onSurface,
                     ),
                   ),
-                  const SizedBox(height: 12),
+                  12.vSpace,
                   Container(
                     width: double.infinity,
-                    padding: const EdgeInsets.all(18),
+                    padding: EdgeInsets.all(18.w),
                     decoration: BoxDecoration(
                       color: colorScheme.surface,
-                      borderRadius: BorderRadius.circular(16),
+                      borderRadius: BorderRadius.circular(16.r),
                       border: Border.all(color: theme.dividerColor),
                     ),
                     child: Column(
@@ -187,28 +189,28 @@ class AboutScreen extends StatelessWidget {
                           label: 'Total Lessons',
                           value: '${course.lessons.length}',
                         ),
-                        const Divider(height: 24),
+                        Divider(height: 24.h),
                         _InfoRow(
                           label: 'Vocabulary Items (DE / EN / BN)',
                           value: '$totalVocabulary',
                         ),
-                        const Divider(height: 24),
+                        Divider(height: 24.h),
                         _InfoRow(
                           label: 'Grammar Points',
                           value: '$totalGrammar',
                         ),
-                        const Divider(height: 24),
+                        Divider(height: 24.h),
                         _InfoRow(
                           label: 'Dialogues',
                           value: '$totalDialogues',
                         ),
-                        const Divider(height: 24),
+                        Divider(height: 24.h),
                         _InfoRow(
                           label: 'Interactive Exercises',
                           value: '$totalExercises',
                         ),
                         if (exerciseTypes.isNotEmpty) ...<Widget>[
-                          const Divider(height: 24),
+                          Divider(height: 24.h),
                           _InfoRow(
                             label: 'Exercise Types Supported',
                             value: '${exerciseTypes.length}',
@@ -217,7 +219,7 @@ class AboutScreen extends StatelessWidget {
                       ],
                     ),
                   ),
-                  const SizedBox(height: 24),
+                  24.vSpace,
                   CustomButton(
                     key: const ValueKey<String>('about_reset_progress_btn'),
                     label: 'Reset All Progress',
@@ -254,16 +256,16 @@ class _InfoBadge extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 6),
+      padding: EdgeInsets.symmetric(horizontal: 10.w, vertical: 6.h),
       decoration: BoxDecoration(
         color: color.withValues(alpha: 0.12),
-        borderRadius: BorderRadius.circular(8),
+        borderRadius: BorderRadius.circular(8.r),
       ),
       child: Row(
         mainAxisSize: MainAxisSize.min,
         children: <Widget>[
-          Icon(icon, size: 16, color: color),
-          const SizedBox(width: 6),
+          Icon(icon, size: 16.r, color: color),
+          6.hSpace,
           Text(
             label,
             style: getTextStyle(
