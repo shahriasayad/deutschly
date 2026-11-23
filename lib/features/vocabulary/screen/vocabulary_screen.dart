@@ -81,6 +81,8 @@ class VocabularyScreen extends StatelessWidget {
                           )
                         : ListView.separated(
                             padding: EdgeInsets.only(bottom: 24.h),
+                            keyboardDismissBehavior:
+                                ScrollViewKeyboardDismissBehavior.onDrag,
                             itemCount: entries.length,
                             separatorBuilder: (_, _) => 10.vSpace,
                             itemBuilder: (BuildContext context, int index) {

@@ -15,7 +15,7 @@ class LessonHeaderSection extends StatelessWidget {
 
   final Lesson lesson;
   final int completedExercises;
-  final VoidCallback onStartExercises;
+  final VoidCallback? onStartExercises;
 
   @override
   Widget build(BuildContext context) {

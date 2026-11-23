@@ -494,18 +494,24 @@ class _ExercisePlayerState extends State<ExercisePlayer> {
                       mainAxisSize: MainAxisSize.min,
                       children: <Widget>[
                         if (isChecked) ...<Widget>[
-                          ExerciseFeedbackCard(
-                            isCorrect: _controller.isCurrentCorrect.value,
-                            correctAnswerSummary:
-                                exercise is SpeakingPromptExercise ||
-                                    exercise is WritingPromptExercise
-                                ? ''
-                                : _controller.currentCorrectAnswerSummary,
-                            explanation: exercise.explanation,
-                            isSelfAssessment:
-                                exercise is SpeakingPromptExercise ||
-                                exercise is WritingPromptExercise,
-                            isWritingPrompt: exercise is WritingPromptExercise,
+                          ConstrainedBox(
+                            constraints: BoxConstraints(maxHeight: 200.h),
+                            child: SingleChildScrollView(
+                              child: ExerciseFeedbackCard(
+                                isCorrect: _controller.isCurrentCorrect.value,
+                                correctAnswerSummary:
+                                    exercise is SpeakingPromptExercise ||
+                                        exercise is WritingPromptExercise
+                                    ? ''
+                                    : _controller.currentCorrectAnswerSummary,
+                                explanation: exercise.explanation,
+                                isSelfAssessment:
+                                    exercise is SpeakingPromptExercise ||
+                                    exercise is WritingPromptExercise,
+                                isWritingPrompt:
+                                    exercise is WritingPromptExercise,
+                              ),
+                            ),
                           ),
                           12.vSpace,
                         ],

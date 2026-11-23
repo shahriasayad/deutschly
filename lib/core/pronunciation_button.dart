@@ -15,6 +15,7 @@ class GermanPronunciationPlayer {
   static String? _pendingText;
   static bool _isInitialized = false;
   static bool _isBusy = false;
+  static bool _ignoreNextCancel = false;
 
   static Future<void> speak(String text) async {
     final cleaned = text.replaceAll('...', '').trim();
@@ -26,9 +27,19 @@ class GermanPronunciationPlayer {
     try {
       if (!_isInitialized) {
         await _speechService.initialize(
-          onStart: () => activeText.value = _pendingText,
-          onComplete: () => activeText.value = null,
+          onStart: () {
+            _ignoreNextCancel = false;
+            activeText.value = _pendingText;
+          },
+          onComplete: () {
+            if (_ignoreNextCancel) {
+              _ignoreNextCancel = false;
+              return;
+            }
+            activeText.value = null;
+          },
           onError: (String message) {
+            _ignoreNextCancel = false;
             activeText.value = null;
             _isInitialized = false;
             ApiLogger.logError('GermanPronunciationPlayer TTS error: $message');
@@ -41,11 +52,15 @@ class GermanPronunciationPlayer {
         );
         _isInitialized = true;
       } else {
+        if (activeText.value != null) {
+          _ignoreNextCancel = true;
+        }
         await _speechService.stop();
       }
       activeText.value = cleaned;
       await _speechService.speak(cleaned);
     } catch (error, stackTrace) {
+      _ignoreNextCancel = false;
       activeText.value = null;
       _isInitialized = false;
       ApiLogger.logError(

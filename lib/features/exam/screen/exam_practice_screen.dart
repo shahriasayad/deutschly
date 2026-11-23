@@ -3,6 +3,7 @@ import 'package:get/get.dart';
 import 'package:go_router/go_router.dart';
 import 'package:deutschly/core/app_router.dart';
 import 'package:deutschly/core/custom_appbar.dart';
+import 'package:deutschly/core/empty_state_widget.dart';
 import 'package:deutschly/core/global_text_style.dart';
 import 'package:deutschly/core/screen_util.dart';
 import 'package:deutschly/features/course/controller/course_controller.dart';
@@ -32,9 +33,25 @@ class ExamPracticeScreen extends StatelessWidget {
         centerTitle: false,
       ),
       body: Obx(() {
-        final course = Get.find<CourseController>().course.value;
-        if (course == null) {
+        final courseController = Get.find<CourseController>();
+        final course = courseController.course.value;
+        if (courseController.isLoading.value && course == null) {
           return const Center(child: CircularProgressIndicator());
+        }
+        if (course == null) {
+          return EmptyStateWidget(
+            icon: Icons.school_outlined,
+            title: 'Exam Practice Unavailable',
+            subtitle:
+                courseController.errorMessage.value ??
+                'Course content could not be loaded.',
+            actionLabel: courseController.errorMessage.value != null
+                ? 'Retry'
+                : null,
+            onAction: courseController.errorMessage.value != null
+                ? courseController.loadCourse
+                : null,
+          );
         }
         return Align(
           alignment: Alignment.topCenter,

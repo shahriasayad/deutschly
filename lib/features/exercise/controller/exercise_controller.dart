@@ -100,9 +100,16 @@ class ExerciseController extends GetxController {
 
   int get reviewExerciseNumber => currentIndex.value - exercises.length + 1;
 
-  double get currentProgress => isReviewRound.value
-      ? (reviewExerciseNumber / missedExerciseCount).clamp(0.0, 1.0)
-      : (currentIndex.value + 1) / totalExercises;
+  double get currentProgress {
+    if (isReviewRound.value) {
+      return missedExerciseCount == 0
+          ? 1.0
+          : (reviewExerciseNumber / missedExerciseCount).clamp(0.0, 1.0);
+    }
+    return totalExercises == 0
+        ? 0.0
+        : ((currentIndex.value + 1) / totalExercises).clamp(0.0, 1.0);
+  }
 
   String get currentProgressLabel => isReviewRound.value
       ? 'Review $reviewExerciseNumber of $missedExerciseCount'

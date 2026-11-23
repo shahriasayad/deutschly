@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:deutschly/core/empty_state_widget.dart';
 import 'package:deutschly/core/global_text_style.dart';
 import 'package:deutschly/core/pronunciation_button.dart';
 import 'package:deutschly/core/screen_util.dart';
@@ -26,6 +27,14 @@ class LessonVocabularySection extends StatelessWidget {
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
     final colorScheme = theme.colorScheme;
+
+    if (vocabulary.isEmpty) {
+      return const EmptyStateWidget(
+        icon: Icons.translate_rounded,
+        title: 'No Vocabulary Yet',
+        subtitle: 'This lesson does not contain vocabulary items.',
+      );
+    }
 
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,

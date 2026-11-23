@@ -4,7 +4,9 @@ class ApiLogger {
   const ApiLogger._();
 
   static void logInfo(String message) {
-    debugPrint('[INFO] $message');
+    if (kDebugMode) {
+      debugPrint('[INFO] $message');
+    }
   }
 
   static void logError(String message, [Object? error, StackTrace? stackTrace]) {

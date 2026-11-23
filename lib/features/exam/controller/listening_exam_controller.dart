@@ -28,6 +28,7 @@ class ListeningExamController extends GetxController {
   final RxBool isSpeaking = false.obs;
   final RxnString speechError = RxnString();
   final RxInt correctCount = 0.obs;
+  bool _isClosed = false;
 
   ListeningTask? get currentTask =>
       currentIndex.value >= 0 && currentIndex.value < tasks.length
@@ -70,9 +71,20 @@ class ListeningExamController extends GetxController {
     speechError.value = null;
     try {
       await _speechService.initialize(
-        onStart: () => isSpeaking.value = true,
-        onComplete: () => isSpeaking.value = false,
+        onStart: () {
+          if (!_isClosed) {
+            isSpeaking.value = true;
+          }
+        },
+        onComplete: () {
+          if (!_isClosed) {
+            isSpeaking.value = false;
+          }
+        },
         onError: (String message) {
+          if (_isClosed) {
+            return;
+          }
           if (isSpeaking.value && playsThisTask.value > 0) {
             playsThisTask.value--;
           }
@@ -80,11 +92,15 @@ class ListeningExamController extends GetxController {
           speechError.value = GermanSpeechService.formatFriendlyError(message);
         },
       );
-      isSpeechReady.value = true;
+      if (!_isClosed) {
+        isSpeechReady.value = true;
+      }
     } catch (_) {
-      isSpeechReady.value = false;
-      speechError.value =
-          'No German voice is available. Enable or install a German voice in device text-to-speech settings, then retry.';
+      if (!_isClosed) {
+        isSpeechReady.value = false;
+        speechError.value =
+            'No German voice is available. Enable or install a German voice in device text-to-speech settings, then retry.';
+      }
     }
   }
 
@@ -158,6 +174,7 @@ class ListeningExamController extends GetxController {
 
   @override
   void onClose() {
+    _isClosed = true;
     unawaited(_speechService.stop());
     super.onClose();
   }

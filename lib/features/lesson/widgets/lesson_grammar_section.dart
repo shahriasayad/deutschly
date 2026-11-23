@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:deutschly/core/empty_state_widget.dart';
 import 'package:deutschly/core/global_text_style.dart';
 import 'package:deutschly/core/pronunciation_button.dart';
 import 'package:deutschly/core/screen_util.dart';
@@ -15,6 +16,14 @@ class LessonGrammarSection extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final colorScheme = Theme.of(context).colorScheme;
+
+    if (grammarPoints.isEmpty) {
+      return const EmptyStateWidget(
+        icon: Icons.auto_stories_outlined,
+        title: 'No Grammar Notes',
+        subtitle: 'This lesson does not contain grammar guides.',
+      );
+    }
 
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,

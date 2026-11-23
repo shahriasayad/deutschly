@@ -94,14 +94,17 @@ class LessonDetailScreen extends StatelessWidget {
                   child: LessonHeaderSection(
                     lesson: lesson,
                     completedExercises: controller.completedCount,
-                    onStartExercises: () {
-                      context.push(
-                        AppRoutes.lessonExercises(
-                          lesson.id,
-                          initialIndex: controller.nextUncompletedExerciseIndex,
-                        ),
-                      );
-                    },
+                    onStartExercises: lesson.exercises.isEmpty
+                        ? null
+                        : () {
+                            context.push(
+                              AppRoutes.lessonExercises(
+                                lesson.id,
+                                initialIndex:
+                                    controller.nextUncompletedExerciseIndex,
+                              ),
+                            );
+                          },
                   ),
                 ),
                 12.vSpace,

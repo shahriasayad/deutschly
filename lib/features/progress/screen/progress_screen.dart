@@ -5,6 +5,7 @@ import 'package:deutschly/core/app_colors.dart';
 import 'package:deutschly/core/app_router.dart';
 import 'package:deutschly/core/custom_appbar.dart';
 import 'package:deutschly/core/custom_button.dart';
+import 'package:deutschly/core/empty_state_widget.dart';
 import 'package:deutschly/core/global_text_style.dart';
 import 'package:deutschly/core/screen_util.dart';
 import 'package:deutschly/data/models/lesson.dart';
@@ -50,8 +51,28 @@ class ProgressScreen extends StatelessWidget {
         ],
       ),
       body: Obx(() {
+        if (courseController.isLoading.value &&
+            courseController.course.value == null) {
+          return const Center(child: CircularProgressIndicator());
+        }
+
         final lessons =
             courseController.course.value?.lessons ?? const <Lesson>[];
+        if (lessons.isEmpty) {
+          return EmptyStateWidget(
+            icon: Icons.insights_outlined,
+            title: 'Progress Unavailable',
+            subtitle:
+                courseController.errorMessage.value ??
+                'No course lessons were found.',
+            actionLabel: courseController.errorMessage.value != null
+                ? 'Retry'
+                : null,
+            onAction: courseController.errorMessage.value != null
+                ? courseController.loadCourse
+                : null,
+          );
+        }
         final overallRatio = progressController.overallCourseProgress;
         final overallPercent = progressController.overallCourseProgressPercent;
         final completedTotal = progressController.totalCompletedExercises;

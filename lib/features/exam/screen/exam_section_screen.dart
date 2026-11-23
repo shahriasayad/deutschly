@@ -3,11 +3,13 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:go_router/go_router.dart';
+import 'package:deutschly/core/app_router.dart';
 import 'package:deutschly/core/custom_appbar.dart';
 import 'package:deutschly/core/empty_state_widget.dart';
 import 'package:deutschly/core/global_text_style.dart';
 import 'package:deutschly/core/screen_util.dart';
 import 'package:deutschly/data/models/practice_session_item.dart';
+import 'package:deutschly/features/course/controller/course_controller.dart';
 import 'package:deutschly/features/exam/controller/exam_practice_controller.dart';
 import 'package:deutschly/features/exam/controller/exam_timer_controller.dart';
 import 'package:deutschly/features/exam/controller/listening_exam_controller.dart';
@@ -45,7 +47,13 @@ class _ExamSectionScreenState extends State<ExamSectionScreen> {
     super.initState();
     _tag = 'exam_session_${_nextSessionId++}';
     _timerController = Get.put(ExamTimerController(), tag: '$_tag timer');
-    final practiceController = Get.find<ExamPracticeController>();
+    final practiceController = Get.isRegistered<ExamPracticeController>()
+        ? Get.find<ExamPracticeController>()
+        : Get.put(
+            ExamPracticeController(
+              courseController: Get.find<CourseController>(),
+            ),
+          );
     _practiceItems = widget.skill == ExamSkill.listening
         ? const <PracticeSessionItem>[]
         : practiceController.practiceExercisesFor(widget.skill);
@@ -89,6 +97,8 @@ class _ExamSectionScreenState extends State<ExamSectionScreen> {
     _timerController.stop();
     if (context.canPop()) {
       context.pop();
+    } else {
+      context.go(AppRoutes.examPractice);
     }
   }
 

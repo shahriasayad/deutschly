@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:deutschly/core/empty_state_widget.dart';
 import 'package:deutschly/core/global_text_style.dart';
 import 'package:deutschly/core/pronunciation_button.dart';
 import 'package:deutschly/core/screen_util.dart';
@@ -12,6 +13,14 @@ class LessonDialoguesSection extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final colorScheme = Theme.of(context).colorScheme;
+
+    if (dialogues.isEmpty) {
+      return const EmptyStateWidget(
+        icon: Icons.forum_outlined,
+        title: 'No Dialogues Yet',
+        subtitle: 'This lesson does not contain sample dialogues.',
+      );
+    }
 
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
