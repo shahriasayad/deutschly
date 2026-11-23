@@ -73,8 +73,11 @@ class ListeningExamController extends GetxController {
         onStart: () => isSpeaking.value = true,
         onComplete: () => isSpeaking.value = false,
         onError: (String message) {
+          if (isSpeaking.value && playsThisTask.value > 0) {
+            playsThisTask.value--;
+          }
           isSpeaking.value = false;
-          speechError.value = message;
+          speechError.value = GermanSpeechService.formatFriendlyError(message);
         },
       );
       isSpeechReady.value = true;

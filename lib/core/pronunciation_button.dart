@@ -11,27 +11,42 @@ class GermanPronunciationPlayer {
   GermanPronunciationPlayer._();
 
   static final GermanSpeechService _speechService = GermanSpeechService();
+  static final ValueNotifier<String?> activeText = ValueNotifier<String?>(null);
+  static String? _pendingText;
   static bool _isInitialized = false;
+  static bool _isBusy = false;
 
   static Future<void> speak(String text) async {
     final cleaned = text.replaceAll('...', '').trim();
-    if (cleaned.isEmpty) {
+    if (cleaned.isEmpty || _isBusy) {
       return;
     }
+    _isBusy = true;
+    _pendingText = cleaned;
     try {
       if (!_isInitialized) {
         await _speechService.initialize(
-          onStart: () {},
-          onComplete: () {},
+          onStart: () => activeText.value = _pendingText,
+          onComplete: () => activeText.value = null,
           onError: (String message) {
+            activeText.value = null;
+            _isInitialized = false;
             ApiLogger.logError('GermanPronunciationPlayer TTS error: $message');
+            unawaited(
+              EasyLoading.showInfo(
+                GermanSpeechService.formatFriendlyError(message),
+              ),
+            );
           },
         );
         _isInitialized = true;
+      } else {
+        await _speechService.stop();
       }
-      await _speechService.stop();
+      activeText.value = cleaned;
       await _speechService.speak(cleaned);
     } catch (error, stackTrace) {
+      activeText.value = null;
       _isInitialized = false;
       ApiLogger.logError(
         'German audio playback unavailable',
@@ -40,9 +55,11 @@ class GermanPronunciationPlayer {
       );
       unawaited(
         EasyLoading.showInfo(
-          'German voice is unavailable on this device.',
+          GermanSpeechService.formatFriendlyError(error.toString()),
         ),
       );
+    } finally {
+      _isBusy = false;
     }
   }
 }
@@ -62,26 +79,39 @@ class PronunciationIconButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final colorScheme = Theme.of(context).colorScheme;
-    return Tooltip(
-      message: tooltip,
-      child: InkWell(
-        onTap: () => unawaited(GermanPronunciationPlayer.speak(text)),
-        borderRadius: BorderRadius.circular(999.r),
-        child: Container(
-          width: size.r,
-          height: size.r,
-          alignment: Alignment.center,
-          decoration: BoxDecoration(
-            color: colorScheme.primaryContainer.withValues(alpha: 0.7),
-            shape: BoxShape.circle,
+    final cleaned = text.replaceAll('...', '').trim();
+
+    return ValueListenableBuilder<String?>(
+      valueListenable: GermanPronunciationPlayer.activeText,
+      builder: (BuildContext context, String? active, _) {
+        final isPlayingThis = active != null && active == cleaned;
+        return Tooltip(
+          message: tooltip,
+          child: InkWell(
+            onTap: () => unawaited(GermanPronunciationPlayer.speak(text)),
+            borderRadius: BorderRadius.circular(999.r),
+            child: AnimatedContainer(
+              duration: const Duration(milliseconds: 150),
+              width: size.r,
+              height: size.r,
+              alignment: Alignment.center,
+              decoration: BoxDecoration(
+                color: isPlayingThis
+                    ? colorScheme.primary
+                    : colorScheme.primaryContainer.withValues(alpha: 0.7),
+                shape: BoxShape.circle,
+              ),
+              child: Icon(
+                Icons.volume_up_rounded,
+                size: (size * 0.52).r,
+                color: isPlayingThis
+                    ? colorScheme.onPrimary
+                    : colorScheme.primary,
+              ),
+            ),
           ),
-          child: Icon(
-            Icons.volume_up_rounded,
-            size: (size * 0.52).r,
-            color: colorScheme.primary,
-          ),
-        ),
-      ),
+        );
+      },
     );
   }
 }
