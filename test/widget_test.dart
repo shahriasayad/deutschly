@@ -33,7 +33,7 @@ void main() {
       final allExercises = course.lessons
           .expand((lesson) => lesson.exercises)
           .toList();
-      expect(allExercises.length, 285);
+      expect(allExercises.length, 304);
       expect(course.metadata?.totalExercises, allExercises.length);
 
       expect(
@@ -70,6 +70,26 @@ void main() {
       );
       expect(allExercises.whereType<OrderingExercise>(), isNotEmpty);
       expect(allExercises.whereType<WritingPromptExercise>(), isNotEmpty);
+      expect(
+        course.lessons[2].exercises.any((exercise) => exercise.id == 'ex3_46'),
+        isTrue,
+      );
+      expect(
+        course.lessons[3].grammar.any(
+          (point) => point.title.toLowerCase().contains('gefallen'),
+        ),
+        isTrue,
+      );
+      expect(
+        course.lessons[5].dialogues.any(
+          (dialogue) => dialogue.title.contains('snack bar'),
+        ),
+        isTrue,
+      );
+      expect(
+        course.lessons[6].vocabulary.any((item) => item.de == 'Ski fahren'),
+        isTrue,
+      );
     },
   );
 
@@ -189,7 +209,7 @@ void main() {
 
       expect(find.text('German A1.1'), findsOneWidget);
 
-      // Mark 2 of 38 exercises in lesson_01 completed.
+      // Mark 2 of 39 exercises in lesson_01 completed.
       await progressController.markExerciseCompleted(
         lessonId: 'lesson_01',
         exerciseId: 'ex1_1',
@@ -203,12 +223,14 @@ void main() {
       expect(find.text('1%'), findsOneWidget);
 
       // Open Lesson 1 and verify completed status
-      await tester.tap(find.byKey(const ValueKey<String>('lesson_01')));
+      final lessonCard = find.byKey(const ValueKey<String>('lesson_01'));
+      await tester.ensureVisible(lessonCard);
+      await tester.tap(lessonCard);
       await tester.pumpAndSettle();
 
-      expect(find.text('2 / 38 Completed'), findsOneWidget);
+      expect(find.text('2 / 39 Completed'), findsOneWidget);
       expect(find.text('Completed'), findsNWidgets(2));
-      expect(find.text('Not started'), findsNWidgets(36));
+      expect(find.text('Not started'), findsNWidgets(37));
 
       // Navigate back to Home
       await tester.tap(find.byTooltip('Back'));

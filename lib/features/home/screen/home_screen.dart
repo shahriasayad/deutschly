@@ -8,8 +8,10 @@ import 'package:deutschly/core/global_text_style.dart';
 import 'package:deutschly/core/image_path.dart';
 import 'package:deutschly/features/home/controller/home_controller.dart';
 import 'package:deutschly/features/home/widgets/course_header_card.dart';
+import 'package:deutschly/features/home/widgets/continue_learning_card.dart';
 import 'package:deutschly/features/home/widgets/lesson_card.dart';
 import 'package:deutschly/features/progress/widgets/reset_progress_dialog.dart';
+import 'package:deutschly/features/exam/widgets/exam_practice_entry_card.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -67,6 +69,8 @@ class HomeScreen extends StatelessWidget {
 
         final course = controller.course;
         final lessons = controller.lessons;
+        final nextSession = controller.nextPracticeSession;
+        final sessionExerciseCount = nextSession?.items.length ?? 0;
         if (course == null || lessons.isEmpty) {
           return const EmptyStateWidget(
             icon: Icons.menu_book_outlined,
@@ -89,6 +93,25 @@ class HomeScreen extends StatelessWidget {
                     overallProgress: controller.overallProgress,
                     overallProgressPercent: controller.overallProgressPercent,
                   ),
+                  const SizedBox(height: 16),
+                  ContinueLearningCard(
+                    exerciseCount: sessionExerciseCount,
+                    reviewCount: nextSession?.reviewCount ?? 0,
+                    onStart: nextSession == null || sessionExerciseCount == 0
+                        ? null
+                        : () => context.push(
+                            AppRoutes.practiceSession(
+                              nextSession.items.first.lessonId,
+                              startIndex: 0,
+                              exerciseCount: nextSession.items.length,
+                            ),
+                            extra: nextSession.items,
+                          ),
+                  ),
+                  const SizedBox(height: 10),
+                  ExamPracticeEntryCard(
+                    onTap: () => context.push(AppRoutes.examPractice),
+                  ),
                   const SizedBox(height: 24),
                   Text(
                     'Course Lessons',
@@ -99,16 +122,18 @@ class HomeScreen extends StatelessWidget {
                     ),
                   ),
                   const SizedBox(height: 12),
-                  for (int index = 0;
-                      index < lessons.length;
-                      index++) ...<Widget>[
+                  for (
+                    int index = 0;
+                    index < lessons.length;
+                    index++
+                  ) ...<Widget>[
                     LessonCard(
                       key: ValueKey<String>(lessons[index].id),
                       lesson: lessons[index],
-                      progress:
-                          controller.getLessonProgress(lessons[index].id),
-                      progressPercent: controller
-                          .getLessonProgressPercent(lessons[index].id),
+                      progress: controller.getLessonProgress(lessons[index].id),
+                      progressPercent: controller.getLessonProgressPercent(
+                        lessons[index].id,
+                      ),
                       onTap: () {
                         context.push(AppRoutes.lessonDetail(lessons[index].id));
                       },

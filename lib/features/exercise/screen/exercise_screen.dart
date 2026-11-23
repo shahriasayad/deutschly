@@ -11,6 +11,7 @@ import 'package:deutschly/core/custom_button.dart';
 import 'package:deutschly/core/global_text_style.dart';
 import 'package:deutschly/data/models/exercise.dart';
 import 'package:deutschly/data/models/lesson.dart';
+import 'package:deutschly/data/models/practice_session_item.dart';
 import 'package:deutschly/features/course/controller/course_controller.dart';
 import 'package:deutschly/features/exercise/controller/exercise_controller.dart';
 import 'package:deutschly/features/exercise/widgets/exercise_feedback_card.dart';
@@ -22,16 +23,21 @@ import 'package:deutschly/features/exercise/widgets/speaking_prompt_widget.dart'
 import 'package:deutschly/features/exercise/widgets/true_false_widget.dart';
 import 'package:deutschly/features/exercise/widgets/writing_prompt_widget.dart';
 import 'package:deutschly/features/lesson/controller/lesson_detail_controller.dart';
+import 'package:deutschly/features/progress/controller/progress_controller.dart';
 
 class ExerciseScreen extends StatelessWidget {
   const ExerciseScreen({
     super.key,
     required this.lessonId,
     this.initialIndex = 0,
+    this.sessionLength = 0,
+    this.sessionItems,
   });
 
   final String lessonId;
   final int initialIndex;
+  final int sessionLength;
+  final List<PracticeSessionItem>? sessionItems;
 
   void _handleBack(BuildContext context) {
     if (context.canPop()) {
@@ -46,8 +52,25 @@ class ExerciseScreen extends StatelessWidget {
     final courseController = Get.find<CourseController>();
     final lessons = courseController.course.value?.lessons ?? const <Lesson>[];
     final lesson = lessons.firstWhereOrNull((Lesson l) => l.id == lessonId);
+    final isSession = sessionItems != null || sessionLength > 0;
+    final completedExerciseIds =
+        lesson != null && sessionItems == null && sessionLength > 0
+        ? Get.find<ProgressController>().getCompletedExerciseIds(lesson.id)
+        : const <String>{};
 
-    if (lesson == null || lesson.exercises.isEmpty) {
+    final exercises = sessionItems != null
+        ? sessionItems!.map((item) => item.exercise).toList(growable: false)
+        : lesson == null
+        ? const <Exercise>[]
+        : sessionLength > 0
+        ? lesson.exercises
+              .skip(initialIndex.clamp(0, lesson.exercises.length).toInt())
+              .where((exercise) => !completedExerciseIds.contains(exercise.id))
+              .take(sessionLength)
+              .toList(growable: false)
+        : lesson.exercises;
+
+    if ((lesson == null && sessionItems == null) || exercises.isEmpty) {
       return Scaffold(
         appBar: CustomAppBar(
           title: 'Exercises',
@@ -58,7 +81,9 @@ class ExerciseScreen extends StatelessWidget {
         ),
         body: Center(
           child: Text(
-            'No exercises found for this lesson.',
+            isSession
+                ? 'No practice exercises are available here yet.'
+                : 'No exercises found for this lesson.',
             style: getTextStyle(fontSize: 16),
           ),
         ),
@@ -67,7 +92,9 @@ class ExerciseScreen extends StatelessWidget {
 
     return Scaffold(
       appBar: CustomAppBar(
-        title: 'Lesson ${lesson.number} Exercises',
+        title: isSession
+            ? 'Quick practice'
+            : 'Lesson ${lesson?.number ?? ''} Exercises',
         leading: IconButton(
           icon: const Icon(Icons.arrow_back_rounded),
           tooltip: 'Back',
@@ -76,9 +103,15 @@ class ExerciseScreen extends StatelessWidget {
       ),
       body: ExercisePlayer(
         key: ValueKey<String>('player_${lessonId}_$initialIndex'),
-        exercises: lesson.exercises,
-        lessonId: lesson.id,
-        initialIndex: initialIndex,
+        exercises: exercises,
+        lessonId: lesson?.id,
+        lessonIdByExercise: sessionItems == null
+            ? const <String, String>{}
+            : <String, String>{
+                for (final item in sessionItems!)
+                  item.exercise.id: item.lessonId,
+              },
+        initialIndex: isSession ? 0 : initialIndex,
         onCompleteExit: () => _handleBack(context),
       ),
     );
@@ -90,14 +123,20 @@ class ExercisePlayer extends StatefulWidget {
     super.key,
     required this.exercises,
     this.lessonId,
+    this.lessonIdByExercise = const <String, String>{},
+    this.recordProgress = true,
     this.initialIndex = 0,
     this.onCompleteExit,
+    this.onControllerReady,
   });
 
   final List<Exercise> exercises;
   final String? lessonId;
+  final Map<String, String> lessonIdByExercise;
+  final bool recordProgress;
   final int initialIndex;
   final VoidCallback? onCompleteExit;
+  final ValueChanged<ExerciseController>? onControllerReady;
 
   @override
   State<ExercisePlayer> createState() => _ExercisePlayerState();
@@ -117,14 +156,18 @@ class _ExercisePlayerState extends State<ExercisePlayer> {
   }
 
   ExerciseController _createController() {
-    return Get.put(
+    final controller = Get.put(
       ExerciseController(
         exercises: widget.exercises,
         lessonId: widget.lessonId,
+        lessonIdByExercise: widget.lessonIdByExercise,
+        recordProgress: widget.recordProgress,
         initialIndex: widget.initialIndex,
       ),
       tag: _controllerTag,
     );
+    widget.onControllerReady?.call(controller);
+    return controller;
   }
 
   @override
@@ -132,6 +175,8 @@ class _ExercisePlayerState extends State<ExercisePlayer> {
     super.didUpdateWidget(oldWidget);
     if (listEquals(oldWidget.exercises, widget.exercises) &&
         oldWidget.lessonId == widget.lessonId &&
+        mapEquals(oldWidget.lessonIdByExercise, widget.lessonIdByExercise) &&
+        oldWidget.recordProgress == widget.recordProgress &&
         oldWidget.initialIndex == widget.initialIndex) {
       return;
     }

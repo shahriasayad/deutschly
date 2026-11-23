@@ -112,6 +112,11 @@ class ProgressScreen extends StatelessWidget {
                     ),
                   ),
                   const SizedBox(height: 24),
+                  _CanDoProgressSection(
+                    lessons: lessons,
+                    controller: progressController,
+                  ),
+                  const SizedBox(height: 24),
                   Text(
                     'Lesson Breakdown',
                     style: getTextStyle(
@@ -125,18 +130,19 @@ class ProgressScreen extends StatelessWidget {
                     Builder(
                       builder: (BuildContext context) {
                         final lesson = lessons[i];
-                        final completed =
-                            progressController.getCompletedCount(lesson.id);
+                        final completed = progressController.getCompletedCount(
+                          lesson.id,
+                        );
                         final total = lesson.exercises.length;
                         final ratio = progressController.getLessonProgressRatio(
                           lesson.id,
                           totalExercises: total,
                         );
-                        final percent =
-                            progressController.getLessonProgressPercent(
-                          lesson.id,
-                          totalExercises: total,
-                        );
+                        final percent = progressController
+                            .getLessonProgressPercent(
+                              lesson.id,
+                              totalExercises: total,
+                            );
 
                         return Container(
                           padding: const EdgeInsets.all(16),
@@ -214,6 +220,154 @@ class ProgressScreen extends StatelessWidget {
           ),
         );
       }),
+    );
+  }
+}
+
+class _CanDoProgressSection extends StatelessWidget {
+  const _CanDoProgressSection({
+    required this.lessons,
+    required this.controller,
+  });
+
+  final List<Lesson> lessons;
+  final ProgressController controller;
+
+  @override
+  Widget build(BuildContext context) {
+    final theme = Theme.of(context);
+    final colorScheme = theme.colorScheme;
+    final total = controller.totalCanDoObjectives;
+    final completed = controller.completedCanDoObjectives;
+
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: <Widget>[
+        Text(
+          'What you can do',
+          style: getTextStyle(
+            fontSize: 18,
+            fontWeight: FontWeight.w700,
+            color: colorScheme.onSurface,
+          ),
+        ),
+        const SizedBox(height: 6),
+        Text(
+          'Check an ability when you can do it without help. Your self-checks are saved on this device.',
+          style: getTextStyle(
+            fontSize: 13,
+            color: colorScheme.onSurfaceVariant,
+          ),
+        ),
+        const SizedBox(height: 12),
+        Container(
+          width: double.infinity,
+          padding: const EdgeInsets.all(16),
+          decoration: BoxDecoration(
+            color: colorScheme.primaryContainer,
+            borderRadius: BorderRadius.circular(16),
+          ),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: <Widget>[
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: <Widget>[
+                  Text(
+                    '$completed of $total abilities',
+                    style: getTextStyle(
+                      fontSize: 15,
+                      fontWeight: FontWeight.w700,
+                      color: colorScheme.onPrimaryContainer,
+                    ),
+                  ),
+                  Text(
+                    '${controller.canDoProgressPercent}%',
+                    style: getTextStyle(
+                      fontSize: 17,
+                      fontWeight: FontWeight.w700,
+                      color: colorScheme.onPrimaryContainer,
+                    ),
+                  ),
+                ],
+              ),
+              const SizedBox(height: 10),
+              ClipRRect(
+                borderRadius: BorderRadius.circular(999),
+                child: LinearProgressIndicator(
+                  value: controller.canDoProgressRatio,
+                  minHeight: 7,
+                  backgroundColor: colorScheme.surface.withValues(alpha: 0.55),
+                  valueColor: AlwaysStoppedAnimation<Color>(
+                    colorScheme.primary,
+                  ),
+                ),
+              ),
+            ],
+          ),
+        ),
+        const SizedBox(height: 12),
+        for (final lesson in lessons) ...<Widget>[
+          Container(
+            decoration: BoxDecoration(
+              color: colorScheme.surface,
+              borderRadius: BorderRadius.circular(16),
+              border: Border.all(color: theme.dividerColor),
+            ),
+            child: ExpansionTile(
+              tilePadding: const EdgeInsets.symmetric(horizontal: 16),
+              childrenPadding: const EdgeInsets.fromLTRB(8, 0, 8, 8),
+              title: Text(
+                'Lesson ${lesson.number}: ${lesson.title}',
+                style: getTextStyle(
+                  fontSize: 14,
+                  fontWeight: FontWeight.w600,
+                  color: colorScheme.onSurface,
+                ),
+              ),
+              subtitle: Text(
+                '${controller.getCanDoObjectiveCount(lesson)} of ${lesson.objectives.length} abilities',
+                style: getTextStyle(
+                  fontSize: 12,
+                  color: colorScheme.onSurfaceVariant,
+                ),
+              ),
+              children: <Widget>[
+                for (int index = 0; index < lesson.objectives.length; index++)
+                  CheckboxListTile(
+                    key: ValueKey<String>('can_do_${lesson.id}_$index'),
+                    value: controller.canDoObjective(
+                      lesson.id,
+                      lesson.objectives[index],
+                    ),
+                    onChanged: (bool? value) {
+                      if (value == null) {
+                        return;
+                      }
+                      controller.setCanDoObjective(
+                        lessonId: lesson.id,
+                        objective: lesson.objectives[index],
+                        canDo: value,
+                      );
+                    },
+                    title: Text(
+                      lesson.objectives[index],
+                      style: getTextStyle(
+                        fontSize: 13,
+                        color: colorScheme.onSurface,
+                        height: 1.35,
+                      ),
+                    ),
+                    dense: true,
+                    controlAffinity: ListTileControlAffinity.leading,
+                    contentPadding: const EdgeInsets.symmetric(horizontal: 8),
+                  ),
+              ],
+            ),
+          ),
+          if (lesson != lessons.last) const SizedBox(height: 8),
+        ],
+      ],
     );
   }
 }

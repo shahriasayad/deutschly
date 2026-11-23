@@ -26,7 +26,8 @@
         "Ask someone for a person on the phone and leave a simple message.",
         "Read a business card and complete a registration form with personal details.",
         "Spell names and ask someone to repeat or speak slowly.",
-        "Use the German alphabet and practise the vowel combinations ei, eu and au."
+        "Use the German alphabet and practise the vowel combinations ei, eu and au.",
+        "Practise sentence melody and stress while introducing yourself and sharing key information."
       ],
       "vocabulary": [
         {
@@ -1040,6 +1041,14 @@
           "correctIndex": 0,
           "explanation": "Use a modal question with formal Sie and bitte.",
           "id": "ex1_38"
+        },
+        {
+          "id": "ex1_39",
+          "type": "speaking_prompt",
+          "question": "Read the model aloud. Give the strongest stress to the new information in each sentence: name, city and language.",
+          "exampleAnswer": "Ich heiße Amina. Ich komme aus Dhaka. Ich spreche Bengali.",
+          "explanation": "German sentence stress often falls on the word that carries the new or important information.",
+          "pronunciationBn": "ইখ হাইসে আমিনা। ইখ কমে আউস ঢাকা। ইখ শ্প্রেখে বেঙ্গালি।"
         }
       ]
     },
@@ -1059,7 +1068,9 @@
         "Introduce family members and describe who lives together.",
         "Exchange age, telephone number and basic personal information using numbers 0–20.",
         "Understand short information about German-speaking countries and a city-library notice.",
-        "Choose du or Sie appropriately in a first meeting."
+        "Choose du or Sie appropriately in a first meeting.",
+        "Practise the rhythm and stress of short questions and answers about personal information.",
+        "Rehearse an A1 speaking task: introduce yourself and ask a partner simple personal questions."
       ],
       "vocabulary": [
         {
@@ -2116,6 +2127,22 @@
           "correctIndex": 0,
           "explanation": "Ausweis is an ID card; Information is the service desk.",
           "id": "ex2_40"
+        },
+        {
+          "id": "ex2_41",
+          "type": "speaking_prompt",
+          "question": "Take turns asking and answering how someone feels. Practise both an informal question and a polite formal question.",
+          "exampleAnswer": "Wie geht es dir? – Danke, gut. Und dir? Wie geht es Ihnen? – Es geht mir gut, danke.",
+          "explanation": "Keep the question melody clear and stress the key word in the answer. Use dir with du and Ihnen with Sie.",
+          "pronunciationBn": "ভি গেট এস ডিয়া? – ডাঙ্কে, গুট। উন্ট ডিয়া? ভি গেট এস ইনেন? – এস গেট মিয়া গুট, ডাঙ্কে।"
+        },
+        {
+          "id": "ex2_42",
+          "type": "speaking_prompt",
+          "question": "Speaking practice, Part 1: introduce yourself, then ask your partner for their name, city, languages and family.",
+          "exampleAnswer": "Ich heiße Amina. Ich wohne in Dhaka und spreche Bengali und Englisch. Wie heißen Sie? Wo wohnen Sie? Welche Sprachen sprechen Sie? Haben Sie Geschwister?",
+          "explanation": "Answer with your own details, then ask the same kind of short questions. With a classmate, agree whether to use du or Sie.",
+          "pronunciationBn": "ইখ হাইসে আমিনা। ইখ ভোনে ইন ঢাকা উন্ট শ্প্রেখে বেঙ্গালি উন্ট ইংলিশ। ভি হাইসেন জি? ভো ভোনেন জি? ভেল্শে শ্প্রাখেন শ্প্রেখেন জি? হাবেন জি গেশভিস্টা?"
         }
       ]
     },
@@ -2135,7 +2162,10 @@
         "Write a shopping list and a simple recipe with ingredients and quantities.",
         "Ask what an unfamiliar food is called and make polite requests in a shop.",
         "Practise yes/no question intonation, word stress and long/short vowels.",
-        "Use food and shopping language to compare prices and decide what to buy."
+        "Use food and shopping language to compare prices and decide what to buy.",
+        "Ask what an unfamiliar food is called and correct a mistaken guess politely.",
+        "Practise the stress pattern of common food words.",
+        "Read an international recipe card, identify ingredients and quantities, and compare simple filled-dough dishes."
       ],
       "vocabulary": [
         {
@@ -2461,6 +2491,48 @@
           "en": "baking tray",
           "bn": "বেকিং ট্রে",
           "pronunciationBn": "দাস বাকব্লেখ"
+        },
+        {
+          "de": "die Teigtasche",
+          "en": "filled dumpling",
+          "bn": "পুরভরা ডাম্পলিং",
+          "pronunciationBn": "ডি টাইক্টাশে"
+        },
+        {
+          "de": "der Spinat",
+          "en": "spinach",
+          "bn": "পালং শাক",
+          "pronunciationBn": "ডেয়া শ্পিনাট"
+        },
+        {
+          "de": "die Füllung",
+          "en": "filling",
+          "bn": "পুর",
+          "pronunciationBn": "ডি ফ্যুলুং"
+        },
+        {
+          "de": "Maultaschen",
+          "en": "Swabian filled pasta",
+          "bn": "জার্মান ভরা পাস্তা",
+          "pronunciationBn": "মাউলতাশেন"
+        },
+        {
+          "de": "Jiaozi",
+          "en": "Chinese dumplings",
+          "bn": "চীনা ডাম্পলিং",
+          "pronunciationBn": "জিয়াওৎসি"
+        },
+        {
+          "de": "Pelmeni",
+          "en": "Russian dumplings",
+          "bn": "রুশ ডাম্পলিং",
+          "pronunciationBn": "পেলমেনি"
+        },
+        {
+          "de": "Manti",
+          "en": "Turkish dumplings",
+          "bn": "তুর্কি ডাম্পলিং",
+          "pronunciationBn": "মানতি"
         }
       ],
       "grammar": [
@@ -2542,6 +2614,15 @@
             "der Apfel – die Äpfel",
             "das Ei – die Eier",
             "der Kuchen – die Kuchen"
+          ]
+        },
+        {
+          "title": "Correcting an assumption with doch",
+          "explanation": "When someone guesses or labels something incorrectly, doch can make your correction sound natural: Das ist doch kein Ei. Use vielleicht when you are making a guess rather than correcting a statement.",
+          "examples": [
+            "Das ist doch kein Ei. Das ist eine Kartoffel.",
+            "Vielleicht ist das eine Birne.",
+            "Wie heißt das auf Deutsch?"
           ]
         }
       ],
@@ -3165,15 +3246,63 @@
         },
         {
           "type": "multiple_choice",
-          "question": "Which word has the main stress on its first part as a German compound?",
+          "question": "Which stress pattern is correct for Kartoffel?",
           "options": [
-            "Einkaufszettel",
-            "sehr schön",
-            "bitte"
+            "KAR-tof-fel",
+            "Kar-TOF-fel",
+            "Kar-tof-FEL"
           ],
           "correctIndex": 0,
-          "explanation": "In many German compounds the first element carries the main stress.",
+          "explanation": "The main word stress in Kartoffel falls on the first syllable. This lesson practises word stress in food vocabulary.",
           "id": "ex3_43"
+        },
+        {
+          "id": "ex3_44",
+          "type": "multiple_choice",
+          "question": "A friend points to a potato and says “Das ist ein Ei.” Which reply corrects the guess?",
+          "options": [
+            "Das ist doch kein Ei. Das ist eine Kartoffel.",
+            "Ich möchte ein Ei.",
+            "Was kostet ein Ei?"
+          ],
+          "correctIndex": 0,
+          "explanation": "Use doch kein ... to correct an assumption; name the correct item afterward."
+        },
+        {
+          "id": "ex3_45",
+          "type": "multiple_choice",
+          "question": "Reading practice, Part 3 style: A product label says “Zutaten: Wasser, Äpfel, kein Zucker. Kühl und dunkel lagern.” Which statement is true?",
+          "options": [
+            "The product contains no sugar and should be stored cool and dark.",
+            "The product contains milk and should be frozen.",
+            "The product is a warm meal with added sugar."
+          ],
+          "correctIndex": 0,
+          "explanation": "Find the ingredients and storage instructions in the product information. kein Zucker means no sugar."
+        },
+        {
+          "id": "ex3_46",
+          "type": "multiple_choice",
+          "question": "Reading: At a course food evening, learners bring filled-dough dishes from different places: Maultaschen from Germany, Jiaozi from China, Pelmeni from Russia and Manti from Turkey. Which dish is from China?",
+          "options": [
+            "Jiaozi",
+            "Maultaschen",
+            "Pelmeni"
+          ],
+          "correctIndex": 0,
+          "explanation": "Match each dish name to the place named in the short text."
+        },
+        {
+          "id": "ex3_47",
+          "type": "multiple_choice",
+          "question": "Recipe card: “Für den Teig: Mehl, Wasser und Salz. Für die Füllung: Spinat, Zwiebel und Käse.” What goes into the filling?",
+          "options": [
+            "Spinach, onion and cheese",
+            "Flour, water and salt",
+            "Apples, sugar and milk"
+          ],
+          "correctIndex": 0,
+          "explanation": "Für die Füllung introduces the ingredients for the filling; für den Teig introduces dough ingredients."
         }
       ]
     },
@@ -3193,7 +3322,10 @@
         "Understand a simple workplace rule notice and a short housing information text.",
         "Describe an apartment, point to objects and express likes or dislikes.",
         "Practise stress in compound nouns and hear the difference between long and short e/i.",
-        "Read and compare housing details such as floor, size, location and monthly rent."
+        "Read and compare housing details such as floor, size, location and monthly rent.",
+        "Practise long and short e and i sounds while reading familiar housing words.",
+        "Say what you like or dislike in a home using gefällt mir and gefallen mir.",
+        "Read and say larger numbers in apartment information, including ten thousand and one hundred thousand."
       ],
       "vocabulary": [
         {
@@ -3519,6 +3651,60 @@
           "en": "rental contract",
           "bn": "ভাড়ার চুক্তি",
           "pronunciationBn": "ডেয়া মিটফেয়াট্রাক"
+        },
+        {
+          "de": "gefallen",
+          "en": "to like / to be pleasing",
+          "bn": "ভালো লাগা",
+          "pronunciationBn": "গেফালেন"
+        },
+        {
+          "de": "Das gefällt mir.",
+          "en": "I like that.",
+          "bn": "এটা আমার ভালো লাগে।",
+          "pronunciationBn": "দাস গেফেল্ট মিয়া"
+        },
+        {
+          "de": "die Toilette",
+          "en": "toilet",
+          "bn": "শৌচাগার",
+          "pronunciationBn": "ডি টয়লেটে"
+        },
+        {
+          "de": "der Fernseher",
+          "en": "television",
+          "bn": "টেলিভিশন",
+          "pronunciationBn": "ডেয়া ফেয়ার্নজেয়া"
+        },
+        {
+          "de": "das Telefon",
+          "en": "telephone",
+          "bn": "টেলিফোন",
+          "pronunciationBn": "দাস টেলেফোন"
+        },
+        {
+          "de": "der Garten",
+          "en": "garden",
+          "bn": "বাগান",
+          "pronunciationBn": "ডেয়া গার্টেন"
+        },
+        {
+          "de": "zehntausend",
+          "en": "ten thousand",
+          "bn": "দশ হাজার",
+          "pronunciationBn": "ৎসেনটাউজেন্ট"
+        },
+        {
+          "de": "hunderttausend",
+          "en": "one hundred thousand",
+          "bn": "এক লক্ষ",
+          "pronunciationBn": "হুন্ডার্টটাউজেন্ট"
+        },
+        {
+          "de": "der Küchenschrank",
+          "en": "kitchen cupboard",
+          "bn": "রান্নাঘরের আলমারি",
+          "pronunciationBn": "ডেয়া ক্যুখেনশ্রাঙ্ক"
         }
       ],
       "grammar": [
@@ -3594,6 +3780,15 @@
           "examples": [
             "Die Wohnung hat 65 Quadratmeter.",
             "Die Warmmiete kostet 750 Euro."
+          ]
+        },
+        {
+          "title": "Expressing likes with gefallen",
+          "explanation": "With gefallen, the thing you like is the subject and the person is dative: Das Sofa gefällt mir. With plural nouns, use gefallen: Die Möbel gefallen mir. To say you dislike something, add nicht.",
+          "examples": [
+            "Der Sessel gefällt mir.",
+            "Die Möbel gefallen mir.",
+            "Der Teppich gefällt mir nicht."
           ]
         }
       ],
@@ -4187,6 +4382,57 @@
           "correctIndex": 0,
           "explanation": "Bett has a short e; Beet has a long e.",
           "id": "ex4_42"
+        },
+        {
+          "id": "ex4_43",
+          "type": "multiple_choice",
+          "question": "Which pair contrasts a short i with a long i sound?",
+          "options": [
+            "bitte – bieten",
+            "Haus – Maus",
+            "Bett – Beet"
+          ],
+          "correctIndex": 0,
+          "explanation": "The i in bitte is short; ie in bieten signals a long i sound."
+        },
+        {
+          "id": "ex4_44",
+          "type": "fill_blank",
+          "question": "Complete: Das Sofa gefällt _____. (to me)",
+          "answer": "mir",
+          "explanation": "The person who likes something is expressed with dative mir."
+        },
+        {
+          "id": "ex4_45",
+          "type": "multiple_choice",
+          "question": "Choose the correct sentence for plural Möbel.",
+          "options": [
+            "Die Möbel gefällt mir.",
+            "Die Möbel gefallen mir.",
+            "Die Möbel gefällst mir."
+          ],
+          "correctIndex": 1,
+          "explanation": "Möbel is plural, so use gefallen. The person is mir."
+        },
+        {
+          "id": "ex4_46",
+          "type": "multiple_choice",
+          "question": "Which number is hunderttausend?",
+          "options": [
+            "10,000",
+            "100,000",
+            "1,000,000"
+          ],
+          "correctIndex": 1,
+          "explanation": "hunderttausend is one hundred thousand; eine Million is one million."
+        },
+        {
+          "id": "ex4_47",
+          "type": "speaking_prompt",
+          "question": "Describe one room and say what you like or dislike about it. Use gefällt mir or gefallen mir.",
+          "exampleAnswer": "Das Wohnzimmer ist hell. Das Sofa gefällt mir, aber die alten Stühle gefallen mir nicht.",
+          "explanation": "Use gefällt with a singular item and gefallen with plural items. The person who likes something is mir.",
+          "pronunciationBn": "দাস ভোনৎসিমা ইস্ট হেল। দাস জোফা গেফেল্ট মিয়া, আবা ডি আল্টেন শ্ট্যুলে গেফালেন মিয়া নিখ্ট।"
         }
       ]
     },
@@ -5190,7 +5436,9 @@
         "Talk about hobbies, weather, compass directions and plans for free time.",
         "Use accusative articles and answer negative questions with ja, nein or doch.",
         "Practise sentence stress in yes/no answers and the reduced ending in -en.",
-        "Suggest an activity, respond politely and agree on a time and place."
+        "Suggest an activity, respond politely and agree on a time and place.",
+        "Order a simple snack and use accusative articles for food and drinks.",
+        "Practise the reduced unstressed -en ending in everyday verbs."
       ],
       "vocabulary": [
         {
@@ -5462,6 +5710,108 @@
           "en": "excursion",
           "bn": "ভ্রমণ",
           "pronunciationBn": "ডেয়া আউসফ্লুক"
+        },
+        {
+          "de": "der Imbiss",
+          "en": "snack bar / takeaway",
+          "bn": "নাশতার দোকান",
+          "pronunciationBn": "ডেয়া ইমবিস"
+        },
+        {
+          "de": "der Salat",
+          "en": "salad",
+          "bn": "সালাদ",
+          "pronunciationBn": "ডেয়া জালাট"
+        },
+        {
+          "de": "der Saft",
+          "en": "juice",
+          "bn": "জুস",
+          "pronunciationBn": "ডেয়া জাফ্ট"
+        },
+        {
+          "de": "das Sandwich",
+          "en": "sandwich",
+          "bn": "স্যান্ডউইচ",
+          "pronunciationBn": "দাস স্যান্ডভিশ"
+        },
+        {
+          "de": "bestellen",
+          "en": "to order",
+          "bn": "অর্ডার করা",
+          "pronunciationBn": "বেশ্টেলেন"
+        },
+        {
+          "de": "der Käse",
+          "en": "cheese",
+          "bn": "পনির",
+          "pronunciationBn": "ডেয়া কেজে"
+        },
+        {
+          "de": "der Tee",
+          "en": "tea",
+          "bn": "চা",
+          "pronunciationBn": "ডেয়া টে"
+        },
+        {
+          "de": "das Wasser",
+          "en": "water",
+          "bn": "পানি",
+          "pronunciationBn": "দাস ভাসার"
+        },
+        {
+          "de": "Schach spielen",
+          "en": "to play chess",
+          "bn": "দাবা খেলা",
+          "pronunciationBn": "শাখ শ্পিলেন"
+        },
+        {
+          "de": "fotografieren",
+          "en": "to take photographs",
+          "bn": "ছবি তোলা",
+          "pronunciationBn": "ফোটোগ্রাফিরেন"
+        },
+        {
+          "de": "Computerspiele spielen",
+          "en": "to play computer games",
+          "bn": "কম্পিউটার গেম খেলা",
+          "pronunciationBn": "কম্পিউটারশ্পিলে শ্পিলেন"
+        },
+        {
+          "de": "im Internet surfen",
+          "en": "to surf the internet",
+          "bn": "ইন্টারনেটে ঘোরা",
+          "pronunciationBn": "ইম ইন্টারনেট জার্ফেন"
+        },
+        {
+          "de": "die Lieblingsfarbe",
+          "en": "favourite colour",
+          "bn": "প্রিয় রং",
+          "pronunciationBn": "ডি লিবলিংসফারবে"
+        },
+        {
+          "de": "das Lieblingsessen",
+          "en": "favourite food",
+          "bn": "প্রিয় খাবার",
+          "pronunciationBn": "দাস লিবলিংসএসেন"
+        },
+        {
+          "de": "das Lieblingsbuch",
+          "en": "favourite book",
+          "bn": "প্রিয় বই",
+          "pronunciationBn": "দাস লিবলিংসবুখ"
+        },
+        {
+          "de": "die Lieblingsmusik",
+          "en": "favourite music",
+          "bn": "প্রিয় সঙ্গীত",
+          "pronunciationBn": "ডি লিবলিংসমুজিক"
+        },
+        {
+          "de": "der Krimi",
+          "en": "crime novel",
+          "bn": "গোয়েন্দা উপন্যাস",
+          "pronunciationBn": "ডেয়া ক্রিমি"
         }
       ],
       "grammar": [
@@ -5718,6 +6068,52 @@
               "speaker": "B",
               "text": "Super. Dann mache ich später Kaffee.",
               "pronunciationBn": "জুপা। ডান মাখে ইখ শ্পেটা কাফে।"
+            }
+          ]
+        },
+        {
+          "id": "d6_5",
+          "title": "At the snack bar: ordering food",
+          "lines": [
+            {
+              "speaker": "A",
+              "text": "Guten Tag. Was möchten Sie?",
+              "pronunciationBn": "গুটেন টাক। ভাস ম্যোখটেন জি?"
+            },
+            {
+              "speaker": "B",
+              "text": "Ich nehme den Salat, bitte.",
+              "pronunciationBn": "ইখ নেমে ডেন জালাট, বিটে।"
+            },
+            {
+              "speaker": "A",
+              "text": "Möchten Sie Käse dazu?",
+              "pronunciationBn": "ম্যোখটেন জি কেজে দাৎসু?"
+            },
+            {
+              "speaker": "B",
+              "text": "Ja, bitte. Und einen Tee.",
+              "pronunciationBn": "ইয়া, বিটে। উন্ট আইনেন টে।"
+            },
+            {
+              "speaker": "A",
+              "text": "Möchten Sie auch einen Saft?",
+              "pronunciationBn": "ম্যোখটেন জি আউখ আইনেন জাফ্ট?"
+            },
+            {
+              "speaker": "B",
+              "text": "Nein, danke. Keinen Saft. Ich nehme Wasser.",
+              "pronunciationBn": "নাইন, ডাঙ্কে। কাইনেন জাফ্ট। ইখ নেমে ভাসার।"
+            },
+            {
+              "speaker": "A",
+              "text": "Das macht neun Euro fünfzig.",
+              "pronunciationBn": "দাস মাখ্ট নয়ন অয়রো ফুন্‌ফৎসিশ।"
+            },
+            {
+              "speaker": "B",
+              "text": "Hier bitte. Vielen Dank. Auf Wiedersehen.",
+              "pronunciationBn": "হিয়া বিটে। ফিলেন ডাঙ্ক। আউফ ভিডারজেন।"
             }
           ]
         }
@@ -6133,6 +6529,53 @@
           "exampleAnswer": "1. Bus 4 nehmen.\n2. Am Rathaus aussteigen.",
           "explanation": "Keep both actions in order and copy the stop name accurately.",
           "id": "ex6_41"
+        },
+        {
+          "id": "ex6_42",
+          "type": "multiple_choice",
+          "question": "Read the hobby portrait: “Ich heiße Omar. Am Samstag spiele ich gern Schach. Danach treffe ich meinen Freund. Wenn es regnet, lese ich einen Roman.” What does Omar do on Saturday?",
+          "options": [
+            "He plays chess and meets a friend.",
+            "He goes swimming and cooks.",
+            "He works at the library."
+          ],
+          "correctIndex": 0,
+          "explanation": "The portrait says he plays chess and then meets his friend."
+        },
+        {
+          "id": "ex6_43",
+          "type": "fill_blank",
+          "question": "At the snack bar: Ich nehme _____ Salat und _____ Tee, bitte. (the salad; a tea)",
+          "answer": "den, einen",
+          "acceptableAnswers": [
+            "den einen",
+            "den und einen"
+          ],
+          "explanation": "Salat is masculine, so the accusative article is den; Tee is masculine with einen."
+        },
+        {
+          "id": "ex6_44",
+          "type": "speaking_prompt",
+          "question": "Order a snack and drink. Ask about one ingredient, then politely say what you do not want.",
+          "exampleAnswer": "Ich nehme den Salat und einen Tee, bitte. Ist Käse im Salat? Nein, danke. Keinen Saft.",
+          "explanation": "Use den for a masculine item, einen for an indefinite masculine item, and keinen to refuse one.",
+          "pronunciationBn": "ইখ নেমে ডেন জালাট উন্ট আইনেন টে, বিটে। ইস্ট কেজে ইম জালাট? নাইন, ডাঙ্কে। কাইনেন জাফ্ট।"
+        },
+        {
+          "id": "ex6_45",
+          "type": "speaking_prompt",
+          "question": "Interview a partner about a hobby. Ask what they do, when they do it and whether they prefer indoor or outdoor activities.",
+          "exampleAnswer": "Was machst du gern? – Ich spiele gern Schach. Wann spielst du? – Am Samstag. Liest du auch gern? – Ja, gern.",
+          "explanation": "Ask one question at a time and respond with a complete short sentence.",
+          "pronunciationBn": "ভাস মাখ্স্ট ডু গেয়ার্ন? – ইখ শ্পিলে গেয়ার্ন শাখ। ভান শ্পিলস্ট ডু? – আম জামস্টাক। লিস্ট ডু আউখ গেয়ার্ন? – ইয়া, গেয়ার্ন।"
+        },
+        {
+          "id": "ex6_46",
+          "type": "speaking_prompt",
+          "question": "Say machen, spielen and hören at a natural pace. Notice how the unstressed ending -en is often reduced, then use one verb in a sentence.",
+          "exampleAnswer": "Ich mache heute Sport. Am Samstag spiele ich Fußball. Abends höre ich Musik.",
+          "explanation": "In natural speech, the unstressed e in many -en endings is reduced. Keep the ending light without dropping it completely.",
+          "pronunciationBn": "ইখ মাখে হয়টে শ্পোর্ট। আম জামস্টাক শ্পিলে ইখ ফুসবল। আবেন্টস হোরে ইখ মুজিক।"
         }
       ]
     },
@@ -6152,7 +6595,9 @@
         "Report yesterday's activities using Perfekt with haben and sein.",
         "Express ability and intention with können and wollen.",
         "Make, accept and politely decline a suggestion and offer another time.",
-        "Practise sch, st and sp spelling patterns and write a short A1-level note."
+        "Practise sch, st and sp spelling patterns and write a short A1-level note.",
+        "Read a simple family notice about children’s learning and leisure activities and find times and age limits.",
+        "Describe skills and say what you can or want to do using everyday activities and hobbies."
       ],
       "vocabulary": [
         {
@@ -6430,6 +6875,78 @@
           "en": "language",
           "bn": "ভাষা",
           "pronunciationBn": "ডি শ্প্রাখে"
+        },
+        {
+          "de": "der Hausaufgabenclub",
+          "en": "homework club",
+          "bn": "বাড়ির কাজের ক্লাব",
+          "pronunciationBn": "ডেয়া হাউসআউফগাবেনক্লুপ"
+        },
+        {
+          "de": "die Musikgruppe",
+          "en": "music group",
+          "bn": "সঙ্গীত দল",
+          "pronunciationBn": "ডি মুজিকগ্রুপে"
+        },
+        {
+          "de": "die Spielgruppe",
+          "en": "playgroup",
+          "bn": "খেলার দল",
+          "pronunciationBn": "ডি শ্পিলগ্রুপে"
+        },
+        {
+          "de": "reiten",
+          "en": "to ride a horse",
+          "bn": "ঘোড়ায় চড়া",
+          "pronunciationBn": "রাইটেন"
+        },
+        {
+          "de": "singen",
+          "en": "to sing",
+          "bn": "গান গাওয়া",
+          "pronunciationBn": "জিঙ্গেন"
+        },
+        {
+          "de": "Ski fahren",
+          "en": "to ski",
+          "bn": "স্কি করা",
+          "pronunciationBn": "শি ফারেন"
+        },
+        {
+          "de": "Kuchen backen",
+          "en": "to bake a cake",
+          "bn": "কেক বেক করা",
+          "pronunciationBn": "কুখেন বাকেন"
+        },
+        {
+          "de": "Tennis spielen",
+          "en": "to play tennis",
+          "bn": "টেনিস খেলা",
+          "pronunciationBn": "টেনিস শ্পিলেন"
+        },
+        {
+          "de": "jonglieren",
+          "en": "to juggle",
+          "bn": "জাগলিং করা",
+          "pronunciationBn": "য়ংলিরেন"
+        },
+        {
+          "de": "malen",
+          "en": "to paint",
+          "bn": "আঁকা",
+          "pronunciationBn": "মালেন"
+        },
+        {
+          "de": "Klavier spielen",
+          "en": "to play the piano",
+          "bn": "পিয়ানো বাজানো",
+          "pronunciationBn": "ক্লাভিয়া শ্পিলেন"
+        },
+        {
+          "de": "der Handstand",
+          "en": "handstand",
+          "bn": "হ্যান্ডস্ট্যান্ড",
+          "pronunciationBn": "ডেয়া হান্টশ্টান্ট"
         }
       ],
       "grammar": [
@@ -7116,12 +7633,32 @@
           "exampleAnswer": "Guten Morgen, ich bin heute krank und kann nicht zum Deutschkurs kommen. Ich hoffe, dass ich morgen wieder da bin. Viele Grüße, Amina",
           "explanation": "Include a greeting, reason, today/return information and a closing.",
           "id": "ex7_41"
+        },
+        {
+          "id": "ex7_42",
+          "type": "multiple_choice",
+          "question": "Family notice: “Hausaufgabenclub: Montag und Donnerstag, 15:00–16:00, für Kinder von 7 bis 10 Jahren. Musikgruppe: Mittwoch, 16:00.” When can a 9-year-old attend the homework club?",
+          "options": [
+            "Monday or Thursday from 15:00 to 16:00.",
+            "Wednesday at 16:00 only.",
+            "Saturday morning."
+          ],
+          "correctIndex": 0,
+          "explanation": "The notice gives the days, time and age range for each activity."
+        },
+        {
+          "id": "ex7_43",
+          "type": "speaking_prompt",
+          "question": "Tell a partner two things you can do and one thing you want to learn. Ask your partner the same question.",
+          "exampleAnswer": "Ich kann gut singen und Tennis spielen. Ich kann nicht reiten, aber ich will es lernen. Was kannst du gut?",
+          "explanation": "Conjugate können or wollen in position two and put the second verb at the end.",
+          "pronunciationBn": "ইখ কান গুট জিঙ্গেন উন্ট টেনিস শ্পিলেন। ইখ কান নিখ্ট রাইটেন, আবা ইখ ভিল এস লেয়ার্নেন। ভাস কানস্ট ডু গুট?"
         }
       ]
     }
   ],
   "metadata": {
-    "totalExercises": 285,
+    "totalExercises": 304,
     "exerciseTypes": [
       "multiple_choice",
       "fill_blank",
@@ -7133,7 +7670,7 @@
     ],
     "notes_for_developer": [
       "Course content is original supplementary teaching material aligned to the non-audio learning outcomes listed in the supplied Schritte plus Neu A1.1 contents pages.",
-      "All seven units include expanded vocabulary, grammar explanations, everyday dialogue, written tasks, reading-style notices, phonetics, speaking practice and self-check exercises.",
+      "All seven units include expanded vocabulary, grammar explanations, everyday dialogues, written tasks, reading-style notices, phonetics, speaking practice and self-check exercises.",
       "Textbook audio listening activities are not represented because the app has no licensed audio assets. Book dialogue and exercise wording is not copied.",
       "Bangla pronunciation is approximate and should support, not replace, standard German listening and pronunciation."
     ],

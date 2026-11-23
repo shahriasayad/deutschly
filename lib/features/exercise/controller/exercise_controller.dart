@@ -8,6 +8,8 @@ class ExerciseController extends GetxController {
   ExerciseController({
     required this.exercises,
     this.lessonId,
+    this.lessonIdByExercise = const <String, String>{},
+    this.recordProgress = true,
     int initialIndex = 0,
     ExerciseEvaluatorService? evaluatorService,
     ProgressController? progressController,
@@ -21,6 +23,8 @@ class ExerciseController extends GetxController {
 
   final List<Exercise> exercises;
   final String? lessonId;
+  final Map<String, String> lessonIdByExercise;
+  final bool recordProgress;
   final ExerciseEvaluatorService _evaluator;
   final ProgressController? _progressController;
 
@@ -334,6 +338,7 @@ class ExerciseController extends GetxController {
       return;
     }
 
+    final isFirstAttemptInSession = !exerciseResults.containsKey(exercise.id);
     final isCorrect = switch (exercise) {
       MultipleChoiceExercise() => _evaluator.evaluateMultipleChoice(
         exercise: exercise,
@@ -377,8 +382,17 @@ class ExerciseController extends GetxController {
       showWritingExample.value = true;
     }
 
-    final currentLessonId = lessonId;
-    if (isCorrect && currentLessonId != null) {
+    final currentLessonId = lessonIdByExercise[exercise.id] ?? lessonId;
+    if (!recordProgress || currentLessonId == null) {
+      return;
+    }
+    if (isFirstAttemptInSession) {
+      _resolvedProgressController.recordExerciseAttempt(
+        lessonId: currentLessonId,
+        exerciseId: exercise.id,
+        correct: isCorrect,
+      );
+    } else if (isCorrect) {
       _resolvedProgressController.markExerciseCompleted(
         lessonId: currentLessonId,
         exerciseId: exercise.id,
@@ -424,5 +438,9 @@ class ExerciseController extends GetxController {
     isFinished.value = false;
     currentIndex.value = 0;
     _prepareCurrentExercise();
+  }
+
+  void finishSession() {
+    isFinished.value = true;
   }
 }

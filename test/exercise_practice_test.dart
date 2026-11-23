@@ -4,6 +4,8 @@ import 'package:get/get.dart';
 import 'package:deutschly/data/models/exercise.dart';
 import 'package:deutschly/features/exercise/controller/exercise_controller.dart';
 import 'package:deutschly/features/exercise/widgets/exercise_feedback_card.dart';
+import 'package:deutschly/features/progress/controller/progress_controller.dart';
+import 'package:deutschly/features/progress/service/progress_service.dart';
 
 void main() {
   TestWidgetsFlutterBinding.ensureInitialized();
@@ -80,6 +82,95 @@ void main() {
 
     expect(controller.isFinished.value, isTrue);
     expect(controller.correctCount, 0);
+  });
+
+  test(
+    'same-session retry completes exercise without advancing review interval',
+    () {
+      final progressController = ProgressController(
+        progressService: ProgressService(),
+      );
+      final controller = Get.put(
+        ExerciseController(
+          exercises: const <Exercise>[
+            Exercise.trueFalse(
+              id: 'reviewed_item',
+              question: 'German is a language.',
+              correct: true,
+            ),
+          ],
+          lessonId: 'lesson_01',
+          progressController: progressController,
+        ),
+        tag: 'review_schedule_retry_test',
+      );
+
+      controller.selectTrueFalse(false);
+      controller.checkAnswer();
+      final firstSchedule = progressController
+          .getLessonProgressData('lesson_01')
+          .reviewSchedule['reviewed_item'];
+      expect(firstSchedule?.attempts, 1);
+
+      controller.nextExercise();
+      controller.selectTrueFalse(true);
+      controller.checkAnswer();
+
+      final progress = progressController.getLessonProgressData('lesson_01');
+      expect(progress.completedExercises, contains('reviewed_item'));
+      expect(progress.reviewSchedule['reviewed_item']?.attempts, 1);
+      expect(
+        progress.reviewSchedule['reviewed_item']?.dueAt,
+        firstSchedule?.dueAt,
+      );
+    },
+  );
+
+  test('mixed-lesson practice saves each answer to its source lesson', () {
+    final progressController = ProgressController(
+      progressService: ProgressService(),
+    );
+    final controller = Get.put(
+      ExerciseController(
+        exercises: const <Exercise>[
+          Exercise.multipleChoice(
+            id: 'lesson_one_item',
+            question: 'First question',
+            options: <String>['A', 'B'],
+            correctIndex: 0,
+          ),
+          Exercise.multipleChoice(
+            id: 'lesson_two_item',
+            question: 'Second question',
+            options: <String>['A', 'B'],
+            correctIndex: 0,
+          ),
+        ],
+        lessonId: 'lesson_01',
+        lessonIdByExercise: <String, String>{'lesson_two_item': 'lesson_02'},
+        progressController: progressController,
+      ),
+      tag: 'mixed_lesson_review_test',
+    );
+
+    controller.selectMultipleChoiceOption(0);
+    controller.checkAnswer();
+    controller.nextExercise();
+    controller.selectMultipleChoiceOption(0);
+    controller.checkAnswer();
+
+    expect(
+      progressController.getCompletedExerciseIds('lesson_01'),
+      contains('lesson_one_item'),
+    );
+    expect(
+      progressController.getCompletedExerciseIds('lesson_02'),
+      contains('lesson_two_item'),
+    );
+    expect(
+      progressController.getLessonProgressData('lesson_02').reviewSchedule,
+      contains('lesson_two_item'),
+    );
   });
 
   test('writing practice requires a response before self-assessment', () {

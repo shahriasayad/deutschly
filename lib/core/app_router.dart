@@ -7,6 +7,10 @@ import 'package:deutschly/features/lesson/screen/lesson_detail_screen.dart';
 import 'package:deutschly/features/progress/screen/progress_screen.dart';
 import 'package:deutschly/features/shell/screen/app_shell_screen.dart';
 import 'package:deutschly/features/vocabulary/screen/vocabulary_screen.dart';
+import 'package:deutschly/data/models/practice_session_item.dart';
+import 'package:deutschly/features/exam/models/exam_skill.dart';
+import 'package:deutschly/features/exam/screen/exam_practice_screen.dart';
+import 'package:deutschly/features/exam/screen/exam_section_screen.dart';
 
 class AppRoutes {
   const AppRoutes._();
@@ -15,6 +19,8 @@ class AppRoutes {
   static const String vocabulary = '/vocabulary';
   static const String progress = '/progress';
   static const String about = '/about';
+  static const String examPractice = '/exam-practice';
+  static const String examSectionPath = '/exam-practice/:skill';
   static const String lessonDetailPath = '/lesson/:lessonId';
   static const String lessonExercisesPath = '/lesson/:lessonId/exercises';
 
@@ -26,6 +32,15 @@ class AppRoutes {
     }
     return '/lesson/$lessonId/exercises';
   }
+
+  static String practiceSession(
+    String lessonId, {
+    required int startIndex,
+    required int exerciseCount,
+  }) => '/lesson/$lessonId/exercises?index=$startIndex&session=$exerciseCount';
+
+  static String examSection(String skill, {required bool timed}) =>
+      '$examPractice/$skill?timed=$timed';
 }
 
 class AppRouter {
@@ -41,6 +56,25 @@ class AppRouter {
       navigatorKey: rootNavigatorKey,
       initialLocation: AppRoutes.home,
       routes: <RouteBase>[
+        GoRoute(
+          parentNavigatorKey: rootNavigatorKey,
+          path: AppRoutes.examPractice,
+          builder: (BuildContext context, GoRouterState state) {
+            return const ExamPracticeScreen();
+          },
+        ),
+        GoRoute(
+          parentNavigatorKey: rootNavigatorKey,
+          path: AppRoutes.examSectionPath,
+          builder: (BuildContext context, GoRouterState state) {
+            final skill = ExamSkill.parse(state.pathParameters['skill'] ?? '');
+            final timed = state.uri.queryParameters['timed'] == 'true';
+            if (skill == null) {
+              return const ExamPracticeScreen();
+            }
+            return ExamSectionScreen(skill: skill, timed: timed);
+          },
+        ),
         ShellRoute(
           navigatorKey: shellNavigatorKey,
           builder: (BuildContext context, GoRouterState state, Widget child) {
@@ -88,9 +122,16 @@ class AppRouter {
             final lessonId = state.pathParameters['lessonId'] ?? '';
             final indexParam = state.uri.queryParameters['index'];
             final initialIndex = int.tryParse(indexParam ?? '') ?? 0;
+            final sessionLength =
+                int.tryParse(state.uri.queryParameters['session'] ?? '') ?? 0;
+            final practiceItems = state.extra is List<PracticeSessionItem>
+                ? state.extra as List<PracticeSessionItem>
+                : null;
             return ExerciseScreen(
               lessonId: lessonId,
               initialIndex: initialIndex,
+              sessionLength: sessionLength,
+              sessionItems: practiceItems,
             );
           },
         ),
