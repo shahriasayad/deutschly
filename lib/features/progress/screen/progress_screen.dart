@@ -12,6 +12,7 @@ import 'package:deutschly/data/models/lesson.dart';
 import 'package:deutschly/features/course/controller/course_controller.dart';
 import 'package:deutschly/features/progress/controller/progress_controller.dart';
 import 'package:deutschly/features/progress/widgets/reset_progress_dialog.dart';
+import 'package:deutschly/features/random_vocabulary/controller/random_vocabulary_controller.dart';
 
 class ProgressScreen extends StatelessWidget {
   const ProgressScreen({super.key});
@@ -45,6 +46,10 @@ class ProgressScreen extends StatelessWidget {
               final confirmed = await showResetProgressDialog(context);
               if (confirmed) {
                 await progressController.resetAllProgress();
+                if (Get.isRegistered<RandomVocabularyController>()) {
+                  await Get.find<RandomVocabularyController>()
+                      .resetAllSrsData();
+                }
               }
             },
           ),
@@ -175,6 +180,12 @@ class ProgressScreen extends StatelessWidget {
                     ),
                   ),
                   24.vSpace,
+                  if (Get.isRegistered<RandomVocabularyController>())
+                    _VocabularyMasteryCard(
+                      srsController: Get.find<RandomVocabularyController>(),
+                    ),
+                  if (Get.isRegistered<RandomVocabularyController>())
+                    24.vSpace,
                   _CanDoProgressSection(
                     lessons: lessons,
                     controller: progressController,
@@ -249,9 +260,12 @@ class ProgressScreen extends StatelessWidget {
                                         style: getTextStyle(
                                           fontSize: 13,
                                           fontWeight: FontWeight.w700,
-                                          color: percent == 100
-                                              ? AppColors.success
-                                              : colorScheme.primary,
+                                          color: AppColors.statusColor(
+                                            context,
+                                            AppColors.progressStatusFromRatio(
+                                              ratio,
+                                            ),
+                                          ),
                                         ),
                                       ),
                                     ],
@@ -265,9 +279,12 @@ class ProgressScreen extends StatelessWidget {
                                       backgroundColor:
                                           colorScheme.surfaceContainerHighest,
                                       valueColor: AlwaysStoppedAnimation<Color>(
-                                        percent == 100
-                                            ? AppColors.success
-                                            : colorScheme.primary,
+                                        AppColors.statusColor(
+                                          context,
+                                          AppColors.progressStatusFromRatio(
+                                            ratio,
+                                          ),
+                                        ),
                                       ),
                                     ),
                                   ),
@@ -489,6 +506,128 @@ class _CanDoProgressSection extends StatelessWidget {
           if (lesson != lessons.last) 8.vSpace,
         ],
       ],
+    );
+  }
+}
+
+class _VocabularyMasteryCard extends StatelessWidget {
+  const _VocabularyMasteryCard({required this.srsController});
+
+  final RandomVocabularyController srsController;
+
+  @override
+  Widget build(BuildContext context) {
+    final theme = Theme.of(context);
+    final colorScheme = theme.colorScheme;
+    final total = srsController.totalUniqueWords;
+    final mastered = srsController.masteredCount;
+    final learning = srsController.learningCount;
+    final struggling = srsController.strugglingCount;
+    final unseen = srsController.unseenCount;
+    final masteryRatio = total == 0 ? 0.0 : (mastered / total).clamp(0.0, 1.0);
+
+    return Container(
+      width: double.infinity,
+      padding: EdgeInsets.all(18.w),
+      decoration: BoxDecoration(
+        color: colorScheme.surface,
+        borderRadius: BorderRadius.circular(18.r),
+        border: Border.all(color: theme.dividerColor),
+      ),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: <Widget>[
+          Row(
+            children: <Widget>[
+              Expanded(
+                child: Text(
+                  'Vocabulary Mastery',
+                  style: getTextStyle(
+                    fontSize: 16,
+                    fontWeight: FontWeight.w700,
+                    color: colorScheme.onSurface,
+                  ),
+                ),
+              ),
+              Text(
+                '$mastered / $total',
+                style: getTextStyle(
+                  fontSize: 14,
+                  fontWeight: FontWeight.w700,
+                  color: AppColors.statusColor(
+                    context,
+                    LearningStatus.mastered,
+                  ),
+                ),
+              ),
+            ],
+          ),
+          10.vSpace,
+          ClipRRect(
+            borderRadius: BorderRadius.circular(999.r),
+            child: LinearProgressIndicator(
+              value: masteryRatio,
+              minHeight: 7.h,
+              backgroundColor: colorScheme.surfaceContainerHighest,
+              valueColor: AlwaysStoppedAnimation<Color>(
+                AppColors.statusColor(context, LearningStatus.mastered),
+              ),
+            ),
+          ),
+          12.vSpace,
+          Wrap(
+            spacing: 8.w,
+            runSpacing: 8.h,
+            children: <Widget>[
+              _MasteryChip(
+                label: 'Mastered: $mastered',
+                status: LearningStatus.mastered,
+              ),
+              _MasteryChip(
+                label: 'Learning: $learning',
+                status: LearningStatus.learning,
+              ),
+              _MasteryChip(
+                label: 'Struggling: $struggling',
+                status: LearningStatus.struggling,
+              ),
+              _MasteryChip(
+                label: 'Unseen: $unseen',
+                status: LearningStatus.unseen,
+              ),
+            ],
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+class _MasteryChip extends StatelessWidget {
+  const _MasteryChip({required this.label, required this.status});
+
+  final String label;
+  final LearningStatus status;
+
+  @override
+  Widget build(BuildContext context) {
+    final fg = AppColors.statusColor(context, status);
+    final bg = AppColors.statusContainerColor(context, status);
+
+    return Container(
+      padding: EdgeInsets.symmetric(horizontal: 10.w, vertical: 5.h),
+      decoration: BoxDecoration(
+        color: bg,
+        borderRadius: BorderRadius.circular(999.r),
+      ),
+      child: Text(
+        label,
+        style: getTextStyle(
+          fontSize: 12,
+          fontWeight: FontWeight.w600,
+          color: fg,
+        ),
+      ),
     );
   }
 }

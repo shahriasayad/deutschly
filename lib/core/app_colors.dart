@@ -1,5 +1,13 @@
 import 'package:flutter/material.dart';
 
+enum LearningStatus {
+  unseen,
+  struggling,
+  learning,
+  good,
+  mastered,
+}
+
 class AppColors {
   const AppColors._();
 
@@ -114,5 +122,45 @@ class AppColors {
       ),
       dividerColor: borderDark,
     );
+  }
+
+  static Color statusColor(BuildContext context, LearningStatus status) {
+    final theme = Theme.of(context);
+    final isDark = theme.brightness == Brightness.dark;
+    return switch (status) {
+      LearningStatus.unseen => theme.colorScheme.onSurfaceVariant,
+      LearningStatus.struggling =>
+        isDark ? const Color(0xFFF87171) : error,
+      LearningStatus.learning =>
+        isDark ? const Color(0xFFFBBF24) : warning,
+      LearningStatus.good => theme.colorScheme.primary,
+      LearningStatus.mastered =>
+        isDark ? const Color(0xFF4ADE80) : success,
+    };
+  }
+
+  static Color statusContainerColor(
+    BuildContext context,
+    LearningStatus status,
+  ) {
+    final color = statusColor(context, status);
+    final isDark = Theme.of(context).brightness == Brightness.dark;
+    if (status == LearningStatus.unseen) {
+      return Theme.of(context).colorScheme.surfaceContainerHighest;
+    }
+    return color.withValues(alpha: isDark ? 0.18 : 0.12);
+  }
+
+  static LearningStatus progressStatusFromRatio(double ratio) {
+    if (ratio >= 1.0) {
+      return LearningStatus.mastered;
+    }
+    if (ratio >= 0.4) {
+      return LearningStatus.good;
+    }
+    if (ratio > 0.0) {
+      return LearningStatus.learning;
+    }
+    return LearningStatus.unseen;
   }
 }

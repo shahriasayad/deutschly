@@ -12,6 +12,8 @@ import 'package:deutschly/features/course/controller/course_controller.dart';
 import 'package:deutschly/features/home/controller/home_controller.dart';
 import 'package:deutschly/features/progress/controller/progress_controller.dart';
 import 'package:deutschly/features/progress/service/progress_service.dart';
+import 'package:deutschly/features/random_vocabulary/controller/random_vocabulary_controller.dart';
+import 'package:deutschly/features/random_vocabulary/service/vocabulary_srs_service.dart';
 import 'package:deutschly/features/vocabulary/controller/vocabulary_controller.dart';
 
 Future<void> main() async {
@@ -39,6 +41,9 @@ Future<void> main() async {
   final progressService = ProgressService();
   await progressService.init();
 
+  final srsService = VocabularySrsService();
+  await srsService.init();
+
   const repository = CourseRepository();
   final courseController = Get.put(CourseController(repository: repository));
   final progressController = Get.put(
@@ -57,6 +62,12 @@ Future<void> main() async {
     VocabularyController(
       courseController: courseController,
       progressController: progressController,
+    ),
+  );
+  Get.put(
+    RandomVocabularyController(
+      srsService: srsService,
+      courseController: courseController,
     ),
   );
 

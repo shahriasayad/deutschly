@@ -12,6 +12,8 @@ import 'package:deutschly/features/home/widgets/continue_learning_card.dart';
 import 'package:deutschly/features/home/widgets/course_header_card.dart';
 import 'package:deutschly/features/home/widgets/lesson_card.dart';
 import 'package:deutschly/features/progress/widgets/reset_progress_dialog.dart';
+import 'package:deutschly/features/random_vocabulary/controller/random_vocabulary_controller.dart';
+import 'package:deutschly/features/random_vocabulary/widgets/random_vocabulary_banner_card.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -54,6 +56,10 @@ class HomeScreen extends StatelessWidget {
               final confirmed = await showResetProgressDialog(context);
               if (confirmed) {
                 await controller.resetAllProgress();
+                if (Get.isRegistered<RandomVocabularyController>()) {
+                  await Get.find<RandomVocabularyController>()
+                      .resetAllSrsData();
+                }
               }
             },
           ),
@@ -90,6 +96,9 @@ class HomeScreen extends StatelessWidget {
         final activeLessonIndex = lessons.indexWhere(
           (lesson) => controller.getLessonProgressPercent(lesson.id) < 100,
         );
+        final srsController = Get.isRegistered<RandomVocabularyController>()
+            ? Get.find<RandomVocabularyController>()
+            : Get.put(RandomVocabularyController());
 
         return Align(
           alignment: Alignment.topCenter,
@@ -119,6 +128,15 @@ class HomeScreen extends StatelessWidget {
                             ),
                             extra: nextSession.items,
                           ),
+                  ),
+                  14.vSpace,
+                  RandomVocabularyBannerCard(
+                    key: const ValueKey<String>('home_random_vocab_card'),
+                    dueCount: srsController.getDueCount(),
+                    masteredCount: srsController.masteredCount,
+                    strugglingCount: srsController.strugglingCount,
+                    totalWords: srsController.totalUniqueWords,
+                    onTap: () => context.push(AppRoutes.randomVocabulary),
                   ),
                   24.vSpace,
                   Text(

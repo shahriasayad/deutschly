@@ -5,6 +5,7 @@ import 'package:deutschly/features/exercise/screen/exercise_screen.dart';
 import 'package:deutschly/features/home/screen/home_screen.dart';
 import 'package:deutschly/features/lesson/screen/lesson_detail_screen.dart';
 import 'package:deutschly/features/progress/screen/progress_screen.dart';
+import 'package:deutschly/features/random_vocabulary/screen/random_vocabulary_screen.dart';
 import 'package:deutschly/features/shell/screen/app_shell_screen.dart';
 import 'package:deutschly/features/vocabulary/screen/vocabulary_screen.dart';
 import 'package:deutschly/data/models/practice_session_item.dart';
@@ -17,6 +18,7 @@ class AppRoutes {
 
   static const String home = '/';
   static const String vocabulary = '/vocabulary';
+  static const String randomVocabulary = '/random-vocabulary';
   static const String progress = '/progress';
   static const String about = '/about';
   static const String examPractice = '/exam-practice';
@@ -61,6 +63,13 @@ class AppRouter {
           path: AppRoutes.about,
           builder: (BuildContext context, GoRouterState state) {
             return const AboutScreen();
+          },
+        ),
+        GoRoute(
+          parentNavigatorKey: rootNavigatorKey,
+          path: AppRoutes.randomVocabulary,
+          builder: (BuildContext context, GoRouterState state) {
+            return const RandomVocabularyScreen();
           },
         ),
         GoRoute(

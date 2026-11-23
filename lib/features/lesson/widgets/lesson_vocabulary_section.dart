@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:deutschly/core/empty_state_widget.dart';
 import 'package:deutschly/core/global_text_style.dart';
 import 'package:deutschly/core/pronunciation_button.dart';
 import 'package:deutschly/core/screen_util.dart';
 import 'package:deutschly/data/models/vocabulary_item.dart';
+import 'package:deutschly/features/random_vocabulary/controller/random_vocabulary_controller.dart';
+import 'package:deutschly/features/random_vocabulary/widgets/vocabulary_status_badge.dart';
 import 'package:deutschly/features/vocabulary/widgets/hard_vocabulary_toggle_button.dart';
 
 class LessonVocabularySection extends StatelessWidget {
@@ -314,13 +317,27 @@ class _VocabularyTile extends StatelessWidget {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: <Widget>[
-                    Text(
-                      item.de,
-                      style: getTextStyle(
-                        fontSize: 16,
-                        fontWeight: FontWeight.w700,
-                        color: colorScheme.onSurface,
-                      ),
+                    Row(
+                      children: <Widget>[
+                        Expanded(
+                          child: Text(
+                            item.de,
+                            style: getTextStyle(
+                              fontSize: 16,
+                              fontWeight: FontWeight.w700,
+                              color: colorScheme.onSurface,
+                            ),
+                          ),
+                        ),
+                        if (Get.isRegistered<
+                            RandomVocabularyController>()) ...<Widget>[
+                          6.hSpace,
+                          VocabularyStatusBadge(
+                            status: Get.find<RandomVocabularyController>()
+                                .getStatusForWord(item.de),
+                          ),
+                        ],
+                      ],
                     ),
                     if (item.pronunciationBn?.isNotEmpty == true) ...<Widget>[
                       4.vSpace,

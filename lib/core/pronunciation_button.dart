@@ -77,6 +77,22 @@ class GermanPronunciationPlayer {
       _isBusy = false;
     }
   }
+
+  static Future<void> stop() async {
+    _pendingText = null;
+    if (activeText.value != null) {
+      _ignoreNextCancel = true;
+      activeText.value = null;
+    }
+    if (!_isInitialized) {
+      return;
+    }
+    try {
+      await _speechService.stop();
+    } catch (error, stackTrace) {
+      ApiLogger.logError('Failed stopping German audio', error, stackTrace);
+    }
+  }
 }
 
 class PronunciationIconButton extends StatelessWidget {

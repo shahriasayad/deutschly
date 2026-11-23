@@ -1,11 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:go_router/go_router.dart';
+import 'package:deutschly/core/app_router.dart';
 import 'package:deutschly/core/custom_appbar.dart';
 import 'package:deutschly/core/custom_button.dart';
 import 'package:deutschly/core/empty_state_widget.dart';
 import 'package:deutschly/core/global_text_style.dart';
 import 'package:deutschly/core/pronunciation_button.dart';
 import 'package:deutschly/core/screen_util.dart';
+import 'package:deutschly/features/random_vocabulary/controller/random_vocabulary_controller.dart';
+import 'package:deutschly/features/random_vocabulary/widgets/random_vocabulary_banner_card.dart';
+import 'package:deutschly/features/random_vocabulary/widgets/vocabulary_status_badge.dart';
 import 'package:deutschly/features/vocabulary/controller/vocabulary_controller.dart';
 import 'package:deutschly/features/vocabulary/widgets/hard_vocabulary_toggle_button.dart';
 import 'package:deutschly/features/vocabulary/widgets/vocabulary_filter_bar.dart';
@@ -19,6 +24,9 @@ class VocabularyScreen extends StatelessWidget {
     final controller = Get.isRegistered<VocabularyController>()
         ? Get.find<VocabularyController>()
         : Get.put(VocabularyController());
+    final srsController = Get.isRegistered<RandomVocabularyController>()
+        ? Get.find<RandomVocabularyController>()
+        : Get.put(RandomVocabularyController());
     final theme = Theme.of(context);
     final colorScheme = theme.colorScheme;
 
@@ -44,6 +52,16 @@ class VocabularyScreen extends StatelessWidget {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: <Widget>[
+                  RandomVocabularyBannerCard(
+                    key: const ValueKey<String>('vocab_random_srs_card'),
+                    compact: true,
+                    dueCount: srsController.getDueCount(),
+                    masteredCount: srsController.masteredCount,
+                    strugglingCount: srsController.strugglingCount,
+                    totalWords: srsController.totalUniqueWords,
+                    onTap: () => context.push(AppRoutes.randomVocabulary),
+                  ),
+                  12.vSpace,
                   VocabularyFilterBar(
                     searchController: controller.searchTextController,
                     lessons: controller.lessons,
@@ -177,13 +195,28 @@ class VocabularyScreen extends StatelessWidget {
                                             crossAxisAlignment:
                                                 CrossAxisAlignment.start,
                                             children: <Widget>[
-                                              Text(
-                                                entry.item.de,
-                                                style: getTextStyle(
-                                                  fontSize: 16,
-                                                  fontWeight: FontWeight.w700,
-                                                  color: colorScheme.onSurface,
-                                                ),
+                                              Row(
+                                                children: <Widget>[
+                                                  Expanded(
+                                                    child: Text(
+                                                      entry.item.de,
+                                                      style: getTextStyle(
+                                                        fontSize: 16,
+                                                        fontWeight:
+                                                            FontWeight.w700,
+                                                        color: colorScheme
+                                                            .onSurface,
+                                                      ),
+                                                    ),
+                                                  ),
+                                                  6.hSpace,
+                                                  VocabularyStatusBadge(
+                                                    status: srsController
+                                                        .getStatusForWord(
+                                                          entry.item.de,
+                                                        ),
+                                                  ),
+                                                ],
                                               ),
                                               if (entry
                                                       .item
