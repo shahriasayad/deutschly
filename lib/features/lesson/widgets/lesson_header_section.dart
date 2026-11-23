@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:deutschly/core/app_colors.dart';
 import 'package:deutschly/core/custom_button.dart';
 import 'package:deutschly/core/global_text_style.dart';
 import 'package:deutschly/core/screen_util.dart';
@@ -21,147 +22,78 @@ class LessonHeaderSection extends StatelessWidget {
     final theme = Theme.of(context);
     final colorScheme = theme.colorScheme;
     final totalExercises = lesson.exercises.length;
-    final progress =
-        totalExercises == 0 ? 0.0 : completedExercises / totalExercises;
+    final progress = totalExercises == 0
+        ? 0.0
+        : completedExercises / totalExercises;
+    final isComplete =
+        totalExercises > 0 && completedExercises >= totalExercises;
 
     return Container(
       width: double.infinity,
-      padding: EdgeInsets.all(20.w),
+      padding: EdgeInsets.all(16.w),
       decoration: BoxDecoration(
         color: colorScheme.surface,
-        borderRadius: BorderRadius.circular(20.r),
+        borderRadius: BorderRadius.circular(18.r),
         border: Border.all(color: theme.dividerColor),
       ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
           Row(
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: <Widget>[
-              Container(
-                padding: EdgeInsets.symmetric(
-                  horizontal: 12.w,
-                  vertical: 6.h,
-                ),
-                decoration: BoxDecoration(
-                  color: colorScheme.primaryContainer,
-                  borderRadius: BorderRadius.circular(999.r),
-                ),
-                child: Text(
-                  'Lesson ${lesson.number}',
-                  style: getTextStyle(
-                    fontSize: 12,
-                    fontWeight: FontWeight.w700,
-                    color: colorScheme.onPrimaryContainer,
-                  ),
+              Expanded(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: <Widget>[
+                    Text(
+                      lesson.title,
+                      style: getTextStyle(
+                        fontSize: 18,
+                        fontWeight: FontWeight.w700,
+                        color: colorScheme.onSurface,
+                      ),
+                    ),
+                    4.vSpace,
+                    Text(
+                      '$completedExercises / $totalExercises Completed',
+                      style: getTextStyle(
+                        fontSize: 13,
+                        fontWeight: FontWeight.w600,
+                        color: isComplete
+                            ? AppColors.success
+                            : colorScheme.primary,
+                      ),
+                    ),
+                  ],
                 ),
               ),
-              const Spacer(),
-              Text(
-                '$completedExercises / $totalExercises Completed',
-                style: getTextStyle(
-                  fontSize: 13,
-                  fontWeight: FontWeight.w600,
-                  color: colorScheme.primary,
-                ),
+              12.hSpace,
+              CustomButton(
+                label: isComplete
+                    ? 'Practice'
+                    : completedExercises > 0
+                    ? 'Continue'
+                    : 'Start',
+                icon: Icons.play_arrow_rounded,
+                width: 126.w,
+                height: 40,
+                backgroundColor: colorScheme.primary,
+                textColor: colorScheme.onPrimary,
+                onPressed: onStartExercises,
               ),
             ],
           ),
-          14.vSpace,
-          Text(
-            lesson.title,
-            style: getTextStyle(
-              fontSize: 22,
-              fontWeight: FontWeight.w700,
-              color: colorScheme.onSurface,
-            ),
-          ),
-          4.vSpace,
-          Text(
-            lesson.titleBn,
-            style: getTextStyle(
-              fontSize: 15,
-              color: colorScheme.onSurfaceVariant,
-            ),
-          ),
-          16.vSpace,
-          Wrap(
-            spacing: 8.w,
-            runSpacing: 8.h,
-            children: <Widget>[
-              _StatChip(
-                icon: Icons.flag_outlined,
-                label: '${lesson.objectives.length} Objectives',
-              ),
-              _StatChip(
-                icon: Icons.translate_rounded,
-                label: '${lesson.vocabulary.length} Words',
-              ),
-              _StatChip(
-                icon: Icons.auto_stories_outlined,
-                label: '${lesson.grammar.length} Grammar',
-              ),
-              _StatChip(
-                icon: Icons.forum_outlined,
-                label: '${lesson.dialogues.length} Dialogues',
-              ),
-              _StatChip(
-                icon: Icons.quiz_outlined,
-                label: '${lesson.exercises.length} Exercises',
-              ),
-            ],
-          ),
-          16.vSpace,
+          12.vSpace,
           ClipRRect(
             borderRadius: BorderRadius.circular(999.r),
             child: LinearProgressIndicator(
               value: progress,
               minHeight: 7.h,
               backgroundColor: colorScheme.surfaceContainerHighest,
-              valueColor: AlwaysStoppedAnimation<Color>(colorScheme.primary),
-            ),
-          ),
-          16.vSpace,
-          CustomButton(
-            label: 'Start Exercises',
-            backgroundColor: colorScheme.primary,
-            textColor: colorScheme.onPrimary,
-            onPressed: onStartExercises,
-          ),
-        ],
-      ),
-    );
-  }
-}
-
-class _StatChip extends StatelessWidget {
-  const _StatChip({
-    required this.icon,
-    required this.label,
-  });
-
-  final IconData icon;
-  final String label;
-
-  @override
-  Widget build(BuildContext context) {
-    final colorScheme = Theme.of(context).colorScheme;
-    return Container(
-      padding: EdgeInsets.symmetric(horizontal: 10.w, vertical: 6.h),
-      decoration: BoxDecoration(
-        color: colorScheme.surfaceContainerHighest.withValues(alpha: 0.6),
-        borderRadius: BorderRadius.circular(10.r),
-      ),
-      child: Row(
-        mainAxisSize: MainAxisSize.min,
-        children: <Widget>[
-          Icon(icon, size: 15.r, color: colorScheme.primary),
-          6.hSpace,
-          Text(
-            label,
-            style: getTextStyle(
-              fontSize: 12,
-              fontWeight: FontWeight.w600,
-              color: colorScheme.onSurface,
+              valueColor: AlwaysStoppedAnimation<Color>(
+                isComplete ? AppColors.success : colorScheme.primary,
+              ),
             ),
           ),
         ],

@@ -58,9 +58,9 @@ class AppRouter {
       routes: <RouteBase>[
         GoRoute(
           parentNavigatorKey: rootNavigatorKey,
-          path: AppRoutes.examPractice,
+          path: AppRoutes.about,
           builder: (BuildContext context, GoRouterState state) {
-            return const ExamPracticeScreen();
+            return const AboutScreen();
           },
         ),
         GoRoute(
@@ -94,15 +94,15 @@ class AppRouter {
               },
             ),
             GoRoute(
-              path: AppRoutes.progress,
+              path: AppRoutes.examPractice,
               builder: (BuildContext context, GoRouterState state) {
-                return const ProgressScreen();
+                return const ExamPracticeScreen();
               },
             ),
             GoRoute(
-              path: AppRoutes.about,
+              path: AppRoutes.progress,
               builder: (BuildContext context, GoRouterState state) {
-                return const AboutScreen();
+                return const ProgressScreen();
               },
             ),
           ],

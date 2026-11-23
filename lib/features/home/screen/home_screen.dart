@@ -8,11 +8,10 @@ import 'package:deutschly/core/global_text_style.dart';
 import 'package:deutschly/core/image_path.dart';
 import 'package:deutschly/core/screen_util.dart';
 import 'package:deutschly/features/home/controller/home_controller.dart';
-import 'package:deutschly/features/home/widgets/course_header_card.dart';
 import 'package:deutschly/features/home/widgets/continue_learning_card.dart';
+import 'package:deutschly/features/home/widgets/course_header_card.dart';
 import 'package:deutschly/features/home/widgets/lesson_card.dart';
 import 'package:deutschly/features/progress/widgets/reset_progress_dialog.dart';
-import 'package:deutschly/features/exam/widgets/exam_practice_entry_card.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -28,10 +27,11 @@ class HomeScreen extends StatelessWidget {
     return Scaffold(
       appBar: CustomAppBar(
         title: 'German A1.1',
+        centerTitle: false,
         leading: Padding(
           padding: EdgeInsets.all(10.r),
           child: ClipRRect(
-            borderRadius: BorderRadius.circular(8.r),
+            borderRadius: BorderRadius.circular(10.r),
             child: Image.asset(
               ImagePath.appLogo,
               fit: BoxFit.cover,
@@ -40,6 +40,12 @@ class HomeScreen extends StatelessWidget {
           ),
         ),
         actions: <Widget>[
+          IconButton(
+            key: const ValueKey<String>('home_about_btn'),
+            icon: const Icon(Icons.info_outline_rounded),
+            tooltip: 'About & Info',
+            onPressed: () => context.push(AppRoutes.about),
+          ),
           IconButton(
             key: const ValueKey<String>('home_reset_progress_btn'),
             icon: const Icon(Icons.restart_alt_rounded),
@@ -81,12 +87,16 @@ class HomeScreen extends StatelessWidget {
           );
         }
 
+        final activeLessonIndex = lessons.indexWhere(
+          (lesson) => controller.getLessonProgressPercent(lesson.id) < 100,
+        );
+
         return Align(
           alignment: Alignment.topCenter,
           child: ConstrainedBox(
             constraints: const BoxConstraints(maxWidth: 920),
             child: SingleChildScrollView(
-              padding: EdgeInsets.fromLTRB(16.w, 16.h, 16.w, 24.h),
+              padding: EdgeInsets.fromLTRB(16.w, 16.h, 16.w, 28.h),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: <Widget>[
@@ -95,7 +105,7 @@ class HomeScreen extends StatelessWidget {
                     overallProgress: controller.overallProgress,
                     overallProgressPercent: controller.overallProgressPercent,
                   ),
-                  16.vSpace,
+                  14.vSpace,
                   ContinueLearningCard(
                     exerciseCount: sessionExerciseCount,
                     reviewCount: nextSession?.reviewCount ?? 0,
@@ -110,20 +120,24 @@ class HomeScreen extends StatelessWidget {
                             extra: nextSession.items,
                           ),
                   ),
-                  10.vSpace,
-                  ExamPracticeEntryCard(
-                    onTap: () => context.push(AppRoutes.examPractice),
-                  ),
                   24.vSpace,
                   Text(
-                    'Course Lessons',
+                    'Learning Path',
                     style: getTextStyle(
-                      fontSize: 18,
+                      fontSize: 19,
                       fontWeight: FontWeight.w700,
                       color: colorScheme.onSurface,
                     ),
                   ),
-                  12.vSpace,
+                  2.vSpace,
+                  Text(
+                    '${lessons.length} progressive modules · Study & practice step by step',
+                    style: getTextStyle(
+                      fontSize: 13,
+                      color: colorScheme.onSurfaceVariant,
+                    ),
+                  ),
+                  14.vSpace,
                   for (
                     int index = 0;
                     index < lessons.length;
@@ -136,11 +150,13 @@ class HomeScreen extends StatelessWidget {
                       progressPercent: controller.getLessonProgressPercent(
                         lessons[index].id,
                       ),
+                      isCurrentFocus: index == activeLessonIndex,
+                      isFirst: index == 0,
+                      isLast: index == lessons.length - 1,
                       onTap: () {
                         context.push(AppRoutes.lessonDetail(lessons[index].id));
                       },
                     ),
-                    if (index < lessons.length - 1) 12.vSpace,
                   ],
                 ],
               ),

@@ -158,19 +158,26 @@ class _MatchingTile extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final badgeNumber = this.badgeNumber;
     Color borderColor = dividerColor;
     Color bgColor = colorScheme.surface;
+    Color badgeColor = colorScheme.primary;
+
+    if (badgeNumber != null) {
+      badgeColor = _pairColor(badgeNumber - 1, colorScheme);
+    }
 
     if (isCorrectMatch != null) {
       borderColor = isCorrectMatch! ? AppColors.success : AppColors.error;
       bgColor = (isCorrectMatch! ? AppColors.success : AppColors.error)
           .withValues(alpha: 0.12);
+      badgeColor = borderColor;
     } else if (isSelected) {
       borderColor = colorScheme.primary;
       bgColor = colorScheme.primaryContainer.withValues(alpha: 0.5);
     } else if (isMatched) {
-      borderColor = colorScheme.primary.withValues(alpha: 0.7);
-      bgColor = colorScheme.primaryContainer.withValues(alpha: 0.25);
+      borderColor = badgeColor.withValues(alpha: 0.75);
+      bgColor = badgeColor.withValues(alpha: 0.1);
     }
 
     return InkWell(
@@ -196,7 +203,7 @@ class _MatchingTile extends StatelessWidget {
                 height: 22.r,
                 alignment: Alignment.center,
                 decoration: BoxDecoration(
-                  color: colorScheme.primary,
+                  color: badgeColor,
                   shape: BoxShape.circle,
                 ),
                 child: Text(
@@ -226,5 +233,16 @@ class _MatchingTile extends StatelessWidget {
         ),
       ),
     );
+  }
+
+  static Color _pairColor(int index, ColorScheme colorScheme) {
+    final palette = <Color>[
+      colorScheme.primary,
+      AppColors.secondary,
+      AppColors.accent,
+      const Color(0xFF7C3AED),
+      const Color(0xFF0284C7),
+    ];
+    return palette[index % palette.length];
   }
 }

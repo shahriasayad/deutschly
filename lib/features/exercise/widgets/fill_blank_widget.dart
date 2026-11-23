@@ -64,8 +64,15 @@ class FillBlankWidget extends StatelessWidget {
                     ),
                     decoration: BoxDecoration(
                       color: colorScheme.surface,
-                      borderRadius: BorderRadius.circular(8.r),
+                      borderRadius: BorderRadius.circular(10.r),
                       border: Border.all(color: theme.dividerColor),
+                      boxShadow: <BoxShadow>[
+                        BoxShadow(
+                          color: theme.dividerColor.withValues(alpha: 0.7),
+                          offset: Offset(0, 2.h),
+                          blurRadius: 0,
+                        ),
+                      ],
                     ),
                     child: Text(
                       char,

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:deutschly/core/app_colors.dart';
 import 'package:deutschly/core/global_text_style.dart';
+import 'package:deutschly/core/pronunciation_button.dart';
 import 'package:deutschly/core/screen_util.dart';
 import 'package:deutschly/data/models/exercise.dart';
 
@@ -108,14 +109,26 @@ class SpeakingPromptWidget extends StatelessWidget {
                 ),
                 if (showExample) ...<Widget>[
                   10.vSpace,
-                  Text(
-                    exercise.exampleAnswer,
-                    style: getTextStyle(
-                      fontSize: 15,
-                      fontWeight: FontWeight.w500,
-                      color: colorScheme.onSurface,
-                      height: 1.45,
-                    ),
+                  Row(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: <Widget>[
+                      Expanded(
+                        child: Text(
+                          exercise.exampleAnswer,
+                          style: getTextStyle(
+                            fontSize: 15,
+                            fontWeight: FontWeight.w500,
+                            color: colorScheme.onSurface,
+                            height: 1.45,
+                          ),
+                        ),
+                      ),
+                      8.hSpace,
+                      PronunciationIconButton(
+                        text: exercise.exampleAnswer,
+                        size: 32,
+                      ),
+                    ],
                   ),
                 ],
               ],

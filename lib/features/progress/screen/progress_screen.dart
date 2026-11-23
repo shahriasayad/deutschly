@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:go_router/go_router.dart';
 import 'package:deutschly/core/app_colors.dart';
+import 'package:deutschly/core/app_router.dart';
 import 'package:deutschly/core/custom_appbar.dart';
 import 'package:deutschly/core/custom_button.dart';
 import 'package:deutschly/core/global_text_style.dart';
@@ -26,7 +28,14 @@ class ProgressScreen extends StatelessWidget {
     return Scaffold(
       appBar: CustomAppBar(
         title: 'Your Progress',
+        centerTitle: false,
         actions: <Widget>[
+          IconButton(
+            key: const ValueKey<String>('progress_about_icon_btn'),
+            icon: const Icon(Icons.info_outline_rounded),
+            tooltip: 'About & Info',
+            onPressed: () => context.push(AppRoutes.about),
+          ),
           IconButton(
             key: const ValueKey<String>('progress_reset_icon_btn'),
             icon: const Icon(Icons.restart_alt_rounded),
@@ -47,6 +56,16 @@ class ProgressScreen extends StatelessWidget {
         final overallPercent = progressController.overallCourseProgressPercent;
         final completedTotal = progressController.totalCompletedExercises;
         final courseTotal = progressController.totalCourseExercises;
+        final masteredLessons = lessons
+            .where(
+              (Lesson lesson) =>
+                  progressController.getLessonProgressPercent(
+                    lesson.id,
+                    totalExercises: lesson.exercises.length,
+                  ) ==
+                  100,
+            )
+            .length;
 
         return Align(
           alignment: Alignment.topCenter,
@@ -71,25 +90,27 @@ class ProgressScreen extends StatelessWidget {
                         Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: <Widget>[
-                            Text(
-                              'Overall Course Progress',
-                              style: getTextStyle(
-                                fontSize: 17,
-                                fontWeight: FontWeight.w700,
-                                color: colorScheme.onSurface,
+                            Expanded(
+                              child: Text(
+                                'Overall Course Progress',
+                                style: getTextStyle(
+                                  fontSize: 17,
+                                  fontWeight: FontWeight.w700,
+                                  color: colorScheme.onSurface,
+                                ),
                               ),
                             ),
                             Text(
                               '$overallPercent%',
                               style: getTextStyle(
-                                fontSize: 20,
+                                fontSize: 22,
                                 fontWeight: FontWeight.w700,
                                 color: colorScheme.primary,
                               ),
                             ),
                           ],
                         ),
-                        8.vSpace,
+                        6.vSpace,
                         Text(
                           '$completedTotal of $courseTotal exercises completed',
                           style: getTextStyle(
@@ -110,6 +131,25 @@ class ProgressScreen extends StatelessWidget {
                             ),
                           ),
                         ),
+                        16.vSpace,
+                        Row(
+                          children: <Widget>[
+                            Expanded(
+                              child: _ProgressStatPill(
+                                label: 'Lessons Mastered',
+                                value: '$masteredLessons / ${lessons.length}',
+                              ),
+                            ),
+                            10.hSpace,
+                            Expanded(
+                              child: _ProgressStatPill(
+                                label: 'Abilities Checked',
+                                value:
+                                    '${progressController.completedCanDoObjectives} / ${progressController.totalCanDoObjectives}',
+                              ),
+                            ),
+                          ],
+                        ),
                       ],
                     ),
                   ),
@@ -125,6 +165,14 @@ class ProgressScreen extends StatelessWidget {
                       fontSize: 18,
                       fontWeight: FontWeight.w700,
                       color: colorScheme.onSurface,
+                    ),
+                  ),
+                  4.vSpace,
+                  Text(
+                    'Tap any lesson to continue studying or practicing.',
+                    style: getTextStyle(
+                      fontSize: 13,
+                      color: colorScheme.onSurfaceVariant,
                     ),
                   ),
                   12.vSpace,
@@ -146,57 +194,65 @@ class ProgressScreen extends StatelessWidget {
                               totalExercises: total,
                             );
 
-                        return Container(
-                          padding: EdgeInsets.all(16.w),
-                          decoration: BoxDecoration(
-                            color: colorScheme.surface,
+                        return Material(
+                          color: colorScheme.surface,
+                          borderRadius: BorderRadius.circular(16.r),
+                          child: InkWell(
+                            onTap: () =>
+                                context.push(AppRoutes.lessonDetail(lesson.id)),
                             borderRadius: BorderRadius.circular(16.r),
-                            border: Border.all(color: theme.dividerColor),
-                          ),
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: <Widget>[
-                              Row(
+                            child: Container(
+                              padding: EdgeInsets.all(16.w),
+                              decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(16.r),
+                                border: Border.all(color: theme.dividerColor),
+                              ),
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
                                 children: <Widget>[
-                                  Expanded(
-                                    child: Text(
-                                      'Lesson ${lesson.number}: ${lesson.title}',
-                                      style: getTextStyle(
-                                        fontSize: 15,
-                                        fontWeight: FontWeight.w700,
-                                        color: colorScheme.onSurface,
+                                  Row(
+                                    children: <Widget>[
+                                      Expanded(
+                                        child: Text(
+                                          'Lesson ${lesson.number}: ${lesson.title}',
+                                          style: getTextStyle(
+                                            fontSize: 15,
+                                            fontWeight: FontWeight.w700,
+                                            color: colorScheme.onSurface,
+                                          ),
+                                        ),
                                       ),
-                                    ),
+                                      8.hSpace,
+                                      Text(
+                                        '$completed / $total ($percent%)',
+                                        style: getTextStyle(
+                                          fontSize: 13,
+                                          fontWeight: FontWeight.w700,
+                                          color: percent == 100
+                                              ? AppColors.success
+                                              : colorScheme.primary,
+                                        ),
+                                      ),
+                                    ],
                                   ),
-                                  8.hSpace,
-                                  Text(
-                                    '$completed / $total ($percent%)',
-                                    style: getTextStyle(
-                                      fontSize: 13,
-                                      fontWeight: FontWeight.w700,
-                                      color: percent == 100
-                                          ? AppColors.success
-                                          : colorScheme.primary,
+                                  10.vSpace,
+                                  ClipRRect(
+                                    borderRadius: BorderRadius.circular(999.r),
+                                    child: LinearProgressIndicator(
+                                      value: ratio,
+                                      minHeight: 6.h,
+                                      backgroundColor:
+                                          colorScheme.surfaceContainerHighest,
+                                      valueColor: AlwaysStoppedAnimation<Color>(
+                                        percent == 100
+                                            ? AppColors.success
+                                            : colorScheme.primary,
+                                      ),
                                     ),
                                   ),
                                 ],
                               ),
-                              10.vSpace,
-                              ClipRRect(
-                                borderRadius: BorderRadius.circular(999.r),
-                                child: LinearProgressIndicator(
-                                  value: ratio,
-                                  minHeight: 6.h,
-                                  backgroundColor:
-                                      colorScheme.surfaceContainerHighest,
-                                  valueColor: AlwaysStoppedAnimation<Color>(
-                                    percent == 100
-                                        ? AppColors.success
-                                        : colorScheme.primary,
-                                  ),
-                                ),
-                              ),
-                            ],
+                            ),
                           ),
                         );
                       },
@@ -207,6 +263,7 @@ class ProgressScreen extends StatelessWidget {
                   CustomButton(
                     key: const ValueKey<String>('reset_progress_full_btn'),
                     label: 'Reset Progress',
+                    icon: Icons.restart_alt_rounded,
                     backgroundColor: AppColors.error,
                     textColor: Colors.white,
                     onPressed: () async {
@@ -222,6 +279,46 @@ class ProgressScreen extends StatelessWidget {
           ),
         );
       }),
+    );
+  }
+}
+
+class _ProgressStatPill extends StatelessWidget {
+  const _ProgressStatPill({required this.label, required this.value});
+
+  final String label;
+  final String value;
+
+  @override
+  Widget build(BuildContext context) {
+    final colorScheme = Theme.of(context).colorScheme;
+    return Container(
+      padding: EdgeInsets.symmetric(horizontal: 12.w, vertical: 10.h),
+      decoration: BoxDecoration(
+        color: colorScheme.surfaceContainerHighest.withValues(alpha: 0.55),
+        borderRadius: BorderRadius.circular(12.r),
+      ),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: <Widget>[
+          Text(
+            value,
+            style: getTextStyle(
+              fontSize: 15,
+              fontWeight: FontWeight.w700,
+              color: colorScheme.onSurface,
+            ),
+          ),
+          2.vSpace,
+          Text(
+            label,
+            style: getTextStyle(
+              fontSize: 11,
+              color: colorScheme.onSurfaceVariant,
+            ),
+          ),
+        ],
+      ),
     );
   }
 }
@@ -255,7 +352,7 @@ class _CanDoProgressSection extends StatelessWidget {
         ),
         6.vSpace,
         Text(
-          'Check an ability when you can do it without help. Your self-checks are saved on this device.',
+          'Check an ability when you can do it without help. Synced with each lesson overview.',
           style: getTextStyle(
             fontSize: 13,
             color: colorScheme.onSurfaceVariant,
@@ -310,12 +407,13 @@ class _CanDoProgressSection extends StatelessWidget {
         ),
         12.vSpace,
         for (final lesson in lessons) ...<Widget>[
-          Container(
-            decoration: BoxDecoration(
-              color: colorScheme.surface,
+          Material(
+            color: colorScheme.surface,
+            shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(16.r),
-              border: Border.all(color: theme.dividerColor),
+              side: BorderSide(color: theme.dividerColor),
             ),
+            clipBehavior: Clip.antiAlias,
             child: ExpansionTile(
               tilePadding: EdgeInsets.symmetric(horizontal: 16.w),
               childrenPadding: EdgeInsets.fromLTRB(8.w, 0, 8.w, 8.h),

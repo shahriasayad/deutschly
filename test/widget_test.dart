@@ -222,13 +222,19 @@ void main() {
 
       expect(find.text('1%'), findsOneWidget);
 
-      // Open Lesson 1 and verify completed status
+      // Open Lesson 1 and verify tabbed study sections + completed status
       final lessonCard = find.byKey(const ValueKey<String>('lesson_01'));
       await tester.ensureVisible(lessonCard);
       await tester.tap(lessonCard);
       await tester.pumpAndSettle();
 
       expect(find.text('2 / 39 Completed'), findsOneWidget);
+      final exercisesTab = find.byKey(
+        const ValueKey<String>('lesson_tab_exercises'),
+      );
+      await tester.ensureVisible(exercisesTab);
+      await tester.tap(exercisesTab);
+      await tester.pumpAndSettle();
       expect(find.text('Completed'), findsNWidgets(2));
       expect(find.text('Not started'), findsNWidgets(37));
 
@@ -236,20 +242,38 @@ void main() {
       await tester.tap(find.byTooltip('Back'));
       await tester.pumpAndSettle();
 
-      // Navigate to Vocabulary tab
+      // Navigate to Vocabulary tab and verify deck mode toggle
       await tester.tap(find.text('Vocabulary'));
       await tester.pumpAndSettle();
       expect(find.text('Vocabulary Review'), findsOneWidget);
       expect(find.text('Guten Morgen'), findsOneWidget);
+      await tester.tap(
+        find.byKey(const ValueKey<String>('vocab_deck_mode_toggle')),
+      );
+      await tester.pumpAndSettle();
+      expect(find.byKey(const ValueKey<String>('vocab_deck_card')), findsOneWidget);
 
-      // Navigate to About tab
-      await tester.tap(find.text('About'));
+      // Navigate to Exam Prep tab
+      await tester.tap(find.text('Exam Prep'));
+      await tester.pumpAndSettle();
+      expect(find.text('A1 Exam Practice'), findsOneWidget);
+      expect(find.text('Listening'), findsOneWidget);
+
+      // Navigate to Progress tab and open About & Info
+      await tester.tap(find.text('Progress'));
+      await tester.pumpAndSettle();
+      expect(find.text('Your Progress'), findsOneWidget);
+
+      await tester.tap(find.text('Home'));
+      await tester.pumpAndSettle();
+
+      await tester.tap(find.byKey(const ValueKey<String>('home_about_btn')));
       await tester.pumpAndSettle();
       expect(find.text('About & Info'), findsOneWidget);
       expect(find.text('100% Offline-First'), findsOneWidget);
 
       // Navigate back to Home and test Reset Progress dialog
-      await tester.tap(find.text('Home'));
+      await tester.tap(find.byTooltip('Back'));
       await tester.pumpAndSettle();
 
       await tester.tap(

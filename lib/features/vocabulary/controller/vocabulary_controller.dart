@@ -20,7 +20,7 @@ class LessonVocabularyEntry {
 
 class VocabularyController extends GetxController {
   VocabularyController({CourseController? courseController})
-      : _courseController = courseController ?? Get.find<CourseController>();
+    : _courseController = courseController ?? Get.find<CourseController>();
 
   final CourseController _courseController;
 
@@ -29,6 +29,9 @@ class VocabularyController extends GetxController {
   final RxnString selectedLessonId = RxnString();
   final RxBool hideTranslations = false.obs;
   final RxSet<String> revealedWordKeys = <String>{}.obs;
+  final RxBool isDeckMode = false.obs;
+  final RxInt deckIndex = 0.obs;
+  final RxBool isDeckCardFlipped = false.obs;
 
   List<Lesson> get lessons =>
       _courseController.course.value?.lessons ?? const <Lesson>[];
@@ -67,23 +70,62 @@ class VocabularyController extends GetxController {
     }).toList();
   }
 
+  void _resetDeckPosition() {
+    deckIndex.value = 0;
+    isDeckCardFlipped.value = false;
+  }
+
   void selectLessonFilter(String? lessonId) {
     selectedLessonId.value = lessonId;
+    _resetDeckPosition();
   }
 
   void updateSearchQuery(String value) {
     searchQuery.value = value;
+    _resetDeckPosition();
+  }
+
+  void clearSearch() {
+    searchTextController.clear();
+    searchQuery.value = '';
+    _resetDeckPosition();
   }
 
   void clearFilters() {
     selectedLessonId.value = null;
     searchTextController.clear();
     searchQuery.value = '';
+    _resetDeckPosition();
   }
 
   void toggleHideTranslations() {
     hideTranslations.value = !hideTranslations.value;
     revealedWordKeys.clear();
+  }
+
+  void setDeckMode(bool enabled) {
+    isDeckMode.value = enabled;
+    _resetDeckPosition();
+  }
+
+  void flipDeckCard() {
+    isDeckCardFlipped.value = !isDeckCardFlipped.value;
+  }
+
+  void nextDeckCard(int totalCount) {
+    if (totalCount <= 0) {
+      return;
+    }
+    deckIndex.value = (deckIndex.value + 1) % totalCount;
+    isDeckCardFlipped.value = false;
+  }
+
+  void previousDeckCard(int totalCount) {
+    if (totalCount <= 0) {
+      return;
+    }
+    deckIndex.value = (deckIndex.value - 1 + totalCount) % totalCount;
+    isDeckCardFlipped.value = false;
   }
 
   void toggleWordReveal(String wordKey) {
